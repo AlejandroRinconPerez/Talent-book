@@ -5,6 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Relative base so the same bundle works at the domain root and under a
+    // sub-path such as GitHub Pages (/Talent-book/). Routing is hash-based.
+    base: './',
     plugins: [react(), tailwindcss()],
     build: {
       rolldownOptions: {

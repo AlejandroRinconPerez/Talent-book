@@ -251,7 +251,12 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
 
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[17rem_1fr]">
         {/* Filters */}
-        <aside aria-labelledby="filters-heading" className="panel lg:sticky lg:top-20" data-tour="filters">
+        {/* Sticky, but never taller than the viewport: the filter body scrolls on its own */}
+        <aside
+          aria-labelledby="filters-heading"
+          className="panel lg:sticky lg:top-20 lg:flex lg:max-h-[calc(100dvh-6rem)] lg:flex-col"
+          data-tour="filters"
+        >
           <div className="panel-head">
             <h2 id="filters-heading" className="text-base font-semibold">
               Filters
@@ -264,7 +269,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             )}
           </div>
 
-          <div className="panel-body space-y-5">
+          <div className="panel-body space-y-5 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:overscroll-contain">
             <fieldset className="space-y-3">
               <legend className="mb-3 text-[13px] font-semibold text-ink-3">Book profile</legend>
               <Field id="f-family" label="Job family">

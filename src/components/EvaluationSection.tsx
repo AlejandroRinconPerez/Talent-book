@@ -106,7 +106,7 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
 
       <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-12">
         {/* Vacancy */}
-        <section aria-labelledby="vacancy-heading" className="panel lg:col-span-5 lg:sticky lg:top-20">
+        <section aria-labelledby="vacancy-heading" className="panel lg:col-span-5 lg:sticky lg:top-20 lg:flex lg:max-h-[calc(100dvh-6rem)] lg:flex-col">
           <div className="panel-head">
             <h2 id="vacancy-heading" className="text-base font-semibold">
               Vacancy
@@ -123,7 +123,7 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
             </button>
           </div>
 
-          <div className="panel-body space-y-5">
+          <div className="panel-body space-y-5 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:overscroll-contain">
             <div>
               <p className="mb-1.5 text-[13px] text-ink-3">Load a sample vacancy</p>
               <div className="flex flex-wrap gap-1.5">
