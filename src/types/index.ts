@@ -49,6 +49,8 @@ export interface Candidato {
   certificaciones: string[];
   disponibilidad: string;
   rangoSalarialInterno?: string; // Internal commercial range
+  fuente?: string; // Where the profile came from (Internal database, LinkedIn, Referral, Job board)
+  ultimaActualizacion?: string; // Last profile update, YYYY-MM-DD
 }
 
 export interface VacancyRequisitos {
@@ -98,6 +100,9 @@ export interface Usuario {
 
 export type EstadoCargaCeipal = 'no_cargado' | 'cargado' | 'error';
 
+/** Where a linked candidate stands in the client's process. */
+export type EtapaCandidato = 'shortlist' | 'presentado' | 'entrevista' | 'oferta' | 'descartado';
+
 export interface CandidatoVinculadoBusqueda {
   candidatoId: string;
   fechaVinculacion: string; // e.g. "2026-10-06"
@@ -105,6 +110,25 @@ export interface CandidatoVinculadoBusqueda {
   serviceOrderId?: string;
   fechaCargaCeipal?: string;
   errorCeipal?: string;
+  etapa?: EtapaCandidato; // defaults to 'shortlist'
+}
+
+export type EstadoBusqueda = 'abierta' | 'en_proceso' | 'cerrada';
+
+export type TipoActividad =
+  | 'creada'
+  | 'candidatos_vinculados'
+  | 'candidato_retirado'
+  | 'criterios_actualizados'
+  | 'exportado_ceipal'
+  | 'presentada'
+  | 'etapa_cambiada'
+  | 'estado_cambiado';
+
+export interface ActividadBusqueda {
+  fecha: string; // ISO date-time
+  tipo: TipoActividad;
+  detalle: string;
 }
 
 export interface BusquedaComercial {
@@ -116,8 +140,11 @@ export interface BusquedaComercial {
   perfilBookId?: string;
   perfilNombre?: string;
   fechaCreacion: string;
+  estado: EstadoBusqueda;
+  actualizadoEn: string; // ISO date-time of the last change
   requisitos: VacancyRequisitos;
   candidatosVinculados: CandidatoVinculadoBusqueda[];
+  actividad: ActividadBusqueda[]; // newest first
 }
 
 export interface ServiceOrderSimulada {

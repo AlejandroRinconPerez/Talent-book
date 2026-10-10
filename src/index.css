@@ -1,24 +1,238 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                        */
+/* One type family (Bricolage Grotesque, optical sizes do the work),    */
+/* brand teal as the only primary, orange reserved for actions that     */
+/* leave the system (export to CEIPAL, present to client).              */
+/* ------------------------------------------------------------------ */
 @theme {
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
 
-  /* Brand Palette: subtle corporate integration */
-  --color-brand-orange: #EE7825;
-  --color-brand-teal: #007685;
-  --color-brand-teal-dark: #005d69;
-  --color-brand-teal-light: #e6f4f6;
-  --color-brand-cyan: #20BFD0;
-  --color-brand-amber: #F9A831;
-  --color-brand-bg: #F5F5F6;
-}
+  /* Neutrals */
+  --color-paper: #F5F5F6;
+  --color-surface: #FFFFFF;
+  --color-well: #EEF0F1;
+  --color-rule: #DEE2E5;
+  --color-rule-strong: #C3C9CE;
+  --color-ink: #1A2329;
+  --color-ink-2: #4A5660;
+  --color-ink-3: #6B7680;
 
-@layer base {
-  body {
-    background-color: var(--color-brand-bg);
-    color: #0f172a;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  /* Brand */
+  --color-brand: #007685;
+  --color-brand-deep: #005D69;
+  --color-brand-ink: #003F48;
+  --color-brand-wash: #E6F4F6;
+  --color-brand-wash-2: #CDE9ED;
+
+  /* Commercial accent: only for actions that leave the system */
+  --color-accent: #B9500A;
+  --color-accent-deep: #9C4408;
+  --color-accent-wash: #FDEEE3;
+  --color-accent-bright: #EE7825;
+
+  /* Marks (decorative only, never for text) */
+  --color-mark-cyan: #20BFD0;
+  --color-mark-amber: #F9A831;
+
+  /* Semantic */
+  --color-ok: #1E7F4F;
+  --color-ok-wash: #E6F4EC;
+  --color-warn: #A35A00;
+  --color-warn-wash: #FFF4E0;
+  --color-danger: #B42318;
+  --color-danger-wash: #FCEBEA;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+
+  --shadow-pop: 0 16px 48px -16px rgb(26 35 41 / 0.28), 0 2px 8px -2px rgb(26 35 41 / 0.12);
+  --shadow-bar: 0 -8px 32px -12px rgb(26 35 41 / 0.35);
+
+  --animate-pop: pop 180ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-fade: fade 150ms ease-out both;
+  --animate-rise: rise 180ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(8px) scale(0.985); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Base                                                                  */
+/* ------------------------------------------------------------------ */
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+  }
+
+  @media (pointer: fine) {
+    html { overscroll-behavior: none; }
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased text-sm leading-normal;
+    font-optical-sizing: auto;
+    min-height: 100dvh;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+    letter-spacing: -0.012em;
+  }
+
+  p { text-wrap: pretty; }
+
+  h1[id], h2[id], h3[id] { scroll-margin-top: 4.5rem; }
+
+  button, [role="button"], a, input, select, textarea, label, summary {
+    touch-action: manipulation;
+  }
+
+  button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+
+  select {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    accent-color: var(--color-brand);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  @media print {
+    html, body { background: #fff; }
+    @page { margin: 16mm; }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Components                                                            */
+/* ------------------------------------------------------------------ */
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 h-9 rounded-md border border-transparent px-3.5 text-sm font-medium whitespace-nowrap select-none;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: 150ms;
+  }
+  .btn:disabled { @apply opacity-50 pointer-events-none; }
+  .btn-sm { @apply h-8 px-3 text-[13px]; }
+  .btn-primary { @apply bg-brand text-white hover:bg-brand-deep active:bg-brand-ink; }
+  .btn-secondary { @apply bg-surface text-ink border-rule-strong hover:bg-well hover:border-ink-3 active:bg-rule; }
+  .btn-ghost { @apply text-ink-2 hover:bg-well hover:text-ink active:bg-rule; }
+  .btn-subtle { @apply bg-brand-wash text-brand-ink hover:bg-brand-wash-2; }
+  .btn-commercial { @apply bg-accent text-white hover:bg-accent-deep; }
+  .btn-danger-ghost { @apply text-ink-2 hover:bg-danger-wash hover:text-danger; }
+  .btn-icon { @apply h-8 w-8 px-0 text-ink-3 hover:bg-well hover:text-ink active:bg-rule; }
+  .btn-on-dark { @apply bg-white/12 text-white border-white/20 hover:bg-white/20; }
+
+  .spinner {
+    @apply inline-block size-3.5 shrink-0 rounded-full border-2 border-current/30 border-t-current animate-spin;
+  }
+
+  /* Form controls */
+  .input {
+    @apply block w-full h-9 rounded-md border border-rule-strong bg-surface px-3 text-sm text-ink placeholder:text-ink-3;
+    transition-property: border-color, box-shadow, background-color;
+    transition-duration: 150ms;
+  }
+  .input:hover { @apply border-ink-3; }
+  .input:focus-visible { @apply outline-none border-brand ring-2 ring-brand/25; }
+  .input:disabled { @apply bg-well text-ink-3 border-rule; }
+  .input[aria-invalid="true"] { @apply border-danger ring-2 ring-danger/15; }
+  .textarea { @apply h-auto py-2 leading-normal resize-y; }
+  .select {
+    @apply pr-9 appearance-none bg-no-repeat;
+    background-position: right 0.65rem center;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234A5660' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  }
+  .input-with-icon { @apply pl-9; }
+  .input-icon { @apply pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 size-4 text-ink-3; }
+
+  .label { @apply block text-sm font-medium text-ink mb-1.5; }
+  .hint { @apply mt-1.5 text-[13px] text-ink-3; }
+  .error-text { @apply mt-1.5 text-[13px] text-danger; }
+
+  /* Filter pills (toggle buttons; aria-pressed drives the look) */
+  .pill {
+    @apply inline-flex items-center gap-1.5 h-8 rounded-full border border-rule-strong bg-surface px-3 text-[13px] font-medium text-ink-2 whitespace-nowrap;
+    transition-property: background-color, border-color, color;
+    transition-duration: 150ms;
+  }
+  .pill:hover { @apply border-ink-3 text-ink; }
+  .pill[aria-pressed="true"] { @apply bg-brand border-brand text-white; }
+  .pill-count { @apply text-xs tabular-nums opacity-70; }
+
+  /* Small status chips */
+  .chip { @apply inline-flex items-center gap-1 rounded-sm border px-1.5 py-px text-xs font-medium leading-5 whitespace-nowrap; }
+  .chip-neutral { @apply bg-well border-rule text-ink-2; }
+  .chip-brand { @apply bg-brand-wash border-brand-wash-2 text-brand-ink; }
+  .chip-ok { @apply bg-ok-wash border-ok/25 text-ok; }
+  .chip-warn { @apply bg-warn-wash border-warn/25 text-warn; }
+  .chip-danger { @apply bg-danger-wash border-danger/25 text-danger; }
+  .chip-accent { @apply bg-accent-wash border-accent/25 text-accent; }
+  .code { @apply tabular-nums tracking-tight; }
+
+  /* Surfaces */
+  .panel { @apply bg-surface border border-rule rounded-lg; }
+  .panel-head { @apply flex flex-wrap items-center justify-between gap-3 px-5 py-3.5 border-b border-rule; }
+  .panel-body { @apply p-5; }
+
+  /* Page header: typographic, no card */
+  .page-header { @apply flex flex-col gap-4 md:flex-row md:items-end md:justify-between pb-5 border-b border-rule; }
+  .page-title { @apply text-3xl font-semibold leading-tight text-ink; }
+  .page-lede { @apply mt-1.5 max-w-[64ch] text-[15px] leading-relaxed text-ink-2; }
+
+  /* Selectable card: the label stretches over the card so one click selects,
+     while nested buttons stay clickable above it. */
+  .select-card { @apply relative bg-surface border border-rule rounded-lg p-4 transition-[border-color,background-color] duration-150; }
+  .select-card:hover { @apply border-rule-strong; }
+  .select-card:has(input:checked) { @apply border-brand bg-brand-wash/40; }
+  .select-card:has(input:focus-visible) { @apply ring-2 ring-brand/30; }
+  .select-card:has(input:disabled) { @apply bg-well/60; }
+  .stretch::after { content: ""; position: absolute; inset: 0; }
+  .above { @apply relative z-10; }
+
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    @apply sr-only;
+  }
+
+  /* Definition facts (label above value), used for requirement summaries */
+  .facts { @apply flex flex-wrap gap-x-7 gap-y-3; }
+  .facts dt { @apply text-[13px] text-ink-3; }
+  .facts dd { @apply text-sm font-medium text-ink; }
+
+  .scrollbar-thin { scrollbar-width: thin; }
+}

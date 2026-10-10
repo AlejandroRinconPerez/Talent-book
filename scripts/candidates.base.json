@@ -1,0 +1,853 @@
+[
+  {
+    "id": "CAN-8821",
+    "nombre": "Sofia Ramirez",
+    "perfilesAsociados": [
+      "perfil-tec-fe01"
+    ],
+    "experienciaAnos": 5,
+    "experienciaTexto": "5 years",
+    "nivelIngles": "C1",
+    "pais": "Colombia",
+    "ciudad": "Bogotá",
+    "modalidad": "Remote",
+    "habilidades": [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Next.js",
+      "State Management",
+      "Git"
+    ],
+    "resumenProfesional": "Software engineer specialized in frontend development with 5 years of track record building reactive, scalable web architectures for fintech and marketplace products.",
+    "trayectoria": [
+      {
+        "cargo": "Senior Frontend Engineer",
+        "sectorEmpresa": "Multinational Fintech (Payment Gateway)",
+        "duracion": "2023 - Present",
+        "logros": [
+          "Led migration to Next.js 14 and TypeScript, reducing initial load times by 42%.",
+          "Implemented modular design system adopted by 4 cross-functional product squads."
+        ]
+      },
+      {
+        "cargo": "Frontend Developer",
+        "sectorEmpresa": "B2B Software Agency",
+        "duracion": "2021 - 2023",
+        "logros": [
+          "Developed real-time analytical dashboards using React and WebSockets for US clients."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Frontend Architecture",
+      "Web Performance",
+      "Fluent Bilingual Communication",
+      "Agile Execution"
+    ],
+    "educacion": "B.S. in Computer Systems Engineering",
+    "certificaciones": [
+      "Meta Frontend Developer Professional Certificate"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 2,800 - 3,400 / month"
+  },
+  {
+    "id": "CAN-4432",
+    "nombre": "Carlos Mendoza",
+    "perfilesAsociados": [
+      "perfil-tec-fe01",
+      "perfil-tec-be02"
+    ],
+    "experienciaAnos": 4,
+    "experienciaTexto": "4 years",
+    "nivelIngles": "B2",
+    "pais": "Mexico",
+    "ciudad": "Mexico City",
+    "modalidad": "Remote",
+    "habilidades": [
+      "React.js",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker",
+      "RESTful APIs"
+    ],
+    "resumenProfesional": "Fullstack developer with strong focus on JavaScript/TypeScript ecosystem, robust endpoint design, and interactive UI components backed by automated testing.",
+    "trayectoria": [
+      {
+        "cargo": "Fullstack Developer",
+        "sectorEmpresa": "Logistics SaaS Platform",
+        "duracion": "2022 - Present",
+        "logros": [
+          "Built Express/Node.js microservices integrated with React frontend for shipment tracking.",
+          "Optimized PostgreSQL queries reducing latency from 450ms to under 75ms."
+        ]
+      },
+      {
+        "cargo": "Junior Web Developer",
+        "sectorEmpresa": "Digital Solutions Provider",
+        "duracion": "2020 - 2022",
+        "logros": [
+          "Maintained relational databases and built responsive user interfaces using React."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "API Architecture",
+      "Complex Problem Solving",
+      "Relational Data Modeling"
+    ],
+    "educacion": "B.S. in Computer Science",
+    "certificaciones": [
+      "Node.js Certified Application Developer (LF)",
+      "AWS Certified Cloud Practitioner"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 2,500 - 3,000 / month"
+  },
+  {
+    "id": "CAN-2041",
+    "nombre": "Valeria Gómez",
+    "perfilesAsociados": [
+      "perfil-6198c2745b44",
+      "perfil-6bd3e7ebb76c"
+    ],
+    "experienciaAnos": 6,
+    "experienciaTexto": "6 years",
+    "nivelIngles": "C2",
+    "pais": "Colombia",
+    "ciudad": "Bogotá",
+    "modalidad": "Remote",
+    "habilidades": [
+      "calendar management",
+      "executive writing",
+      "action item tracking",
+      "digital archiving",
+      "travel coordination",
+      "executive support"
+    ],
+    "resumenProfesional": "Bilingual senior executive assistant with flawless calendar scheduling, international meeting coordination, and strict confidentiality adherence.",
+    "trayectoria": [
+      {
+        "cargo": "Executive Assistant to Managing Director",
+        "sectorEmpresa": "Global Strategy Consulting Firm",
+        "duracion": "2020 - Present",
+        "logros": [
+          "Full calendar orchestration across three global time zones without scheduling conflicts.",
+          "Coordinated multi-leg international itineraries and executive board follow-ups."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "High-Level Organization",
+      "Absolute Discretion",
+      "Contingency Management",
+      "Native Bilingual English"
+    ],
+    "educacion": "B.A. in Modern Languages & Business Administration",
+    "certificaciones": [
+      "Certified Administrative Professional (CAP)"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 2,200 - 2,700 / month"
+  },
+  {
+    "id": "CAN-6330",
+    "nombre": "Mateo Silva",
+    "perfilesAsociados": [
+      "perfil-63c5a7bde270",
+      "perfil-8e5cd4ab877a"
+    ],
+    "experienciaAnos": 4,
+    "experienciaTexto": "4 years",
+    "nivelIngles": "B2",
+    "pais": "Mexico",
+    "ciudad": "Guadalajara",
+    "modalidad": "Hybrid",
+    "habilidades": [
+      "administrative support",
+      "organization",
+      "business communication",
+      "drafting",
+      "Microsoft Office",
+      "data accuracy"
+    ],
+    "resumenProfesional": "Administrative assistant with extensive back-office experience, report compilation, database record updates, and office operations coordination.",
+    "trayectoria": [
+      {
+        "cargo": "Back Office Administrative Assistant",
+        "sectorEmpresa": "Technology Innovation Hub",
+        "duracion": "2021 - Present",
+        "logros": [
+          "Managed mail flows and document support for 6 corporate operating departments.",
+          "Digitized archives and controlled supply inventory, slashing stockouts by 30%."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Operational Streamlining",
+      "Document Organization",
+      "Meticulous Attention to Detail"
+    ],
+    "educacion": "Business Administration Degree",
+    "certificaciones": [
+      "Microsoft Office Specialist"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 1,400 - 1,800 / month"
+  },
+  {
+    "id": "CAN-1109",
+    "nombre": "Camila Fernandez",
+    "perfilesAsociados": [
+      "perfil-93cb61b37f1f",
+      "perfil-a7b7bec75e4e"
+    ],
+    "experienciaAnos": 7,
+    "experienciaTexto": "7 years",
+    "nivelIngles": "B1",
+    "pais": "Peru",
+    "ciudad": "Lima",
+    "modalidad": "Hybrid",
+    "habilidades": [
+      "financial analysis",
+      "balance sheet reconciliation",
+      "budgeting & forecasting",
+      "financial reporting",
+      "US GAAP",
+      "Excel"
+    ],
+    "resumenProfesional": "Certified Public Accountant and financial analyst with 7 years reviewing transactions, financial statements, bank reconciliations, and monthly closes under US GAAP.",
+    "trayectoria": [
+      {
+        "cargo": "Financial Statements Accountant",
+        "sectorEmpresa": "Banking & Financial Services Group",
+        "duracion": "2021 - Present",
+        "logros": [
+          "Prepared and audited financial statements for external audits with zero material findings.",
+          "Built automated bank reconciliation models in Excel."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Month-End Close",
+      "US GAAP Standards",
+      "Methodological Rigor"
+    ],
+    "educacion": "B.S. in Accounting & Corporate Finance",
+    "certificaciones": [
+      "International Accounting Standards Certification"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 2,400 - 2,900 / month"
+  },
+  {
+    "id": "CAN-5290",
+    "nombre": "David Morales",
+    "perfilesAsociados": [
+      "perfil-378899876f70",
+      "perfil-a6ab1af44b82"
+    ],
+    "experienciaAnos": 5,
+    "experienciaTexto": "5 years",
+    "nivelIngles": "C1",
+    "pais": "Chile",
+    "ciudad": "Santiago",
+    "modalidad": "Remote",
+    "habilidades": [
+      "financial modeling",
+      "financial analysis",
+      "advanced Excel",
+      "budgeting",
+      "financial forecasting",
+      "US GAAP"
+    ],
+    "resumenProfesional": "Bilingual financial analyst and FP&A specialist with 5 years building cash flow projections, budget models, and variance analyses for multinational organizations.",
+    "trayectoria": [
+      {
+        "cargo": "FP&A Lead Specialist",
+        "sectorEmpresa": "Regional Tech Scale-up",
+        "duracion": "2022 - Present",
+        "logros": [
+          "Built multi-currency budget model across 6 operating countries with less than 4% variance."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Financial Modeling",
+      "Cash Flow Forecasting",
+      "Profitability Analysis"
+    ],
+    "educacion": "Commercial Engineering / Finance",
+    "certificaciones": [
+      "Financial Modeling & Valuation Analyst (FMVA)"
+    ],
+    "disponibilidad": "30 days",
+    "rangoSalarialInterno": "USD 3,200 - 3,800 / month"
+  },
+  {
+    "id": "CAN-9022",
+    "nombre": "Daniela Herrera",
+    "perfilesAsociados": [
+      "perfil-0864edcef9ea",
+      "perfil-fcea51205c0c"
+    ],
+    "experienciaAnos": 4,
+    "experienciaTexto": "4 years",
+    "nivelIngles": "A2",
+    "pais": "Colombia",
+    "ciudad": "Cali",
+    "modalidad": "Remote",
+    "habilidades": [
+      "collections",
+      "accounts receivable",
+      "payment negotiation",
+      "skip tracing",
+      "documentation",
+      "customer communications"
+    ],
+    "resumenProfesional": "Collections and skip tracing specialist with 4 years locating past-due accounts, negotiating payment agreements, and recovering written-off debt.",
+    "trayectoria": [
+      {
+        "cargo": "Collections & Skip Tracing Specialist",
+        "sectorEmpresa": "Microfinance Financial Entity",
+        "duracion": "2022 - Present",
+        "logros": [
+          "Exceeded monthly collection target by 118% through assertive phone negotiation and skip tracing."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Payment Negotiation",
+      "Skip Tracing",
+      "Objection Handling"
+    ],
+    "educacion": "Associate Degree in Financial Management",
+    "certificaciones": [
+      "Certified Account Portfolio Negotiation"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 1,200 - 1,500 / month"
+  },
+  {
+    "id": "CAN-5518",
+    "nombre": "Alejandro Castro",
+    "perfilesAsociados": [
+      "perfil-72194eb05615",
+      "perfil-3f08a8929268"
+    ],
+    "experienciaAnos": 5,
+    "experienciaTexto": "5 years",
+    "nivelIngles": "C1",
+    "pais": "Colombia",
+    "ciudad": "Bogotá",
+    "modalidad": "Remote",
+    "habilidades": [
+      "case management",
+      "legal drafting",
+      "client communication",
+      "document management",
+      "case software",
+      "electronic court filings"
+    ],
+    "resumenProfesional": "Bilingual paralegal and legal assistant with 5 years of litigation support experience, drafting court filings, tracking case dockets, and communicating with insurance carriers.",
+    "trayectoria": [
+      {
+        "cargo": "Bilingual Paralegal",
+        "sectorEmpresa": "International Law Firm",
+        "duracion": "2021 - Present",
+        "logros": [
+          "Coordinated document production and electronic submission for over 300 court filings.",
+          "Drafted formal legal correspondence and monitored statutory deadlines."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Legal Document Management",
+      "Deadline Compliance",
+      "E-Filing Systems"
+    ],
+    "educacion": "Law Degree with Specialization in Procedural Law",
+    "certificaciones": [
+      "Paralegal Certificate Program"
+    ],
+    "disponibilidad": "30 days",
+    "rangoSalarialInterno": "USD 2,500 - 3,100 / month"
+  },
+  {
+    "id": "CAN-3814",
+    "nombre": "Eduardo Navarro",
+    "perfilesAsociados": [
+      "perfil-ba5ef09e09a4",
+      "perfil-6e8b90d8b24a"
+    ],
+    "experienciaAnos": 6,
+    "experienciaTexto": "6 years",
+    "nivelIngles": "Not specified",
+    "pais": "Mexico",
+    "ciudad": "Monterrey",
+    "modalidad": "On-site",
+    "habilidades": [
+      "collections",
+      "skip tracing",
+      "account management",
+      "documentation",
+      "compliance",
+      "file organization"
+    ],
+    "resumenProfesional": "Legal collections and pre-litigation recovery specialist with extensive knowledge of settlement agreements, court mandates, and skip tracing.",
+    "trayectoria": [
+      {
+        "cargo": "Pre-litigation Collections Specialist",
+        "sectorEmpresa": "Automotive Financing Corp",
+        "duracion": "2019 - Present",
+        "logros": [
+          "Recovered over $1.4M USD in accounts delinquent past 90 days."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Legal Collections",
+      "Judicial Settlements",
+      "Firm Negotiation"
+    ],
+    "educacion": "Commercial Law Studies",
+    "certificaciones": [
+      "Certified Extrajudicial Debt Recovery"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 1,800 - 2,200 / month"
+  },
+  {
+    "id": "CAN-7341",
+    "nombre": "Andrés Velásquez",
+    "perfilesAsociados": [
+      "perfil-d5c757c4c408",
+      "perfil-a2e639ebcb39"
+    ],
+    "experienciaAnos": 7,
+    "experienciaTexto": "7 years",
+    "nivelIngles": "B1",
+    "pais": "Colombia",
+    "ciudad": "Barranquilla",
+    "modalidad": "On-site",
+    "habilidades": [
+      "rate negotiation",
+      "carrier sourcing",
+      "shipment tracking",
+      "logistics coordination",
+      "route planning"
+    ],
+    "resumenProfesional": "Freight broker and logistics coordinator with 7 years managing dispatches, carrier rate quotes, and real-time operational transit monitoring.",
+    "trayectoria": [
+      {
+        "cargo": "Freight Broker & Route Coordinator",
+        "sectorEmpresa": "Consumer Goods Distribution Corp",
+        "duracion": "2019 - Present",
+        "logros": [
+          "Dispatched 50+ loads daily while maintaining a 98% on-time delivery rate."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Carrier Sourcing & Negotiation",
+      "Satellite Tracking",
+      "Dispatch Logistics"
+    ],
+    "educacion": "B.S. in Logistics & Operations Engineering",
+    "certificaciones": [
+      "Logistics & Freight Brokerage Certified"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 2,000 - 2,500 / month"
+  },
+  {
+    "id": "CAN-4902",
+    "nombre": "Mariana Torres",
+    "perfilesAsociados": [
+      "perfil-16cc9f28e362",
+      "perfil-cf406b673e0b"
+    ],
+    "experienciaAnos": 5,
+    "experienciaTexto": "5 years",
+    "nivelIngles": "Not specified",
+    "pais": "Colombia",
+    "ciudad": "Bogotá",
+    "modalidad": "On-site",
+    "habilidades": [
+      "medical coding",
+      "claims management",
+      "chart review",
+      "HIPAA compliance",
+      "EMR software"
+    ],
+    "resumenProfesional": "Medical biller and clinical operations specialist with proven experience submitting claims to insurance payers, reconciling reimbursements, and auditing medical charts.",
+    "trayectoria": [
+      {
+        "cargo": "Medical Biller & Document Auditor",
+        "sectorEmpresa": "Specialized Outpatient Clinic",
+        "duracion": "2021 - Present",
+        "logros": [
+          "Reduced medical claim denial rate from 11% to 2.5% through pre-submission code auditing."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Medical Billing",
+      "ICD-10 / CPT Coding",
+      "HIPAA Compliance"
+    ],
+    "educacion": "Healthcare Administration",
+    "certificaciones": [
+      "Certified Medical Billing Specialist (CMBS)"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 1,600 - 2,000 / month"
+  },
+  {
+    "id": "CAN-5110",
+    "nombre": "Nicolás Giménez",
+    "perfilesAsociados": [
+      "perfil-tal-it01",
+      "perfil-c98325c0657c"
+    ],
+    "experienciaAnos": 5,
+    "experienciaTexto": "5 years",
+    "nivelIngles": "C1",
+    "pais": "Argentina",
+    "ciudad": "Buenos Aires",
+    "modalidad": "Remote",
+    "habilidades": [
+      "Tech Sourcing",
+      "LinkedIn Recruiter",
+      "Competency-based Interviews",
+      "onboarding",
+      "ATS (Greenhouse, Lever)"
+    ],
+    "resumenProfesional": "Senior IT Recruiter with 5 years closing complex roles across software engineering, cloud architecture, and data pipelines, as well as coordinating onboarding programs.",
+    "trayectoria": [
+      {
+        "cargo": "Senior Tech Recruiter",
+        "sectorEmpresa": "Tech Talent & Staffing Consultancy",
+        "duracion": "2021 - Present",
+        "logros": [
+          "Closed over 60 engineering roles with an average time-to-fill of 21 days."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Direct Headhunting",
+      "Technical Screenings",
+      "Salary Negotiation"
+    ],
+    "educacion": "B.A. in Organizational Psychology",
+    "certificaciones": [
+      "LinkedIn Certified Professional - Recruiter"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 2,300 - 2,900 / month"
+  },
+  {
+    "id": "CAN-1644",
+    "nombre": "Paulina Vega",
+    "perfilesAsociados": [
+      "perfil-ser-csm01"
+    ],
+    "experienciaAnos": 4,
+    "experienciaTexto": "4 years",
+    "nivelIngles": "C1",
+    "pais": "Mexico",
+    "ciudad": "Mexico City",
+    "modalidad": "Remote",
+    "habilidades": [
+      "Client Onboarding",
+      "Churn & Retention Management",
+      "Executive QBRs",
+      "Zendesk / Gainsight",
+      "NPS & CSAT"
+    ],
+    "resumenProfesional": "Bilingual Customer Success Manager for B2B SaaS software companies. Expert in driving customer adoption, measuring realized ROI, and securing high renewal and expansion rates.",
+    "trayectoria": [
+      {
+        "cargo": "Customer Success Manager",
+        "sectorEmpresa": "Enterprise SaaS Company",
+        "duracion": "2022 - Present",
+        "logros": [
+          "Managed portfolio of 50 enterprise accounts achieving 114% Net Revenue Retention (NRR)."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "B2B Relationship Management",
+      "Product Adoption",
+      "Retention Optimization"
+    ],
+    "educacion": "B.A. in International Relations",
+    "certificaciones": [
+      "Customer Success Excellence Certified"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 2,400 - 2,900 / month"
+  },
+  {
+    "id": "CAN-2850",
+    "nombre": "Sebastián Ortiz",
+    "perfilesAsociados": [
+      "perfil-ser-tier02"
+    ],
+    "experienciaAnos": 3,
+    "experienciaTexto": "3 years",
+    "nivelIngles": "C1",
+    "pais": "Colombia",
+    "ciudad": "Medellín",
+    "modalidad": "Remote",
+    "habilidades": [
+      "Zendesk / Jira Service Desk",
+      "Software Troubleshooting",
+      "Fluent English (C1)",
+      "Case Documentation",
+      "First Contact Resolution (FCR)"
+    ],
+    "resumenProfesional": "Bilingual technical customer support specialist for mobile and web applications. Recognized for rapid diagnostic capability and stellar customer satisfaction (CSAT > 96%).",
+    "trayectoria": [
+      {
+        "cargo": "Tier 2 Technical Support Agent",
+        "sectorEmpresa": "Global E-Commerce Enterprise",
+        "duracion": "2022 - Present",
+        "logros": [
+          "Resolved over 3,500 technical support tickets in English with 89% FCR rate."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Technical Diagnostics",
+      "Bilingual Support",
+      "Ticketing Systems"
+    ],
+    "educacion": "Associate in Information Systems",
+    "certificaciones": [
+      "ITIL 4 Foundation"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 1,400 - 1,800 / month"
+  },
+  {
+    "id": "CAN-9810",
+    "nombre": "Lucía Paredes",
+    "perfilesAsociados": [
+      "perfil-otr-trad01"
+    ],
+    "experienciaAnos": 6,
+    "experienciaTexto": "6 years",
+    "nivelIngles": "C2",
+    "pais": "Chile",
+    "ciudad": "Valparaíso",
+    "modalidad": "Remote",
+    "habilidades": [
+      "Technical Translation",
+      "CAT Tools (Trados)",
+      "Consecutive Interpretation",
+      "Content Localization",
+      "Corporate Terminology"
+    ],
+    "resumenProfesional": "Certified professional translator and interpreter with native bilingual English-Spanish proficiency. Specialized in financial filings and cross-border commercial contracts.",
+    "trayectoria": [
+      {
+        "cargo": "Lead Translator & Interpreter",
+        "sectorEmpresa": "Multilateral Organization",
+        "duracion": "2020 - Present",
+        "logros": [
+          "Provided simultaneous/consecutive interpretation across 80+ international summits."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Legal Translation",
+      "Consecutive Interpretation",
+      "Financial Terminology"
+    ],
+    "educacion": "B.A. in Translation & Interpretation",
+    "certificaciones": [
+      "ATA Certified Translator"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 2,500 - 3,100 / month"
+  },
+  {
+    "id": "CAN-8723",
+    "nombre": "Rodrigo Benítez",
+    "perfilesAsociados": [
+      "perfil-tec-devops03"
+    ],
+    "experienciaAnos": 8,
+    "experienciaTexto": "8 years",
+    "nivelIngles": "C1",
+    "pais": "Mexico",
+    "ciudad": "Guadalajara",
+    "modalidad": "Remote",
+    "habilidades": [
+      "AWS",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "GitHub Actions",
+      "CI/CD Pipelines"
+    ],
+    "resumenProfesional": "Cloud & DevOps Architect with 8+ years designing high-availability, secure infrastructure on AWS for regulated fintechs and transactional platforms.",
+    "trayectoria": [
+      {
+        "cargo": "Senior DevOps Architect",
+        "sectorEmpresa": "International Banking Fintech",
+        "duracion": "2020 - Present",
+        "logros": [
+          "Architected multi-region Kubernetes clusters with guaranteed 99.99% SLA."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Infrastructure as Code",
+      "Kubernetes",
+      "Cloud Security"
+    ],
+    "educacion": "B.S. in Information Technology Engineering",
+    "certificaciones": [
+      "AWS Solutions Architect Professional",
+      "CKA"
+    ],
+    "disponibilidad": "30 days",
+    "rangoSalarialInterno": "USD 4,200 - 5,000 / month"
+  },
+  {
+    "id": "CAN-3108",
+    "nombre": "Gabriel Restrepo",
+    "perfilesAsociados": [
+      "perfil-tec-bi04"
+    ],
+    "experienciaAnos": 4,
+    "experienciaTexto": "4 years",
+    "nivelIngles": "B2",
+    "pais": "Colombia",
+    "ciudad": "Medellín",
+    "modalidad": "Remote",
+    "habilidades": [
+      "Advanced SQL",
+      "Power BI / DAX",
+      "Data Modeling",
+      "Data Storytelling",
+      "Python for Analytics"
+    ],
+    "resumenProfesional": "Business Intelligence and commercial data analytics specialist, adept at transforming high-volume transactional data into high-impact executive dashboards.",
+    "trayectoria": [
+      {
+        "cargo": "BI & Data Analyst",
+        "sectorEmpresa": "Retail Supermarket Chain",
+        "duracion": "2022 - Present",
+        "logros": [
+          "Designed executive sales and inventory turnover dashboards for C-suite meetings."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Dimensional Modeling",
+      "Power BI",
+      "Advanced SQL"
+    ],
+    "educacion": "B.S. in Industrial Engineering",
+    "certificaciones": [
+      "Microsoft Certified: Power BI Data Analyst (PL-300)"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 2,000 - 2,500 / month"
+  },
+  {
+    "id": "CAN-6045",
+    "nombre": "Amina Wanjiru",
+    "perfilesAsociados": [
+      "perfil-ser-csm01",
+      "perfil-ser-tier02"
+    ],
+    "experienciaAnos": 5,
+    "experienciaTexto": "5 years",
+    "nivelIngles": "C2",
+    "pais": "Kenya",
+    "ciudad": "Nairobi",
+    "modalidad": "Remote",
+    "habilidades": [
+      "Customer Success",
+      "Technical Support",
+      "Zendesk",
+      "Client Onboarding",
+      "SaaS Retention",
+      "Cross-cultural Communication"
+    ],
+    "resumenProfesional": "Nairobi-based bilingual client operations and customer success specialist with 5 years managing enterprise accounts across US and EMEA time zones with native English proficiency.",
+    "trayectoria": [
+      {
+        "cargo": "Senior Customer Operations Specialist",
+        "sectorEmpresa": "Global Fintech & Remittances Platform",
+        "duracion": "2021 - Present",
+        "logros": [
+          "Maintained 99.1% CSAT across 4,200+ customer resolutions.",
+          "Led EMEA customer onboarding reducing initial time-to-value by 35%."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "High CSAT Delivery",
+      "B2B SaaS Retention",
+      "Cross-regional Coordination"
+    ],
+    "educacion": "B.A. in Communications & Information Systems, University of Nairobi",
+    "certificaciones": [
+      "Certified Customer Success Manager (CCSM Level 2)"
+    ],
+    "disponibilidad": "Immediate",
+    "rangoSalarialInterno": "USD 1,900 - 2,400 / month"
+  },
+  {
+    "id": "CAN-7192",
+    "nombre": "Brian Kiprono",
+    "perfilesAsociados": [
+      "perfil-tec-fe01",
+      "perfil-tec-be02"
+    ],
+    "experienciaAnos": 6,
+    "experienciaTexto": "6 years",
+    "nivelIngles": "C1",
+    "pais": "Kenya",
+    "ciudad": "Nairobi",
+    "modalidad": "Remote",
+    "habilidades": [
+      "React.js",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "GraphQL",
+      "Cloud APIs"
+    ],
+    "resumenProfesional": "Fullstack software engineer with 6 years designing high-throughput web applications and financial ledger tools for international remote teams.",
+    "trayectoria": [
+      {
+        "cargo": "Fullstack Engineer",
+        "sectorEmpresa": "African AgriTech Unicorn",
+        "duracion": "2020 - Present",
+        "logros": [
+          "Engineered distributed transactional APIs processing over 120,000 daily orders.",
+          "Spearheaded web portal redesign in React 18 with 99.98% uptime."
+        ]
+      }
+    ],
+    "competenciasClave": [
+      "Distributed Systems",
+      "Fullstack React/Node",
+      "International Remote Collaboration"
+    ],
+    "educacion": "B.S. in Computer Science, Strathmore University",
+    "certificaciones": [
+      "AWS Certified Developer - Associate"
+    ],
+    "disponibilidad": "15 days",
+    "rangoSalarialInterno": "USD 2,700 - 3,300 / month"
+  }
+]

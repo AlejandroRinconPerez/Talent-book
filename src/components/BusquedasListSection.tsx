@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import { 
-  FolderKanban, 
-  FolderPlus, 
-  Building2, 
-  Calendar, 
-  Users, 
-  ArrowRight, 
-  Search, 
-  Layers, 
-  CheckCircle2, 
-  Briefcase,
-  Sparkles,
-  ChevronRight
-} from 'lucide-react';
-import { BusquedaComercial } from '../types';
+import React, { useMemo, useState } from 'react';
+import { FolderKanban, FolderPlus, Search, ChevronRight } from 'lucide-react';
+import { BusquedaComercial, EstadoBusqueda } from '../types';
+import { Button } from './ui/Button';
+import { EmptyState } from './ui/EmptyState';
+import { formatNumber, plural } from '../utils/format';
+import { ESTADO_LABEL, ESTADO_ORDER, relativeTime } from '../utils/activity';
+import { StatusChip } from './shared/badges';
 
 interface BusquedasListSectionProps {
   busquedas: BusquedaComercial[];
@@ -21,175 +13,208 @@ interface BusquedasListSectionProps {
   onOpenCreateModal: () => void;
 }
 
-export const BusquedasListSection: React.FC<BusquedasListSectionProps> = ({
-  busquedas,
-  onSelectBusqueda,
-  onOpenCreateModal
-}) => {
-  const [searchTerm, setSearchTerm] = useState('');
+type StatusFilter = 'all' | EstadoBusqueda;
 
-  const filteredBusquedas = busquedas.filter(b => {
-    const term = searchTerm.toLowerCase();
-    return (
-      b.nombre.toLowerCase().includes(term) ||
-      (b.clienteEmpresa && b.clienteEmpresa.toLowerCase().includes(term)) ||
-      b.descripcion.toLowerCase().includes(term) ||
-      (b.perfilNombre && b.perfilNombre.toLowerCase().includes(term))
+const THIRTY_DAYS = 30 * 86400000;
+
+export const BusquedasListSection: React.FC<BusquedasListSectionProps> = ({ busquedas, onSelectBusqueda, onOpenCreateModal }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+
+  // Pipeline figures, computed from the searches themselves
+  const kpis = useMemo(() => {
+    const now = Date.now();
+    const active = busquedas.filter(b => b.estado !== 'cerrada');
+    const inPipeline = active.reduce((sum, b) => sum + b.candidatosVinculados.filter(cv => cv.etapa !== 'descartado').length, 0);
+    const inCeipal = busquedas.reduce((sum, b) => sum + b.candidatosVinculados.filter(cv => cv.estadoCeipal === 'cargado').length, 0);
+    const presentedRecently = busquedas.reduce(
+      (sum, b) => sum + b.actividad.filter(a => a.tipo === 'presentada' && now - new Date(a.fecha).getTime() < THIRTY_DAYS).length,
+      0
     );
-  });
+    return { active: active.length, inPipeline, inCeipal, presentedRecently };
+  }, [busquedas]);
+
+  const countByStatus = useMemo(() => {
+    const map: Record<EstadoBusqueda, number> = { abierta: 0, en_proceso: 0, cerrada: 0 };
+    busquedas.forEach(b => (map[b.estado] += 1));
+    return map;
+  }, [busquedas]);
+
+  const filteredBusquedas = useMemo(() => {
+    const term = searchTerm.trim().toLowerCase();
+    return busquedas
+      .filter(b => statusFilter === 'all' || b.estado === statusFilter)
+      .filter(
+        b =>
+          !term ||
+          b.nombre.toLowerCase().includes(term) ||
+          b.id.toLowerCase().includes(term) ||
+          (b.clienteEmpresa?.toLowerCase().includes(term) ?? false) ||
+          b.descripcion.toLowerCase().includes(term) ||
+          (b.perfilNombre?.toLowerCase().includes(term) ?? false)
+      )
+      .sort((a, b) => b.actualizadoEn.localeCompare(a.actualizadoEn));
+  }, [busquedas, searchTerm, statusFilter]);
 
   return (
     <div className="space-y-6">
-      {/* Top Banner with Stats & Action */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-7 shadow-xs">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-[11px] font-mono font-bold text-[#007685] bg-[#007685]/10 px-2.5 py-0.5 rounded uppercase tracking-wider">
-                Sales Pipeline
-              </span>
-              <span className="text-slate-300">·</span>
-              <span className="text-xs text-slate-500 font-medium">
-                Requirements & Shortlist Management
-              </span>
-            </div>
-
-            <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
-              My Talent Searches
-            </h1>
-            <p className="mt-1.5 text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
-              Create and manage client searches, link candidates from the directory or Talent Book, evaluate fit, and sync candidates to CEIPAL pipelines.
-            </p>
-          </div>
-
-          <div className="shrink-0">
-            <button
-              onClick={onOpenCreateModal}
-              className="px-4 py-2.5 text-xs sm:text-sm font-bold text-white bg-[#007685] hover:bg-[#005d69] rounded-xl transition-all flex items-center gap-2 shadow-xs group cursor-pointer"
-            >
-              <FolderPlus className="w-4 h-4 group-hover:scale-110 transition-transform" />
-              <span>Create new search</span>
-            </button>
-          </div>
+      <div className="page-header">
+        <div>
+          <h1 className="page-title">My searches</h1>
+          <p className="page-lede">
+            One search per client requirement. Link candidates from the Book or the pool, evaluate fit, then export the shortlist to CEIPAL
+            or present it.
+          </p>
         </div>
+        <Button variant="primary" icon={<FolderPlus className="size-4" />} onClick={onOpenCreateModal} data-tour="new-search">
+          New search
+        </Button>
+      </div>
 
-        {/* Quick Filter Search Bar */}
-        <div className="mt-5 relative">
-          <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+      <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-rule bg-rule sm:grid-cols-4" data-tour="kpis">
+        <Kpi label="Active searches" value={kpis.active} />
+        <Kpi label="Candidates in process" value={kpis.inPipeline} />
+        <Kpi label="Exported to CEIPAL" value={kpis.inCeipal} />
+        <Kpi label="Presentations, last 30 days" value={kpis.presentedRecently} />
+      </dl>
+
+      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <fieldset className="flex flex-wrap items-center gap-1.5">
+          <legend className="sr-only">Filter by status</legend>
+          <button type="button" className="pill" aria-pressed={statusFilter === 'all'} onClick={() => setStatusFilter('all')}>
+            All <span className="pill-count">{busquedas.length}</span>
+          </button>
+          {ESTADO_ORDER.map(estado => (
+            <button key={estado} type="button" className="pill" aria-pressed={statusFilter === estado} onClick={() => setStatusFilter(estado)}>
+              {ESTADO_LABEL[estado]} <span className="pill-count">{countByStatus[estado]}</span>
+            </button>
+          ))}
+        </fieldset>
+
+        <div className="relative w-full md:max-w-sm">
+          <label htmlFor="search-filter" className="sr-only">
+            Filter searches
+          </label>
+          <Search className="input-icon" />
           <input
-            type="text"
+            id="search-filter"
+            type="search"
+            name="search-filter"
+            autoComplete="off"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search by search name, client, or profile..."
-            className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#20BFD0]/40 focus:border-[#007685] transition-all"
+            onChange={e => setSearchTerm(e.target.value)}
+            placeholder="Filter by name, client, ID or profile…"
+            className="input input-with-icon"
           />
         </div>
       </div>
 
-      {/* Searches List Grid */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between text-xs text-slate-500 px-1">
-          <span className="font-bold uppercase tracking-wider text-[11px] text-slate-700">
-            Active Searches ({filteredBusquedas.length})
-          </span>
-          <span>Select a search to manage linked candidates</span>
-        </div>
+      <p className="text-[13px] text-ink-3" aria-live="polite">
+        {plural(filteredBusquedas.length, 'search', 'searches')}
+        {searchTerm ? ` matching “${searchTerm}”` : ''}
+        {statusFilter !== 'all' ? `, ${ESTADO_LABEL[statusFilter].toLowerCase()}` : ''}. Sorted by last update.
+      </p>
 
-        {filteredBusquedas.length === 0 ? (
-          <div className="bg-white border border-slate-200 rounded-xl p-12 text-center">
-            <FolderKanban className="w-10 h-10 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-sm font-bold text-slate-800">No searches found</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
-              No commercial searches match &ldquo;{searchTerm}&rdquo;. You can create a new search anytime.
-            </p>
-            <button
-              onClick={onOpenCreateModal}
-              className="mt-4 px-3.5 py-1.5 text-xs font-semibold text-[#007685] bg-[#007685]/10 hover:bg-[#007685]/20 rounded-lg transition-colors"
-            >
-              Create first search
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredBusquedas.map((busqueda) => {
-              const ceipalCargadosCount = busqueda.candidatosVinculados.filter(
-                c => c.estadoCeipal === 'cargado'
-              ).length;
-
-              return (
-                <div
-                  key={busqueda.id}
-                  onClick={() => onSelectBusqueda(busqueda.id)}
-                  className="bg-white border border-slate-200 rounded-xl p-5 hover:border-[#007685]/50 hover:shadow-xs transition-all cursor-pointer flex flex-col justify-between group"
+      {filteredBusquedas.length === 0 ? (
+        <div className="panel">
+          <EmptyState
+            icon={<FolderKanban className="size-5" />}
+            title={searchTerm || statusFilter !== 'all' ? 'No searches match' : 'No searches yet'}
+            description={
+              searchTerm || statusFilter !== 'all'
+                ? 'Clear the filters or create a new search.'
+                : 'Create a search for your first client requirement.'
+            }
+            action={
+              searchTerm || statusFilter !== 'all' ? (
+                <Button
+                  onClick={() => {
+                    setSearchTerm('');
+                    setStatusFilter('all');
+                  }}
                 >
-                  <div>
-                    {/* Top row: ID and Date */}
-                    <div className="flex items-center justify-between text-[11px] text-slate-500 mb-2 font-mono">
-                      <span className="font-bold text-[#007685] bg-[#007685]/8 px-2 py-0.5 rounded">
-                        {busqueda.id}
-                      </span>
-                      <span className="flex items-center gap-1 font-sans">
-                        <Calendar className="w-3 h-3 text-slate-400" />
-                        {busqueda.fechaCreacion}
-                      </span>
-                    </div>
+                  Clear filters
+                </Button>
+              ) : (
+                <Button variant="primary" onClick={onOpenCreateModal}>
+                  Create search
+                </Button>
+              )
+            }
+          />
+        </div>
+      ) : (
+        <ul className="panel divide-y divide-rule">
+          {filteredBusquedas.map(busqueda => {
+            const linked = busqueda.candidatosVinculados;
+            const ceipal = linked.filter(c => c.estadoCeipal === 'cargado').length;
+            const advanced = linked.filter(c => c.etapa === 'entrevista' || c.etapa === 'oferta').length;
+            const presented = linked.filter(c => c.etapa === 'presentado').length;
 
-                    {/* Name */}
-                    <h3 className="text-base font-bold text-slate-900 group-hover:text-[#007685] transition-colors line-clamp-2">
-                      {busqueda.nombre}
-                    </h3>
-
-                    {/* Client / Empresa */}
-                    {busqueda.clienteEmpresa ? (
-                      <div className="mt-1.5 flex items-center gap-1.5 text-xs font-semibold text-slate-700">
-                        <Building2 className="w-3.5 h-3.5 text-slate-400" />
-                        <span>{busqueda.clienteEmpresa}</span>
-                      </div>
-                    ) : (
-                      <div className="mt-1.5 text-xs text-slate-400 italic">
-                        Client not specified
-                      </div>
-                    )}
-
-                    {/* Description snippet */}
-                    <p className="mt-2 text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                      {busqueda.descripcion}
-                    </p>
-
-                    {/* Book profile tag if linked */}
-                    {busqueda.perfilNombre && (
-                      <div className="mt-3 flex items-center gap-1 text-[11px] text-slate-500 bg-[#F5F5F6] px-2 py-1 rounded-md">
-                        <Layers className="w-3 h-3 text-[#007685]" />
-                        <span className="truncate">Book: {busqueda.perfilNombre}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Bottom Stats & Enter Action */}
-                  <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <div className="flex items-center gap-2">
-                      <span className="font-semibold text-slate-800 flex items-center gap-1">
-                        <Users className="w-3.5 h-3.5 text-slate-500" />
-                        {busqueda.candidatosVinculados.length} {busqueda.candidatosVinculados.length === 1 ? 'candidate' : 'candidates'}
-                      </span>
-
-                      {ceipalCargadosCount > 0 && (
-                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-mono px-1.5 py-0.2 rounded font-semibold">
-                          {ceipalCargadosCount} in CEIPAL
-                        </span>
-                      )}
-                    </div>
-
-                    <span className="flex items-center gap-1 font-bold text-[#007685] group-hover:translate-x-0.5 transition-transform">
-                      Open <ChevronRight className="w-4 h-4" />
+            return (
+              <li key={busqueda.id} className="group relative grid gap-3 px-5 py-4 hover:bg-well/60 md:grid-cols-[1fr_auto] md:items-center">
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h2 className="text-base font-semibold leading-snug">
+                      <button
+                        type="button"
+                        onClick={() => onSelectBusqueda(busqueda.id)}
+                        className="stretch text-left text-ink hover:text-brand-ink focus-visible:outline-none"
+                      >
+                        {busqueda.nombre}
+                      </button>
+                    </h2>
+                    <StatusChip estado={busqueda.estado} />
+                    <span className="code text-[13px] text-ink-3" translate="no">
+                      {busqueda.id}
                     </span>
                   </div>
+                  <p className="mt-0.5 text-[13px] text-ink-2">
+                    {busqueda.clienteEmpresa ?? <span className="italic text-ink-3">Client not specified</span>}
+                    {busqueda.perfilNombre ? (
+                      <>
+                        <span className="mx-2 text-rule-strong" aria-hidden="true">
+                          /
+                        </span>
+                        <span className="text-ink-3">Book profile:</span> {busqueda.perfilNombre}
+                      </>
+                    ) : null}
+                  </p>
+                  <p className="mt-1.5 line-clamp-2 max-w-[80ch] text-[13px] leading-relaxed text-ink-2">{busqueda.descripcion}</p>
                 </div>
-              );
-            })}
-          </div>
-        )}
-      </div>
+
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-[13px] text-ink-2 md:flex-col md:items-end md:gap-1 md:text-right">
+                  <span className="tabular-nums">
+                    <strong className="font-semibold text-ink">{linked.length}</strong> {linked.length === 1 ? 'candidate' : 'candidates'}
+                    {presented > 0 ? `, ${presented} presented` : ''}
+                    {advanced > 0 ? `, ${advanced} in interview or offer` : ''}
+                  </span>
+                  <span className="tabular-nums text-ink-3">
+                    {ceipal > 0 ? <span className="text-ok">{ceipal} in CEIPAL</span> : 'Not in CEIPAL'}
+                    <span className="mx-2 text-rule-strong" aria-hidden="true">
+                      /
+                    </span>
+                    Updated {relativeTime(busqueda.actualizadoEn)}
+                  </span>
+                </div>
+
+                <ChevronRight
+                  className="absolute right-4 top-1/2 hidden size-4 -translate-y-1/2 text-ink-3 opacity-0 transition-opacity group-hover:opacity-100 md:block"
+                  aria-hidden="true"
+                />
+                <span className="pointer-events-none absolute inset-0 rounded-[inherit] ring-brand/30 group-focus-within:ring-2" aria-hidden="true" />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };
+
+const Kpi: React.FC<{ label: string; value: number }> = ({ label, value }) => (
+  <div className="bg-surface px-5 py-4">
+    <dt className="text-[13px] text-ink-3">{label}</dt>
+    <dd className="mt-0.5 text-2xl font-semibold tabular-nums text-ink">{formatNumber(value)}</dd>
+  </div>
+);
