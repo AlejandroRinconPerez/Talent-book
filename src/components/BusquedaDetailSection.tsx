@@ -565,7 +565,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
         </section>
 
         {/* 3. Activity */}
-        <aside aria-labelledby="activity-heading" className="panel lg:sticky lg:top-20">
+        <aside aria-labelledby="activity-heading" className="panel lg:sticky lg:top-20 lg:flex lg:max-h-[calc(100dvh-6rem)] lg:flex-col">
           <div className="panel-head">
             <h2 id="activity-heading" className="flex items-center gap-2 text-base font-semibold">
               <History className="size-4 text-ink-3" />
@@ -573,7 +573,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
             </h2>
             <span className="text-[13px] tabular-nums text-ink-3">{busqueda.actividad.length}</span>
           </div>
-          <ol className="px-5 py-4">
+          <ol className="px-5 py-4 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:overscroll-contain">
             {visibleActivity.map((entry, idx) => (
               <ActivityRow key={`${entry.fecha}-${idx}`} entry={entry} isLast={idx === visibleActivity.length - 1} />
             ))}
