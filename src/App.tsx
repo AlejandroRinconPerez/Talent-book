@@ -3,54 +3,152 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
-import { Header } from './components/Header';
+import React, { Suspense, lazy, useCallback, useEffect, useRef, useState } from 'react';
+import { Header, MainTab } from './components/Header';
 import { LoginScreen } from './components/LoginScreen';
 import { BusquedasListSection } from './components/BusquedasListSection';
-import { BusquedaDetailSection } from './components/BusquedaDetailSection';
-import { CreateBusquedaModal } from './components/CreateBusquedaModal';
-import { BookSection } from './components/BookSection';
-import { CandidatesSection } from './components/CandidatesSection';
-import { EvaluationSection } from './components/EvaluationSection';
-import { PresentationMode } from './components/PresentationMode';
+import { Button } from './components/ui/Button';
+import { Modal } from './components/ui/Modal';
+import { Toast } from './components/ui/Toast';
+import { TOUR_STEPS } from './components/ui/tourSteps';
 import { INITIAL_BUSQUEDAS, DEMO_USER } from './data/mockBusquedas';
 import { MOCK_CANDIDATES } from './data/candidatesData';
+import { CANDIDATE_BY_ID } from './data/indexes';
 import { SAMPLE_VACANCIES } from './utils/evaluationEngine';
-import { 
-  BusquedaComercial, 
-  Candidato, 
-  Usuario, 
-  Vacancy, 
-  VacancyRequisitos 
-} from './types';
-import { 
-  X, 
-  Briefcase, 
-  GraduationCap, 
-  Award, 
-  Globe, 
-  MapPin, 
-  Check, 
-  FolderPlus 
-} from 'lucide-react';
+import { plural, todayIso } from './utils/format';
+import { withActivity, relativeTime } from './utils/activity';
+import { clearWorkspace, exportWorkspaceFile, importWorkspaceFile, loadWorkspace, saveWorkspace } from './services/storage';
+import { BusquedaComercial, Candidato, Usuario, Vacancy, VacancyRequisitos } from './types';
+
+// Only the default view (searches list) ships in the main chunk; every other screen loads when opened
+const BusquedaDetailSection = lazy(() => import('./components/BusquedaDetailSection').then(m => ({ default: m.BusquedaDetailSection })));
+const BookSection = lazy(() => import('./components/BookSection').then(m => ({ default: m.BookSection })));
+const CandidatesSection = lazy(() => import('./components/CandidatesSection').then(m => ({ default: m.CandidatesSection })));
+const EvaluationSection = lazy(() => import('./components/EvaluationSection').then(m => ({ default: m.EvaluationSection })));
+const PresentationMode = lazy(() => import('./components/PresentationMode').then(m => ({ default: m.PresentationMode })));
+const CreateBusquedaModal = lazy(() => import('./components/CreateBusquedaModal').then(m => ({ default: m.CreateBusquedaModal })));
+const CandidateDetailModal = lazy(() => import('./components/shared/CandidateDetailModal').then(m => ({ default: m.CandidateDetailModal })));
+const Tour = lazy(() => import('./components/ui/Tour').then(m => ({ default: m.Tour })));
+
+const SectionFallback = (
+  <div className="space-y-6 animate-pulse" role="status" aria-label="Loading">
+    <div className="h-9 w-72 rounded-md bg-rule/70" />
+    <div className="h-4 w-[36rem] max-w-full rounded bg-rule/60" />
+    <div className="panel h-64" />
+  </div>
+);
+
+/* ------------------------------------------------------------------ */
+/* URL state: the main tab and the open search live in the hash so     */
+/* views can be deep-linked and the back button works.                 */
+/* ------------------------------------------------------------------ */
+interface Route {
+  tab: MainTab;
+  busquedaId: string | null;
+}
+
+function parseHash(hash: string): Route {
+  const path = hash.replace(/^#\/?/, '');
+  const [segment, id] = path.split('/');
+  if (segment === 'book') return { tab: 'book', busquedaId: null };
+  if (segment === 'candidates') return { tab: 'candidates', busquedaId: null };
+  return { tab: 'busquedas', busquedaId: segment === 'searches' && id ? decodeURIComponent(id) : null };
+}
+
+function toHash(route: Route): string {
+  if (route.tab === 'book') return '#/book';
+  if (route.tab === 'candidates') return '#/candidates';
+  return route.busquedaId ? `#/searches/${encodeURIComponent(route.busquedaId)}` : '#/searches';
+}
+
+/** Workspace restored from the browser, or the seed on first run. */
+const initialWorkspace = loadWorkspace();
 
 export default function App() {
-  // 1. User Authentication Session (Starts with DEMO_USER for immediate preview accessibility)
+  // 1. User session (starts signed in with the demo user for immediate preview)
   const [currentUser, setCurrentUser] = useState<Usuario | null>(DEMO_USER);
 
-  // 2. Main Navigation Tabs: 'busquedas' (default after login), 'book', 'candidates'
-  const [activeTab, setActiveTab] = useState<'busquedas' | 'book' | 'candidates'>('busquedas');
+  // 2. Main navigation, mirrored in the URL hash
+  const [route, setRoute] = useState<Route>(() => parseHash(window.location.hash));
+  const { tab: activeTab, busquedaId: activeBusquedaId } = route;
 
-  // Active search ID for detail view (null shows searches list)
-  const [activeBusquedaId, setActiveBusquedaId] = useState<string | null>(null);
+  const navigate = useCallback((next: Route) => {
+    setRoute(next);
+    const hash = toHash(next);
+    if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+  }, []);
+
+  useEffect(() => {
+    const onPop = () => setRoute(parseHash(window.location.hash));
+    window.addEventListener('popstate', onPop);
+    window.addEventListener('hashchange', onPop);
+    if (!window.location.hash) window.history.replaceState(null, '', toHash(route));
+    return () => {
+      window.removeEventListener('popstate', onPop);
+      window.removeEventListener('hashchange', onPop);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const setActiveTab = (tab: MainTab) => navigate({ tab, busquedaId: null });
+  const setActiveBusquedaId = (id: string | null) => navigate({ tab: 'busquedas', busquedaId: id });
+
+  // 3. Workspace: searches and catalog selection, persisted locally
+  const [busquedas, setBusquedas] = useState<BusquedaComercial[]>(initialWorkspace?.busquedas ?? INITIAL_BUSQUEDAS);
+  const [generalSelectedCandidateIds, setGeneralSelectedCandidateIds] = useState<string[]>(
+    initialWorkspace?.selectedCandidateIds ?? ['CAN-8821', 'CAN-4432']
+  );
+  const [savedAt, setSavedAt] = useState<string | null>(initialWorkspace?.savedAt ?? null);
+  const [toast, setToast] = useState<string | null>(null);
+  const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
+  const [isTourOpen, setIsTourOpen] = useState(false);
+  const skipNextSave = useRef(true);
+
+  useEffect(() => {
+    // Skip the first run so restoring the workspace does not immediately rewrite it
+    if (skipNextSave.current) {
+      skipNextSave.current = false;
+      return;
+    }
+    const timer = window.setTimeout(() => {
+      const stamp = saveWorkspace({ busquedas, selectedCandidateIds: generalSelectedCandidateIds });
+      if (stamp) setSavedAt(stamp);
+    }, 300);
+    return () => window.clearTimeout(timer);
+  }, [busquedas, generalSelectedCandidateIds]);
+
+  const handleExportData = () => {
+    exportWorkspaceFile({ busquedas, selectedCandidateIds: generalSelectedCandidateIds });
+    setToast('Workspace exported as JSON.');
+  };
+
+  const handleImportData = async (file: File) => {
+    const result = await importWorkspaceFile(file);
+    if (!result.ok) {
+      setToast(`Could not import: ${result.reason}`);
+      return;
+    }
+    setBusquedas(result.workspace.busquedas);
+    setGeneralSelectedCandidateIds(result.workspace.selectedCandidateIds);
+    navigate({ tab: 'busquedas', busquedaId: null });
+    setToast(`Imported ${plural(result.workspace.busquedas.length, 'search', 'searches')}.`);
+  };
+
+  const handleResetData = () => {
+    clearWorkspace();
+    setBusquedas(INITIAL_BUSQUEDAS);
+    setGeneralSelectedCandidateIds(['CAN-8821', 'CAN-4432']);
+    setIsResetConfirmOpen(false);
+    navigate({ tab: 'busquedas', busquedaId: null });
+    setToast('Demo data restored.');
+  };
+
+  const dismissToast = useCallback(() => setToast(null), []);
 
   // Modal to create new search
   const [isCreateBusquedaModalOpen, setIsCreateBusquedaModalOpen] = useState(false);
 
-  // Searches state (persisted during session)
-  const [busquedas, setBusquedas] = useState<BusquedaComercial[]>(INITIAL_BUSQUEDAS);
-
-  // 3. Evaluation sub-view state (when evaluating compatibility from inside a search or standalone)
+  // 4. Evaluation sub-view (evaluating fit from inside a search or standalone)
   const [evaluatingSearchContext, setEvaluatingSearchContext] = useState<{
     searchId?: string;
     searchName: string;
@@ -58,191 +156,161 @@ export default function App() {
     vacancy: Vacancy;
   } | null>(null);
 
-  // 4. Candidate selection in general catalog
-  const [generalSelectedCandidateIds, setGeneralSelectedCandidateIds] = useState<string[]>([
-    'CAN-8821',
-    'CAN-4432'
-  ]);
-
   // Filter passed from Book to Candidates
-  const [candidateFilter, setCandidateFilter] = useState<{
-    familia?: string;
-    especialidad?: string;
-    perfilId?: string;
-  }>({});
+  const [candidateFilter, setCandidateFilter] = useState<{ familia?: string; especialidad?: string; perfilId?: string }>({});
 
-  // 5. Active candidate detail modal (for inspecting full profile anywhere in the app)
+  // 5. Candidate detail modal (inspect a full profile from anywhere)
   const [activeCandidateDetail, setActiveCandidateDetail] = useState<Candidato | null>(null);
 
-  // 6. Presentation Mode Overlay
+  // 6. Presentation mode overlay
   const [isPresentationMode, setIsPresentationMode] = useState<boolean>(false);
   const [presentationCandidates, setPresentationCandidates] = useState<Candidato[]>([]);
   const [presentationVacancy, setPresentationVacancy] = useState<Vacancy>(SAMPLE_VACANCIES[0]);
 
-  // Handle Logout
   const handleLogout = () => {
     setCurrentUser(null);
-    setActiveBusquedaId(null);
+    navigate({ tab: 'busquedas', busquedaId: null });
     setEvaluatingSearchContext(null);
   };
 
-  // Handle Login
   const handleLoginSuccess = (user: Usuario) => {
     setCurrentUser(user);
-    setActiveTab('busquedas');
-    setActiveBusquedaId(null);
+    navigate({ tab: 'busquedas', busquedaId: null });
   };
 
-  // Active Busqueda object
   const activeBusqueda = busquedas.find(b => b.id === activeBusquedaId) || null;
 
-  // Create new search handler
   const handleCreateBusqueda = (newBusqueda: BusquedaComercial) => {
     setBusquedas(prev => [newBusqueda, ...prev]);
     setIsCreateBusquedaModalOpen(false);
-    // Automatically open the newly created search
-    setActiveBusquedaId(newBusqueda.id);
-    setActiveTab('busquedas');
+    navigate({ tab: 'busquedas', busquedaId: newBusqueda.id });
+    setToast(`Search ${newBusqueda.id} created.`);
   };
 
-  // Update existing search handler
   const handleUpdateBusqueda = (updated: BusquedaComercial) => {
-    setBusquedas(prev => prev.map(b => b.id === updated.id ? updated : b));
+    setBusquedas(prev => prev.map(b => (b.id === updated.id ? updated : b)));
   };
 
-  // Link candidates to an existing search (from Candidates list or selector)
+  // Link candidates to an existing search (from the candidate list or selector)
   const handleLinkCandidatesToBusqueda = (busquedaId: string, candidateIds: string[]) => {
-    const today = new Date().toISOString().split('T')[0];
-    setBusquedas(prev => prev.map(b => {
-      if (b.id !== busquedaId) return b;
-
-      const existingIds = new Set(b.candidatosVinculados.map(c => c.candidatoId));
-      const newVinculos = candidateIds
-        .filter(id => !existingIds.has(id))
-        .map(id => ({
-          candidatoId: id,
-          fechaVinculacion: today,
-          estadoCeipal: 'no_cargado' as const
-        }));
-
-      return {
-        ...b,
-        candidatosVinculados: [...b.candidatosVinculados, ...newVinculos]
-      };
-    }));
+    const today = todayIso();
+    setBusquedas(prev =>
+      prev.map(b => {
+        if (b.id !== busquedaId) return b;
+        const existingIds = new Set(b.candidatosVinculados.map(c => c.candidatoId));
+        const newVinculos = candidateIds
+          .filter(id => !existingIds.has(id))
+          .map(id => ({ candidatoId: id, fechaVinculacion: today, estadoCeipal: 'no_cargado' as const, etapa: 'shortlist' as const }));
+        if (newVinculos.length === 0) return b;
+        return withActivity(
+          { ...b, candidatosVinculados: [...b.candidatosVinculados, ...newVinculos] },
+          'candidatos_vinculados',
+          `Linked ${plural(newVinculos.length, 'candidate')} from the pool.`
+        );
+      })
+    );
   };
 
-  // Navigate from Book to Candidates with pre-applied filter
-  const handleNavigateFromBookToCandidates = (filters?: {
-    familia?: string;
-    especialidad?: string;
-    perfilId?: string;
-  }) => {
-    if (filters) {
-      setCandidateFilter(filters);
-    }
+  const handleNavigateFromBookToCandidates = (filters?: { familia?: string; especialidad?: string; perfilId?: string }) => {
+    if (filters) setCandidateFilter(filters);
     setActiveTab('candidates');
   };
 
-  // Handle evaluation from search
-  const handleEvaluateFromBusqueda = (
-    candidates: Candidato[],
-    requisitos: VacancyRequisitos,
-    searchName: string
-  ) => {
-    const customVacancy: Vacancy = {
-      titulo: searchName,
-      descripcion: activeBusqueda?.descripcion || searchName,
-      cliente: activeBusqueda?.clienteEmpresa,
-      requisitos: requisitos
-    };
-
+  const handleEvaluateFromBusqueda = (candidates: Candidato[], requisitos: VacancyRequisitos, searchName: string) => {
     setEvaluatingSearchContext({
       searchId: activeBusqueda?.id,
       searchName,
       candidates,
-      vacancy: customVacancy
+      vacancy: {
+        titulo: searchName,
+        descripcion: activeBusqueda?.descripcion || searchName,
+        cliente: activeBusqueda?.clienteEmpresa,
+        requisitos
+      }
     });
+    window.scrollTo({ top: 0 });
   };
 
-  // Open presentation mode
   const handleOpenPresentation = (candidatesToPresent: Candidato[]) => {
-    const targetCandidates = candidatesToPresent.length > 0 
-      ? candidatesToPresent 
-      : MOCK_CANDIDATES.slice(0, 3);
-    
+    const targetCandidates = candidatesToPresent.length > 0 ? candidatesToPresent : MOCK_CANDIDATES.slice(0, 3);
+
     setPresentationCandidates(targetCandidates);
-    setPresentationVacancy(evaluatingSearchContext?.vacancy || {
-      titulo: activeBusqueda?.nombre || "Requerimiento Comercial de Talento",
-      descripcion: activeBusqueda?.descripcion || "Resumen de perfil y requerimientos técnicos acordados para la posición.",
-      cliente: activeBusqueda?.clienteEmpresa || "Cliente Corporativo",
-      requisitos: activeBusqueda?.requisitos || SAMPLE_VACANCIES[0].requisitos
-    });
+    setPresentationVacancy(
+      evaluatingSearchContext?.vacancy || {
+        titulo: activeBusqueda?.nombre || 'Talent requirement',
+        descripcion: activeBusqueda?.descripcion || 'Profile summary and technical requirements agreed for the position.',
+        cliente: activeBusqueda?.clienteEmpresa || 'Client',
+        requisitos: activeBusqueda?.requisitos || SAMPLE_VACANCIES[0].requisitos
+      }
+    );
     setIsPresentationMode(true);
   };
 
-  // If user is not logged in, render the login screen
   if (!currentUser) {
     return <LoginScreen onLoginSuccess={handleLoginSuccess} />;
   }
 
+  const headerSelectedCount = activeBusqueda
+    ? activeBusqueda.candidatosVinculados.filter(cv => CANDIDATE_BY_ID.has(cv.candidatoId)).length
+    : generalSelectedCandidateIds.length;
+
   return (
-    <div className="min-h-screen bg-[#F5F5F6] text-slate-900 flex flex-col font-sans antialiased">
-      {/* 3-Zone Header Navigation */}
+    <div className="flex min-h-dvh flex-col">
+      <a href="#main" className="sr-only-focusable fixed left-4 top-4 z-50 rounded-md bg-ink px-3 py-2 text-sm font-medium text-white">
+        Skip to main content
+      </a>
+
       <Header
         activeTab={activeTab}
-        onSelectTab={(tab) => {
-          setActiveTab(tab);
+        onSelectTab={tab => {
           setEvaluatingSearchContext(null);
-          if (tab !== 'busquedas') {
-            setActiveBusquedaId(null);
-          }
+          setActiveTab(tab);
         }}
-        selectedCount={activeBusqueda ? activeBusqueda.candidatosVinculados.length : generalSelectedCandidateIds.length}
+        selectedCount={headerSelectedCount}
         onOpenPresentation={() => {
           if (activeBusqueda) {
-            const candList = activeBusqueda.candidatosVinculados
-              .map(cv => MOCK_CANDIDATES.find(c => c.id === cv.candidatoId))
-              .filter((c): c is Candidato => c !== undefined);
-            handleOpenPresentation(candList);
+            handleOpenPresentation(activeBusqueda.candidatosVinculados.flatMap(cv => CANDIDATE_BY_ID.get(cv.candidatoId) ?? []));
           } else {
-            const candList = MOCK_CANDIDATES.filter(c => generalSelectedCandidateIds.includes(c.id));
-            handleOpenPresentation(candList);
+            handleOpenPresentation(generalSelectedCandidateIds.flatMap(id => CANDIDATE_BY_ID.get(id) ?? []));
           }
         }}
         currentUser={currentUser}
         onLogout={handleLogout}
+        onStartTour={() => {
+          setEvaluatingSearchContext(null);
+          setIsTourOpen(true);
+        }}
+        onExportData={handleExportData}
+        onImportData={handleImportData}
+        onResetData={() => setIsResetConfirmOpen(true)}
       />
 
-      {/* Main Content Viewport */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-        {/* EVALUATION VIEW (When evaluating candidates in context of search) */}
-        {evaluatingSearchContext ? (
-          <EvaluationSection
-            selectedCandidateIds={evaluatingSearchContext.candidates.map(c => c.id)}
-            onToggleCandidate={() => {}}
-            onClearCandidates={() => {}}
-            onNavigateToCandidates={() => {
-              setEvaluatingSearchContext(null);
-              setActiveTab('candidates');
-            }}
-            onOpenPresentation={() => handleOpenPresentation(evaluatingSearchContext.candidates)}
-            currentVacancy={evaluatingSearchContext.vacancy}
-            onUpdateVacancy={(updatedVac) => {
-              setEvaluatingSearchContext(prev => prev ? { ...prev, vacancy: updatedVac } : null);
-            }}
-            onBackToBusqueda={() => setEvaluatingSearchContext(null)}
-            busquedaNombre={evaluatingSearchContext.searchName}
-          />
-        ) : (
-          <>
-            {/* TAB 1: MIS BÚSQUEDAS */}
-            {activeTab === 'busquedas' && (
-              <>
-                {!activeBusquedaId || !activeBusqueda ? (
+      <main id="main" tabIndex={-1} className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 outline-none sm:px-6 sm:py-8 lg:px-8">
+        <Suspense fallback={SectionFallback}>
+          {evaluatingSearchContext ? (
+            <EvaluationSection
+              selectedCandidateIds={evaluatingSearchContext.candidates.map(c => c.id)}
+              onToggleCandidate={id =>
+                setEvaluatingSearchContext(prev => (prev ? { ...prev, candidates: prev.candidates.filter(c => c.id !== id) } : null))
+              }
+              onClearCandidates={() => setEvaluatingSearchContext(prev => (prev ? { ...prev, candidates: [] } : null))}
+              onNavigateToCandidates={() => {
+                setEvaluatingSearchContext(null);
+                setActiveTab('candidates');
+              }}
+              onOpenPresentation={() => handleOpenPresentation(evaluatingSearchContext.candidates)}
+              currentVacancy={evaluatingSearchContext.vacancy}
+              onUpdateVacancy={updatedVac => setEvaluatingSearchContext(prev => (prev ? { ...prev, vacancy: updatedVac } : null))}
+              onBackToBusqueda={evaluatingSearchContext.searchId ? () => setEvaluatingSearchContext(null) : undefined}
+              busquedaNombre={evaluatingSearchContext.searchName}
+            />
+          ) : (
+            <>
+              {activeTab === 'busquedas' ? (
+                !activeBusquedaId || !activeBusqueda ? (
                   <BusquedasListSection
                     busquedas={busquedas}
-                    onSelectBusqueda={(id) => setActiveBusquedaId(id)}
+                    onSelectBusqueda={id => setActiveBusquedaId(id)}
                     onOpenCreateModal={() => setIsCreateBusquedaModalOpen(true)}
                   />
                 ) : (
@@ -250,181 +318,99 @@ export default function App() {
                     busqueda={activeBusqueda}
                     onBackToList={() => setActiveBusquedaId(null)}
                     onUpdateBusqueda={handleUpdateBusqueda}
-                    onOpenCandidateDetail={(c) => setActiveCandidateDetail(c)}
+                    onOpenCandidateDetail={c => setActiveCandidateDetail(c)}
                     onEvaluateCompatibility={handleEvaluateFromBusqueda}
-                    onOpenPresentation={(cands) => handleOpenPresentation(cands)}
+                    onOpenPresentation={cands => handleOpenPresentation(cands)}
                   />
-                )}
-              </>
-            )}
+                )
+              ) : null}
 
-            {/* TAB 2: BOOK DE PERFILES (Visual Tree & Categories Grid) */}
-            {activeTab === 'book' && (
-              <BookSection onNavigateToCandidates={handleNavigateFromBookToCandidates} />
-            )}
+              {activeTab === 'book' ? <BookSection onNavigateToCandidates={handleNavigateFromBookToCandidates} /> : null}
 
-            {/* TAB 3: CANDIDATOS (General Catalog with Linking action) */}
-            {activeTab === 'candidates' && (
-              <CandidatesSection
-                initialFilter={candidateFilter}
-                selectedCandidateIds={generalSelectedCandidateIds}
-                onToggleCandidate={(id) => {
-                  setGeneralSelectedCandidateIds(prev => 
-                    prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-                  );
-                }}
-                onClearSelection={() => setGeneralSelectedCandidateIds([])}
-                onProceedToEvaluate={() => {
-                  const selectedCands = MOCK_CANDIDATES.filter(c => generalSelectedCandidateIds.includes(c.id));
-                  setEvaluatingSearchContext({
-                    searchName: "General Candidate Evaluation",
-                    candidates: selectedCands,
-                    vacancy: SAMPLE_VACANCIES[0]
-                  });
-                }}
-                busquedas={busquedas}
-                onLinkCandidatesToBusqueda={handleLinkCandidatesToBusqueda}
-                onRequestCreateBusqueda={() => setIsCreateBusquedaModalOpen(true)}
-              />
-            )}
-          </>
-        )}
+              {activeTab === 'candidates' ? (
+                <CandidatesSection
+                  initialFilter={candidateFilter}
+                  selectedCandidateIds={generalSelectedCandidateIds}
+                  onToggleCandidate={id => {
+                    setGeneralSelectedCandidateIds(prev => (prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]));
+                  }}
+                  onClearSelection={() => setGeneralSelectedCandidateIds([])}
+                  onProceedToEvaluate={() => {
+                    const selectedCands = generalSelectedCandidateIds.flatMap(id => CANDIDATE_BY_ID.get(id) ?? []);
+                    setEvaluatingSearchContext({
+                      searchName: 'Candidate evaluation',
+                      candidates: selectedCands,
+                      vacancy: SAMPLE_VACANCIES[0]
+                    });
+                    window.scrollTo({ top: 0 });
+                  }}
+                  busquedas={busquedas}
+                  onLinkCandidatesToBusqueda={handleLinkCandidatesToBusqueda}
+                  onRequestCreateBusqueda={() => setIsCreateBusquedaModalOpen(true)}
+                />
+              ) : null}
+            </>
+          )}
+        </Suspense>
       </main>
 
-      {/* Modal: Create Commercial Search */}
-      {isCreateBusquedaModalOpen && (
-        <CreateBusquedaModal
-          onClose={() => setIsCreateBusquedaModalOpen(false)}
-          onCreate={handleCreateBusqueda}
-          usuarioId={currentUser.id}
-        />
-      )}
+      <Suspense fallback={null}>
+        {isCreateBusquedaModalOpen ? (
+          <CreateBusquedaModal onClose={() => setIsCreateBusquedaModalOpen(false)} onCreate={handleCreateBusqueda} usuarioId={currentUser.id} />
+        ) : null}
 
-      {/* Global Candidate Detail Drawer / Modal */}
-      {activeCandidateDetail && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white border border-slate-200 rounded-2xl max-w-2xl w-full my-8 p-6 sm:p-8 shadow-xl max-h-[90vh] flex flex-col animate-in fade-in zoom-in-95 duration-150">
-            {/* Header */}
-            <div className="flex items-start justify-between pb-4 border-b border-slate-100">
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="font-mono font-bold text-xs text-[#007685] bg-[#007685]/10 px-2.5 py-0.5 rounded">
-                    {activeCandidateDetail.id}
-                  </span>
-                  <span className="text-xs text-slate-500 font-medium">
-                    {activeCandidateDetail.pais} · {activeCandidateDetail.modalidad}
-                  </span>
-                </div>
-                <h2 className="text-xl font-bold text-slate-900">
-                  {activeCandidateDetail.nombre}
-                </h2>
-              </div>
-              <button
-                onClick={() => setActiveCandidateDetail(null)}
-                className="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+        {activeCandidateDetail ? <CandidateDetailModal candidate={activeCandidateDetail} onClose={() => setActiveCandidateDetail(null)} /> : null}
 
-            {/* Scrollable Body */}
-            <div className="py-5 overflow-y-auto space-y-5 text-xs flex-1 pr-1">
-              <div>
-                <h3 className="text-slate-500 font-bold uppercase tracking-wider text-[11px] mb-1.5">
-                  Professional Summary
-                </h3>
-                <p className="text-slate-700 leading-relaxed bg-slate-50 p-3 rounded-xl border border-slate-200">
-                  {activeCandidateDetail.resumenProfesional}
-                </p>
-              </div>
+        {isPresentationMode ? (
+          <PresentationMode candidates={presentationCandidates} vacancy={presentationVacancy} onClose={() => setIsPresentationMode(false)} />
+        ) : null}
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                <div className="bg-[#F5F5F6] p-2.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-[10px]">Experience</span>
-                  <span className="font-bold text-slate-900">{activeCandidateDetail.experienciaTexto}</span>
-                </div>
-                <div className="bg-[#F5F5F6] p-2.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-[10px]">English Level</span>
-                  <span className="font-bold text-slate-900">{activeCandidateDetail.nivelIngles}</span>
-                </div>
-                <div className="bg-[#F5F5F6] p-2.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-[10px]">Location</span>
-                  <span className="font-bold text-slate-900">{activeCandidateDetail.pais}</span>
-                </div>
-                <div className="bg-[#F5F5F6] p-2.5 rounded-lg border border-slate-200">
-                  <span className="text-slate-500 block text-[10px]">Availability</span>
-                  <span className="font-bold text-slate-900">{activeCandidateDetail.disponibilidad}</span>
-                </div>
-              </div>
+        {isTourOpen ? (
+          <Tour
+            steps={TOUR_STEPS}
+            onNavigate={tab => {
+              if (activeTab !== tab || activeBusquedaId) setActiveTab(tab);
+            }}
+            onClose={() => setIsTourOpen(false)}
+          />
+        ) : null}
+      </Suspense>
 
-              {/* Skills */}
-              <div>
-                <h3 className="text-slate-500 font-bold uppercase tracking-wider text-[11px] mb-1.5">
-                  Skills & Competencies
-                </h3>
-                <div className="flex flex-wrap gap-1.5">
-                  {activeCandidateDetail.habilidades.map(h => (
-                    <span key={h} className="bg-slate-100 text-slate-700 px-2 py-0.5 rounded border border-slate-200">
-                      {h}
-                    </span>
-                  ))}
-                </div>
-              </div>
+      {isResetConfirmOpen ? (
+        <Modal
+          size="sm"
+          title="Reset demo data?"
+          description="This discards every change saved in this browser and reloads the sample searches. Export first if you want to keep them."
+          onClose={() => setIsResetConfirmOpen(false)}
+          footer={
+            <>
+              <Button variant="ghost" onClick={() => setIsResetConfirmOpen(false)}>
+                Keep my data
+              </Button>
+              <Button variant="primary" onClick={handleResetData}>
+                Reset demo data
+              </Button>
+            </>
+          }
+        >
+          <p className="text-ink-2">
+            You have {plural(busquedas.length, 'search', 'searches')} in this workspace
+            {savedAt ? `, last saved ${relativeTime(savedAt)}` : ''}.
+          </p>
+        </Modal>
+      ) : null}
 
-              {/* Trajectory */}
-              <div>
-                <h3 className="text-slate-500 font-bold uppercase tracking-wider text-[11px] mb-1.5">
-                  Recent Career History
-                </h3>
-                <div className="space-y-2">
-                  {activeCandidateDetail.trayectoria.map((exp, idx) => (
-                    <div key={idx} className="p-3 rounded-lg border border-slate-200 bg-white">
-                      <div className="flex items-center justify-between font-semibold text-slate-800">
-                        <span>{exp.cargo}</span>
-                        <span className="text-slate-400 font-normal">{exp.duracion}</span>
-                      </div>
-                      <div className="text-slate-500 text-[11px]">{exp.sectorEmpresa}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+      <Toast message={toast} onDismiss={dismissToast} />
 
-            {/* Footer */}
-            <div className="pt-4 border-t border-slate-100 flex items-center justify-end">
-              <button
-                onClick={() => setActiveCandidateDetail(null)}
-                className="px-4 py-2 font-semibold text-slate-700 hover:bg-slate-100 rounded-lg text-xs"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Client Confidential Presentation Overlay */}
-      {isPresentationMode && (
-        <PresentationMode
-          candidates={presentationCandidates}
-          vacancy={presentationVacancy}
-          onClose={() => setIsPresentationMode(false)}
-        />
-      )}
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-slate-200 py-4 px-6 text-center text-xs text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-slate-800">Talent Book</span>
-            <span>·</span>
-            <span>Internal commercial sales tool</span>
-            <span>·</span>
-            <span className="text-slate-400">Ready for .NET backend on Azure</span>
-          </div>
-          <div className="text-[11px] text-slate-400">
-            ATS integration with CEIPAL and compatibility assessment simulated for commercial validation.
-          </div>
+      <footer className="border-t border-rule bg-surface px-4 py-4 text-xs text-ink-3 sm:px-6">
+        <div className="mx-auto flex max-w-7xl flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            <span className="font-semibold text-ink-2" translate="no">
+              Talent Book
+            </span>{' '}
+            functional mockup with sample data. Candidates and clients are fictional; the CEIPAL integration is simulated.
+          </span>
+          <span aria-live="polite">{savedAt ? `Saved in this browser ${relativeTime(savedAt)}` : 'Changes are saved in this browser'}</span>
         </div>
       </footer>
     </div>

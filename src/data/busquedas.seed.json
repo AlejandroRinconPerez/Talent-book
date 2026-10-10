@@ -1,0 +1,291 @@
+[
+  {
+    "id": "BUSQ-101",
+    "usuarioId": "USR-001",
+    "nombre": "Senior Frontend Developer, React & TypeScript",
+    "clienteEmpresa": "Fintech Global Bank",
+    "descripcion": "Professional with 4+ years of experience in modern web development using React, TypeScript and Tailwind CSS for a high-concurrency banking platform. 100% remote, overlap with US Eastern hours.",
+    "perfilBookId": "perfil-tec-fe01",
+    "perfilNombre": "Frontend Developer (React / TypeScript)",
+    "fechaCreacion": "2026-10-02",
+    "estado": "abierta",
+    "actualizadoEn": "2026-10-09T15:20:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 4,
+      "nivelInglesMinimo": "B2",
+      "modalidad": "Remote",
+      "ubicacionRequerida": "LATAM (any)",
+      "habilidadesIndispensables": ["React", "TypeScript", "Tailwind CSS"],
+      "habilidadesDeseables": ["Next.js", "Docker", "Jest", "GraphQL"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-8821", "fechaVinculacion": "2026-10-03", "estadoCeipal": "cargado", "serviceOrderId": "SO-99214", "fechaCargaCeipal": "2026-10-04", "etapa": "entrevista" },
+      { "candidatoId": "CAN-5401", "fechaVinculacion": "2026-10-03", "estadoCeipal": "cargado", "serviceOrderId": "SO-99214", "fechaCargaCeipal": "2026-10-04", "etapa": "presentado" },
+      { "candidatoId": "CAN-4432", "fechaVinculacion": "2026-10-03", "estadoCeipal": "no_cargado", "etapa": "shortlist" },
+      { "candidatoId": "CAN-3771", "fechaVinculacion": "2026-10-08", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-09T15:20:00Z", "tipo": "etapa_cambiada", "detalle": "Sofia Ramirez moved to Interviewing after the client's technical screen." },
+      { "fecha": "2026-10-08T13:05:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 1 candidate from the pool." },
+      { "fecha": "2026-10-06T19:40:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates on the weekly call with Fintech Global Bank." },
+      { "fecha": "2026-10-04T16:10:00Z", "tipo": "exportado_ceipal", "detalle": "Exported 2 candidates to service order SO-99214." },
+      { "fecha": "2026-10-03T14:30:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 3 candidates from the pool." },
+      { "fecha": "2026-10-02T09:12:00Z", "tipo": "creada", "detalle": "Created for Fintech Global Bank." }
+    ]
+  },
+  {
+    "id": "BUSQ-102",
+    "usuarioId": "USR-001",
+    "nombre": "Bilingual Executive Assistant to Regional VP",
+    "clienteEmpresa": "Nexus Corp Latin America",
+    "descripcion": "Direct executive support for the Regional VP: global calendar control, executive meeting coordination, minute drafting and complex travel planning in fluent English.",
+    "perfilBookId": "perfil-6bd3e7ebb76c",
+    "perfilNombre": "Executive Administrative Assistant",
+    "fechaCreacion": "2026-09-24",
+    "estado": "en_proceso",
+    "actualizadoEn": "2026-10-08T21:02:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 3,
+      "nivelInglesMinimo": "C1",
+      "modalidad": "Hybrid",
+      "ubicacionRequerida": "Bogotá, Colombia",
+      "habilidadesIndispensables": ["calendar management", "travel coordination", "executive support"],
+      "habilidadesDeseables": ["Microsoft Office", "business writing", "confidentiality"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-9348", "fechaVinculacion": "2026-09-25", "estadoCeipal": "cargado", "serviceOrderId": "SO-77405", "fechaCargaCeipal": "2026-09-26", "etapa": "entrevista" },
+      { "candidatoId": "CAN-2041", "fechaVinculacion": "2026-09-25", "estadoCeipal": "cargado", "serviceOrderId": "SO-77405", "fechaCargaCeipal": "2026-09-26", "etapa": "presentado" },
+      { "candidatoId": "CAN-1397", "fechaVinculacion": "2026-10-01", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-08T21:02:00Z", "tipo": "estado_cambiado", "detalle": "Status changed to In progress: client interviewing 1 candidate." },
+      { "fecha": "2026-10-01T15:48:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 1 candidate from the pool." },
+      { "fecha": "2026-09-29T17:30:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates to the VP's chief of staff." },
+      { "fecha": "2026-09-26T14:00:00Z", "tipo": "exportado_ceipal", "detalle": "Exported 2 candidates to service order SO-77405." },
+      { "fecha": "2026-09-25T10:20:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-09-24T08:55:00Z", "tipo": "creada", "detalle": "Created for Nexus Corp Latin America." }
+    ]
+  },
+  {
+    "id": "BUSQ-103",
+    "usuarioId": "USR-001",
+    "nombre": "Collections & Portfolio Recovery Analyst",
+    "clienteEmpresa": "Andean Retail Corp",
+    "descripcion": "Early-stage and write-off portfolio management, client outbound calls and payment reconciliation in an enterprise ERP. On-site team in Lima with a US-based collections lead.",
+    "perfilBookId": "perfil-bfb2b7171d63",
+    "perfilNombre": "Collections Specialist (AR Monitoring)",
+    "fechaCreacion": "2026-09-18",
+    "estado": "en_proceso",
+    "actualizadoEn": "2026-10-07T18:15:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 2,
+      "nivelInglesMinimo": "B1",
+      "modalidad": "On-site",
+      "ubicacionRequerida": "Lima, Peru",
+      "habilidadesIndispensables": ["phone collections", "portfolio management", "negotiation"],
+      "habilidadesDeseables": ["Intermediate Excel", "SAP", "customer service"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-6321", "fechaVinculacion": "2026-09-19", "estadoCeipal": "cargado", "serviceOrderId": "SO-88301", "fechaCargaCeipal": "2026-09-20", "etapa": "oferta" },
+      { "candidatoId": "CAN-4155", "fechaVinculacion": "2026-09-19", "estadoCeipal": "cargado", "serviceOrderId": "SO-88301", "fechaCargaCeipal": "2026-09-20", "etapa": "presentado" },
+      { "candidatoId": "CAN-8416", "fechaVinculacion": "2026-09-30", "estadoCeipal": "no_cargado", "etapa": "shortlist" },
+      { "candidatoId": "CAN-6571", "fechaVinculacion": "2026-09-30", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-07T18:15:00Z", "tipo": "etapa_cambiada", "detalle": "One candidate moved to Offer; client preparing the proposal." },
+      { "fecha": "2026-09-30T13:25:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 backup candidates from the pool." },
+      { "fecha": "2026-09-23T16:00:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates to the collections director." },
+      { "fecha": "2026-09-20T11:40:00Z", "tipo": "exportado_ceipal", "detalle": "Exported 2 candidates to service order SO-88301." },
+      { "fecha": "2026-09-19T09:30:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-09-18T15:05:00Z", "tipo": "creada", "detalle": "Created for Andean Retail Corp." }
+    ]
+  },
+  {
+    "id": "BUSQ-104",
+    "usuarioId": "USR-001",
+    "nombre": "Medical Biller & Coder, 3 seats",
+    "clienteEmpresa": "Sunrise Health Partners",
+    "descripcion": "Three bilingual billers for a multi-specialty clinic group in Florida: claim submission, denial follow-up and payer calls. Remote, Eastern schedule, HIPAA training provided.",
+    "perfilBookId": "perfil-16cc9f28e362",
+    "perfilNombre": "Medical Biller & Coder",
+    "fechaCreacion": "2026-10-06",
+    "estado": "abierta",
+    "actualizadoEn": "2026-10-09T20:45:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 2,
+      "nivelInglesMinimo": "B2",
+      "modalidad": "Remote",
+      "ubicacionRequerida": "Colombia, Honduras, El Salvador",
+      "habilidadesIndispensables": ["medical billing", "claims", "ICD-10 / CPT coding"],
+      "habilidadesDeseables": ["denial management", "EHR", "payer communication"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-2750", "fechaVinculacion": "2026-10-07", "estadoCeipal": "no_cargado", "etapa": "presentado" },
+      { "candidatoId": "CAN-7459", "fechaVinculacion": "2026-10-07", "estadoCeipal": "no_cargado", "etapa": "presentado" },
+      { "candidatoId": "CAN-5284", "fechaVinculacion": "2026-10-07", "estadoCeipal": "no_cargado", "etapa": "shortlist" },
+      { "candidatoId": "CAN-1850", "fechaVinculacion": "2026-10-09", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-09T20:45:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 1 candidate from the pool." },
+      { "fecha": "2026-10-08T15:30:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates on the kickoff call." },
+      { "fecha": "2026-10-07T10:15:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 3 candidates from the Book profile." },
+      { "fecha": "2026-10-06T14:00:00Z", "tipo": "creada", "detalle": "Created for Sunrise Health Partners." }
+    ]
+  },
+  {
+    "id": "BUSQ-105",
+    "usuarioId": "USR-001",
+    "nombre": "Backend Developer, Node.js",
+    "clienteEmpresa": "Southern Logistics Operations",
+    "descripcion": "Node.js engineer for the shipment-tracking platform: REST APIs, PostgreSQL and Docker. Remote within LATAM, Central time overlap.",
+    "perfilBookId": "perfil-tec-be02",
+    "perfilNombre": "Backend Developer (Node.js / Python)",
+    "fechaCreacion": "2026-09-02",
+    "estado": "cerrada",
+    "actualizadoEn": "2026-10-01T16:30:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 4,
+      "nivelInglesMinimo": "B2",
+      "modalidad": "Remote",
+      "ubicacionRequerida": "LATAM (any)",
+      "habilidadesIndispensables": ["Node.js", "PostgreSQL", "REST APIs"],
+      "habilidadesDeseables": ["Docker", "AWS", "TypeScript"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-3719", "fechaVinculacion": "2026-09-03", "estadoCeipal": "cargado", "serviceOrderId": "SO-12003", "fechaCargaCeipal": "2026-09-04", "etapa": "oferta" },
+      { "candidatoId": "CAN-8102", "fechaVinculacion": "2026-09-03", "estadoCeipal": "cargado", "serviceOrderId": "SO-12003", "fechaCargaCeipal": "2026-09-04", "etapa": "descartado" },
+      { "candidatoId": "CAN-6436", "fechaVinculacion": "2026-09-10", "estadoCeipal": "no_cargado", "etapa": "descartado" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-01T16:30:00Z", "tipo": "estado_cambiado", "detalle": "Status changed to Closed: offer accepted, start date Oct 20." },
+      { "fecha": "2026-09-26T18:10:00Z", "tipo": "etapa_cambiada", "detalle": "One candidate moved to Offer." },
+      { "fecha": "2026-09-15T14:40:00Z", "tipo": "etapa_cambiada", "detalle": "Two candidates declined after the technical interview." },
+      { "fecha": "2026-09-10T11:00:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 1 candidate from the pool." },
+      { "fecha": "2026-09-08T17:20:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates to the engineering manager." },
+      { "fecha": "2026-09-04T13:05:00Z", "tipo": "exportado_ceipal", "detalle": "Exported 2 candidates to service order SO-12003." },
+      { "fecha": "2026-09-03T09:45:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-09-02T08:30:00Z", "tipo": "creada", "detalle": "Created for Southern Logistics Operations." }
+    ]
+  },
+  {
+    "id": "BUSQ-106",
+    "usuarioId": "USR-001",
+    "nombre": "B2B Customer Success Manager",
+    "clienteEmpresa": "Northwind Software",
+    "descripcion": "Owns a book of 40 mid-market SaaS accounts: onboarding, QBRs, renewals and expansion. Remote, Pacific hours, C1 English.",
+    "perfilBookId": "perfil-ser-csm01",
+    "perfilNombre": "B2B Customer Success Manager (CSM)",
+    "fechaCreacion": "2026-10-08",
+    "estado": "abierta",
+    "actualizadoEn": "2026-10-09T13:10:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 3,
+      "nivelInglesMinimo": "C1",
+      "modalidad": "Remote",
+      "ubicacionRequerida": "Mexico, Colombia, Costa Rica",
+      "habilidadesIndispensables": ["account management", "customer success", "renewals"],
+      "habilidadesDeseables": ["HubSpot", "Gainsight", "QBR facilitation"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-1644", "fechaVinculacion": "2026-10-09", "estadoCeipal": "no_cargado", "etapa": "shortlist" },
+      { "candidatoId": "CAN-6420", "fechaVinculacion": "2026-10-09", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-09T13:10:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-10-08T16:25:00Z", "tipo": "creada", "detalle": "Created for Northwind Software." }
+    ]
+  },
+  {
+    "id": "BUSQ-107",
+    "usuarioId": "USR-001",
+    "nombre": "Legal Collections Specialist",
+    "clienteEmpresa": "Meridian Credit Services",
+    "descripcion": "Pre-litigation collections for a US consumer lender: demand letters, settlement negotiation and attorney coordination. Remote, Central hours.",
+    "perfilBookId": "perfil-ba5ef09e09a4",
+    "perfilNombre": "Legal Collections Specialist",
+    "fechaCreacion": "2026-10-05",
+    "estado": "abierta",
+    "actualizadoEn": "2026-10-07T22:05:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 2,
+      "nivelInglesMinimo": "B2",
+      "modalidad": "Remote",
+      "ubicacionRequerida": "LATAM (any)",
+      "habilidadesIndispensables": ["legal collections", "negotiation", "demand letters"],
+      "habilidadesDeseables": ["FDCPA", "settlement structuring", "CRM"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-9715", "fechaVinculacion": "2026-10-06", "estadoCeipal": "no_cargado", "etapa": "shortlist" },
+      { "candidatoId": "CAN-2219", "fechaVinculacion": "2026-10-06", "estadoCeipal": "no_cargado", "etapa": "shortlist" },
+      { "candidatoId": "CAN-4288", "fechaVinculacion": "2026-10-07", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-07T22:05:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 1 candidate from the pool." },
+      { "fecha": "2026-10-06T12:50:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-10-05T10:00:00Z", "tipo": "creada", "detalle": "Created for Meridian Credit Services." }
+    ]
+  },
+  {
+    "id": "BUSQ-108",
+    "usuarioId": "USR-001",
+    "nombre": "Data & BI Analyst, Power BI",
+    "clienteEmpresa": "Harbor Retail Group",
+    "descripcion": "Builds and maintains the executive sales dashboards in Power BI and writes analytical SQL against the data warehouse. Hybrid in Mexico City, two days on site.",
+    "perfilBookId": "perfil-tec-bi04",
+    "perfilNombre": "Data & BI Analyst (SQL / Power BI)",
+    "fechaCreacion": "2026-09-29",
+    "estado": "en_proceso",
+    "actualizadoEn": "2026-10-08T17:35:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 3,
+      "nivelInglesMinimo": "B2",
+      "modalidad": "Hybrid",
+      "ubicacionRequerida": "Mexico City, Mexico",
+      "habilidadesIndispensables": ["Advanced SQL", "Power BI / DAX", "Data Modeling"],
+      "habilidadesDeseables": ["Python for Analytics", "Data Storytelling"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-3388", "fechaVinculacion": "2026-09-30", "estadoCeipal": "no_cargado", "etapa": "entrevista" },
+      { "candidatoId": "CAN-1607", "fechaVinculacion": "2026-09-30", "estadoCeipal": "no_cargado", "etapa": "presentado" },
+      { "candidatoId": "CAN-8491", "fechaVinculacion": "2026-10-05", "estadoCeipal": "no_cargado", "etapa": "shortlist" }
+    ],
+    "actividad": [
+      { "fecha": "2026-10-08T17:35:00Z", "tipo": "etapa_cambiada", "detalle": "One candidate moved to Interviewing." },
+      { "fecha": "2026-10-05T19:20:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 1 candidate from the pool." },
+      { "fecha": "2026-10-02T15:00:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates to the BI lead." },
+      { "fecha": "2026-09-30T09:10:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-09-29T11:45:00Z", "tipo": "creada", "detalle": "Created for Harbor Retail Group." }
+    ]
+  },
+  {
+    "id": "BUSQ-109",
+    "usuarioId": "USR-001",
+    "nombre": "Executive Assistant to CEO",
+    "clienteEmpresa": "Atlas Capital Partners",
+    "descripcion": "C-level executive assistant for an investment firm: board materials, investor communications and calendar for the CEO. Remote, Eastern hours.",
+    "perfilBookId": "perfil-fc28c222709e",
+    "perfilNombre": "Executive Assistant (C-Level & Reporting)",
+    "fechaCreacion": "2026-09-08",
+    "estado": "cerrada",
+    "actualizadoEn": "2026-09-30T14:20:00Z",
+    "requisitos": {
+      "experienciaMinimaAnos": 5,
+      "nivelInglesMinimo": "C1",
+      "modalidad": "Remote",
+      "ubicacionRequerida": "LATAM (any)",
+      "habilidadesIndispensables": ["executive support", "board materials", "calendar management"],
+      "habilidadesDeseables": ["investor relations", "PowerPoint", "confidentiality"]
+    },
+    "candidatosVinculados": [
+      { "candidatoId": "CAN-7765", "fechaVinculacion": "2026-09-09", "estadoCeipal": "no_cargado", "etapa": "oferta" },
+      { "candidatoId": "CAN-1265", "fechaVinculacion": "2026-09-09", "estadoCeipal": "no_cargado", "etapa": "descartado" }
+    ],
+    "actividad": [
+      { "fecha": "2026-09-30T14:20:00Z", "tipo": "estado_cambiado", "detalle": "Status changed to Closed: offer accepted." },
+      { "fecha": "2026-09-22T16:00:00Z", "tipo": "etapa_cambiada", "detalle": "One candidate moved to Offer." },
+      { "fecha": "2026-09-12T15:30:00Z", "tipo": "presentada", "detalle": "Presented 2 candidates to the CEO's chief of staff." },
+      { "fecha": "2026-09-09T10:05:00Z", "tipo": "candidatos_vinculados", "detalle": "Linked 2 candidates from the Book profile." },
+      { "fecha": "2026-09-08T09:00:00Z", "tipo": "creada", "detalle": "Created for Atlas Capital Partners." }
+    ]
+  }
+]

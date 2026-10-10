@@ -1,0 +1,1742 @@
+[
+  {
+    "id": "FAM-ADM",
+    "nombre": "Administration",
+    "descripcionBreve": "Executive support, records management, virtual assistance, office operations, and personnel administration.",
+    "especialidades": [
+      {
+        "nombre": "Personnel Administration",
+        "perfiles": [
+          {
+            "id": "perfil-d079285b516c",
+            "nombre": "HR Administrator",
+            "familia": "Administration",
+            "especialidad": "Personnel Administration",
+            "descripcion": "Manages onboarding and separation documentation, organizes personnel files, supports compliance audits, and executes administrative verification workflows.",
+            "criteriosInclusion": [
+              "Experience in personnel administration",
+              "Employee file management",
+              "Employment documentation",
+              "Verifications and compliance support"
+            ],
+            "criteriosExclusion": [
+              "Does not include full talent acquisition",
+              "Payroll as a primary function",
+              "Strategic labor relations or organizational design"
+            ],
+            "habilidades": [
+              "HR administration",
+              "personnel documentation",
+              "compliance",
+              "onboarding",
+              "file management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7470"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Administrative Assistance",
+        "perfiles": [
+          {
+            "id": "perfil-63c5a7bde270",
+            "nombre": "Administrative Assistant",
+            "familia": "Administration",
+            "especialidad": "Administrative Assistance",
+            "descripcion": "Provides general administrative support through task organization, document handling, business correspondence, record updates, and basic reporting. Coordinates office processes.",
+            "criteriosInclusion": [
+              "Experience in general administrative support",
+              "Document and report management",
+              "Data and file filing",
+              "Schedule coordination or office support"
+            ],
+            "criteriosExclusion": [
+              "Does not include operational supervision",
+              "High-level executive assistance",
+              "Specialized intake coordination"
+            ],
+            "habilidades": [
+              "administrative support",
+              "organization",
+              "communication",
+              "business writing",
+              "Microsoft Office"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1339",
+              "JPC - 2838",
+              "JPC - 3514",
+              "JPC - 3919",
+              "JPC - 7096",
+              "JPC - 7565"
+            ]
+          },
+          {
+            "id": "perfil-476461bbbcf9",
+            "nombre": "Administrative Assistant (Reconciliation & Data)",
+            "familia": "Administration",
+            "especialidad": "Administrative Assistance",
+            "descripcion": "Provides administrative and operational support through data entry and cross-system reconciliation, calendar coordination, document management, and ad hoc assistance.",
+            "criteriosInclusion": [
+              "Experience in general administrative assistance",
+              "Data entry",
+              "Cross-system reconciliation",
+              "Calendar and operational support"
+            ],
+            "criteriosExclusion": [
+              "Does not include specialized recruiting roles",
+              "Shift scheduling or benefits administration",
+              "Pure sales or finance positions"
+            ],
+            "habilidades": [
+              "data entry",
+              "reconciliation",
+              "calendar management",
+              "document handling",
+              "confidentiality"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1344",
+              "JPC - 7786",
+              "JPC - 7808"
+            ]
+          },
+          {
+            "id": "perfil-abea9acb662a",
+            "nombre": "Virtual Assistant",
+            "familia": "Administration",
+            "especialidad": "Administrative Assistance",
+            "descripcion": "Provides flexible administrative and operational support, updating records and enterprise systems, tracking action items, managing documents, and communicating with vendors.",
+            "criteriosInclusion": [
+              "Experience in operational and administrative support",
+              "Data and system updates",
+              "Task tracking and action item documentation"
+            ],
+            "criteriosExclusion": [
+              "Does not include executive calendar management",
+              "Collections",
+              "Compliance or legal case handling"
+            ],
+            "habilidades": [
+              "data entry",
+              "attention to detail",
+              "problem solving",
+              "organization",
+              "written communication"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6569"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Executive Assistance",
+        "perfiles": [
+          {
+            "id": "perfil-6bd3e7ebb76c",
+            "nombre": "Executive Administrative Assistant",
+            "familia": "Administration",
+            "especialidad": "Executive Assistance",
+            "descripcion": "Provides administrative support to senior leadership through calendar orchestration, meeting and travel logistics, document preparation, and expense tracking.",
+            "criteriosInclusion": [
+              "Administrative support centered on executive calendars",
+              "Board meetings and leadership documentation"
+            ],
+            "criteriosExclusion": [
+              "Does not include general accounting",
+              "Reception desk or domestic personal assistance"
+            ],
+            "habilidades": [
+              "calendar management",
+              "travel coordination",
+              "executive reports",
+              "document management",
+              "budget tracking",
+              "executive support"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1725",
+              "JPC - 3880",
+              "JPC - 6359",
+              "JPC - 6977",
+              "JPC - 7193"
+            ]
+          },
+          {
+            "id": "perfil-6198c2745b44",
+            "nombre": "Executive Assistant",
+            "familia": "Administration",
+            "especialidad": "Executive Assistance",
+            "descripcion": "Executive support profile focused on executive schedules, email management, board meetings, briefings, and administrative follow-up controls.",
+            "criteriosInclusion": [
+              "Senior executive support and continuous administrative coordination"
+            ],
+            "criteriosExclusion": [
+              "Does not include financial analysis or direct team management"
+            ],
+            "habilidades": [
+              "calendar management",
+              "professional drafting",
+              "task tracking",
+              "digital archiving",
+              "invoice processing",
+              "CRM management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1674",
+              "JPC - 1832",
+              "JPC - 2005",
+              "JPC - 2047",
+              "JPC - 2334",
+              "JPC - 7536"
+            ]
+          },
+          {
+            "id": "perfil-252de5f2f038",
+            "nombre": "Executive Assistant (Executive Teams)",
+            "familia": "Administration",
+            "especialidad": "Executive Assistance",
+            "descripcion": "Provides end-to-end administrative support to executive teams through calendar scheduling, international travel itineraries, board presentation prep, and event coordination.",
+            "criteriosInclusion": [
+              "Experience coordinating schedules, executive meetings, travel, presentations, and executive summaries"
+            ],
+            "criteriosExclusion": [
+              "Does not include general clerical administration",
+              "Collections, compliance, or case management functions"
+            ],
+            "habilidades": [
+              "calendar management",
+              "meeting coordination",
+              "presentation drafting",
+              "organization",
+              "confidentiality"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 5839",
+              "JPC - 7309"
+            ]
+          },
+          {
+            "id": "perfil-fc28c222709e",
+            "nombre": "Executive Assistant (C-Level & Reporting)",
+            "familia": "Administration",
+            "especialidad": "Executive Assistance",
+            "descripcion": "Delivers C-level executive support by managing executive schedules, meeting coordination, international travel logistics, and drafting executive briefing memos.",
+            "criteriosInclusion": [
+              "Experience in executive support",
+              "Schedule orchestration",
+              "Report or presentation preparation and meeting action items"
+            ],
+            "criteriosExclusion": [
+              "Does not include appointment reception or clinic intake",
+              "General clerical support without direct executive exposure"
+            ],
+            "habilidades": [
+              "calendar management",
+              "meeting coordination",
+              "executive presentations",
+              "business communication",
+              "confidentiality"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7347"
+            ]
+          },
+          {
+            "id": "perfil-e4ef1a20a550",
+            "nombre": "Executive Assistant (Operations & Leadership)",
+            "familia": "Administration",
+            "especialidad": "Executive Assistance",
+            "descripcion": "Manages executive schedules, operational priorities, and cross-departmental coordination, directly supporting executive leadership across administrative and commercial workflows.",
+            "criteriosInclusion": [
+              "Experience providing direct executive support with calendar management, task follow-up, and project tracking"
+            ],
+            "criteriosExclusion": [
+              "Does not include general office clerical roles without leadership exposure"
+            ],
+            "habilidades": [
+              "organization",
+              "attention to detail",
+              "priority management",
+              "executive communication",
+              "administrative coordination"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7421",
+              "JPC - 7846"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Executive & HR Assistance",
+        "perfiles": [
+          {
+            "id": "perfil-4be0b45d0fbc",
+            "nombre": "Executive & HR Assistant",
+            "familia": "Administration",
+            "especialidad": "Executive & HR Assistance",
+            "descripcion": "Supports fundamental human resources tasks and documentation, combined with executive calendar coordination, meetings, travel, and task follow-ups.",
+            "criteriosInclusion": [
+              "Experience in HR administrative support combined with calendar and travel coordination"
+            ],
+            "criteriosExclusion": [
+              "Does not include full-cycle recruiting, payroll processing, or senior HR generalist roles"
+            ],
+            "habilidades": [
+              "organization",
+              "executive assistance",
+              "CRM tools",
+              "Asana",
+              "written and verbal communication"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2450"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Benefits & Compensation",
+        "perfiles": [
+          {
+            "id": "perfil-b84ed6a4a0d1",
+            "nombre": "Benefits Specialist (Operational Support)",
+            "familia": "Administration",
+            "especialidad": "Benefits & Compensation",
+            "descripcion": "Administers employee benefits plans, answering employee inquiries, processing eligibility changes, qualifying life events, and open enrollment operational tasks.",
+            "criteriosInclusion": [
+              "Operational support and inquiry resolution regarding employee benefits"
+            ],
+            "criteriosExclusion": [
+              "Does not include plan design or strategic executive compensation"
+            ],
+            "habilidades": [
+              "benefits administration",
+              "customer service",
+              "database maintenance",
+              "case management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2662",
+              "JPC - 2679",
+              "JPC - 2680"
+            ]
+          },
+          {
+            "id": "perfil-e94a06d08780",
+            "nombre": "Benefits Specialist (Regulatory & Compliance)",
+            "familia": "Administration",
+            "especialidad": "Benefits & Compensation",
+            "descripcion": "Manages operational benefits administration, enrollments, status changes, terminations, employee inquiries, issue escalation, and documentation compliance.",
+            "criteriosInclusion": [
+              "Profiles administering benefits, resolving inquiries, and auditing plan compliance"
+            ],
+            "criteriosExclusion": [
+              "Does not include payroll processing, compensation modeling, or general auditing"
+            ],
+            "habilidades": [
+              "benefits administration",
+              "COBRA",
+              "open enrollment",
+              "benefits compliance",
+              "document management",
+              "Microsoft Office"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2457",
+              "JPC - 3701",
+              "JPC - 7689"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Back Office & Data",
+        "perfiles": [
+          {
+            "id": "perfil-8e5cd4ab877a",
+            "nombre": "Administrative Assistant (Back Office Projects)",
+            "familia": "Administration",
+            "especialidad": "Back Office & Data",
+            "descripcion": "Delivers back-office administrative support, reviewing, organizing, and maintaining documentation and data records associated with internal processes and project milestones.",
+            "criteriosInclusion": [
+              "Experience in back-office documentation, project workflow handling, and file coordination"
+            ],
+            "criteriosExclusion": [
+              "Does not include front-office customer service or technical drafting"
+            ],
+            "habilidades": [
+              "administrative support",
+              "data accuracy",
+              "project documentation",
+              "Google Workspace",
+              "basic CAD"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 3883"
+            ]
+          },
+          {
+            "id": "perfil-a56216a8466c",
+            "nombre": "Records & Docket Specialist (Digital Platforms)",
+            "familia": "Administration",
+            "especialidad": "Back Office & Data",
+            "descripcion": "Manages digital records and administrative filings across online portals, including preparation, review, submission, and electronic tracking.",
+            "criteriosInclusion": [
+              "Experience in digital docket management, file auditing, and electronic platform submissions"
+            ],
+            "criteriosExclusion": [
+              "Does not include physical archive clerks or substantive legal attorneys"
+            ],
+            "habilidades": [
+              "document management",
+              "electronic filing",
+              "digital certificates",
+              "attention to detail",
+              "data entry"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 3979"
+            ]
+          },
+          {
+            "id": "perfil-b271f39da6f5",
+            "nombre": "Data & Operations Support Assistant",
+            "familia": "Administration",
+            "especialidad": "Back Office & Data",
+            "descripcion": "Inputs, updates, and audits administrative and customer records, supporting daily operations with clerical tasks and core business communications.",
+            "criteriosInclusion": [
+              "Experience in data entry and record maintenance with daily administrative support"
+            ],
+            "criteriosExclusion": [
+              "Does not include complex business intelligence analytics or high-stakes sales"
+            ],
+            "habilidades": [
+              "data entry",
+              "organization",
+              "attention to detail",
+              "English communication",
+              "administrative support"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7529"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-COB",
+    "nombre": "Collections & Accounts Receivable",
+    "descripcionBreve": "Delinquent debt recovery, early and late-stage delinquency management, legal collections, skip tracing, and call auditing.",
+    "especialidades": [
+      {
+        "nombre": "Collections & Portfolio",
+        "perfiles": [
+          {
+            "id": "perfil-fcea51205c0c",
+            "nombre": "Collections Analyst (Skip Tracing)",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Collections & Portfolio",
+            "descripcion": "Executes account data ingestion, scrubbing, and reconciliation, supporting outbound recovery workflows and contact location via skip tracing.",
+            "criteriosInclusion": [
+              "Experience combining data management with collections support, data cleansing, and skip tracing"
+            ],
+            "criteriosExclusion": [
+              "Does not include general financial analysts or general ledger accountants"
+            ],
+            "habilidades": [
+              "Excel",
+              "data scrubbing",
+              "data management",
+              "skip tracing",
+              "collections support"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 4992"
+            ]
+          },
+          {
+            "id": "perfil-0864edcef9ea",
+            "nombre": "Collections Specialist (Negotiation)",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Collections & Portfolio",
+            "descripcion": "Focuses on past-due account outreach, structured payment plan negotiations, and rigorous logging of interactions and payment commitments.",
+            "criteriosInclusion": [
+              "Experience in debt recovery, delinquency tracking, and payment agreement negotiation"
+            ],
+            "criteriosExclusion": [
+              "Does not include cashiers, general ledger accounting, or financial analysis"
+            ],
+            "habilidades": [
+              "collections",
+              "accounts receivable",
+              "payment negotiation",
+              "documentation",
+              "customer communications"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 4336"
+            ]
+          },
+          {
+            "id": "perfil-bfb2b7171d63",
+            "nombre": "Collections Specialist (AR Monitoring)",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Collections & Portfolio",
+            "descripcion": "Monitors accounts receivable aging, contacts accounts for payment resolution, addresses billing disputes, and logs collections activity.",
+            "criteriosInclusion": [
+              "Experience managing accounts receivable aging, proactive outreach, and audit tracking"
+            ],
+            "criteriosExclusion": [
+              "Does not include general operational accounting or external audit"
+            ],
+            "habilidades": [
+              "collections",
+              "negotiation",
+              "customer service",
+              "Microsoft Office",
+              "payment tracking"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1458",
+              "JPC - 3251"
+            ]
+          },
+          {
+            "id": "perfil-cdcc53aee072",
+            "nombre": "Collections & Dispute Specialist",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Collections & Portfolio",
+            "descripcion": "Manages accounts receivable balances, investigates charge disputes, short pays, and unapplied cash, liaising with third parties to resolve billing issues.",
+            "criteriosInclusion": [
+              "Experience in accounts receivable collections, dispute research, and invoice reconciliation"
+            ],
+            "criteriosExclusion": [
+              "Does not include general billing clerks or executive assistants"
+            ],
+            "habilidades": [
+              "account tracking",
+              "dispute resolution",
+              "statement analysis",
+              "third-party communication"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7820"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Legal & Pre-Litigation Collections",
+        "perfiles": [
+          {
+            "id": "perfil-ba5ef09e09a4",
+            "nombre": "Legal Collections Specialist",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Legal & Pre-Litigation Collections",
+            "descripcion": "Manages delinquent accounts approaching legal action, contacts debtor parties, and enforces payment workflows adhering to legal debt collection standards.",
+            "criteriosInclusion": [
+              "Collections and delinquent account management with formal legal record-keeping"
+            ],
+            "criteriosExclusion": [
+              "Invoicing, general accounting reconciliations, or sales"
+            ],
+            "habilidades": [
+              "collections",
+              "skip tracing",
+              "account management",
+              "documentation",
+              "compliance"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2067",
+              "JPC - 2331",
+              "JPC - 7521"
+            ]
+          },
+          {
+            "id": "perfil-6e8b90d8b24a",
+            "nombre": "Legal Collections Support Assistant",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Legal & Pre-Litigation Collections",
+            "descripcion": "Delivers administrative and clerical support for collections attorneys and paralegals, organizing dockets, scheduling hearings, handling formal notices, and monitoring case progression.",
+            "criteriosInclusion": [
+              "Experience in legal administrative support in debt recovery"
+            ],
+            "criteriosExclusion": [
+              "Does not include senior procedural trial litigation paralegals"
+            ],
+            "habilidades": [
+              "communication",
+              "document organization",
+              "calendar management",
+              "drafting",
+              "attention to detail"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 4121",
+              "JPC - 6855"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Collections Quality & Auditing",
+        "perfiles": [
+          {
+            "id": "perfil-ae2904245cf2",
+            "nombre": "Quality Specialist (Call Auditing)",
+            "familia": "Collections & Accounts Receivable",
+            "especialidad": "Collections Quality & Auditing",
+            "descripcion": "Audits outbound and inbound calls for regulatory compliance, client quality benchmarks, and policy adherence, compiling coaching reports.",
+            "criteriosInclusion": [
+              "Experience in call auditing, quality monitoring, and scoring reports"
+            ],
+            "criteriosExclusion": [
+              "Does not include software QA testing or non-call audits"
+            ],
+            "habilidades": [
+              "call auditing",
+              "regulatory compliance",
+              "documentation",
+              "quality reporting",
+              "attention to detail"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6032"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-FIN",
+    "nombre": "Finance & Accounting",
+    "descripcionBreve": "General ledger, accounts payable/receivable, payroll processing, FP&A, tax compliance, bank reconciliations, and financial auditing.",
+    "especialidades": [
+      {
+        "nombre": "Accounting & Monthly Closes",
+        "perfiles": [
+          {
+            "id": "perfil-93cb61b37f1f",
+            "nombre": "Accountant (Financial Analysis & Reconciliations)",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounting & Monthly Closes",
+            "descripcion": "Reviews and audits financial transactions and reporting packages, prepares account reconciliations, journal entries, variance analyses, and cash flow projections.",
+            "criteriosInclusion": [
+              "Experience in transaction review, balance reconciliations, financial analysis, and budgeting"
+            ],
+            "criteriosExclusion": [
+              "Does not include entry-level clerks focused only on raw data entry"
+            ],
+            "habilidades": [
+              "financial analysis",
+              "balance sheet reconciliation",
+              "budgeting & forecasting",
+              "financial reporting",
+              "Excel"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1569"
+            ]
+          },
+          {
+            "id": "perfil-a7b7bec75e4e",
+            "nombre": "General Accountant (US GAAP & Month-End Close)",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounting & Monthly Closes",
+            "descripcion": "Records and reconciles accounting entries, prepares balance sheets, income statements, and monthly close packages under US GAAP.",
+            "criteriosInclusion": [
+              "Experience in general accounting, monthly closes, bank reconciliations, and financial statements"
+            ],
+            "criteriosExclusion": [
+              "Does not include exclusive tax planning specialists"
+            ],
+            "habilidades": [
+              "US GAAP",
+              "account reconciliations",
+              "financial statements",
+              "accounting software",
+              "numerical analysis"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6349",
+              "JPC - 7798"
+            ]
+          },
+          {
+            "id": "perfil-7471239ba8f4",
+            "nombre": "Senior Accountant (Supervision & Financial Statements)",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounting & Monthly Closes",
+            "descripcion": "Leads month-end close cycles, complex balance sheet reconciliations, client financial reporting, and supervises AP/AR teams.",
+            "criteriosInclusion": [
+              "Advanced accounting experience with month-end closes, financial statements, and team supervision"
+            ],
+            "criteriosExclusion": [
+              "Does not include junior or entry-level accounting clerks"
+            ],
+            "habilidades": [
+              "Accounting",
+              "Reconciliations",
+              "Month-end close",
+              "Financial analysis",
+              "Client communications"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6157"
+            ]
+          },
+          {
+            "id": "perfil-bc25ad24d16a",
+            "nombre": "Accounting Manager",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounting & Monthly Closes",
+            "descripcion": "Oversees daily general ledger operations, periodic closes, external audit facilitation, financial statement packages, and internal controls.",
+            "criteriosInclusion": [
+              "Experience in accounting management, team leadership, periodic closes, and audit defense"
+            ],
+            "criteriosExclusion": [
+              "Does not include non-managerial operational accounting roles"
+            ],
+            "habilidades": [
+              "accounting",
+              "financial statements",
+              "bank reconciliation",
+              "team leadership",
+              "financial reporting"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 3836"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Accounts Payable & Receivable (AP / AR)",
+        "perfiles": [
+          {
+            "id": "perfil-d0b5c9b4a456",
+            "nombre": "Accounts Payable Analyst (AP)",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounts Payable & Receivable (AP / AR)",
+            "descripcion": "Processes vendor invoices, reconciles 3-way matching purchase orders, manages payment runs, and books accrual journal entries.",
+            "criteriosInclusion": [
+              "Full-cycle accounts payable experience, vendor statement reconciliation, and journal entry support"
+            ],
+            "criteriosExclusion": [
+              "Does not include accounts receivable or treasury investment roles"
+            ],
+            "habilidades": [
+              "accounts payable",
+              "invoice processing",
+              "account reconciliation",
+              "vendor relations",
+              "journal entries"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2673"
+            ]
+          },
+          {
+            "id": "perfil-4cdbb82639d4",
+            "nombre": "Accounts Receivable Reconciliation Analyst (AR)",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounts Payable & Receivable (AP / AR)",
+            "descripcion": "Specialized in reconciling subledger accounts receivable with the general ledger, investigating aging discrepancies, and supporting audit requests.",
+            "criteriosInclusion": [
+              "Experience reconciling AR aging with general ledger accounts and resolving balance discrepancies"
+            ],
+            "criteriosExclusion": [
+              "Does not include phone-only collections"
+            ],
+            "habilidades": [
+              "accounting reconciliation",
+              "AR aging analysis",
+              "general ledger",
+              "Excel",
+              "process documentation"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2834"
+            ]
+          },
+          {
+            "id": "perfil-0dead70aa43f",
+            "nombre": "Billing & Invoicing Specialist",
+            "familia": "Finance & Accounting",
+            "especialidad": "Accounts Payable & Receivable (AP / AR)",
+            "descripcion": "Manages client invoicing, accounts receivable billing schedules, tax rate validations, and discrepancy reconciliations.",
+            "criteriosInclusion": [
+              "Invoicing, client billing, and balance reconciliation"
+            ],
+            "criteriosExclusion": [
+              "Legal collections or sales"
+            ],
+            "habilidades": [
+              "billing",
+              "accounts receivable",
+              "reconciliation",
+              "tax and pricing auditing",
+              "attention to detail"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1380",
+              "JPC - 2033",
+              "JPC - 7859"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Payroll Operations",
+        "perfiles": [
+          {
+            "id": "perfil-8125fde86df2",
+            "nombre": "Payroll Processor",
+            "familia": "Finance & Accounting",
+            "especialidad": "Payroll Operations",
+            "descripcion": "Calculates and processes multi-cycle employee payroll, audits timesheets, deductions, tax withholdings, and routine payroll adjustments.",
+            "criteriosInclusion": [
+              "Experience in payroll processing, timesheet audits, and tax deductions"
+            ],
+            "criteriosExclusion": [
+              "Does not include corporate accounting or executive compensation strategy"
+            ],
+            "habilidades": [
+              "Payroll processing",
+              "Data entry",
+              "Regulatory compliance",
+              "Attention to detail",
+              "Record management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1227"
+            ]
+          },
+          {
+            "id": "perfil-5a7bdcfd5fb8",
+            "nombre": "Payroll Manager (Multi-State)",
+            "familia": "Finance & Accounting",
+            "especialidad": "Payroll Operations",
+            "descripcion": "Directs end-to-end multi-state payroll operations, team supervision, state/federal tax compliance audits, and process optimization.",
+            "criteriosInclusion": [
+              "Leadership and comprehensive management of multi-state corporate payroll"
+            ],
+            "criteriosExclusion": [
+              "Does not include basic standalone payroll entry clerks"
+            ],
+            "habilidades": [
+              "payroll management",
+              "multi-state payroll",
+              "tax compliance",
+              "payroll reconciliation",
+              "process improvement"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1246",
+              "JPC - 7575"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "FP&A & Financial Analysis",
+        "perfiles": [
+          {
+            "id": "perfil-378899876f70",
+            "nombre": "Financial Analyst (Reporting & Close)",
+            "familia": "Finance & Accounting",
+            "especialidad": "FP&A & Financial Analysis",
+            "descripcion": "Supports general accounting, financial reporting packages, and monthly closes, ensuring financial data integrity.",
+            "criteriosInclusion": [
+              "Profiles performing recurring financial analysis and accounting close support"
+            ],
+            "criteriosExclusion": [
+              "Does not include external tax filing or statutory auditors"
+            ],
+            "habilidades": [
+              "Excel",
+              "general accounting",
+              "financial reporting",
+              "US GAAP",
+              "data integrity"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2248",
+              "JPC - 7769"
+            ]
+          },
+          {
+            "id": "perfil-a6ab1af44b82",
+            "nombre": "Senior Financial Specialist (FP&A)",
+            "familia": "Finance & Accounting",
+            "especialidad": "FP&A & Financial Analysis",
+            "descripcion": "Architects financial models, analyzes operational KPIs, conducts variance forecasts, and coordinates corporate budget processes.",
+            "criteriosInclusion": [
+              "Experience in financial modeling, analysis, budgeting, and rolling forecasting"
+            ],
+            "criteriosExclusion": [
+              "Does not include basic transactional bookkeeping"
+            ],
+            "habilidades": [
+              "financial modeling",
+              "financial analysis",
+              "advanced Excel",
+              "budgeting",
+              "financial forecasting"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 5836"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-LEG",
+    "nombre": "Legal",
+    "descripcionBreve": "Legal assistance, litigation support, personal injury pre-litigation, client intake, medical records, and lien resolution.",
+    "especialidades": [
+      {
+        "nombre": "Legal Assistance & Paralegal",
+        "perfiles": [
+          {
+            "id": "perfil-72194eb05615",
+            "nombre": "Legal Assistant (Documentation & Court Filings)",
+            "familia": "Legal",
+            "especialidad": "Legal Assistance & Paralegal",
+            "descripcion": "Provides administrative legal support, preparing court pleadings, standard discovery forms, legal correspondence, and organizing case files.",
+            "criteriosInclusion": [
+              "Experience in administrative legal support, case documentation, and docket management"
+            ],
+            "criteriosExclusion": [
+              "Does not include independent courtroom representation or complex trial briefs"
+            ],
+            "habilidades": [
+              "Attention to detail",
+              "Basic legal drafting",
+              "Document management",
+              "Case management software",
+              "Electronic court filing"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1604",
+              "JPC - 6030",
+              "JPC - 7816"
+            ]
+          },
+          {
+            "id": "perfil-3f08a8929268",
+            "nombre": "Paralegal (Pre-Litigation & Litigation)",
+            "familia": "Legal",
+            "especialidad": "Legal Assistance & Paralegal",
+            "descripcion": "Manages case files, coordinates communications with clients, opposing counsel, and insurance carriers, and assists attorneys through all litigation phases.",
+            "criteriosInclusion": [
+              "Experience in legal case management, docket updating, and litigation coordination"
+            ],
+            "criteriosExclusion": [
+              "Does not include intake or attorney-at-law trial appearances"
+            ],
+            "habilidades": [
+              "case management",
+              "legal drafting",
+              "communication",
+              "document management",
+              "working under pressure"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1163"
+            ]
+          },
+          {
+            "id": "perfil-2b2098357fe4",
+            "nombre": "Litigation Paralegal (Discovery & Trial Prep)",
+            "familia": "Legal",
+            "especialidad": "Legal Assistance & Paralegal",
+            "descripcion": "Drafts pleadings, manages discovery responses, organizes deposition exhibits, controls statutory deadlines, and prepares trial binders.",
+            "criteriosInclusion": [
+              "Experience supporting litigation attorneys, drafting discovery, and managing statutory dockets"
+            ],
+            "criteriosExclusion": [
+              "Does not include general administrative clerical roles without substantive legal work"
+            ],
+            "habilidades": [
+              "legal drafting",
+              "document review and proofreading",
+              "docket management",
+              "legal research",
+              "deadline management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7893"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Personal Injury & Case Management",
+        "perfiles": [
+          {
+            "id": "perfil-411cc7b49f50",
+            "nombre": "Case Manager (Personal Injury)",
+            "familia": "Legal",
+            "especialidad": "Personal Injury & Case Management",
+            "descripcion": "Manages personal injury cases from retention through resolution, coordinating medical treatment records, bills, client updates, and demand package assembly.",
+            "criteriosInclusion": [
+              "Experience managing personal injury cases, coordinating medical and legal records"
+            ],
+            "criteriosExclusion": [
+              "Does not include isolated clerical work or raw data entry clerks"
+            ],
+            "habilidades": [
+              "file management",
+              "client communication",
+              "medical records and billing retrieval",
+              "insurance negotiation"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1268",
+              "JPC - 1787"
+            ]
+          },
+          {
+            "id": "perfil-75ae5c0a9429",
+            "nombre": "Pre-Litigation Case Manager / Paralegal",
+            "familia": "Legal",
+            "especialidad": "Personal Injury & Case Management",
+            "descripcion": "Oversees pre-litigation claims, requests and audits police reports and medical records, and drafts comprehensive settlement demand letters.",
+            "criteriosInclusion": [
+              "Experience in pre-litigation case handling, document assembly, and demand letter drafting"
+            ],
+            "criteriosExclusion": [
+              "Does not include call-center intake or trial attorney appearances"
+            ],
+            "habilidades": [
+              "case management",
+              "legal documentation",
+              "medical record requests",
+              "claims tracking",
+              "subrogation"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6766"
+            ]
+          },
+          {
+            "id": "perfil-f9ecd90b42f9",
+            "nombre": "Lien & Subrogation Specialist",
+            "familia": "Legal",
+            "especialidad": "Personal Injury & Case Management",
+            "descripcion": "Negotiates and resolves health insurance, Medicare/Medicaid liens and subrogation claims, auditing medical ledgers for maximum net client recovery.",
+            "criteriosInclusion": [
+              "Lien resolution, subrogation audits, and document tracking for injury cases"
+            ],
+            "criteriosExclusion": [
+              "Does not include courtroom trial litigation"
+            ],
+            "habilidades": [
+              "lien resolution",
+              "subrogation",
+              "provider communication",
+              "case follow-up",
+              "document management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1990",
+              "JPC - 7554"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Client Intake & Retention",
+        "perfiles": [
+          {
+            "id": "perfil-742ae701f322",
+            "nombre": "Legal Intake Specialist",
+            "familia": "Legal",
+            "especialidad": "Client Intake & Retention",
+            "descripcion": "Serves as the primary point of contact for prospective claimants, screening cases against qualification guidelines, scheduling attorney consultations, and logging CRM leads.",
+            "criteriosInclusion": [
+              "Experience screening potential claimants, booking consultations, and logging CRM files"
+            ],
+            "criteriosExclusion": [
+              "Does not include trial drafting or ongoing litigation case management"
+            ],
+            "habilidades": [
+              "customer service",
+              "verbal and written communication",
+              "CRM management",
+              "inbound call handling",
+              "lead qualification"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7276"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-MKT",
+    "nombre": "Marketing",
+    "descripcionBreve": "Growth marketing, paid media acquisition, SEO architecture, editorial content, and digital performance analytics.",
+    "especialidades": [
+      {
+        "nombre": "Growth & Performance",
+        "perfiles": [
+          {
+            "id": "perfil-mkt-paid01",
+            "nombre": "Paid Media & Growth Specialist",
+            "familia": "Marketing",
+            "especialidad": "Growth & Performance",
+            "descripcion": "Plans, optimizes, and scales paid acquisition campaigns across Google Ads, Meta Ads, and LinkedIn Ads with multi-touch attribution.",
+            "criteriosInclusion": [
+              "Experience managing monthly ad budgets exceeding $5,000 USD",
+              "Proficiency in attribution modeling and Google Analytics 4"
+            ],
+            "criteriosExclusion": [
+              "Graphic designers without media buying experience",
+              "Organic-only social media managers"
+            ],
+            "habilidades": [
+              "Google Ads",
+              "Meta Ads Manager",
+              "LinkedIn Campaign Manager",
+              "Google Analytics 4",
+              "A/B Testing",
+              "Looker Studio"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 8812",
+              "JPC - 9104"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "SEO & Content Strategy",
+        "perfiles": [
+          {
+            "id": "perfil-mkt-seo02",
+            "nombre": "SEO & Organic Strategy Specialist",
+            "familia": "Marketing",
+            "especialidad": "SEO & Content Strategy",
+            "descripcion": "Drives organic search visibility, keyword architecture, technical on-page SEO, content optimization, and search console analytics.",
+            "criteriosInclusion": [
+              "Proficiency in Semrush, Ahrefs, Google Search Console",
+              "Search engine architecture and content optimization"
+            ],
+            "criteriosExclusion": [
+              "Writers without SEO metrics",
+              "Developers without editorial vision"
+            ],
+            "habilidades": [
+              "Keyword Research",
+              "Semrush / Ahrefs",
+              "On-Page SEO",
+              "Persuasive Copywriting",
+              "Google Search Console",
+              "WordPress"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 8450"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-OPE",
+    "nombre": "Operations",
+    "descripcionBreve": "Freight brokerage, fleet dispatching, inventory control, route optimization, and supply chain procurement.",
+    "especialidades": [
+      {
+        "nombre": "Logistics & Freight",
+        "perfiles": [
+          {
+            "id": "perfil-d5c757c4c408",
+            "nombre": "Freight Broker",
+            "familia": "Operations",
+            "especialidad": "Logistics & Freight",
+            "descripcion": "Brokers freight shipments, negotiates spot and contract rates with carrier networks, tracks loads in transit, and resolves freight exceptions.",
+            "criteriosInclusion": [
+              "Experience coordinating freight operations, negotiating with motor carriers, and load tracking"
+            ],
+            "criteriosExclusion": [
+              "Does not include physical warehouse staging or driving"
+            ],
+            "habilidades": [
+              "Rate negotiation",
+              "Carrier sourcing",
+              "Shipment tracking",
+              "Logistics coordination",
+              "Customer service"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6203"
+            ]
+          },
+          {
+            "id": "perfil-a2e639ebcb39",
+            "nombre": "Logistics Administrative Assistant",
+            "familia": "Operations",
+            "especialidad": "Logistics & Freight",
+            "descripcion": "Coordinates dispatch schedules, delivery route assignments, carrier shipping documentation, and delivery tracking.",
+            "criteriosInclusion": [
+              "Administrative support for delivery routes, dispatch logs, and proof-of-delivery tracking"
+            ],
+            "criteriosExclusion": [
+              "Does not include commercial driving or long-term transportation planning"
+            ],
+            "habilidades": [
+              "logistics coordination",
+              "route scheduling",
+              "dispatch",
+              "operational tracking",
+              "issue resolution"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 5850",
+              "JPC - 7818"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Procurement & Supply Management",
+        "perfiles": [
+          {
+            "id": "perfil-424530ed26f6",
+            "nombre": "Purchasing & Procurement Specialist",
+            "familia": "Operations",
+            "especialidad": "Procurement & Supply Management",
+            "descripcion": "Executes daily purchasing operations, generates purchase orders, monitors open vendor deliveries, and reconciles supplier discrepancies.",
+            "criteriosInclusion": [
+              "Experience in operational purchasing, order processing, and vendor order follow-up"
+            ],
+            "criteriosExclusion": [
+              "Does not include strategic sourcing executives or category directors"
+            ],
+            "habilidades": [
+              "purchase order management",
+              "vendor tracking",
+              "attention to detail",
+              "organization",
+              "ERP/MRP software"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7266"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-OTR",
+    "nombre": "Specialized Roles",
+    "descripcionBreve": "Linguistic services, corporate translation, specialized multilingual operations, and gaming surveillance.",
+    "especialidades": [
+      {
+        "nombre": "Linguistic & Specialized Services",
+        "perfiles": [
+          {
+            "id": "perfil-otr-trad01",
+            "nombre": "Corporate Translator & Interpreter",
+            "familia": "Specialized Roles",
+            "especialidad": "Linguistic & Specialized Services",
+            "descripcion": "Translates technical, financial, and legal documentation, providing simultaneous or consecutive interpretation for corporate executive meetings.",
+            "criteriosInclusion": [
+              "Verifiable C1/C2 language certification",
+              "Proficiency in CAT tools (Trados, memoQ)"
+            ],
+            "criteriosExclusion": [
+              "ESL teachers without formal corporate translation credentials"
+            ],
+            "habilidades": [
+              "Technical Translation",
+              "CAT Tools (Trados)",
+              "Consecutive Interpretation",
+              "Content Localization",
+              "Corporate Terminology"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 9912"
+            ]
+          },
+          {
+            "id": "perfil-0aad02021b21",
+            "nombre": "Gaming & Casino Surveillance Specialist",
+            "familia": "Specialized Roles",
+            "especialidad": "Linguistic & Specialized Services",
+            "descripcion": "Monitors table games and player actions via surveillance video, verifies betting payouts, and audits operational compliance.",
+            "criteriosInclusion": [
+              "Experience monitoring table games, video review, and payout verification"
+            ],
+            "criteriosExclusion": [
+              "Does not include dealers, cashiers, or physical floor security guards"
+            ],
+            "habilidades": [
+              "Video surveillance",
+              "Operational auditing",
+              "Fraud detection",
+              "Casino table knowledge",
+              "Mental math"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 6490"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-PRO",
+    "nombre": "Scheduling & Dispatch",
+    "descripcionBreve": "Operational shift coordination, appointment booking, field schedule dispatching, and coverage management.",
+    "especialidades": [
+      {
+        "nombre": "Shift & Appointment Coordination",
+        "perfiles": [
+          {
+            "id": "perfil-632753238ddc",
+            "nombre": "Shift Scheduler & Dispatcher",
+            "familia": "Scheduling & Dispatch",
+            "especialidad": "Shift & Appointment Coordination",
+            "descripcion": "Coordinates workforce shift coverage, manages real-time cancellations, updates dispatch schedules, and communicates with field personnel.",
+            "criteriosInclusion": [
+              "Profiles coordinating shift assignments, schedule adjustments, and coverage dispatch"
+            ],
+            "criteriosExclusion": [
+              "Excludes general office clerical work without schedule coordination"
+            ],
+            "habilidades": [
+              "appointment scheduling",
+              "inbound/outbound calls",
+              "follow-up",
+              "record management",
+              "coordination"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 1271",
+              "JPC - 6575"
+            ]
+          },
+          {
+            "id": "perfil-c7176f00d827",
+            "nombre": "Recruiting & Schedule Coordinator",
+            "familia": "Scheduling & Dispatch",
+            "especialidad": "Shift & Appointment Coordination",
+            "descripcion": "Combines candidate sourcing and screening with shift scheduling, operational coverage dispatch, and onboarding logistics.",
+            "criteriosInclusion": [
+              "Experience integrating candidate screening with schedule or coverage dispatch"
+            ],
+            "criteriosExclusion": [
+              "Does not include pure corporate recruiters or payroll analysts"
+            ],
+            "habilidades": [
+              "recruiting",
+              "shift scheduling",
+              "ATS",
+              "attention to detail",
+              "organization"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7647"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-SAL",
+    "nombre": "Healthcare",
+    "descripcionBreve": "Clinical administration, medical reception, billing and coding, health records management, and clinical operations.",
+    "especialidades": [
+      {
+        "nombre": "Medical Billing & Clinical Administration",
+        "perfiles": [
+          {
+            "id": "perfil-16cc9f28e362",
+            "nombre": "Medical Biller & Coder",
+            "familia": "Healthcare",
+            "especialidad": "Medical Billing & Clinical Administration",
+            "descripcion": "Codes medical procedures and diagnoses (ICD-10/CPT), submits and appeals insurance claims, posts patient payments, and reconciles healthcare AR.",
+            "criteriosInclusion": [
+              "Experience in medical billing, ICD-10/CPT coding, claims submission, and denial management"
+            ],
+            "criteriosExclusion": [
+              "Does not include clinical bedside care or non-healthcare billing"
+            ],
+            "habilidades": [
+              "medical coding",
+              "claims management",
+              "chart review",
+              "HIPAA compliance",
+              "AR management"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2150"
+            ]
+          },
+          {
+            "id": "perfil-329e14c3f685",
+            "nombre": "Medical Receptionist",
+            "familia": "Healthcare",
+            "especialidad": "Medical Billing & Clinical Administration",
+            "descripcion": "Greets patients, manages digital faxes, schedules clinic appointments, verifies patient insurance eligibility, and answers inquiries.",
+            "criteriosInclusion": [
+              "Experience in clinical reception, patient records, and appointment scheduling"
+            ],
+            "criteriosExclusion": [
+              "Does not include nursing, direct medical assistance, or advanced billing"
+            ],
+            "habilidades": [
+              "medical reception",
+              "fax management",
+              "appointment scheduling",
+              "patient records",
+              "medical terminology"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 7032"
+            ]
+          },
+          {
+            "id": "perfil-cf406b673e0b",
+            "nombre": "Clinical Operations Specialist",
+            "familia": "Healthcare",
+            "especialidad": "Medical Billing & Clinical Administration",
+            "descripcion": "Audits provider clinical notes, maintains EMR records, ensures HIPAA compliance, and supports healthcare billing and scheduling operations.",
+            "criteriosInclusion": [
+              "Experience in clinical operations, documentation auditing, scheduling, and patient intake"
+            ],
+            "criteriosExclusion": [
+              "Does not include real-time surgical scribes or live medical interpretation"
+            ],
+            "habilidades": [
+              "clinical documentation",
+              "medical terminology",
+              "EMR management",
+              "compliance",
+              "calendar coordination"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 5887"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-SER",
+    "nombre": "Customer Service",
+    "descripcionBreve": "B2B Customer Success, omnichannel bilingual technical support, account retention, and escalation management.",
+    "especialidades": [
+      {
+        "nombre": "Customer Success & B2B Support",
+        "perfiles": [
+          {
+            "id": "perfil-ser-csm01",
+            "nombre": "B2B Customer Success Manager (CSM)",
+            "familia": "Customer Service",
+            "especialidad": "Customer Success & B2B Support",
+            "descripcion": "Guides enterprise clients through product adoption, leading onboarding cadences, Quarterly Business Reviews (QBRs), and renewal expansions.",
+            "criteriosInclusion": [
+              "Minimum 2 years experience in SaaS or B2B tech services",
+              "Familiarity with retention metrics: Churn, NRR, CSAT"
+            ],
+            "criteriosExclusion": [
+              "Cold outbound telemarketing without account management"
+            ],
+            "habilidades": [
+              "Client Onboarding",
+              "Churn & Retention Management",
+              "Executive QBRs",
+              "Zendesk / Gainsight",
+              "NPS & CSAT"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 8330"
+            ]
+          },
+          {
+            "id": "perfil-ser-tier02",
+            "nombre": "Tier 1 & 2 Bilingual Technical Support Agent",
+            "familia": "Customer Service",
+            "especialidad": "Customer Success & B2B Support",
+            "descripcion": "Diagnoses and resolves user software issues via ticketing systems, produces knowledge base articles, and ensures high first-contact resolution (FCR).",
+            "criteriosInclusion": [
+              "B2 or C1 English proficiency with excellent written and verbal skills",
+              "Ticketing platform proficiency"
+            ],
+            "criteriosExclusion": [
+              "Monolingual profiles where international English support is needed"
+            ],
+            "habilidades": [
+              "Zendesk / Jira Service Desk",
+              "Software Troubleshooting",
+              "Fluent English (C1)",
+              "Case Documentation",
+              "First Contact Resolution (FCR)"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 8119"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-TAL",
+    "nombre": "Human Resources",
+    "descripcionBreve": "Talent acquisition, IT recruitment, HR business partnering, employee onboarding, and performance management.",
+    "especialidades": [
+      {
+        "nombre": "Recruitment & Talent Acquisition",
+        "perfiles": [
+          {
+            "id": "perfil-c98325c0657c",
+            "nombre": "Employee Onboarding Specialist",
+            "familia": "Human Resources",
+            "especialidad": "Recruitment & Talent Acquisition",
+            "descripcion": "Coordinates new hire onboarding journeys, background checks, I-9 compliance, orientation sessions, and provisioning.",
+            "criteriosInclusion": [
+              "Profiles managing new hire onboarding, compliance verification, and status tracking"
+            ],
+            "criteriosExclusion": [
+              "Excludes sourcing recruiters or general office administrative clerks"
+            ],
+            "habilidades": [
+              "onboarding",
+              "coordination",
+              "tracking",
+              "document management",
+              "customer service"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2119",
+              "JPC - 7599"
+            ]
+          },
+          {
+            "id": "perfil-tal-it01",
+            "nombre": "IT & Technical Recruiter",
+            "familia": "Human Resources",
+            "especialidad": "Recruitment & Talent Acquisition",
+            "descripcion": "Executes direct sourcing, technical screenings, and offer negotiations for software engineers, cloud architects, and data professionals.",
+            "criteriosInclusion": [
+              "Deep understanding of tech stacks, seniority levels, and technical engineering profiles",
+              "Sourcing on LinkedIn Recruiter and GitHub"
+            ],
+            "criteriosExclusion": [
+              "High-volume non-technical blue-collar recruiters"
+            ],
+            "habilidades": [
+              "Tech Sourcing",
+              "LinkedIn Recruiter",
+              "Competency-based Interviews",
+              "Offer Negotiation",
+              "ATS (Greenhouse, Lever)"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 8920"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "HR Management & Business Partnering",
+        "perfiles": [
+          {
+            "id": "perfil-65c2b57b2715",
+            "nombre": "HR Business Partner",
+            "familia": "Human Resources",
+            "especialidad": "HR Management & Business Partnering",
+            "descripcion": "Partners with business unit leadership on employee relations, talent development, performance cycles, retention, and organizational planning.",
+            "criteriosInclusion": [
+              "Supports HR leadership with focus on employee relations, performance, onboarding, and training"
+            ],
+            "criteriosExclusion": [
+              "Does not include transactional payroll or clerical screening"
+            ],
+            "habilidades": [
+              "employee relations",
+              "onboarding",
+              "performance management",
+              "training",
+              "HR business partnering"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 4877",
+              "JPC - 7524"
+            ]
+          },
+          {
+            "id": "perfil-1091b568027e",
+            "nombre": "HR Generalist",
+            "familia": "Human Resources",
+            "especialidad": "HR Management & Business Partnering",
+            "descripcion": "Oversees employee relations support, HR policies, compliance records, employment verifications, and general staff inquiries.",
+            "criteriosInclusion": [
+              "Support for employee relations, HR documentation, and regulatory compliance"
+            ],
+            "criteriosExclusion": [
+              "Does not include specialized payroll accounting or tech recruitment"
+            ],
+            "habilidades": [
+              "English communication",
+              "Spanish communication",
+              "documentation",
+              "HR regulations",
+              "employee relations",
+              "compliance"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 2109",
+              "JPC - 7442"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "FAM-TEC",
+    "nombre": "Technology",
+    "descripcionBreve": "Frontend and backend engineering, cloud architecture, DevOps automation, and business intelligence analytics.",
+    "especialidades": [
+      {
+        "nombre": "Software Development & Cloud",
+        "perfiles": [
+          {
+            "id": "perfil-tec-fe01",
+            "nombre": "Frontend Developer (React / TypeScript)",
+            "familia": "Technology",
+            "especialidad": "Software Development & Cloud",
+            "descripcion": "Engineers modern, accessible, responsive web applications using React, Next.js, TypeScript, and Tailwind CSS.",
+            "criteriosInclusion": [
+              "Minimum 3 years experience in modern React and TypeScript",
+              "Frontend performance optimization and modular architecture"
+            ],
+            "criteriosExclusion": [
+              "Designers without TypeScript programming skills",
+              "Backend developers with no UI experience"
+            ],
+            "habilidades": [
+              "React.js",
+              "TypeScript",
+              "Tailwind CSS",
+              "Next.js",
+              "State Management",
+              "Git"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 9401",
+              "JPC - 9402"
+            ]
+          },
+          {
+            "id": "perfil-tec-be02",
+            "nombre": "Backend Developer (Node.js / Python)",
+            "familia": "Technology",
+            "especialidad": "Software Development & Cloud",
+            "descripcion": "Architects robust REST/GraphQL APIs, microservices, and high-performance data persistence in PostgreSQL and NoSQL.",
+            "criteriosInclusion": [
+              "Proficiency in Node.js or Python",
+              "Relational data modeling (PostgreSQL / MySQL) and optimized SQL queries"
+            ],
+            "criteriosExclusion": [
+              "HTML/CSS coders without server logic",
+              "System administrators without software development"
+            ],
+            "habilidades": [
+              "Node.js",
+              "Python",
+              "PostgreSQL",
+              "Docker",
+              "RESTful APIs",
+              "FastAPI / NestJS"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 9501"
+            ]
+          },
+          {
+            "id": "perfil-tec-devops03",
+            "nombre": "DevOps & Cloud Engineer (AWS / GCP)",
+            "familia": "Technology",
+            "especialidad": "Software Development & Cloud",
+            "descripcion": "Automates CI/CD delivery pipelines, manages Kubernetes clusters, and builds Infrastructure as Code with Terraform.",
+            "criteriosInclusion": [
+              "Docker containers and Kubernetes orchestration",
+              "Cloud platforms (AWS or GCP)",
+              "CI/CD automated pipelines"
+            ],
+            "criteriosExclusion": [
+              "IT desktop helpdesk",
+              "Junior developers with no production cloud experience"
+            ],
+            "habilidades": [
+              "AWS",
+              "Docker",
+              "Kubernetes",
+              "Terraform",
+              "GitHub Actions",
+              "CI/CD Pipelines"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 9601"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Data & Business Intelligence",
+        "perfiles": [
+          {
+            "id": "perfil-tec-bi04",
+            "nombre": "Data & BI Analyst (SQL / Power BI)",
+            "familia": "Technology",
+            "especialidad": "Data & Business Intelligence",
+            "descripcion": "Extracts, transforms, and models business data, building interactive C-level dashboards in Power BI and writing complex analytical SQL.",
+            "criteriosInclusion": [
+              "Advanced SQL for complex joins and aggregations",
+              "Dashboards in Power BI, Tableau, or Looker"
+            ],
+            "criteriosExclusion": [
+              "Basic spreadsheet users without SQL",
+              "Pure data scientists without business dashboards"
+            ],
+            "habilidades": [
+              "Advanced SQL",
+              "Power BI / DAX",
+              "Data Modeling",
+              "Data Storytelling",
+              "Python for Analytics"
+            ],
+            "vacantesRespaldo": [
+              "JPC - 9701"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

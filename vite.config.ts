@@ -6,6 +6,19 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    build: {
+      rolldownOptions: {
+        output: {
+          // Keep long-lived code apart from the app: React and the sample dataset change far less often than screens.
+          codeSplitting: {
+            groups: [
+              { name: 'vendor', test: /node_modules[\\/](react|react-dom|scheduler)[\\/]/ },
+              { name: 'data', test: /src[\\/]data[\\/].*\.json$/ }
+            ]
+          }
+        }
+      }
+    },
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname || '.'),
