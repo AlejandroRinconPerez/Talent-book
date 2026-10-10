@@ -1,0 +1,127 @@
+BORRADOR: requiere revisión conjunta; no es el Book validado.
+
+Book de perfiles ocupacionales
+Administración
+Administración financiera
+Asistente de originación
+ID: perfil-80be6d76fdd3
+Descripción: Organiza expedientes de préstamo, revisa documentación del prestatario y coordina el avance del expediente.
+Incluye: Gestión documental y coordinación de expedientes de crédito.
+Excluye: No incluye recuperación de cartera ni resolución de cobranza.
+Habilidades: organización de expedientes, seguimiento documental, comunicación con clientes, manejo de sistemas de crédito, seguimiento de archivos
+Vacantes de respaldo: JPC - 3832, JPC - 4357, JPC - 5226, JPC - 6539, JPC - 7207, JPC - 7663
+
+Facturador médico
+ID: perfil-16cc9f28e362
+Descripción: Codifica procedimientos y diagnósticos, presenta y da seguimiento a reclamaciones de seguros, registra pagos y concilia cuentas relacionadas con el ciclo de ingresos médico. Revisa expedientes para asegurar exactitud de la codificación y facturación.
+Incluye: Experiencia en facturación médica, codificación de servicios, envío y seguimiento de claims, conciliación de pagos y revisión de expedientes clínicos para exactitud.
+Excluye: No incluye atención clínica, gestión administrativa general no médica ni facturación no relacionada con servicios de salud.
+Habilidades: codificación médica, gestión de reclamos, revisión de expedientes clínicos, cumplimiento HIPAA, gestión de cuentas por cobrar
+Vacantes de respaldo: JPC - 2150
+
+Procesador de nómina
+ID: perfil-8125fde86df2
+Descripción: Procesa información de nómina ingresando y verificando datos de empleados, revisando horas, deducciones y ajustes de rutina. Mantiene registros con precisión y confidencialidad, apoyando el cumplimiento asociado al proceso.
+Incluye: Experiencia en procesamiento de nómina, revisión de tiempos, deducciones, ajustes y mantenimiento de registros de empleados.
+Excluye: No corresponde a contabilidad general, compensaciones estratégicas, recursos humanos amplio o roles centrados solo en atención al cliente o administración sin nómina.
+Habilidades: Procesamiento de nómina, Captura de datos, Cumplimiento normativo, Atención al detalle, Gestión de registros
+Vacantes de respaldo: JPC - 1227
+
+Apoyo comercial
+Asistente virtual comercial
+ID: perfil-1138d0d422d2
+Descripción: Realiza generación y calificación de leads, coordina reuniones y da seguimiento comercial para apoyar el proceso de ventas.
+Incluye: Apoya prospección, seguimiento y agenda comercial.
+Excluye: No incluye cierre de ventas ni gestión de cuentas estratégicas.
+Habilidades: generación de leads, calificación de prospectos, gestión de CRM, programación de reuniones, comunicación comercial
+Vacantes de respaldo: JPC - 1733, JPC - 1779, JPC - 1882, JPC - 4493, JPC - 4962, JPC - 5521, JPC - 5526, JPC - 6271, JPC - 6708, JPC - 6846, JPC - 7130, JPC - 7631
+
+Coordinador comercial
+ID: perfil-8c9c6d251ee9
+Descripción: Brinda apoyo administrativo al área comercial mediante la coordinación, revisión y organización de documentos, el registro de datos de propuestas y el envío de soportes finales. Requiere atención al detalle y gestión documental.
+Incluye: Experiencia en apoyo administrativo comercial, gestión y revisión de documentos, preparación de propuestas y manejo de información asociada al proceso comercial.
+Excluye: No corresponde a funciones de ventas, desarrollo de negocios o liderazgo comercial sin componente administrativo y documental.
+Habilidades: revisión documental, atención al detalle, manejo de Excel, gestión de documentos, firma electrónica
+Vacantes de respaldo: JPC - 7806
+
+Especialista en investigación
+ID: perfil-4f50f20f3074
+Descripción: Perfil orientado a entrevistar expertos, investigar y analizar información, documentar hallazgos y realizar seguimiento para asegurar participación en procesos de investigación.
+Incluye: Experiencia en research, entrevistas, documentación, análisis de hallazgos, outreach y seguimiento vinculado a investigación.
+Excluye: No incluye coordinación administrativa general ni funciones de prospección comercial puramente comerciales sin componente de investigación.
+Habilidades: investigación, entrevistas, redacción y documentación, gestión de relaciones, CRM
+Vacantes de respaldo: JPC - 7372
+
+Asistencia administrativa
+Asistente administrativo
+ID: perfil-476461bbbcf9
+Descripción: Brinda apoyo administrativo y operativo mediante captura y conciliación de datos, coordinación de agenda, manejo de documentos y asistencia en tareas ad hoc. Requiere captura de datos, conciliación, gestión de agenda, manejo de documentos y confidencialidad.
+Incluye: Experiencia en asistencia administrativa general, data entry, conciliación entre sistemas, organización de agenda y soporte documental u operativo.
+Excluye: No corresponde a roles especializados en reclutamiento, programación de turnos o beneficios como función principal; tampoco a puestos puramente comerciales o financieros.
+Habilidades: captura de datos, conciliación, gestión de agenda, manejo de documentos, confidencialidad
+Vacantes de respaldo: JPC - 1344, JPC - 7786, JPC - 7808
+
+Asistente administrativo
+ID: perfil-63c5a7bde270
+Descripción: Brinda soporte administrativo general mediante organización de tareas, manejo de documentación, redacción de correspondencia, actualización de datos y preparación de reportes básicos. Apoya la coordinación de actividades y procesos de oficina.
+Incluye: Experiencia en soporte administrativo general, manejo de documentos, reportes, datos, archivos, coordinación de agendas o apoyo operativo de oficina.
+Excluye: No corresponde a roles de supervisión operativa, asistencia ejecutiva de alto nivel ni coordinación especializada de agenda o admisión.
+Habilidades: soporte administrativo, organización, comunicación, redacción, Microsoft Office
+Vacantes de respaldo: JPC - 1339, JPC - 2838, JPC - 3514, JPC - 3919, JPC - 7096, JPC - 7565
+
+Asistente administrativo
+ID: perfil-8e5cd4ab877a
+Descripción: Brinda soporte administrativo de back office, revisando, organizando y manteniendo documentación y datos asociados a procesos internos y proyectos. Puede coordinar flujos de trabajo y apoyo documental con alta precisión en el manejo de información.
+Incluye: Experiencia en soporte administrativo y documental de back office, con manejo de documentación de proyectos y coordinación de flujos internos.
+Excluye: No corresponde a roles de atención al cliente front office ni a perfiles técnicos de diseño o ingeniería sin responsabilidad administrativa.
+Habilidades: soporte administrativo, precisión de datos, documentación de proyectos, Google Suite, CAD básico
+Vacantes de respaldo: JPC - 3883
+
+Asistente administrativo y de operaciones
+ID: perfil-11ad6e92a15f
+Descripción: Perfil de apoyo a la operación diaria mediante coordinación de reuniones, gestión documental, seguimiento de tareas y soporte básico a proyectos y actividades internas.
+Incluye: Perfiles de soporte administrativo general y coordinación operativa.
+Excluye: No incluye funciones de dirección ni control financiero especializado.
+Habilidades: organización, seguimiento, coordinación de reuniones, gestión documental, proactividad
+Vacantes de respaldo: JPC - 1843, JPC - 1881, JPC - 2051, JPC - 2069, JPC - 2077, JPC - 2136, JPC - 2275, JPC - 2449, JPC - 2507, JPC - 2567, JPC - 2590, JPC - 2718, JPC - 2792, JPC - 2798, JPC - 2853, JPC - 3011, JPC - 3048, JPC - 3055, JPC - 3166, JPC - 3176, JPC - 3265, JPC - 3338, JPC - 3369, JPC - 3554, JPC - 3583, JPC - 3754, JPC - 3774, JPC - 3785, JPC - 3834, JPC - 3865, JPC - 3879, JPC - 3890, JPC - 3901, JPC - 3902, JPC - 3922, JPC - 3944, JPC - 4144, JPC - 4274, JPC - 4280, JPC - 4303, JPC - 4362, JPC - 4394, JPC - 4402, JPC - 4420, JPC - 4446, JPC - 4457, JPC - 4483, JPC - 4488, JPC - 4812, JPC - 4847, JPC - 4875, JPC - 4880, JPC - 4944, JPC - 4987, JPC - 5007, JPC - 5164, JPC - 5166, JPC - 5342, JPC - 5415, JPC - 5436, JPC - 5452, JPC - 5481, JPC - 5499, JPC - 5522, JPC - 5552, JPC - 5718, JPC - 5827, JPC - 5833, JPC - 5846, JPC - 5869, JPC - 5876, JPC - 5922, JPC - 6013, JPC - 6033, JPC - 6068, JPC - 6142, JPC - 6186, JPC - 6204, JPC - 6238, JPC - 6417, JPC - 6433, JPC - 6451, JPC - 6506, JPC - 6604, JPC - 6613, JPC - 6638, JPC - 6741, JPC - 6955, JPC - 7004, JPC - 7074, JPC - 7147, JPC - 7148, JPC - 7195, JPC - 7222, JPC - 7239, JPC - 7666, JPC - 7694, JPC - 7745, JPC - 7811
+
+Asistente virtual
+ID: perfil-abea9acb662a
+Descripción: Brinda soporte administrativo y operativo flexible, con actualización de registros y sistemas, seguimiento de pendientes, gestión documental y comunicación con áreas internas o proveedores.
+Incluye: Experiencia en apoyo administrativo u operativo, actualización de datos y sistemas, seguimiento de tareas y documentación de hallazgos.
+Excluye: No corresponde a roles centrados en agenda ejecutiva, cobranza, cumplimiento o gestión de casos.
+Habilidades: entrada de datos, atención al detalle, resolución de problemas, organización, comunicación escrita
+Vacantes de respaldo: JPC - 6569
+
+Asistencia ejecutiva
+Asistente administrativo ejecutivo
+ID: perfil-6bd3e7ebb76c
+Descripción: Brinda soporte administrativo a la dirección mediante gestión de calendarios, coordinación de reuniones y viajes, preparación de documentos y seguimiento de tareas y gastos.
+Incluye: Soporte administrativo centrado en agenda, reuniones y documentación de dirección.
+Excluye: No incluye funciones contables, recepción ni asistencia personal doméstica.
+Habilidades: gestión de calendarios, coordinación de viajes, redacción de informes, gestión documental, seguimiento presupuestario, coordinación de reuniones, priorización, seguimiento, soporte ejecutivo
+Vacantes de respaldo: JPC - 1725, JPC - 3880, JPC - 6359, JPC - 6977, JPC - 7193
+
+Asistente ejecutiva
+ID: perfil-6198c2745b44
+Descripción: Perfil de apoyo ejecutivo enfocado en agenda, correo, reuniones, documentación, reportes y control de seguimiento administrativo.
+Incluye: Perfiles de soporte ejecutivo y coordinación administrativa continua.
+Excluye: No incluye funciones de análisis financiero ni liderazgo de equipo.
+Habilidades: gestión de agenda, redacción profesional, seguimiento de pendientes, archivo digital, control de facturas, gestión de CRM, integridad de datos, coordinación administrativa, reportes diarios, organización
+Vacantes de respaldo: JPC - 1674, JPC - 1832, JPC - 2005, JPC - 2047, JPC - 2106, JPC - 2107, JPC - 2334, JPC - 2382, JPC - 2470, JPC - 2475, JPC - 2512, JPC - 2630, JPC - 2695, JPC - 2740, JPC - 2764, JPC - 3004, JPC - 3016, JPC - 3220, JPC - 3256, JPC - 3303, JPC - 3314, JPC - 3390, JPC - 3451, JPC - 3626, JPC - 3629, JPC - 3642, JPC - 3692, JPC - 3699, JPC - 3750, JPC - 3780, JPC - 3795, JPC - 3859, JPC - 3861, JPC - 3938, JPC - 3986, JPC - 4072, JPC - 4137, JPC - 4140, JPC - 4152, JPC - 4184, JPC - 4207, JPC - 4360, JPC - 4366, JPC - 4395, JPC - 4439, JPC - 4459, JPC - 4463, JPC - 4570, JPC - 4705, JPC - 4757, JPC - 4763, JPC - 4804, JPC - 4825, JPC - 4833, JPC - 4854, JPC - 4906, JPC - 5016, JPC - 5050, JPC - 5204, JPC - 5417, JPC - 5492, JPC - 5495, JPC - 5500, JPC - 5509, JPC - 5542, JPC - 5625, JPC - 5702, JPC - 5738, JPC - 5809, JPC - 5906, JPC - 6115, JPC - 6118, JPC - 6247, JPC - 6276, JPC - 6284, JPC - 6286, JPC - 6293, JPC - 6354, JPC - 6386, JPC - 6467, JPC - 6529, JPC - 6531, JPC - 6601, JPC - 6682, JPC - 7190, JPC - 7200, JPC - 7417, JPC - 7457, JPC - 7531, JPC - 7536
+
+Asistente ejecutivo
+ID: perfil-252de5f2f038
+Descripción: Proporciona soporte administrativo integral a equipos o personas ejecutivas mediante gestión de calendarios, coordinación de reuniones y viajes, preparación de documentos y seguimiento de tareas y eventos.
+Incluye: Experiencia en coordinación de agendas, reuniones, viajes, documentos, presentaciones, reportes y seguimiento de actividades ejecutivas.
+Excluye: No corresponde a asistencia administrativa general ni a funciones de cobranza, cumplimiento o gestión de casos.
+Habilidades: gestión de agenda, coordinación de reuniones, redacción de documentos, organización, confidencialidad
+Vacantes de respaldo: JPC - 5839, JPC - 7309
+
+Asistente ejecutivo
+ID: perfil-e4ef1a20a550
+Descripción: Gestiona agendas, prioridades y coordinación de reuniones, dando soporte directo a dirección y a operaciones administrativas, comerciales, de clientes y financieras. Suele preparar seguimientos, reportes y apoyo en proyectos especiales con foco en organización y comunicación ejecutiva.
+Incluye: Experiencia brindando soporte directo a dirección con gestión de agenda, coordinación de reuniones, seguimiento de tareas, reportes y proyectos.
+Excluye: No corresponde a roles administrativos generales sin exposición ejecutiva ni a puestos de asistencia personal sin coordinación de operaciones o proyectos.
+Habilidades: organización, atención al detalle, gestión de prioridades, comunicación ejecutiva, coordinación administrativa
+Vacantes de respaldo: JPC - 7421, JPC - 7846

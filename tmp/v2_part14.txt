@@ -1,0 +1,454 @@
+Tecnología
+Administración y soporte de sistemas
+Administrador de sistemas
+ID: perfil-a886232d8137
+Descripción: Administra infraestructura y servicios de sistemas, incluyendo servidores, directorios, servicios en la nube, respaldo, parches, migraciones y documentación técnica. También puede auditar tecnología, licencias, software e implementaciones.
+Incluye: Experiencia en administración y soporte de infraestructura, sistemas, servicios cloud, redes, respaldos, migraciones y operaciones técnicas asociadas.
+Excluye: No corresponde a perfiles de desarrollo de software, soporte de mesa de ayuda sin administración de infraestructura, ni a especialistas exclusivos en redes o seguridad sin funciones de sistemas.
+Habilidades: administración de sistemas, auditoría TI, gestión de software, análisis de uso, gestión de contratos
+Vacantes de respaldo: JPC - 6310, JPC - 6543
+
+Analista de soporte de aplicaciones
+ID: perfil-27b12990abc1
+Descripción: Brinda soporte técnico de nivel 1 y 2 para incidencias en aplicaciones, gestiona tickets y escalaciones, e investiga y documenta soluciones para usuarios y equipos de operación.
+Incluye: Experiencia en soporte de aplicaciones, atención y resolución de incidencias funcionales o técnicas, gestión de tickets y escalaciones, especialmente en entornos web o móviles.
+Excluye: No corresponde a desarrollo de software, administración de infraestructura, mesa de ayuda exclusivamente hardware, ni a roles centrados solo en pruebas o implementación sin soporte operativo.
+Habilidades: soporte técnico, análisis de causa raíz, gestión de tickets, autenticación de usuarios, aplicaciones web y móviles
+Vacantes de respaldo: JPC - 7682
+
+Analista de soporte TI senior
+ID: perfil-f790a367da77
+Descripción: Responsable de resolver incidencias técnicas complejas y dar soporte a infraestructura de escritorio, red y sistemas.
+Incluye: Incluye perfiles de soporte a usuarios, equipos, red y accesos a sistemas.
+Excluye: Excluye perfiles de desarrollo de software, ciberseguridad o administración de plataformas especializadas.
+Habilidades: soporte técnico, Windows, redes, VPN, administración de sistemas
+Vacantes de respaldo: JPC - 2367, JPC - 3070, JPC - 3566, JPC - 4306, JPC - 4823, JPC - 5858
+
+Asociado de soporte de sistemas
+ID: perfil-c8eb8e3b0967
+Descripción: Brinda soporte técnico y administración de sistemas sobre plataformas, con foco en rendimiento, confiabilidad y seguridad. También apoya a otros miembros del equipo de soporte mediante orientación y resolución de problemas.
+Incluye: Experiencia en soporte técnico y operativo de sistemas o plataformas, incluyendo administración básica, mejora de rendimiento, confiabilidad y seguridad.
+Excluye: No corresponde a soporte de mesa de ayuda exclusivamente orientado a usuarios finales, ni a administración de red, desarrollo de software o roles de infraestructura altamente especializados.
+Habilidades: Soporte técnico, Administración de sistemas, Resolución de problemas, Optimización de sistemas, Mentoría
+Vacantes de respaldo: JPC - 7602
+
+Soporte técnico TI
+ID: perfil-5dfea4f2d4d4
+Descripción: Configuración de equipos y accesos, control de inventario de activos, registro de tickets y apoyo en soporte de hardware y software.
+Incluye: Resuelve incidencias, gestiona activos y documenta tickets y configuraciones básicas de TI.
+Excluye: No corresponde a desarrollo de software, arquitectura TI ni ciberseguridad especializada.
+Habilidades: soporte técnico, gestión de inventario, ITSM, ciberseguridad, documentación
+Vacantes de respaldo: JPC - 1703, JPC - 5485, JPC - 6145, JPC - 6384, JPC - 6670
+
+Supervisor NOC
+ID: perfil-1cc2faa11e9a
+Descripción: Supervisa la operación diaria de NOC, gestiona incidentes, escalaciones y prioridades, y ejecuta coaching, auditorías de calidad y mejoras continuas para asegurar el cumplimiento de SLA.
+Incluye: Experiencia liderando operaciones de NOC, gestión de SLA e incidentes, coordinación de escalaciones y actividades de calidad y entrenamiento del equipo.
+Excluye: No corresponde a administración de infraestructura cloud, desarrollo web, IA o funciones técnicas de implementación sin supervisión operativa y gestión de incidentes.
+Habilidades: gestión de SLA, gestión de incidentes, coaching, aseguramiento de calidad, análisis de causa raíz
+Vacantes de respaldo: JPC - 2772
+
+Técnico de mesa de ayuda nivel 2
+ID: perfil-79ec0f0da7bd
+Descripción: Resuelve incidencias de soporte en escritorios, SaaS, red y seguridad, y comunica soluciones técnicas con claridad a usuarios.
+Incluye: Atiende tickets e incidencias de soporte con comunicación al usuario.
+Excluye: No incluye administración avanzada de infraestructura ni desarrollo de software.
+Habilidades: soporte TI, Microsoft 365, Google Workspace, redes básicas, comunicación al cliente
+Vacantes de respaldo: JPC - 1979, JPC - 4124, JPC - 4451, JPC - 4555, JPC - 5291, JPC - 5507, JPC - 5896, JPC - 6064, JPC - 6129, JPC - 6541, JPC - 6542, JPC - 6788
+
+Técnico de soporte nivel 1
+ID: perfil-7bd0171ffbb1
+Descripción: Oficio de atención técnica inicial a usuarios para resolver incidencias básicas de software, hardware y dispositivos, y registrar el seguimiento de los casos.
+Incluye: Soporte técnico inicial, incidencias básicas y registro de casos.
+Excluye: No incluye administración de sistemas ni soporte especializado de segundo nivel.
+Habilidades: soporte técnico, atención al usuario, troubleshooting básico, Windows 11, herramientas ofimáticas, SaaS, soporte a dispositivos móviles
+Vacantes de respaldo: JPC - 2366, JPC - 3531, JPC - 3957, JPC - 4569, JPC - 5651, JPC - 5669, JPC - 6484, JPC - 7658
+
+Automatización e IA
+Especialista en automatización de flujos
+ID: perfil-f479652e467f
+Descripción: Diseña e implementa automatizaciones e integraciones entre sistemas, APIs y servicios de IA, documentando soluciones y mejorando procesos con trazabilidad y manejo de errores.
+Incluye: Experiencia creando automatizaciones de procesos, integrando APIs y sistemas, y usando herramientas de orquestación o automatización de flujos.
+Excluye: No corresponde a desarrollo backend general, RPA puramente administrativo sin integraciones, ni a soporte técnico de aplicaciones sin diseño de automatizaciones.
+Habilidades: N8N, APIs REST, SQL/MySQL, automatización con IA, manejo de errores
+Vacantes de respaldo: JPC - 3564
+
+Especialista en IA
+ID: perfil-36b16a02bd0a
+Descripción: Oficio técnico orientado al diseño, entrenamiento e implementación de soluciones de inteligencia artificial y machine learning, con manejo de datos y documentación técnica.
+Incluye: Desarrollo de soluciones de IA/ML, preparación de datos e integración técnica.
+Excluye: No incluye solo análisis de datos ni desarrollo de software sin componentes de IA.
+Habilidades: modelado de machine learning, preparación de datos, Snowflake, MongoDB, integración front-end, Python, machine learning, deep learning, visión por computador, redacción técnica
+Vacantes de respaldo: JPC - 1314, JPC - 2412, JPC - 2668, JPC - 3748, JPC - 3809, JPC - 4685, JPC - 4693, JPC - 4701, JPC - 4735
+
+Calidad y seguridad
+Analista de ciberseguridad
+ID: perfil-9d1eb90ee6fd
+Descripción: Monitorea, analiza y responde a eventos e incidentes de seguridad para proteger sistemas y datos. También da soporte al cumplimiento de estándares y al registro de actividades de seguridad, con habilidades de detección de amenazas, evaluación de vulnerabilidades y respuesta a incidentes.
+Incluye: Experiencia en monitoreo y análisis de incidentes de seguridad, respuesta y contención de incidentes, y apoyo al cumplimiento de controles o registros de seguridad.
+Excluye: No corresponde a roles de soporte técnico general, administración de sistemas sin enfoque de seguridad ni funciones de cumplimiento no relacionadas con ciberseguridad.
+Habilidades: monitoreo de seguridad, detección de amenazas, respuesta a incidentes, evaluación de vulnerabilidades, cumplimiento de seguridad
+Vacantes de respaldo: JPC - 6911
+
+Tester de aplicaciones
+ID: perfil-5364da62641c
+Descripción: Ejecuta pruebas funcionales y exploratorias, documenta defectos, da seguimiento a incidencias y valida correcciones mediante pruebas de regresión.
+Incluye: Experiencia realizando pruebas de aplicaciones, registrando defectos, validando correcciones y ejecutando regresiones.
+Excluye: No corresponde a desarrollo de software, análisis de negocio ni automatización de pruebas sin evidencia de ejecución de testing manual o funcional.
+Habilidades: pruebas manuales, pruebas funcionales, gestión de defectos, casos de prueba, atención al detalle
+Vacantes de respaldo: JPC - 7152
+
+Datos y analítica
+Analista de datos
+ID: perfil-efeefb300f39
+Descripción: Analiza datos para responder সমস্যas de negocio, realiza exploración de datos, valida calidad, documenta transformaciones y automatiza análisis o procesos con SQL y Python.
+Incluye: Experiencia en análisis exploratorio, validación de calidad de datos, modelado o transformación básica y uso de SQL y Python para generar hallazgos.
+Excluye: No corresponde a roles centrados solo en reportería operativa, ingeniería de datos, ciencia de datos avanzada o desarrollo de software sin análisis de negocio.
+Habilidades: pensamiento analítico, análisis exploratorio, SQL, Python, razonamiento estadístico
+Vacantes de respaldo: JPC - 3842
+
+Desarrollador BI
+ID: perfil-f594f77426fd
+Descripción: Diseña y optimiza reportes, tableros y modelos de datos para inteligencia de negocio. Integra información de múltiples fuentes y desarrolla consultas y componentes técnicos para soluciones BI.
+Incluye: Experiencia desarrollando reportes, modelos, consultas y soluciones de Business Intelligence con herramientas de visualización y bases de datos.
+Excluye: No corresponde a análisis de datos sin desarrollo de BI, ni a desarrollo backend general sin reportes o modelado de información.
+Habilidades: Power BI, DAX, Power Query, SQL Server, integración de datos
+Vacantes de respaldo: JPC - 7310
+
+Desarrollador de software
+ID: perfil-3cc2d0e93683
+Descripción: Diseña integraciones de datos, construye pipelines ETL, trabaja con SQL y APIs, y entrega documentación técnica.
+Incluye: Desarrolla integraciones, ETL y trabajo con datos y APIs.
+Excluye: No incluye soporte de mesa de ayuda ni diseño visual de interfaces.
+Habilidades: Microsoft Graph API, ETL, modelado de datos, SQL, integración de APIs
+Vacantes de respaldo: JPC - 2000, JPC - 2121, JPC - 2155, JPC - 2965, JPC - 3654, JPC - 3810, JPC - 4574, JPC - 5652, JPC - 5671, JPC - 5897, JPC - 6225, JPC - 7357
+
+Gerente de datos
+ID: perfil-4691af96f8bc
+Descripción: Perfil de liderazgo responsable de definir e implementar estrategia y gobierno de datos, impulsar analítica avanzada, automatización y modelos predictivos, y asesorar a liderazgo coordinando equipos multidisciplinarios.
+Incluye: Experiencia liderando estrategia de datos, gobierno de datos, analítica avanzada, automatización o iniciativas predictivas con coordinación de equipos.
+Excluye: No corresponde a roles técnicos individuales sin जिम्मabilidad de estrategia, gobierno o liderazgo de equipos.
+Habilidades: gobierno de datos, analítica de personas, ciencia de datos, modelos predictivos, automatización
+Vacantes de respaldo: JPC - 1672
+
+Ingeniero de datos
+ID: perfil-ee19fe2b29d6
+Descripción: Perfil técnico orientado al diseño y construcción de pipelines de datos por lotes y orientados a eventos, integración de datos entre sistemas y plataformas ETL en la nube, y colaboración con equipos técnicos para asegurar flujos confiables.
+Incluye: Experiencia desarrollando e integrando flujos o pipelines de datos, con uso de ETL e ինտegración entre bases de datos, aplicaciones y nube.
+Excluye: No corresponde a roles de análisis de datos, ciencia de datos, administración de bases de datos ni desarrollo de software general sin foco en integración de datos.
+Habilidades: Python, Java, IBM DB2, ETL, arquitectura de datos
+Vacantes de respaldo: JPC - 7072
+
+Desarrollo de software
+Desarrollador backend .NET
+ID: perfil-1b74e5e56985
+Descripción: Desarrolla soluciones backend en .NET y C#, crea APIs y participa en decisiones técnicas, buenas prácticas, arquitectura y optimización de bases de datos.
+Incluye: Experiencia desarrollando backend con .NET y C#, construyendo APIs y trabajando con SQL o arquitectura de servicios.
+Excluye: No corresponde a desarrollo backend en otras plataformas sin .NET, ni a frontend, soporte, QA o administración de infraestructura.
+Habilidades: .NET, C#, APIs REST, arquitectura de microservicios, SQL
+Vacantes de respaldo: JPC - 1866
+
+Desarrollador front end
+ID: perfil-5d7f013ecfa3
+Descripción: Implementa y configura plataformas web, ajusta layouts e interfaces con HTML, CSS, JavaScript y XML, y crea elementos como dashboards, plantillas y campos personalizados.
+Incluye: Experiencia en implementación técnica y personalización visual de plataformas web, con ajustes de interfaz, configuración y desarrollo front end.
+Excluye: No corresponde a desarrollo web enfocado en creación de funcionalidades con TypeScript, ni a administración de CMS como rol principal, ni a DevOps, IA o NOC.
+Habilidades: HTML, CSS, JavaScript, XML, implementación web
+Vacantes de respaldo: JPC - 4043
+
+Desarrollador full stack
+ID: perfil-09109433a70c
+Descripción: Desarrolla funcionalidades de plataforma tanto en frontend como en backend. Diseña modelos de datos y lógica de negocio, implementa integraciones y participa en documentación y automatización de soluciones.
+Incluye: Experiencia desarrollando aplicaciones o plataformas completas con componentes de frontend, backend e integraciones.
+Excluye: No incluye perfiles limitados solo a frontend, solo backend o solo integración si no abarcan ambas capas de desarrollo.
+Habilidades: React, TypeScript, Node.js, Python, PostgreSQL
+Vacantes de respaldo: JPC - 6579
+
+Desarrollador Odoo
+ID: perfil-9eb926755150
+Descripción: Oficio de desarrollo backend centrado en soluciones sobre Odoo en Python, con soporte técnico, seguimiento de incidencias y apoyo a la mejora continua.
+Incluye: Desarrollo y soporte técnico sobre Odoo.
+Excluye: No incluye desarrollo frontend general ni administración funcional de negocio.
+Habilidades: Python, Odoo, soporte técnico, mentoría, control de versiones
+Vacantes de respaldo: JPC - 2667, JPC - 3202, JPC - 3217, JPC - 3624, JPC - 3722, JPC - 4079, JPC - 4262, JPC - 4329, JPC - 6091, JPC - 7153
+
+Desarrollador web
+ID: perfil-08e4f89b4169
+Descripción: Desarrolla, mantiene y personaliza sitios web sobre CMS. Realiza ajustes de interfaz y código con HTML, CSS, JavaScript y PHP, y trabaja con plataformas como WordPress y PrestaShop.
+Incluye: Experiencia en desarrollo y mantenimiento de sitios web en CMS, personalización de tiendas o sitios con WordPress o PrestaShop, y ajustes de front end y código asociado.
+Excluye: No corresponde a roles centrados en TypeScript, DevOps, IA o administración de plataformas sin desarrollo web; tampoco a supervisión operativa o soporte de infraestructura.
+Habilidades: WordPress, PrestaShop, HTML, CSS, JavaScript
+Vacantes de respaldo: JPC - 7568
+
+Ingeniero de software
+ID: perfil-0481919d7fa3
+Descripción: Perfil técnico orientado al desarrollo, mantenimiento y optimización de aplicaciones y sistemas, con elaboración de documentación y validación mediante pruebas.
+Incluye: Perfiles de desarrollo y mantenimiento de software con implementación técnica.
+Excluye: No incluye soporte de infraestructura ni administración de sistemas.
+Habilidades: java, javascript, django, pruebas unitarias, bases de datos
+Vacantes de respaldo: JPC - 2133, JPC - 2710, JPC - 2816, JPC - 2817, JPC - 3377, JPC - 3886, JPC - 3988, JPC - 3990, JPC - 4296, JPC - 4312, JPC - 4867, JPC - 4948, JPC - 5444, JPC - 5854, JPC - 5912, JPC - 6053, JPC - 6242, JPC - 6564, JPC - 6573, JPC - 6719, JPC - 6839, JPC - 6928, JPC - 6929, JPC - 6935, JPC - 6936, JPC - 6937, JPC - 6947, JPC - 7050, JPC - 7051, JPC - 7067, JPC - 7215, JPC - 7249, JPC - 7360
+
+Ingeniero de software
+ID: perfil-bb486a435692
+Descripción: Diseña y desarrolla aplicaciones web y soluciones de software de principio a fin, con participación en backend, APIs, bases de datos y frontend. Convierte requerimientos en sistemas funcionales y escalables.
+Incluye: Experiencia construyendo aplicaciones web o plataformas completas, desde la arquitectura y el desarrollo hasta la implementación de APIs, bases de datos y frontend.
+Excluye: No corresponde a roles enfocados principalmente en gestión de proyectos o en una sola capa técnica sin desarrollo integral.
+Habilidades: arquitectura de aplicaciones web, desarrollo backend, diseño de APIs, gestión de bases de datos, desarrollo full-stack
+Vacantes de respaldo: JPC - 2560
+
+Ingeniero de software principal
+ID: perfil-46d5a27aa950
+Descripción: Desarrolla y despliega soluciones de software, incluyendo soluciones de IA, con enfoque en arquitectura, escalabilidad y resolución de problemas de negocio. Traduce requerimientos en aplicaciones y colabora con equipos internos y externos.
+Incluye: Experiencia diseñando, desarrollando y desplegando soluciones de software o IA con responsabilidad técnica amplia y orientación a arquitectura.
+Excluye: No corresponde a roles puramente de desarrollo junior, soporte o gestión de proyectos sin responsabilidad técnica de arquitectura y entrega.
+Habilidades: ingeniería de software, ingeniería de IA, arquitectura de soluciones, despliegue en producción, resolución de problemas
+Vacantes de respaldo: JPC - 7073
+
+Ingeniero full stack
+ID: perfil-1dd3bcafd2a8
+Descripción: Desarrolla funcionalidades frontend y backend e integra sistemas y APIs. Participa en la optimización de soluciones y en el diseño de sistemas con enfoque full stack.
+Incluye: Experiencia en desarrollo full stack con tecnologías de frontend y backend, e integración de APIs y sistemas.
+Excluye: No corresponde a perfiles de desarrollo limitado a una sola capa ni a funciones centradas en gestión de proyectos.
+Habilidades: frontend, backend, integración de APIs, diseño de sistemas, TypeScript, React, Node.js, PostgreSQL
+Vacantes de respaldo: JPC - 3556
+
+Operaciones de servicio
+Supervisor de cuentas de atención al cliente
+ID: perfil-390bc83f9368
+Descripción: Gestiona la operación de cuentas con foco en escalaciones, colas, carga de trabajo, métricas y auditoría del desempeño del equipo. Asegura el cumplimiento de SLA y el control de calidad de la operación.
+Incluye: Experiencia supervisando cuentas, casos de soporte, colas, métricas, auditorías y productividad de agentes o equipos operativos.
+Excluye: No corresponde a roles de ventas, atención individual sin supervisión, ni gestión comercial de cuentas.
+Habilidades: GestiF3n de escalaciones, Liderazgo de equipo, GestiF3n de mE9tricas, Control de calidad, GestiF3n de colas
+Vacantes de respaldo: JPC - 6102
+
+Plataforma y cloud
+Arquitecto técnico cloud
+ID: perfil-1244e3db3a82
+Descripción: Gestiona y da soporte a infraestructura cloud, monitoreo de máquinas virtuales, mantenimiento, actualizaciones, despliegues y aspectos de seguridad y redes en entornos cloud.
+Incluye: Experiencia administrando y manteniendo entornos cloud, con participación en monitoreo, despliegue, seguridad y soporte técnico de infraestructura.
+Excluye: No corresponde a desarrollo de aplicaciones puro, ni a administración de sistemas on-premise sin foco cloud, ni a arquitectura empresarial sin ejecución técnica.
+Habilidades: Google Cloud Platform, gestión de infraestructura cloud, monitoreo de máquinas virtuales, pipelines de despliegue, seguridad de la nube
+Vacantes de respaldo: JPC - 5138
+
+Ingeniero DevOps
+ID: perfil-a2728bb61a2e
+Descripción: Diseña y opera plataformas cloud, automatiza infraestructura y despliegues mediante CI/CD e infraestructura como código, y administra contenedores y entornos en Kubernetes y Azure.
+Incluye: Experiencia en operación de plataformas cloud, automatización de infraestructura y despliegues, y administración de entornos con Azure, Terraform y Kubernetes.
+Excluye: No corresponde a desarrollo web de aplicaciones o CMS, ni a perfiles de IA/prompt engineering o supervisión de NOC sin labores de infraestructura y automatización.
+Habilidades: Microsoft Azure, Terraform, Kubernetes, CI/CD, automatización de infraestructura
+Vacantes de respaldo: JPC - 6912
+
+Producto y proyectos
+Asistente de producto
+ID: perfil-4c2de6a21ba7
+Descripción: Apoya la gestión de producto en definición y comunicación de estrategia, recopilación y priorización de requisitos, y planificación de roadmap y lanzamientos con equipos de trabajo.
+Incluye: Experiencia apoyando actividades de gestión de producto, como requisitos, priorización, roadmap y coordinación con equipos para lanzamientos.
+Excluye: No corresponde a roles centrados solo en soporte administrativo, análisis de negocio general sin producto, ni desarrollo o diseño de producto sin coordinación de ejecución.
+Habilidades: gestión de producto, recopilación de requisitos, priorización, colaboración anufactual, planificación de roadmap
+Vacantes de respaldo: JPC - 6917
+
+Gerente de proyectos TI
+ID: perfil-c85394f171c8
+Descripción: Planifica, ejecuta y cierra proyectos de tecnología, coordinando equipos, alcance, cronograma, recursos, riesgos y presupuesto. Da seguimiento al avance y comunica estado y riesgos a las partes interesadas.
+Incluye: Experiencia dirigiendo proyectos de TI de forma integral, con planificación, ejecución, seguimiento y control.
+Excluye: No corresponde a perfiles técnicos de desarrollo ni a roles de coordinación parcial sin responsabilidad integral de proyecto.
+Habilidades: gestión de proyectos, planificación, gestión de riesgos, gestión de recursos, control de presupuesto
+Vacantes de respaldo: JPC - 7785
+
+Líder de arquitectura de producto
+ID: perfil-9d6e88aa6946
+Descripción: Oficio centrado en definir la visión y estrategia del producto, priorizar el roadmap y coordinar la entrega con equipos técnicos y liderazgo.
+Incluye: Incluye perfiles que articulan estrategia, definición de roadmap y coordinación técnica del producto.
+Excluye: Excluye funciones de desarrollo técnico puro, soporte o administración operativa de proyectos.
+Habilidades: arquitectura de soluciones, gestión de producto, gestión de stakeholders, metodología ágil, automatización de flujos
+Vacantes de respaldo: JPC - 3917, JPC - 4884, JPC - 5220, JPC - 5437, JPC - 6014, JPC - 6859, JPC - 6905
+
+Salesforce
+Administrador de Salesforce
+ID: perfil-943ecc32de8f
+Descripción: Administra y optimiza entornos de Salesforce, gestionando objetos, permisos, flujos y seguridad. También participa en operaciones de Marketing Cloud y Experience Cloud, y en el desarrollo de Apex, Lightning Web Components e integraciones.
+Incluye: Experiencia administrando Salesforce y trabajando con automatizaciones, seguridad, componentes y aplicaciones relacionadas dentro de la plataforma.
+Excluye: No corresponde a roles de soporte general de CRM sin administración técnica de Salesforce, ni a perfiles puramente de desarrollo web o integraciones fuera del ecosistema Salesforce.
+Habilidades: administración de Salesforce, Marketing Cloud, Apex, Lightning Web Components, integraciones API
+Vacantes de respaldo: JPC - 6654
+
+Ventas
+Apoyo y administración comercial
+Administrador de ventas
+ID: perfil-3baa9e2104a3
+Descripción: Gestiona apoyo administrativo y comercial para el seguimiento de oportunidades, pedidos, documentos y comunicaciones vinculadas al proceso de ventas.
+Incluye: Apoyo comercial, gestión de pedidos, documentos y seguimiento en ventas.
+Excluye: No incluye supervisión de equipos ni cierre de ventas.
+Habilidades: CRM, seguimiento, organización, comunicación escrita, apoyo comercial, administración comercial, atención al cliente, elaboración de documentos
+Vacantes de respaldo: JPC - 3590, JPC - 3666, JPC - 3976, JPC - 4202, JPC - 7194
+
+Asistente de ventas
+ID: perfil-0468aad0182a
+Descripción: Apoya el seguimiento de leads, la agenda de citas y el registro de información en CRM para facilitar el avance de oportunidades en el proceso comercial. Requiere organización y seguimiento comercial.
+Incluye: Experiencia en apoyo comercial con seguimiento de leads, agenda de citas y actualización de registros en CRM.
+Excluye: No corresponde a funciones de cierre de ventas, supervisión comercial, marketing ni atención posventa especializada.
+Habilidades: contacto con leads, seguimiento comercial, gestión de CRM, agenda de citas, organización
+Vacantes de respaldo: JPC - 6164
+
+Liderazgo comercial
+Director comercial de transporte y logística
+ID: perfil-a1b34c12c611
+Descripción: Lidera y estructura equipos comerciales orientados a brokerage terrestre o freight brokerage. Define estrategias de crecimiento, seguimiento de indicadores, disciplina de margen y procesos comerciales escalables. Acompaña la prospección, gestión de pipeline, negociación y desarrollo de cuentas estratégicas.
+Incluye: Experiencia dirigiendo equipos comerciales en brokerage terrestre o freight brokerage, con responsabilidad sobre crecimiento, rentabilidad, métricas y desarrollo de cuentas.
+Excluye: No corresponde a roles operativos de transporte, coordinación logística sin जिम्मabilidad comercial, ni ventas sin liderazgo de equipo.
+Habilidades: liderazgo comercial, negociación con carriers, gestión de márgenes, CRM, análisis de KPIs
+Vacantes de respaldo: JPC - 3423
+
+Ejecutivo de cuentas
+ID: perfil-aaafa2635ed1
+Descripción: Oficio de gestión comercial que conduce oportunidades de venta desde el descubrimiento hasta el cierre y el seguimiento del pipeline.
+Incluye: Gestión del ciclo completo de ventas y cierre de oportunidades.
+Excluye: No incluye funciones administrativas ni atención comercial de cartera exclusivamente reactiva.
+Habilidades: ventas consultivas, gestión de pipeline, negociación, demos, cierre comercial
+Vacantes de respaldo: JPC - 2391, JPC - 2394, JPC - 3089, JPC - 3858, JPC - 5467, JPC - 5696, JPC - 5703, JPC - 7507
+
+Gerente de ventas
+ID: perfil-136b628a246d
+Descripción: Perfil de liderazgo comercial responsable de definir y ejecutar estrategias de ventas, dirigir equipos comerciales y analizar métricas para optimizar el embudo y el desempeño.
+Incluye: Experiencia liderando equipos de ventas, definiendo estrategia comercial, gestionando desempeño y analizando métricas de resultados.
+Excluye: No corresponde a funciones de prospección individual, soporte de ventas, atención al cliente ni ejecución operativa sin responsabilidad de liderazgo.
+Habilidades: liderazgo comercial, estrategia de ventas, análisis de datos, gestión de equipos, mejora de procesos
+Vacantes de respaldo: JPC - 7834
+
+Supervisor de desarrollo de ventas
+ID: perfil-cb585ed89982
+Descripción: Supervisa el desempeño del equipo comercial, da coaching, realiza seguimiento de indicadores y aplica acciones de mejora sobre la operación de ventas.
+Incluye: Supervisión de metas, coaching y seguimiento de indicadores comerciales.
+Excluye: No incluye funciones de administración de ventas ni apoyo operativo individual.
+Habilidades: liderazgo, gestión de equipos, seguimiento de KPI, coaching, aseguramiento de calidad
+Vacantes de respaldo: JPC - 4916, JPC - 4957, JPC - 5999, JPC - 6344, JPC - 7902
+
+Supervisor de ventas
+ID: perfil-5a07d2167f1c
+Descripción: Supervisa el desempeño del equipo comercial, da coaching y feedback, monitorea KPIs y coordina procesos de onboarding y mejora operativa. Requiere liderazgo, comunicación y seguimiento de objetivos comerciales.
+Incluye: Experiencia supervisando equipos de ventas o desarrollo comercial, con seguimiento de KPIs, coaching, entrenamiento y coordinación de procesos comerciales.
+Excluye: No corresponde a roles individuales de ventas o prospección sin responsabilidad de supervisión, ni a jefaturas centradas solo en administración.
+Habilidades: liderazgo, coaching, seguimiento de KPIs, comunicación, resolución de problemas
+Vacantes de respaldo: JPC - 1686
+
+Prospección y desarrollo comercial
+Asistente virtual
+ID: perfil-840032c3a19e
+Descripción: Perfil enfocado en investigar y calificar prospectos, realizar contacto inicial por teléfono y correo, y usar herramientas digitales para apoyar la prospección y el seguimiento.
+Incluye: Experiencia en investigación de prospectos, calificación comercial, contacto inicial y seguimiento de actividades de prospección.
+Excluye: No incluye ventas cerradoras, gestión comercial avanzada ni asistencia administrativa general sin componente de prospección.
+Habilidades: investigación de leads, llamadas en frío, correo masivo, Google Workspace, herramientas de IA
+Vacantes de respaldo: JPC - 1403
+
+Especialista en calificación de leads
+ID: perfil-e641964be4b3
+Descripción: Recibe, prioriza y evalúa solicitudes entrantes para determinar su encaje y dirigirlas adecuadamente. Realiza seguimiento posterior para recopilar feedback y medir resultados, combinando atención al cliente, gestión de cola y uso de CRM.
+Incluye: Experiencia en filtrado o priorización de solicitudes entrantes, evaluación inicial de necesidades y seguimiento posterior de resultados.
+Excluye: No corresponde a ventas cerradas, desarrollo de cartera, soporte técnico ni gestión comercial de cuentas.
+Habilidades: calificación de leads, atención al cliente, gestión de cola, CRM, análisis de oportunidades
+Vacantes de respaldo: JPC - 7496
+
+Representante de desarrollo comercial
+ID: perfil-d0e4809c87ae
+Descripción: Profesional de ventas orientado a la prospección y generación de pipeline. Investiga cuentas objetivo, contacta prospectos por distintos canales, califica leads mediante descubrimiento consultivo y agenda reuniones o demos. Mantiene el CRM y da seguimiento a la actividad comercial.
+Incluye: Experiencia en prospección multicanal, llamadas en frío, calificación de leads, agendamiento de reuniones o demos y actualización de CRM para apoyar el pipeline comercial.
+Excluye: No incluye cierre de ventas, gestión de cartera, postventa ni roles de account management; tampoco funciones enfocadas principalmente en marketing o soporte administrativo.
+Habilidades: prospectación outbound, calificación de leads, CRM, comunicación comercial, gestión de pipeline
+Vacantes de respaldo: JPC - 6184, JPC - 6757, JPC - 7866
+
+Representante de desarrollo de ventas
+ID: perfil-5f9bdf23a45e
+Descripción: Perfil de ventas orientado a prospección, contacto con prospectos y generación de oportunidades para el equipo comercial. Puede incluir ventas consultivas, seguimiento comercial, agendamiento de citas y actualización de información en sistemas de ventas.
+Incluye: Experiencia en llamadas comerciales, prospección, calificación de oportunidades, concertación de citas y apoyo al cierre o seguimiento comercial.
+Excluye: No se limita a generación de leads; tampoco describe exclusivamente telemarketing de primera línea ni roles puramente de soporte operativo o postventa sin actividad comercial activa.
+Habilidades: ventas telefónicas, prospección, seguimiento postventa, SAP, gestión de clientes
+Vacantes de respaldo: JPC - 1368, JPC - 2420, JPC - 2897, JPC - 7416
+
+Representante de desarrollo de ventas
+ID: perfil-7073ebcf27eb
+Descripción: Perfil orientado a identificar, contactar y calificar prospectos, generar oportunidades comerciales y coordinar reuniones de avance en el proceso de venta.
+Incluye: Perfiles centrados en prospección y calificación de oportunidades.
+Excluye: No incluye cierre de ventas ni gestión de cuentas posteriores.
+Habilidades: prospectación, outbound sales, prospectación outbound, llamadas en frío, gestión de CRM, seguimiento de leads, agendamiento de reuniones, LinkedIn outreach, ABM, búsqueda de mercado, calificación de leads, ventas internas
+Vacantes de respaldo: JPC - 1184, JPC - 1192, JPC - 1237, JPC - 1367, JPC - 1496, JPC - 1638, JPC - 1722, JPC - 1731, JPC - 1822, JPC - 1844, JPC - 1973, JPC - 2037, JPC - 2048, JPC - 2058, JPC - 2074, JPC - 2111, JPC - 2154, JPC - 2190, JPC - 2225, JPC - 2338, JPC - 2362, JPC - 2388, JPC - 2390, JPC - 2405, JPC - 2421, JPC - 2446, JPC - 2465, JPC - 2469, JPC - 2487, JPC - 2564, JPC - 2610, JPC - 2633, JPC - 2699, JPC - 2706, JPC - 2743, JPC - 2744, JPC - 2775, JPC - 2776, JPC - 2777, JPC - 2811, JPC - 2828, JPC - 2851, JPC - 2864, JPC - 2869, JPC - 2874, JPC - 2938, JPC - 2964, JPC - 3147, JPC - 3204, JPC - 3215, JPC - 3249, JPC - 3292, JPC - 3295, JPC - 3458, JPC - 3502, JPC - 3594, JPC - 3614, JPC - 3673, JPC - 3696, JPC - 3743, JPC - 3799, JPC - 3827, JPC - 3862, JPC - 3892, JPC - 3935, JPC - 3972, JPC - 4071, JPC - 4076, JPC - 4186, JPC - 4188, JPC - 4243, JPC - 4252, JPC - 4259, JPC - 4265, JPC - 4269, JPC - 4285, JPC - 4286, JPC - 4287, JPC - 4300, JPC - 4346, JPC - 4365, JPC - 4387, JPC - 4396, JPC - 4412, JPC - 4419, JPC - 4434, JPC - 4458, JPC - 4486, JPC - 4751, JPC - 4776, JPC - 4793, JPC - 4795, JPC - 4802, JPC - 4838, JPC - 4902, JPC - 4904, JPC - 4973, JPC - 5026, JPC - 5047, JPC - 5212, JPC - 5377, JPC - 5445, JPC - 5447, JPC - 5451, JPC - 5466, JPC - 5474, JPC - 5482, JPC - 5483, JPC - 5484, JPC - 5497, JPC - 5585, JPC - 5603, JPC - 5643, JPC - 5679, JPC - 5697, JPC - 5706, JPC - 5719, JPC - 5739, JPC - 5847, JPC - 5873, JPC - 5962, JPC - 5976, JPC - 5982, JPC - 6066, JPC - 6103, JPC - 6116, JPC - 6224, JPC - 6228, JPC - 6230, JPC - 6315, JPC - 6399, JPC - 6590, JPC - 6619, JPC - 6635, JPC - 6655, JPC - 6667, JPC - 6675, JPC - 6710, JPC - 6782, JPC - 7106, JPC - 7161, JPC - 7167, JPC - 7199, JPC - 7201, JPC - 7223, JPC - 7238, JPC - 7262, JPC - 7273, JPC - 7294, JPC - 7321, JPC - 7408, JPC - 7428, JPC - 7444, JPC - 7465, JPC - 7601, JPC - 7649, JPC - 7693, JPC - 7738, JPC - 7767, JPC - 7768, JPC - 7801, JPC - 7805, JPC - 7867, JPC - 7901
+
+Representante de ventas
+ID: perfil-f64b54502111
+Descripción: Realiza prospección, contacto inicial y seguimiento comercial para calificar oportunidades y agendar citas.
+Incluye: Prospección comercial y calificación de prospectos.
+Excluye: Cierre de ventas complejas, marketing o atención postventa.
+Habilidades: prospección, llamadas en frío, calificación de leads, seguimiento, comunicación comercial
+Vacantes de respaldo: JPC - 2423, JPC - 2647, JPC - 2892, JPC - 3468, JPC - 3711, JPC - 3718, JPC - 3753, JPC - 3905, JPC - 3911, JPC - 4331, JPC - 4709, JPC - 5438, JPC - 5449, JPC - 5458, JPC - 5822, JPC - 6007, JPC - 6350, JPC - 6622, JPC - 6696, JPC - 6735, JPC - 6881, JPC - 7472, JPC - 7766
+
+Representante de ventas logísticas
+ID: perfil-711afadda825
+Descripción: Oficio de prospección comercial y ventas outbound enfocado en captar clientes y construir cartera para servicios logísticos.
+Incluye: Incluye perfiles centrados en prospección activa y desarrollo de cartera comercial.
+Excluye: Excluye perfiles de gestión de cuentas existentes o venta no orientada a prospección.
+Habilidades: ventas outbound, prospección comercial, llamadas en frío, captación de clientes, gestión de cartera
+Vacantes de respaldo: JPC - 1777, JPC - 4098, JPC - 4138, JPC - 5433, JPC - 5708, JPC - 5826, JPC - 6092, JPC - 6511, JPC - 7155
+
+SDR outbound
+ID: perfil-d076e17bf3f7
+Descripción: Perfil dedicado a generar oportunidades desde cero mediante prospección comercial, contacto multicanal con decisores y seguimiento de respuestas y reuniones calificadas.
+Incluye: Experiencia en prospección outbound, contacto con prospectos, segmentación de cuentas, seguimiento de interacciones y registro de actividad en CRM.
+Excluye: No corresponde a roles de cierre de ventas, gestión de cuentas, marketing, customer success ni supervisión comercial.
+Habilidades: Prospección comercial, Outreach multicanal, Segmentación, Enriquecimiento de datos, CRM
+Vacantes de respaldo: JPC - 1183
+
+Venta directa
+Agente de ventas inbound
+ID: perfil-a006e759f789
+Descripción: Atiende llamadas entrantes, califica prospectos, presenta ofertas, resuelve objeciones y cierra ventas por teléfono. Registra correctamente el resultado de las llamadas y gestiona reservas cuando aplica.
+Incluye: Experiencia en ventas inbound o inbound sales, con calificación de prospectos, cierre por teléfono y registro del proceso comercial.
+Excluye: No corresponde a call center de soporte, cobranza, retención sin venta ni atención receptiva sin calificación comercial.
+Habilidades: ventas telefónicas, atención al cliente, manejo de objeciones, calificación de prospectos, seguimiento de llamadas
+Vacantes de respaldo: JPC - 7499, JPC - 7500
+
+Agente de ventas internas
+ID: perfil-5c0e2fba8f37
+Descripción: Gestiona oportunidades comerciales mediante seguimiento de prospectos y clientes, presentación de productos y cierre de ventas. Registra interacciones y órdenes en sistemas de gestión comercial.
+Incluye: Experiencia en ventas internas con seguimiento comercial, atención a clientes, presentación de oferta y cierre de ventas, incluyendo registro en CRM o ERP.
+Excluye: No corresponde a roles centrados en prospección outbound o programación de citas sin cierre comercial, ni a posiciones de atención al cliente sin actividad de venta.
+Habilidades: ventas internas, atención al cliente, cierre de ventas, seguimiento comercial, uso de CRM
+Vacantes de respaldo: JPC - 6674
+
+Cerrador de ventas
+ID: perfil-db385790e864
+Descripción: Gestiona el ciclo completo de ventas desde la prospección hasta el cierre mediante llamadas salientes, conversaciones de descubrimiento, manejo de objeciones y seguimiento comercial.
+Incluye: Experiencia en ventas de ciclo completo, llamadas salientes y cierre de oportunidades comerciales, con manejo de objeciones y seguimiento.
+Excluye: No corresponde a puestos centrados solo en atención de llamadas, reservas o programación de citas sin responsabilidad principal de cierre final.
+Habilidades: ventas, llamadas salientes, negociación, manejo de objeciones, gestión de clientes
+Vacantes de respaldo: JPC - 6257
+
+Programador de citas
+ID: perfil-29d56214214d
+Descripción: Realiza prospección telefónica outbound, califica leads y agenda demostraciones o citas comerciales. Da seguimiento a la actividad comercial y mantiene relación con prospectos.
+Incluye: Experiencia en llamadas outbound, calificación de prospectos y agendamiento de citas o demostraciones dentro de un proceso comercial.
+Excluye: No corresponde a roles de cierre de ventas ni a ventas internas enfocadas en gestión de cartera o cierres directos.
+Habilidades: Ventas outbound, Prospección telefónica, Calificación de leads, Comunicación persuasiva, Manejo de CRM
+Vacantes de respaldo: JPC - 4363
+
+Representante de ventas
+ID: perfil-14db0b557210
+Descripción: Atiende llamadas comerciales, presenta ofertas, guía procesos de reserva o venta y resuelve objeciones para concretar cierres. Puede incluir seguimiento de clientes y cumplimiento de objetivos comerciales.
+Incluye: Experiencia en ventas por teléfono, cierre de reservas o ventas, atención comercial y seguimiento de metas de conversión.
+Excluye: No corresponde a roles de solo servicio al cliente sin venta, ni a funciones de prospección outbound pura o de programación de citas sin cierre.
+Habilidades: ventas telefónicas, atención al cliente, manejo de objeciones, cierre de ventas, cumplimiento de KPI
+Vacantes de respaldo: JPC - 6324, JPC - 7605, JPC - 7702
+
+Representante de ventas
+ID: perfil-7d42be0d2321
+Descripción: Atiende llamadas de clientes interesados en hoteles y paquetes, identifica necesidades, propone soluciones personalizadas y aplica técnicas de venta para cerrar reservas. Requiere ventas, persuasión, comunicación, identificación de necesidades e inglés.
+Incluye: Experiencia en asesoría comercial y cierre de reservas de hoteles o paquetes.
+Excluye: No corresponde a supervisión de equipos ni a funciones operativas ajenas al proceso de reserva y venta.
+Habilidades: ventas, persuasión, comunicación, inglés, identificación de necesidades
+Vacantes de respaldo: JPC - 3930
+
+Representante de ventas consultivas
+ID: perfil-9bba13e5fe2a
+Descripción: Atiende consultas comerciales, identifica necesidades del cliente y ofrece soluciones mediante venta consultiva, con enfoque en llamadas entrantes y cierre por teléfono. Gestiona objeciones y acompaña el proceso comercial hasta la reserva o venta.
+Incluye: Experiencia en ventas consultivas por teléfono, atención de llamadas entrantes, asesoría comercial y cierre de reservas o ventas.
+Excluye: No corresponde a soporte telefónico no comercial, recepción de llamadas sin venta ni roles de operación turística sin responsabilidad comercial.
+Habilidades: ventas consultivas, atención telefónica, comunicación persuasiva, atención al cliente, cierre de ventas
+Vacantes de respaldo: JPC - 4392

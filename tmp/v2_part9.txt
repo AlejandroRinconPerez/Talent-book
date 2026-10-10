@@ -1,0 +1,229 @@
+Legal
+Asistencia legal
+Analista de soporte administrativo
+ID: perfil-34ae026b636a
+Descripción: Gestiona documentación y seguimiento de expedientes, registros y reclamaciones, coordinando la obtención de información con terceros y aseguradoras.
+Incluye: Soporte documental y de seguimiento de casos, seguros o expedientes.
+Excluye: No incluye representación legal ni litigio.
+Habilidades: gestión documental, obtención y seguimiento de registros, digitalización de documentos, comunicación con aseguradoras, manejo de expedientes de lesiones personales
+Vacantes de respaldo: JPC - 2120, JPC - 2137, JPC - 2138, JPC - 2377, JPC - 6770
+
+Asistente administrativo legal
+ID: perfil-11e4512c15c6
+Descripción: Apoya la operación administrativa legal gestionando calendarios, comunicaciones, archivos, preparación y presentación de documentos, control de expedientes y apoyo a dockets y facturación.
+Incluye: Experiencia en apoyo administrativo dentro de un entorno legal, con manejo de calendarios, documentos, expedientes, dockets o facturación.
+Excluye: No corresponde a paralegal de litigio ni a apertura inicial de casos como función principal.
+Habilidades: organización, comunicación bilingüe, Microsoft Office, gestión de expedientes, presentación de documentos
+Vacantes de respaldo: JPC - 6815, JPC - 7313
+
+Asistente legal
+ID: perfil-72194eb05615
+Descripción: Realiza soporte administrativo legal, incluyendo preparación de formularios y documentos judiciales, redacción de correspondencia legal básica, organización de expedientes y coordinación del ingreso y seguimiento de clientes.
+Incluye: Experiencia en soporte administrativo legal, documentación de casos, coordinación de clientes y manejo de expedientes o sistemas de gestión.
+Excluye: No corresponde a roles centrados en análisis jurídico avanzado, representación procesal ni gestión integral de casos complejos.
+Habilidades: Atención al detalle, Redacción legal básica, Gestión documental, Uso de software de casos, Trámite electrónico judicial
+Vacantes de respaldo: JPC - 1604, JPC - 6030, JPC - 6295, JPC - 7713, JPC - 7816
+
+Asistente legal de litigios
+ID: perfil-e5f981cb7783
+Descripción: Apoya la operación de litigios mediante investigación legal, control de expedientes y plazos, preparación y presentación de documentos, y coordinación de comunicaciones y agendas con actores del proceso.
+Incluye: Experiencia brindando apoyo administrativo y operativo en litigios, con manejo de expedientes, plazos, documentos y coordinación de comunicaciones del proceso.
+Excluye: No corresponde a un perfil enfocado principalmente en admisión de clientes, revisión contractual o funciones de paralegal con mayor responsabilidad de preparación procesal integral.
+Habilidades: investigación legal, gestión de expedientes, redacción y comunicación, organización, Microsoft Office
+Vacantes de respaldo: JPC - 7515, JPC - 7598
+
+Especialista en revisión de contratos
+ID: perfil-6436777b2ea9
+Descripción: Revisa contratos comerciales para identificar riesgos y desviaciones, prepara observaciones y comentarios en documentos, y mantiene el seguimiento documental y de estados contractuales.
+Incluye: Experiencia revisando acuerdos o contratos, detectando riesgos, proponiendo comentarios y manteniendo control documental contractual.
+Excluye: No corresponde a roles centrados en litigio, preparación de juicio, admisión de clientes o soporte administrativo jurídico general.
+Habilidades: revisión de contratos, análisis contractual, redlining, gestión documental, comunicación escrita
+Vacantes de respaldo: JPC - 6699
+
+Paralegal
+ID: perfil-3f08a8929268
+Descripción: Da soporte legal en la gestión de casos, con actualización de documentos en sistemas, coordinación de comunicaciones con clientes, proveedores y aseguradoras, y apoyo en tareas de prelitigio y litigio.
+Incluye: Experiencia en apoyo legal y gestión de casos, actualización documental y coordinación con partes relacionadas al caso.
+Excluye: No corresponde a funciones de intake, atención comercial inicial ni a tareas propias de abogado litigante.
+Habilidades: gestión de casos, redacción legal, comunicación, gestión documental, trabajo bajo presión
+Vacantes de respaldo: JPC - 1163
+
+Paralegal de apoyo en litigios
+ID: perfil-2b2098357fe4
+Descripción: Brinda apoyo integral a abogados durante el litigio mediante redacción y revisión de escritos, coordinación de discovery, control de plazos y organización de expedientes.
+Incluye: Experiencia apoyando procesos de litigio, elaborando escritos, coordinando discovery y administrando expedientes y plazos.
+Excluye: No corresponde a asistencia administrativa general ni a roles enfocados solo en archivo, agenda o tareas secretariales.
+Habilidades: redacción jurídica, revisión y corrección de documentos, organización de expedientes, investigación legal, gestión de plazos
+Vacantes de respaldo: JPC - 7893
+
+Gestión de casos
+Asistente de gestor de casos
+ID: perfil-5879405bb2d1
+Descripción: Apoya la coordinación de casos de lesiones personales mediante gestión de documentación, seguimiento de expedientes y comunicación con clientes, proveedores y aseguradoras.
+Incluye: Experiencia asistiendo en la coordinación de casos, organización documental y comunicación entre partes en asuntos de lesiones personales.
+Excluye: No corresponde a gestión integral de casos ni a funciones de abogado o paralegal con responsabilidad principal sobre el expediente.
+Habilidades: gestión de casos, documentación, comunicación bilingüe, seguimiento de expedientes, coordinación con terceros
+Vacantes de respaldo: JPC - 6517
+
+Case Manager
+ID: perfil-411cc7b49f50
+Descripción: Gestiona casos de lesiones personales de principio a fin, coordinando documentación médica y legal, comunicándose con las partes involucradas y preparando materiales para negociación o litigio.
+Incluye: Experiencia gestionando casos de lesiones personales, coordinando documentación médica y legal, y preparando expedientes o materiales para negociación o litigio.
+Excluye: No corresponde a asistencia administrativa aislada ni a roles centrados solo en archivo o captura de datos sin seguimiento integral del caso.
+Habilidades: gestión de expedientes, comunicación con clientes, obtención de historiales y facturas médicas, negociación con aseguradoras, manejo de sistemas de gestión de casos
+Vacantes de respaldo: JPC - 1268, JPC - 1787
+
+Coordinador de coasesoría
+ID: perfil-94b6dbb3d141
+Descripción: Coordina el seguimiento de casos, mantiene registros y tableros actualizados, y apoya la gestión documental y administrativa relacionada con honorarios y plazos.
+Incluye: Coordinación de casos, registros, plazos y seguimiento administrativo.
+Excluye: No incluye cierre de casos ni funciones de representación legal.
+Habilidades: atención al detalle, organización, gestión de casos, confidencialidad, seguimiento administrativo
+Vacantes de respaldo: JPC - 2714, JPC - 4938, JPC - 6784, JPC - 6979, JPC - 7483
+
+Especialista de captura y revisión de datos
+ID: perfil-5552a093b686
+Descripción: Ingresa, actualiza y valida información de expedientes en sistemas de gestión, revisando documentos legales, médicos y de seguros para asegurar exactitud y preparar expedientes digitales.
+Incluye: Experiencia en captura, revisión, validación y mantenimiento de datos o expedientes en sistemas de gestión para entornos legales o prelitigio.
+Excluye: No corresponde a gestión de casos, ni a revisión jurídica sustantiva, ni a funciones centradas en atención al cliente o negociación.
+Habilidades: captura de datos, control de calidad, gestión de expedientes, revisión documental, confidencialidad
+Vacantes de respaldo: JPC - 7588
+
+Especialista de cierre
+ID: perfil-0ab726bbe0ad
+Descripción: Gestiona el avance administrativo de casos y expedientes, coordinando información, documentos, pagos y cálculos vinculados al cierre.
+Incluye: Seguimiento de expedientes, documentos y pagos para el cierre de casos.
+Excluye: No incluye coordinación integral de casos ni supervisión legal.
+Habilidades: captura administrativa, gestión de expedientes, comunicación por correo, Excel, seguimiento de casos
+Vacantes de respaldo: JPC - 1880, JPC - 2081, JPC - 2795, JPC - 4210, JPC - 6375
+
+Especialista en casos de lesiones personales
+ID: perfil-8fea358ec5a6
+Descripción: Coordina casos de lesiones personales desde la admisión hasta la preparación de acuerdos, realizando seguimiento médico, gestión de registros y reclamaciones de seguro.
+Incluye: Experiencia coordinando casos de lesiones personales, con seguimiento de registros médicos, reclamaciones de seguro y apoyo a acuerdos.
+Excluye: No corresponde a recuperación documental aislada ni a tareas exclusivamente administrativas sin coordinación del caso.
+Habilidades: gestión de casos, coordinación con proveedores médicos, gestión de reclamaciones de seguro, manejo de registros médicos, comunicación profesional
+Vacantes de respaldo: JPC - 7717
+
+Especialista en daños materiales
+ID: perfil-b795c89c1220
+Descripción: Perfil de siniestros que gestiona reclamos por daños materiales, pérdida total o reparación, dando seguimiento con clientes y aseguradoras y revisando evaluaciones relacionadas con el siniestro.
+Incluye: Experiencia atendiendo y procesando reclamos de daños materiales, pérdida total, reparaciones y seguimiento con aseguradoras o clientes.
+Excluye: No corresponde a suscripción de pólizas, ventas de seguros ni ajuste de siniestros centrado en lesiones corporales o vida.
+Habilidades: Gestión de siniestros, Comunicación con aseguradoras, Negociación, Procesamiento de reclamos, Daños materiales
+Vacantes de respaldo: JPC - 7848
+
+Gestor de casos de lesiones personales
+ID: perfil-300ac7dd37d9
+Descripción: Oficio legal enfocado en administrar expedientes de lesiones personales, coordinar documentación, tratamiento y avances del caso.
+Incluye: Incluye perfiles que administran casos, documentación y coordinación vinculada a lesiones personales.
+Excluye: Excluye perfiles de abogado litigante o soporte administrativo sin gestión integral del caso.
+Habilidades: gestión de casos, lesiones personales, redacción jurídica, negociación, gestión de documentación
+Vacantes de respaldo: JPC - 1232, JPC - 1316, JPC - 1330, JPC - 1331, JPC - 1645, JPC - 6192, JPC - 7037, JPC - 7503
+
+Paralegal / gestor de casos
+ID: perfil-75ae5c0a9429
+Descripción: Gestiona casos de lesiones personales en etapa prelitigio, solicita y revisa historiales médicos y reportes policiales, y prepara paquetes de demanda y seguimiento de reclamos.
+Incluye: Experiencia en gestión de casos de lesiones personales prelitigio, recopilación y revisión de documentación y preparación de demandas o reclamos.
+Excluye: No corresponde a roles de intake, apoyo administrativo general ni a funciones de abogado litigante.
+Habilidades: gestión de casos, documentación legal, solicitud de registros médicos, seguimiento de reclamos, subrogación
+Vacantes de respaldo: JPC - 6766
+
+Inmigración
+Paralegal de inmigración
+ID: perfil-7e36f4868bb7
+Descripción: Apoya la práctica legal de inmigración empresarial preparando y organizando documentación de casos, dando seguimiento a formularios, evidencias y plazos, y coordinando expedientes con el equipo legal.
+Incluye: Experiencia en apoyo legal a casos de inmigración con manejo de documentación, expedientes y seguimiento de trámites.
+Excluye: No corresponde a roles de intake, registros médicos o funciones administrativas sin apoyo jurídico directo.
+Habilidades: redacción jurídica, organización documental, gestión de expedientes, atención al detalle, comunicación con clientes
+Vacantes de respaldo: JPC - 7412
+
+Intake y atención inicial
+Asistente legal de apertura y gestión inicial de casos
+ID: perfil-17af657d9c54
+Descripción: Apoya la apertura e ingreso inicial de casos, registrando datos en sistemas de gestión, organizando documentación inicial y coordinando información con aseguradoras y con el equipo legal.
+Incluye: Experiencia en intake legal, registro de datos de casos, coordinación con aseguradoras y organización de documentos iniciales.
+Excluye: No corresponde a litigio, redacción procesal ni gestión integral de paralegal; tampoco a roles centrados solo en secretaría general sin apertura de casos.
+Habilidades: gestión de expedientes, atención telefónica, organización documental, Briefcase, Outlook
+Vacantes de respaldo: JPC - 2075
+
+Especialista de admisión
+ID: perfil-39df1239d91d
+Descripción: Recibe y califica prospectos, documenta casos y da seguimiento hasta su transferencia al área jurídica. Maneja comunicación inicial con contactos, registro de información y actualización de expedientes de admisión.
+Incluye: Experiencia atendiendo contactos iniciales, calificando prospectos, registrando información y dando seguimiento previo a la transferencia de casos.
+Excluye: No corresponde a roles centrados en litigio, paralegal, revisión contractual o soporte administrativo general de despacho.
+Habilidades: admisión de clientes, calificación de leads, comunicación con clientes, seguimiento de contactos, manejo de casos
+Vacantes de respaldo: JPC - 6994
+
+Especialista de intake
+ID: perfil-742ae701f322
+Descripción: Actúa como primer punto de contacto con prospectos, califica leads, agenda consultas con abogados y registra o actualiza información en CRM y bases de datos.
+Incluye: Experiencia en recepción y calificación de prospectos, agendamiento de consultas y registro de información en sistemas o CRM.
+Excluye: No corresponde a soporte jurídico documental, gestión de expedientes ni funciones de abogado o paralegal.
+Habilidades: atención al cliente, comunicación verbal y escrita, gestión de CRM, gestión de llamadas entrantes, calificación de leads
+Vacantes de respaldo: JPC - 7276
+
+Especialista de intake legal
+ID: perfil-531ba2e3c582
+Descripción: Realiza la recopilación de información y documentación de clientes, la evaluación inicial de casos y el seguimiento de consultas y prospectos. Puede coordinar citas, registrar datos y usar sistemas de gestión de casos o CRM.
+Incluye: Experiencia en contacto inicial con prospectos o clientes, captura de datos, evaluación preliminar y seguimiento de casos.
+Excluye: No corresponde a roles de registro médico ni a puestos enfocados en litigio o redacción jurídica avanzada.
+Habilidades: intake legal, recolección de información, documentación, seguimiento, atención al cliente
+Vacantes de respaldo: JPC - 5945, JPC - 7008
+
+Especialista de intake y gestión de casos
+ID: perfil-5ed98438ae00
+Descripción: Oficio de recepción, calificación inicial y seguimiento de consultas hasta el retainer, con cobro de pagos y gestión de casos.
+Incluye: Atención inicial, retención y seguimiento de consultas y casos.
+Excluye: No incluye litigación ni gestión jurídica especializada de expedientes.
+Habilidades: ventas consultivas, gestión de intake, seguimiento de consultas, cobro de pagos, gestión de casos
+Vacantes de respaldo: JPC - 2539, JPC - 3109, JPC - 3821, JPC - 4232, JPC - 5754, JPC - 5859, JPC - 7334
+
+Registros médicos y gravámenes
+Asistente de gravámenes
+ID: perfil-f9ecd90b42f9
+Descripción: Oficio de gestión y seguimiento de solicitudes de gravámenes y subrogación, con control documental y coordinación con proveedores y aseguradoras.
+Incluye: Gestión de gravámenes, subrogación y seguimiento documental de casos.
+Excluye: No incluye representación legal ni litigio.
+Habilidades: gestión de gravámenes, subrogación, comunicación con proveedores, seguimiento de casos, gestión documental
+Vacantes de respaldo: JPC - 1990, JPC - 2627, JPC - 4969, JPC - 5566, JPC - 6339, JPC - 7229, JPC - 7554
+
+Asistente legal de expedientes médicos
+ID: perfil-d4595f500938
+Descripción: Apoya casos legales mediante la solicitud, seguimiento y organización de expedientes y registros médicos. Maneja documentación de soporte, control de solicitudes y coordinación de estados de casos con enfoque en orden documental y cumplimiento de procesos.
+Incluye: Experiencia solicitando, revisando, organizando y dando seguimiento a expedientes o registros médicos para apoyo legal.
+Excluye: No corresponde a auxiliares de archivo general ni a roles de intake o atención inicial de prospectos.
+Habilidades: obtención de registros médicos, HIPAA, gestión documental, seguimiento, organización
+Vacantes de respaldo: JPC - 1824
+
+Auxiliar de registros
+ID: perfil-434458d2124a
+Descripción: Se enfoca en la obtención, organización y seguimiento de registros para apoyo legal. Realiza revisión documental, carga de documentos en sistemas, control de estados y mantenimiento de registros para preparación de casos.
+Incluye: Experiencia rastreando, solicitando, revisando y organizando registros médicos, de seguros o de empleo para apoyo legal.
+Excluye: No corresponde a roles de intake, paralegal o coordinación de reclamos con contacto inicial con clientes.
+Habilidades: obtención de registros médicos, gestión documental, seguimiento, control de expedientes, cumplimiento HIPAA
+Vacantes de respaldo: JPC - 7502
+
+Auxiliar de registros médicos
+ID: perfil-162698c95458
+Descripción: Apoya la solicitud, seguimiento, organización y carga de registros y facturas médicas para el manejo de casos legales. Requiere gestión documental, control de estados de solicitudes, organización y comunicación para obtener documentación de apoyo.
+Incluye: Experiencia en obtención, seguimiento, organización y carga de registros o facturas médicas para apoyo a casos.
+Excluye: No corresponde a roles centrados en evaluación legal de casos, litigio o intake inicial de clientes.
+Habilidades: gestión documental, seguimiento de solicitudes, comunicación con proveedores, organización, manejo de registros médicos
+Vacantes de respaldo: JPC - 6519
+
+Especialista en gestión de registros médicos
+ID: perfil-46604141c8ee
+Descripción: Solicita, organiza, revisa y da seguimiento a registros y facturas médicas, coordinando documentación para casos y manteniendo el control de solicitudes y archivos.
+Incluye: Perfiles centrados en obtención, control y organización de expedientes y documentación médica.
+Excluye: No incluye roles clínicos, de enfermería ni de atención directa al paciente.
+Habilidades: gestión de registros médicos, seguimiento de solicitudes, organización de archivos, revisión documental, comunicación escrita, cumplimiento HIPAA, facturación médica, sistemas de gestión de casos, terminología médica, comunicación profesional
+Vacantes de respaldo: JPC - 1212, JPC - 1767, JPC - 1845, JPC - 2696, JPC - 2754, JPC - 3467, JPC - 3755, JPC - 3761, JPC - 3779, JPC - 4097, JPC - 4292, JPC - 4347, JPC - 4424, JPC - 5583, JPC - 5591, JPC - 6139, JPC - 6875, JPC - 7060
+
+Especialista en recuperación de registros
+ID: perfil-9a64a27d3546
+Descripción: Solicita, rastrea y organiza registros y facturas médicas para expedientes legales, cargando documentación en sistemas y comunicando actualizaciones a clientes y proveedores.
+Incluye: Experiencia solicitando, dando seguimiento y organizando registros o facturas médicas para casos legales.
+Excluye: No corresponde a archivo genérico ni a funciones médicas clínicas; tampoco a gestión integral de casos o negociación de reclamaciones.
+Habilidades: gestión de registros médicos, seguimiento, organización documental, comunicación con clientes, manejo de CRM
+Vacantes de respaldo: JPC - 7071

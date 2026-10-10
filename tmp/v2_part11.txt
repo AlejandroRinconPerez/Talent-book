@@ -1,0 +1,217 @@
+Marketing digital y performance
+Asistente de marketing digital
+ID: perfil-9aa959e4b620
+Descripción: Perfil de apoyo a la planificación y ejecución de campañas digitales, creación y actualización de contenidos para redes sociales, email y web, programación de publicaciones y seguimiento de métricas básicas.
+Incluye: Experiencia apoyando campañas digitales, creando o actualizando contenido y realizando tareas operativas de redes sociales, email y web.
+Excluye: No corresponde a especialistas que gestionan y optimizan campañas con mayor autonomía analítica o responsabilidad sobre performance y conversiones.
+Habilidades: creación de contenido, gestión de redes sociales, campañas digitales, seguimiento de métricas, herramientas de oficina
+Vacantes de respaldo: JPC - 5015
+
+Asociado de automatización de marketing y analítica
+ID: perfil-9e2f9d5c33eb
+Descripción: Apoya campañas internas, administra de forma básica plataformas de automatización y CRM, y organiza datos para elaborar reportes y tableros simples. Requiere manejo funcional de automatización de marketing, CRM, análisis de datos y reporting para dar seguimiento a iniciativas y desempeño.
+Incluye: Experiencia apoyando campañas de marketing, administrando plataformas de automatización y CRM a nivel básico, y elaborando reportes o tableros de seguimiento.
+Excluye: No corresponde a perfiles centrados exclusivamente en estrategia de marketing, desarrollo técnico de automatizaciones complejas, ni análisis avanzado o ciencia de datos.
+Habilidades: automatización de marketing, CRM, análisis de datos, reporting, coordinación de campañas
+Vacantes de respaldo: JPC - 1775
+
+Coordinación de marketing
+ID: perfil-42989bf6d430
+Descripción: Responsable de gestionar canales de email marketing, analizar el desempeño de campañas y proponer mejoras basadas en analítica y pruebas.
+Incluye: Incluye perfiles orientados a campañas de email, segmentación y optimización continua.
+Excluye: Excluye perfiles de dirección de marketing o de comunicación general sin foco en ciclo de vida.
+Habilidades: email marketing, analítica, segmentación, testing, optimización de campañas
+Vacantes de respaldo: JPC - 2879, JPC - 4445, JPC - 4800, JPC - 6141, JPC - 6143, JPC - 6597
+
+Director de marketing de performance
+ID: perfil-c3b64ef2aa28
+Descripción: Lidera campañas de pago, analítica y seguimiento de conversiones, optimiza estrategias de adquisición y automatización CRM y dirige iniciativas de crecimiento basadas en datos con reporte de desempeño.
+Incluye: Experiencia liderando marketing de performance, adquisición digital, analítica de resultados, automatización CRM y crecimiento medible.
+Excluye: No corresponde a roles centrados en creación de contenido, gestión de comunidad o comunicación orgánica en redes sociales.
+Habilidades: paid media, analítica de marketing, tracking de conversiones, automatización CRM, optimización de embudo
+Vacantes de respaldo: JPC - 7332
+
+Especialista en marketing
+ID: perfil-a16a043001ea
+Descripción: Diseña y optimiza automatizaciones de marketing, integrando CRM, flujos de captación y seguimiento.
+Incluye: Automatización de marketing, CRM e ինտregaciones operativas.
+Excluye: Publicidad creativa, ventas directas o diseño gráfico.
+Habilidades: GoHighLevel, automatización, CRM, integraciones, diseño de flujos
+Vacantes de respaldo: JPC - 1977, JPC - 2224, JPC - 2557, JPC - 2646, JPC - 2683, JPC - 2690, JPC - 3180, JPC - 3288, JPC - 3581, JPC - 3973, JPC - 4829, JPC - 5222, JPC - 5439, JPC - 5487, JPC - 5866, JPC - 6215, JPC - 6264, JPC - 6413, JPC - 6466, JPC - 6626, JPC - 7770, JPC - 7779
+
+Especialista en marketing digital
+ID: perfil-5d770702cb95
+Descripción: Crea, gestiona y optimiza campañas pagadas en plataformas digitales, ajustando segmentación, creatividades y copy, y elaborando reportes de desempeño.
+Incluye: Experiencia en gestión y optimización de campañas pagadas en plataformas digitales, con análisis de resultados y reportes de desempeño.
+Excluye: No corresponde a roles enfocados principalmente en estrategia integral, medios tradicionales o producción de contenido orgánico sin gestión de pauta.
+Habilidades: Meta Ads, segmentación de audiencias, optimización de campañas, analítica digital, reporting
+Vacantes de respaldo: JPC - 6210
+
+Especialista en marketing digital
+ID: perfil-ee7b38d1cb65
+Descripción: Profesional que planifica y ejecuta campañas digitales multicanal, crea y publica contenidos para canales digitales, y analiza desempeño para reportar métricas y retorno. Puede gestionar web, SEO/SEM, automatizaciones y soporte de CRM.
+Incluye: Experiencia diseñando o ejecutando campañas digitales, gestionando contenidos y analizando resultados de marketing digital.
+Excluye: No corresponde a asistentes de apoyo ni a gerentes de marketing con responsabilidad principal sobre dirección estratégica o liderazgo de equipo.
+Habilidades: SEO, Email marketing, Redes sociales, Analítica digital, Publicidad digital
+Vacantes de respaldo: JPC - 5025
+
+Especialista en medios pagados
+ID: perfil-5bc26c2bf185
+Descripción: Gestiona cuentas de medios pagados, implementa y optimiza campañas en distintos formatos digitales y analiza resultados para recomendar mejoras de retorno.
+Incluye: Experiencia administrando cuentas de medios pagados y optimizando campañas de búsqueda, display, remarketing, social o video con análisis y reporte de resultados.
+Excluye: No corresponde a roles centrados solo en contenido orgánico, branding o estrategia general de marketing sin gestión directa de pauta y medios pagados.
+Habilidades: gestión de campañas, optimización de campañas, análisis de datos, reporting, comunicación con clientes
+Vacantes de respaldo: JPC - 6509, JPC - 6551
+
+Especialista en redes sociales y email marketing
+ID: perfil-b9eeb591adc8
+Descripción: Gestiona campañas de email marketing y contenidos para redes sociales, incluyendo creación y edición de piezas visuales y de video, análisis de métricas y optimización de resultados.
+Incluye: Experiencia en ejecución de campañas de email masivo, creación y edición de contenido para redes sociales, y análisis de métricas de campañas para optimizar desempeño.
+Excluye: No corresponde a roles centrados solo en publicidad pagada, estrategia global de marketing digital o gestión exclusiva de marca sin producción de contenido y email marketing.
+Habilidades: email marketing, automatización de campañas, edición de video, diseño gráfico, analítica de marketing
+Vacantes de respaldo: JPC - 6209
+
+Gerente de marketing de crecimiento
+ID: perfil-8583090de141
+Descripción: Profesional que define y ejecuta estrategias de marketing integradas para crecimiento, coordina campañas multicanal y crea mensajes y contenidos orientados a generar y convertir leads. Maneja email marketing, SEO, automatización y analítica de marketing.
+Incluye: Experiencia definiendo y ejecutando estrategias de marketing integradas, diseñando campañas multicanal y elaborando contenidos para generación y conversión de leads.
+Excluye: No corresponde a roles centrados solo en ejecución operativa, apoyo administrativo o tareas aisladas de canal sin responsabilidad sobre estrategia y crecimiento.
+Habilidades: Estrategia de marketing, Email marketing, SEO, Redacción de contenidos, Analítica de marketing
+Vacantes de respaldo: JPC - 2814
+
+Gerente de marketing de proyectos
+ID: perfil-be12a844c7a8
+Descripción: Profesional que lidera la estrategia de marketing inbound multicanal, analiza métricas para optimizar conversión y retorno, y dirige equipos de marketing con seguimiento cercano. Combina estrategia de crecimiento, analítica de performance y liderazgo.
+Incluye: Experiencia liderando estrategias de marketing multicanal, analizando métricas de performance y coordinando equipos de marketing.
+Excluye: No corresponde a especialistas individuales de campaña ni a perfiles de apoyo sin conducción de equipo o responsabilidad sobre optimización de resultados.
+Habilidades: estrategia de marketing, análisis de métricas, optimización de conversión, Google Ads, liderazgo de equipo
+Vacantes de respaldo: JPC - 7890
+
+Gerente de marketing digital
+ID: perfil-d7ac3508a1fb
+Descripción: Define y ejecuta la estrategia de canales digitales, gestiona campañas de adquisición y analiza resultados para impulsar el crecimiento y la mejora del desempeño.
+Incluye: Experiencia liderando estrategia de marketing digital, gestión de campañas de adquisición y análisis de desempeño con propuestas de mejora.
+Excluye: No corresponde a perfiles operativos de pauta aislada, producción de contenido o roles exclusivamente enfocados en una plataforma o canal específico sin responsabilidad estratégica.
+Habilidades: estrategia de marketing digital, gestión de campañas, analítica de marketing, optimización de rendimiento, publicidad digital
+Vacantes de respaldo: JPC - 7348
+
+Gerente de marketing digital y analítica
+ID: perfil-bbd90bd20395
+Descripción: Gestiona y optimiza campañas digitales orientadas a resultados, construye reportes y tableros de desempeño, analiza el comportamiento web y el rendimiento SEO para mejorar conversiones y retorno.
+Incluye: Experiencia en performance digital, analítica de marketing, optimización de campañas y medición de conversiones o ROI.
+Excluye: No corresponde a perfiles centrados principalmente en creación de contenido, community management o comunicación de marca sin foco analítico.
+Habilidades: Google Ads, Google Analytics 4, SEO, analítica de marketing, optimización de conversiones
+Vacantes de respaldo: JPC - 4154
+
+Gestor web y SEO
+ID: perfil-643bcf522a6f
+Descripción: Administra contenido web y redes sociales, apoya tareas de SEO y analítica digital, y adapta materiales digitales para su publicación.
+Incluye: Gestiona contenido digital con foco en SEO y redes.
+Excluye: No incluye publicidad pagada ni diseño gráfico especializado.
+Habilidades: SEO, gestión de redes sociales, creación de contenido, WordPress, analítica
+Vacantes de respaldo: JPC - 1999, JPC - 2147, JPC - 2270, JPC - 2318, JPC - 2875, JPC - 2998, JPC - 3017, JPC - 3128, JPC - 3197, JPC - 3772, JPC - 3934, JPC - 4276, JPC - 5902
+
+Operaciones
+Procesos e implementación
+Analista junior de mejora continua
+ID: perfil-4270d76b4277
+Descripción: Perfil que recopila información, analiza problemas de procesos, trabaja con datos operativos y da seguimiento a acciones, avances y riesgos para apoyar decisiones de mejora.
+Incluye: Experiencia analizando procesos y problemas operativos, usando datos para dar seguimiento a acciones de mejora y documentar avances.
+Excluye: No corresponde a roles puramente administrativos, de calidad documental sin análisis, ni a posiciones de liderazgo de mejora continua.
+Habilidades: análisis de procesos, análisis de datos, seguimiento de acciones, documentación, comunicación operativa
+Vacantes de respaldo: JPC - 6149
+
+Gestión de mejora continua y tecnología
+ID: perfil-6da54e92f06b
+Descripción: Optimización de procesos y sistemas de operación de talento mediante IA, automatización y mejora continua de flujos.
+Incluye: Integra automatización, análisis y mejora de procesos y sistemas de operación de talento.
+Excluye: No corresponde a administración de personal, reclutamiento puro ni soporte técnico de TI.
+Habilidades: IA, automatización, mejora continua, gestión de procesos, gestión de sistemas
+Vacantes de respaldo: JPC - 2762, JPC - 5336, JPC - 5984, JPC - 6475, JPC - 7517
+
+Gestor de implementación
+ID: perfil-8bba55abe00b
+Descripción: Coordina la implementación de programas o proyectos, hace seguimiento a trámites y entregables, documenta procesos y articula actores internos y externos para asegurar el avance de la iniciativa.
+Incluye: Experiencia coordinando implementaciones, seguimiento de trámites y coordinación de partes involucradas en proyectos o programas.
+Excluye: No corresponde a roles de supervisión de equipos, análisis de procesos o programación operativa de turnos.
+Habilidades: gestión de proyectos, seguimiento de visados, coordinación de stakeholders, documentación de procesos, gestión de riesgos
+Vacantes de respaldo: JPC - 6080
+
+Servicios generales y mantenimiento
+Asistente de mantenimiento de instalaciones
+ID: perfil-ff81fce63bf4
+Descripción: Apoya la ejecución de mantenimiento preventivo y correctivo de instalaciones, realiza inspecciones para identificar riesgos o daños y colabora en la coordinación de proveedores y el control de inventarios de materiales y repuestos.
+Incluye: Experiencia apoyando mantenimiento de instalaciones, inspecciones, coordinación de proveedores y control de inventarios de materiales o repuestos.
+Excluye: No corresponde a roles centrados en mantenimiento especializado de una sola disciplina técnica ni a puestos de gestión general sin trabajo operativo en instalaciones.
+Habilidades: mantenimiento preventivo, mantenimiento correctivo, inspección de instalaciones, coordinación de proveedores, control de inventarios
+Vacantes de respaldo: JPC - 7813
+
+Auxiliar de servicios generales
+ID: perfil-40bcb5cb03ce
+Descripción: Responsable de realizar aseo, limpieza, lavandería y apoyo a cafetería y mantenimiento básico de espacios.
+Incluye: Incluye perfiles de limpieza, apoyo operativo y cuidado básico de instalaciones.
+Excluye: Excluye perfiles de mantenimiento especializado o de administración de servicios.
+Habilidades: limpieza, lavandería, cafetería, mantenimiento básico, cumplimiento de procesos
+Vacantes de respaldo: JPC - 4376, JPC - 4850, JPC - 5034, JPC - 5678, JPC - 6015, JPC - 6245
+
+Supervisión operativa
+Supervisor de operaciones
+ID: perfil-1aa349468ecc
+Descripción: Perfil responsable de liderar equipos operativos, monitorear indicadores, asegurar calidad y gestionar escalaciones y relación continua con clientes internos o externos.
+Incluye: Perfiles de supervisión operativa con gestión de desempeño y calidad.
+Excluye: No incluye operación individual de atención ni venta directa.
+Habilidades: liderazgo, coaching, gestión de KPIs, relación con clientes, gestión de escalaciones
+Vacantes de respaldo: JPC - 1862, JPC - 1913, JPC - 1996, JPC - 2088, JPC - 2092, JPC - 2213, JPC - 2257, JPC - 2322, JPC - 2415, JPC - 2452, JPC - 2515, JPC - 2562, JPC - 2581, JPC - 2594, JPC - 2649, JPC - 2657, JPC - 2812, JPC - 2893, JPC - 2933, JPC - 2995, JPC - 3082, JPC - 3315, JPC - 3368, JPC - 3386, JPC - 3419, JPC - 3634, JPC - 3685, JPC - 3825, JPC - 3958, JPC - 3969, JPC - 4021, JPC - 4086, JPC - 4155, JPC - 4332, JPC - 4437, JPC - 4767, JPC - 4792, JPC - 4808, JPC - 4980, JPC - 5023, JPC - 5053, JPC - 5054, JPC - 5314, JPC - 5318, JPC - 5469, JPC - 5632, JPC - 5676, JPC - 5743, JPC - 5816, JPC - 5817, JPC - 5882, JPC - 5953, JPC - 5967, JPC - 5979, JPC - 6035, JPC - 6037, JPC - 6108, JPC - 6109, JPC - 6244, JPC - 6253, JPC - 6853, JPC - 7083, JPC - 7121, JPC - 7131, JPC - 7176, JPC - 7177, JPC - 7586, JPC - 7613, JPC - 7708, JPC - 7725, JPC - 7757, JPC - 7815, JPC - 7839, JPC - 7906
+
+Supervisor de operaciones
+ID: perfil-bf6f194a7f64
+Descripción: Supervisa equipos de atención al cliente o BPO, monitorea KPIs, SLAs, calidad y productividad, y apoya el desarrollo del desempeño mediante coaching y mejora continua.
+Incluye: Experiencia liderando y desarrollando equipos operativos, con seguimiento de métricas de servicio, productividad y calidad, además de coaching y evaluación de desempeño.
+Excluye: No corresponde a roles sin supervisión de equipos ni a posiciones centradas solo en ejecución operativa, soporte administrativo o gestión técnica individual.
+Habilidades: liderazgo de equipo, coaching, gestión de KPIs, mejora continua, gestión de desempeño
+Vacantes de respaldo: JPC - 6876
+
+Supervisor de operaciones
+ID: perfil-c94543bf8fb3
+Descripción: Lidera equipos operativos o de atención, supervisa la operación diaria, da seguimiento a metas y promueve la mejora continua y la calidad del servicio.
+Incluye: Experiencia liderando equipos y supervisando la operación diaria con seguimiento de metas, calidad o desempeño.
+Excluye: No corresponde a roles de análisis de procesos, implementación de proyectos o programación de turnos.
+Habilidades: liderazgo de equipos, supervisión de operaciones, servicio al cliente, gestión del desempeño, mejora continua
+Vacantes de respaldo: JPC - 4762
+
+Transporte
+Conductor
+ID: perfil-56a664288571
+Descripción: Transporta mercancías o pasajeros por carretera, asegurando entregas puntuales y seguras. Requiere habilidades de conducción profesional, planificación de rutas y control operativo del vehículo.
+Incluye: Experiencia en conducción profesional para transporte por carretera de mercancías o pasajeros, con foco en seguridad y puntualidad.
+Excluye: No corresponde a reparto urbano no profesional, logística de almacén, coordinación de transporte ni roles de mantenimiento de vehículos.
+Habilidades: conducción profesional, seguridad vial, planificación de rutas, CAP, tacógrafo
+Vacantes de respaldo: JPC - 6342
+
+Otros perfiles
+Interpretación
+Intérprete
+ID: perfil-e74d37f2cae0
+Descripción: Realiza interpretación en tiempo real entre personas en contextos médicos y legales, facilitando la comunicación oral con precisión y neutralidad. Requiere manejo de terminología especializada y escucha activa.
+Incluye: Experiencia interpretando conversaciones en tiempo real entre personas en ámbitos médicos o legales, de forma remota o presencial.
+Excluye: No corresponde a traducción escrita, docencia de idiomas ni a roles administrativos o de atención al cliente sin labor de interpretación.
+Habilidades: interpretación consecutiva, interpretación simultánea, terminología médica, terminología legal, escucha activa
+Vacantes de respaldo: JPC - 7716
+
+Programación y agendas
+Programación y agendas
+Programador
+ID: perfil-367533c484e0
+Descripción: Perfil orientado a la coordinación diaria de asignaciones, control de registros de tiempo y documentación, atención de llamadas y soporte operativo y administrativo general.
+Incluye: Experiencia en coordinación de horarios o asignaciones, control de registros, atención telefónica y soporte operativo de oficina.
+Excluye: No incluye programación de software ni funciones técnicas de desarrollo; tampoco coordinación especializada de un sector específico como función principal.
+Habilidades: organización, comunicación verbal, multitarea, atención al cliente, manejo de oficina
+Vacantes de respaldo: JPC - 3970
+
+Scheduler
+ID: perfil-eafa88524eeb
+Descripción: Coordina citas, visitas a domicilio y consultas, atiende llamadas y mantiene registros y documentación actualizados en apoyo a la agenda médica.
+Incluye: Experiencia coordinando agendas y citas, gestionando registros de pacientes y dando soporte administrativo en práctica médica.
+Excluye: No incluye recepcionista médica, enfermería, facturación médica ni puestos de atención clínica directa.
+Habilidades: agenda médica, EMR, comunicación, organización, atención al detalle
+Vacantes de respaldo: JPC - 1493

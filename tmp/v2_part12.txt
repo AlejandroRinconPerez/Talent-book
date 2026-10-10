@@ -1,0 +1,92 @@
+Salud
+Atención al paciente
+Especialista de centro de contacto
+ID: perfil-836820ffec48
+Descripción: Gestiona llamadas entrantes y salientes, programa y confirma citas, registra interacciones y apoya tareas administrativas de admisión. Requiere atención telefónica, registro de datos, programación de citas y manejo de información confidencial.
+Incluye: Experiencia atendiendo llamadas, agendando citas, verificando datos y apoyando procesos de admisión en un entorno de atención.
+Excluye: No corresponde a roles centrados en ventas, soporte técnico o gestión comercial de clientes.
+Habilidades: Atención telefónica, Programación de citas, Registro de datos, Verificación de seguros, Confidencialidad HIPAA
+Vacantes de respaldo: JPC - 6489
+
+Representante de atención al paciente
+ID: perfil-e91a601f199a
+Descripción: Gestiona verificación de beneficios y autorizaciones, estimaciones de costos, documentación para citas, atención telefónica y apoyo en la programación de citas.
+Incluye: Experiencia en verificación de cobertura, autorizaciones, gestión de citas, atención al paciente y documentación asociada al servicio.
+Excluye: No corresponde a funciones clínicas ni a cargos ajenos a la gestión administrativa y de atención al paciente.
+Habilidades: Verificación de beneficios, Autorizaciones, Atención al cliente, Programación de citas, Gestión documental
+Vacantes de respaldo: JPC - 6443
+
+Representante de servicios al paciente
+ID: perfil-01dced4e4051
+Descripción: Brinda apoyo a pacientes gestionando llamadas, programación y confirmación de citas, seguimiento de consultas y actualización de expedientes electrónicos. Requiere habilidades de comunicación, empatía, atención al cliente, resolución de problemas y gestión de citas.
+Incluye: Experiencia en atención y soporte al paciente, manejo de llamadas, agenda de citas, seguimientos, derivaciones y expedientes electrónicos.
+Excluye: No incluye funciones clínicas, facturación, codificación médica ni roles administrativos ajenos a la atención directa al paciente.
+Habilidades: atención al cliente, comunicación, empatía, resolución de problemas, gestión de citas
+Vacantes de respaldo: JPC - 6999
+
+Calidad y seguros
+Especialista de calidad
+ID: perfil-76d184219e02
+Descripción: Asegura la exactitud, integridad y cumplimiento de registros y documentación clínica mediante revisión documental, auditorías y apoyo a la mejora continua. Requiere atención al detalle, auditoría de registros, cumplimiento en salud, análisis de datos y aseguramiento de calidad.
+Incluye: Experiencia en calidad, auditoría y revisión de documentación clínica o registros de pacientes, con apoyo a cumplimiento y mejora documental.
+Excluye: No incluye auditoría financiera, codificación clínica, facturación ni roles puramente asistenciales o de atención al paciente.
+Habilidades: atención al detalle, aseguramiento de calidad, auditoría de registros, cumplimiento en salud, análisis de datos
+Vacantes de respaldo: JPC - 2859
+
+Especialista de verificación de seguros
+ID: perfil-5bc29248659e
+Descripción: Oficio de salud enfocado en verificar cobertura y beneficios, gestionar autorizaciones y comunicar resultados a pacientes o clínicas.
+Incluye: Incluye perfiles que validan cobertura, beneficios y autorizaciones de seguros.
+Excluye: Excluye perfiles de facturación médica o recepción clínica sin verificación de seguros.
+Habilidades: atención al detalle, verificación de beneficios, autorización de seguros, comunicación con pacientes, manejo de EMR
+Vacantes de respaldo: JPC - 2612, JPC - 3690, JPC - 4196, JPC - 4626, JPC - 4772, JPC - 4785, JPC - 7285, JPC - 7592
+
+Coordinación clínica
+Coordinador de cuidados
+ID: perfil-979f327e5936
+Descripción: Coordina el seguimiento de pacientes y cuidadores, realiza triage, documenta en plataforma y conecta con equipos clínicos y apoyos comunitarios para resolver necesidades y mejorar procesos. Requiere empatía, coordinación, comunicación, organización y manejo seguro de información.
+Incluye: Experiencia en coordinación de cuidados, navegación de pacientes, seguimiento, triage, documentación en plataforma y trabajo con equipos clínicos o comunitarios.
+Excluye: No incluye programación de turnos, atención al cliente general ni funciones clínicas de diagnóstico o tratamiento.
+Habilidades: empatía, coordinación, comunicación, organización, cumplimiento HIPAA
+Vacantes de respaldo: JPC - 2105
+
+Coordinador de programación
+ID: perfil-c44772337f6c
+Descripción: Organiza horarios, turnos y citas dentro de una operación de servicio. Da seguimiento a tareas, registros y documentación para asegurar continuidad y actualización operativa.
+Incluye: Experiencia en programación de turnos, coordinación de horarios, cobertura de vacantes o seguimiento de actividades y registros de servicio.
+Excluye: No corresponde a asistencia administrativa general ni a supervisión de equipos o procesos a nivel de líder operativo.
+Habilidades: programación de turnos, coordinación de servicios, seguimiento documental, registro de datos, atención al cliente
+Vacantes de respaldo: JPC - 7368
+
+Coordinador de programación
+ID: perfil-d800ce79f1e6
+Descripción: Gestiona agendas de cuidadores y clientes, coordina cambios, cancelaciones, ausencias y coberturas, y monitorea visitas y documentación para asegurar continuidad del cuidado. Requiere programación de turnos, seguimiento de incidencias, comunicación con clientes y atención al detalle.
+Incluye: Experiencia en programación y coordinación de agendas, coberturas, cambios de turnos, cancelaciones y seguimiento operativo de visitas de cuidado.
+Excluye: No incluye coordinación clínica de tratamientos, soporte al paciente en entornos hospitalarios ni roles ajenos a la planificación de cuidados.
+Habilidades: programación de turnos, coordinación de cuidados, seguimiento de incidencias, comunicación con clientes, atención al detalle
+Vacantes de respaldo: JPC - 7323
+
+Coordinador de referencias
+ID: perfil-a28675ae60ec
+Descripción: Gestiona y da seguimiento a referencias de pacientes, comunica estatus y requerimientos a proveedores, pacientes y equipos internos, y mantiene registros actualizados en sistemas de salud. Se enfoca en la coordinación entre actores y el control documental de referencias.
+Incluye: Experiencia gestionando referencias médicas, coordinando comunicación entre pacientes, proveedores y equipos internos, y actualizando registros clínicos.
+Excluye: No corresponde a programación de procedimientos, interpretación médica ni documentación clínica en tiempo real.
+Habilidades: comunicación, gestión de referencias, documentación clínica, atención al detalle, manejo de EHR
+Vacantes de respaldo: JPC - 3952
+
+Scheduler
+ID: perfil-2b7dd45fda89
+Descripción: Gestiona agendas y asignaciones, coordina visitas y cambios, atiende llamadas, correos y mensajes, y mantiene registros y documentación de apoyo administrativo. Requiere gestión de agenda, atención al cliente, documentación, entrada de datos y organización.
+Incluye: Experiencia en programación de citas, asignaciones o visitas, seguimiento de solicitudes y mantenimiento de registros administrativos y operativos.
+Excluye: No corresponde a roles de reclutamiento, ni a soporte exclusivo de beneficios, ni a funciones de facturación o nómina como actividad principal.
+Habilidades: gestión de agenda, atención al cliente, documentación, entrada de datos, organización
+Vacantes de respaldo: JPC - 6707
+
+Gestión de datos clínicos
+Especialista en digitación
+ID: perfil-c4e7a1176289
+Descripción: Actualiza, organiza y valida datos en sistemas de registro, con énfasis en exactitud, revisión de inconsistencias y mantenimiento de información. Puede trabajar con documentación especializada y control de calidad de registros.
+Incluye: Experiencia en digitación, mantenimiento de registros y revisión de calidad de datos, especialmente en entornos con historiales o documentación estructurada.
+Excluye: No corresponde a roles clínicos, de enfermería o de archivo general sin foco en ingreso y control de datos.
+Habilidades: captura de datos, atención al detalle, organización, Excel, terminología médica
+Vacantes de respaldo: JPC - 5459

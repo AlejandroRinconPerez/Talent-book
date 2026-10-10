@@ -1,0 +1,6 @@
+{
+  "name": "Talent Book - Herramienta Comercial",
+  "description": "Herramienta interna para vendedores de servicios de talento: exploración de perfiles ocupacionales, búsqueda de candidatos, evaluación de compatibilidad y modo presentación.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

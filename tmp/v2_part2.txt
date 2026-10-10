@@ -1,0 +1,81 @@
+Asistencia ejecutiva
+Asistente administrativo ejecutivo
+ID: perfil-6bd3e7ebb76c
+Descripción: Brinda soporte administrativo a la dirección mediante gestión de calendarios, coordinación de reuniones y viajes, preparación de documentos y seguimiento de tareas y gastos.
+Incluye: Soporte administrativo centrado en agenda, reuniones y documentación de dirección.
+Excluye: No incluye funciones contables, recepción ni asistencia personal doméstica.
+Habilidades: gestión de calendarios, coordinación de viajes, redacción de informes, gestión documental, seguimiento presupuestario, coordinación de reuniones, priorización, seguimiento, soporte ejecutivo
+Vacantes de respaldo: JPC - 1725, JPC - 3880, JPC - 6359, JPC - 6977, JPC - 7193
+
+Asistente ejecutiva
+ID: perfil-6198c2745b44
+Descripción: Perfil de apoyo ejecutivo enfocado en agenda, correo, reuniones, documentación, reportes y control de seguimiento administrativo.
+Incluye: Perfiles de soporte ejecutivo y coordinación administrativa continua.
+Excluye: No incluye funciones de análisis financiero ni liderazgo de equipo.
+Habilidades: gestión de agenda, redacción profesional, seguimiento de pendientes, archivo digital, control de facturas, gestión de CRM, integridad de datos, coordinación administrativa, reportes diarios, organización
+Vacantes de respaldo: JPC - 1674, JPC - 1832, JPC - 2005, JPC - 2047, JPC - 2106, JPC - 2107, JPC - 2334, JPC - 2382, JPC - 2470, JPC - 2475, JPC - 2512, JPC - 2630, JPC - 2695, JPC - 2740, JPC - 2764, JPC - 3004, JPC - 3016, JPC - 3220, JPC - 3256, JPC - 3303, JPC - 3314, JPC - 3390, JPC - 3451, JPC - 3626, JPC - 3629, JPC - 3642, JPC - 3692, JPC - 3699, JPC - 3750, JPC - 3780, JPC - 3795, JPC - 3859, JPC - 3861, JPC - 3938, JPC - 3986, JPC - 4072, JPC - 4137, JPC - 4140, JPC - 4152, JPC - 4184, JPC - 4207, JPC - 4360, JPC - 4366, JPC - 4395, JPC - 4439, JPC - 4459, JPC - 4463, JPC - 4570, JPC - 4705, JPC - 4757, JPC - 4763, JPC - 4804, JPC - 4825, JPC - 4833, JPC - 4854, JPC - 4906, JPC - 5016, JPC - 5050, JPC - 5204, JPC - 5417, JPC - 5492, JPC - 5495, JPC - 5500, JPC - 5509, JPC - 5542, JPC - 5625, JPC - 5702, JPC - 5738, JPC - 5809, JPC - 5906, JPC - 6115, JPC - 6118, JPC - 6247, JPC - 6276, JPC - 6284, JPC - 6286, JPC - 6293, JPC - 6354, JPC - 6386, JPC - 6467, JPC - 6529, JPC - 6531, JPC - 6601, JPC - 6682, JPC - 7190, JPC - 7200, JPC - 7417, JPC - 7457, JPC - 7531, JPC - 7536
+
+Asistente ejecutivo
+ID: perfil-252de5f2f038
+Descripción: Proporciona soporte administrativo integral a equipos o personas ejecutivas mediante gestión de calendarios, coordinación de reuniones y viajes, preparación de documentos y seguimiento de tareas y eventos.
+Incluye: Experiencia en coordinación de agendas, reuniones, viajes, documentos, presentaciones, reportes y seguimiento de actividades ejecutivas.
+Excluye: No corresponde a asistencia administrativa general ni a funciones de cobranza, cumplimiento o gestión de casos.
+Habilidades: gestión de agenda, coordinación de reuniones, redacción de documentos, organización, confidencialidad
+Vacantes de respaldo: JPC - 5839, JPC - 7309
+
+Asistente ejecutivo
+ID: perfil-e4ef1a20a550
+Descripción: Gestiona agendas, prioridades y coordinación de reuniones, dando soporte directo a dirección y a operaciones administrativas, comerciales, de clientes y financieras. Suele preparar seguimientos, reportes y apoyo en proyectos especiales con foco en organización y comunicación ejecutiva.
+Incluye: Experiencia brindando soporte directo a dirección con gestión de agenda, coordinación de reuniones, seguimiento de tareas, reportes y proyectos.
+Excluye: No corresponde a roles administrativos generales sin exposición ejecutiva ni a puestos de asistencia personal sin coordinación de operaciones o proyectos.
+Habilidades: organización, atención al detalle, gestión de prioridades, comunicación ejecutiva, coordinación administrativa
+Vacantes de respaldo: JPC - 7421, JPC - 7846
+
+Beneficios y seguros
+Asistente de beneficios
+ID: perfil-99adc26d2eef
+Descripción: Gestiona tareas operativas de soporte en beneficios, con enfoque en conciliación de facturas, detección de discrepancias, actualización de registros y seguimiento de incidencias en sistemas de control.
+Incluye: Experiencia en soporte administrativo de beneficios, conciliación y resolución de discrepancias, actualización de registros y gestión de incidencias.
+Excluye: No incluye roles de nómina, compensaciones, ventas de seguros ni atención general de recursos humanos.
+Habilidades: Conciliación, Análisis de datos, Gestión de casos, Microsoft Office, Seguimiento de reportes
+Vacantes de respaldo: JPC - 3060
+
+Asociado de operaciones de riesgo
+ID: perfil-e7acd5301d70
+Descripción: Gestiona tareas operativas vinculadas a seguros, incluyendo certificados, endosos y actualización de pólizas, apoyando la relación con clientes y otros actores del proceso.
+Incluye: Experiencia en operaciones de seguros, manejo de certificados, endosos, pólizas o tareas administrativas relacionadas con riesgo.
+Excluye: No corresponde a roles de supervisión de equipos, programación de turnos o análisis de procesos operativos generales.
+Habilidades: certificados de seguro, gestión de pólizas, Microsoft Excel, comunicación, relación con clientes
+Vacantes de respaldo: JPC - 7656
+
+Coordinador de soporte de beneficios
+ID: perfil-d07c4d920f42
+Descripción: Da soporte operativo al área de beneficios gestionando buzones, asignación de tareas, preparación de documentos y atención de consultas sobre planes o beneficios. Requiere organización, Excel, trabajo en equipo, atención al detalle y conocimiento de beneficios.
+Incluye: Experiencia en soporte operativo de beneficios, validación de datos, preparación de materiales y atención de consultas relacionadas con planes o beneficios.
+Excluye: No corresponde a administración general sin foco en beneficios, ni a nómina, reclutamiento o programación de turnos.
+Habilidades: organización, excel, trabajo en equipo, atención al detalle, beneficios
+Vacantes de respaldo: JPC - 2574
+
+Especialista en beneficios
+ID: perfil-b84ed6a4a0d1
+Descripción: Gestiona la administración de beneficios de empleados, atendiendo consultas, tramitando elegibilidad, eventos de vida y tareas relacionadas con inscripciones y bases de datos.
+Incluye: Apoyo operativo y atención de consultas sobre beneficios.
+Excluye: No incluye diseño de planes ni compensación total.
+Habilidades: administración de beneficios, atención al cliente, mantenimiento de bases de datos, manejo de casos
+Vacantes de respaldo: JPC - 2662, JPC - 2679, JPC - 2680, JPC - 2681, JPC - 2682
+
+Especialista en beneficios
+ID: perfil-e94a06d08780
+Descripción: Gestiona la administración operativa de beneficios, inscripciones, cambios, terminaciones y consultas relacionadas, incluyendo incidencias y cumplimiento documental.
+Incluye: Perfiles que administran beneficios y resuelven consultas e incidencias.
+Excluye: No incluye roles de nómina, compensación, reclutamiento ni auditoría general.
+Habilidades: administración de beneficios, atención al cliente, inscripción de beneficios, resolución de incidencias, COBRA, open enrollment, cumplimiento de beneficios, gestión documental, seguimiento regulatorio, archivo electrónico, Office Microsoft, gestión de bases de datos
+Vacantes de respaldo: JPC - 2457, JPC - 3701, JPC - 3964, JPC - 3966, JPC - 4413, JPC - 4417, JPC - 4630, JPC - 4858, JPC - 5539, JPC - 5619, JPC - 6218, JPC - 6279, JPC - 6281, JPC - 7212, JPC - 7316, JPC - 7560, JPC - 7661, JPC - 7669, JPC - 7689
+
+Especialista en reclamos de compensación laboral
+ID: perfil-9c712d107def
+Descripción: Investiga y evalúa reclamos de compensación laboral, coordina tratamiento médico y retorno al trabajo, y prepara documentación, reportes y actualizaciones de estado. Trabaja con gestión de reclamos, coordinación médica y cumplimiento normativo.
+Incluye: Experiencia administrando reclamos de lesiones o compensación laboral, con investigación, documentación y coordinación de tratamiento o retorno al trabajo.
+Excluye: No corresponde a suscripción de seguros, ajustes generales de siniestros no laborales, cobranza ni administración de pólizas.
+Habilidades: gestión de reclamos, investigación de siniestros, coordinación médica, negociación, cumplimiento normativo
+Vacantes de respaldo: JPC - 1179

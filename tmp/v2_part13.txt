@@ -1,0 +1,279 @@
+Servicio al cliente
+Agendas y reservas
+Agente de reservas
+ID: perfil-482c9cfc15fe
+Descripción: Gestiona reservas, modificaciones y cancelaciones, verifica y registra datos de reserva, y atiende llamadas entrantes y salientes. También identifica oportunidades de venta adicional durante la gestión de reservas.
+Incluye: Experiencia gestionando reservas, cambios, cancelaciones y registro de datos, con atención al cliente y venta adicional.
+Excluye: No incluye venta pura ni atención de mostrador sin gestión de reservas; tampoco roles de operación hotelera general sin contacto directo de reservas.
+Habilidades: gestión de reservas, atención al cliente, llamadas entrantes y salientes, venta cruzada, registro de datos
+Vacantes de respaldo: JPC - 4755, JPC - 6378, JPC - 7790
+
+Appointment setter
+ID: perfil-7a889c5963d3
+Descripción: Realiza llamadas, confirma citas, registra información en sistemas y brinda atención básica a clientes en procesos de agendamiento.
+Incluye: Perfiles centrados en contacto telefónico y coordinación de citas.
+Excluye: No incluye ventas complejas, cierre comercial ni soporte técnico.
+Habilidades: comunicación, data entry, atención al cliente, agendamiento de citas, manejo telefónico
+Vacantes de respaldo: JPC - 1967, JPC - 3571, JPC - 3638, JPC - 3720, JPC - 3829, JPC - 4380, JPC - 4888, JPC - 4925, JPC - 5179, JPC - 5518, JPC - 5686, JPC - 5709, JPC - 5736, JPC - 6132, JPC - 7015
+
+Recepcionista
+ID: perfil-6fd3ebcf7f7c
+Descripción: Atiende llamadas entrantes, transfiere comunicaciones, agenda citas, gestiona calendarios y registra mensajes y actualizaciones en sistemas. Requiere atención telefónica, gestión de agendas, comunicación escrita, uso de CRM y escucha activa.
+Incluye: Experiencia en recepción, atención de llamadas, programación de citas y registro de información en sistemas.
+Excluye: No incluye asistencia ejecutiva de alto nivel, coordinación de eventos ni funciones administrativas especializadas sin atención telefónica y gestión de citas.
+Habilidades: atención telefónica, gestión de agendas, comunicación escrita, uso de CRM, escucha activa
+Vacantes de respaldo: JPC - 7574
+
+Atención y soporte al cliente
+Agente de atención al cliente
+ID: perfil-63200a53559e
+Descripción: Atiende consultas y llamadas de clientes o miembros, investiga incidencias, coordina respuestas internas y documenta problemas y solicitudes. Requiere comunicación multicanal, resolución de problemas, manejo de CRM y documentación de casos.
+Incluye: Experiencia en atención y soporte al cliente, con investigación de incidencias, coordinación interna y registro de casos.
+Excluye: No incluye soporte técnico especializado, cobranzas ni ventas si la función principal no es atención y resolución de consultas.
+Habilidades: comunicación multicanal, resolución de problemas, atención al cliente, documentación de casos, manejo de CRM
+Vacantes de respaldo: JPC - 7134
+
+Agente de servicio al cliente
+ID: perfil-381e1dbe2c17
+Descripción: Atiende consultas entrantes por distintos canales, investiga y resuelve incidencias y fallas de producto, y registra interacciones en sistemas de gestión. Puede apoyar procesos de reemplazo e instalación relacionados con la atención al cliente.
+Incluye: Experiencia resolviendo consultas e incidencias de clientes por canales múltiples y registrando gestiones en CRM.
+Excluye: No corresponde a gestión de cuentas, éxito del cliente, soporte de campo, instalación técnica especializada ni roles de call center dedicados exclusivamente a cobranzas o ventas.
+Habilidades: atención al cliente, solución de problemas, CRM, comunicación verbal, multitarea
+Vacantes de respaldo: JPC - 1544
+
+Asociado de soporte al cliente
+ID: perfil-46076e9127a6
+Descripción: Oficio centrado en responder consultas por chat, triar incidencias y derivarlas, guiando al cliente hacia recursos internos.
+Incluye: Incluye perfiles de atención por chat con clasificación inicial de casos y derivación.
+Excluye: Excluye soporte telefónico, soporte de campo o resolución técnica especializada.
+Habilidades: soporte por chat, triaje de incidencias, comunicación escrita, resolución de problemas, gestión de múltiples conversaciones
+Vacantes de respaldo: JPC - 2102, JPC - 2103, JPC - 2354, JPC - 7023, JPC - 7024, JPC - 7025
+
+Coordinador de servicios al miembro
+ID: perfil-00ab4b9bdade
+Descripción: Coordina la atención a miembros, gestionando consultas, registros, tickets, renovaciones y actividades administrativas. Implica seguimiento de solicitudes, organización de procesos y uso de sistemas de gestión para dar continuidad al servicio.
+Incluye: Experiencia dando soporte a miembros, coordinando onboarding, renovaciones, registros o tickets, y realizando seguimiento administrativo de solicitudes.
+Excluye: No incluye puestos de atención general al cliente sin coordinación administrativa ni roles de ventas, retención o soporte técnico especializado.
+Habilidades: Atención al cliente, Coordinación administrativa, Gestión de CRM, Organización, Comunicación escrita y verbal
+Vacantes de respaldo: JPC - 7564
+
+Especialista de soporte a clientes y cuentas
+ID: perfil-2ff8dd814ffc
+Descripción: Oficio de atención y seguimiento de cuentas de clientes, con gestión de pagos, resolución de consultas y registro de información en CRM.
+Incluye: Atención de cuentas, cobros y seguimiento de pagos.
+Excluye: No incluye ventas consultivas ni gestión comercial de cartera nueva.
+Habilidades: gestión de cuentas, seguimiento de pagos, correo electrónico, teléfono, CRM
+Vacantes de respaldo: JPC - 4386, JPC - 4816, JPC - 5553, JPC - 5935, JPC - 6181, JPC - 6640, JPC - 7349, JPC - 7549, JPC - 7862
+
+Representante de cuentas del paciente
+ID: perfil-5239c6ac0221
+Descripción: Gestiona consultas, llamadas y actualización de información de cuentas de pacientes, apoyando procesos administrativos y de facturación en sistemas.
+Incluye: Perfiles que administran cuentas de pacientes y atienden consultas relacionadas.
+Excluye: No incluye facturación médica especializada, codificación ni funciones clínicas.
+Habilidades: entrada de datos, atención al cliente, llamadas salientes, manejo de sistemas, verificación de información
+Vacantes de respaldo: JPC - 2277, JPC - 2369, JPC - 2613, JPC - 3021, JPC - 3067, JPC - 3069, JPC - 3739, JPC - 3980, JPC - 3999, JPC - 4388, JPC - 4400, JPC - 4752, JPC - 4786, JPC - 4923, JPC - 4984, JPC - 5909, JPC - 7550
+
+Representante de servicio al cliente
+ID: perfil-299af5a72245
+Descripción: Gestiona consultas, solicitudes y transacciones de clientes, registra información en sistemas y colabora en la resolución de casos. Requiere comunicación clara, orientación al cliente, resolución de problemas y manejo de registros o herramientas de atención.
+Incluye: Experiencia atendiendo consultas y necesidades de clientes, procesando solicitudes o aplicaciones, registrando información y apoyando la resolución de casos.
+Excluye: No incluye roles centrados principalmente en soporte técnico, facturación, servicios al miembro o atención especializada por industria.
+Habilidades: comunicación, resolución de problemas, procesamiento de solicitudes, registro en base de datos, etiqueta telefónica
+Vacantes de respaldo: JPC - 1562, JPC - 2363, JPC - 7911
+
+Representante de servicio al cliente
+ID: perfil-cecb47313b6c
+Descripción: Perfil de atención a clientes y miembros que maneja llamadas, resuelve consultas, investiga información de beneficios, reclamos y cambios rutinarios, y documenta interacciones con confidencialidad.
+Incluye: Experiencia brindando atención telefónica, resolviendo consultas y gestionando información de beneficios, reclamos o cambios rutinarios.
+Excluye: No corresponde a representantes de ventas, soporte técnico avanzado ni a cargos de supervisión de servicio al cliente.
+Habilidades: comunicación verbal, empatía, resolución de problemas, manejo de llamadas, documentación
+Vacantes de respaldo: JPC - 4761
+
+Representante de servicio al cliente
+ID: perfil-e215c80322ea
+Descripción: Brinda soporte omnicanal a clientes, resuelve incidencias y documenta interacciones en CRM o sistemas de tickets. Requiere atención al cliente, seguimiento de casos, manejo de herramientas de soporte y capacidad para escalar problemas.
+Incluye: Experiencia resolviendo consultas e incidencias por múltiples canales, registrando casos en CRM o sistema de tickets y escalando problemas cuando corresponde.
+Excluye: No incluye perfiles enfocados exclusivamente en ventas, operaciones internas o soporte de una función técnica específica.
+Habilidades: atención al cliente, resolución de incidencias, manejo de CRM, soporte por canales múltiples, gestión de tickets
+Vacantes de respaldo: JPC - 6213
+
+Representante de servicio al cliente
+ID: perfil-ffa4fe655622
+Descripción: Gestiona consultas e incidencias de clientes de primer nivel, guía procesos de onboarding y da seguimiento a casos. Actualiza registros en CRM y apoya acciones de retención y seguimiento.
+Incluye: Experiencia atendiendo consultas, resolviendo incidencias de primer nivel, guiando onboarding y realizando seguimiento y actualización de casos en CRM.
+Excluye: No corresponde a roles centrados en gestión estratégica de cuentas, ventas, soporte técnico especializado ni coordinación de programas de fidelización a nivel senior.
+Habilidades: atención al cliente, CRM, onboarding, resolución de problemas, comunicación empática
+Vacantes de respaldo: JPC - 7261
+
+Coordinación de servicios
+Coordinador de arrendamiento
+ID: perfil-b9ee7d784d5a
+Descripción: Da seguimiento a solicitudes de arrendamiento, apoya la documentación del proceso, atiende casos en revisión o progreso y registra interacciones en CRM para acompañar la transición de ingreso.
+Incluye: Experiencia apoyando procesos de arrendamiento, gestión documental, seguimiento de solicitudes y uso de CRM en coordinación con equipos inmobiliarios.
+Excluye: No corresponde a funciones de administración de propiedades de alcance amplio, ni a ventas inmobiliarias puras sin seguimiento documental y operativo del arrendamiento.
+Habilidades: servicio al cliente, documentación, CRM, organización, gestión del tiempo
+Vacantes de respaldo: JPC - 6686
+
+Coordinador de experiencia del cliente
+ID: perfil-c64e1992fec1
+Descripción: Gestiona consultas entrantes, agenda citas y coordina horarios y registros en CRM para asegurar la continuidad operativa del servicio.
+Incluye: Coordina atención y agenda con seguimiento operativo.
+Excluye: No incluye venta activa ni soporte técnico especializado.
+Habilidades: atención al cliente, agenda de citas, coordinación de horarios, gestión de CRM, organización
+Vacantes de respaldo: JPC - 1821, JPC - 2085, JPC - 2501, JPC - 2598, JPC - 2670, JPC - 2918, JPC - 4109, JPC - 4421, JPC - 4450, JPC - 4889, JPC - 5129, JPC - 5326, JPC - 5864, JPC - 6008
+
+Despachador de servicios
+ID: perfil-701b98092a01
+Descripción: Coordina servicios con proveedores, atiende solicitudes y registra información operativa en sistemas de seguimiento.
+Incluye: Coordinación operativa, despacho y registro de solicitudes.
+Excluye: Ventas, facturación o reclutamiento.
+Habilidades: despacho, coordinación con proveedores, atención al cliente, uso de CRM, gestión de solicitudes
+Vacantes de respaldo: JPC - 1757, JPC - 1758, JPC - 2425, JPC - 2426, JPC - 2431, JPC - 2713, JPC - 2767, JPC - 3631, JPC - 3660, JPC - 3683, JPC - 3684, JPC - 4206, JPC - 4298, JPC - 4308, JPC - 4930, JPC - 5011, JPC - 5639, JPC - 5667, JPC - 5936, JPC - 6363, JPC - 6773, JPC - 7374, JPC - 7572
+
+Cuentas y reclamaciones
+Analista de cuentas por cobrar
+ID: perfil-aa96cff04ca7
+Descripción: Procesa facturación, notas y ajustes de cobranza, aplica pagos, concilia cuentas, revisa partidas vencidas y gestiona reembolsos, bajas y reportes relacionados con cobranza.
+Incluye: Experiencia en gestión de cuentas por cobrar, facturación, aplicación de pagos, conciliaciones y seguimiento de vencidos.
+Excluye: No corresponde a roles centrados en cuentas por pagar, contabilidad general o funciones gerenciales.
+Habilidades: facturación, conciliación de cuentas, cobros, Excel, análisis de información
+Vacantes de respaldo: JPC - 1287
+
+Especialista de soporte al cliente
+ID: perfil-29f73c03b746
+Descripción: Gestiona reclamaciones y consultas de clientes, revisa y procesa casos, resuelve incidencias de acceso y navegación, y documenta interacciones para apoyar la mejora de procesos. Requiere capacidad para trabajar con sistemas, registrar casos y coordinar la resolución operativa de incidencias.
+Incluye: Experiencia en revisión, aprobación y procesamiento de reclamaciones combinada con soporte al cliente, registro de interacciones y resolución de incidencias.
+Excluye: No incluye roles centrados solo en ventas, marketing, soporte técnico especializado o gestión administrativa sin atención a reclamaciones.
+Habilidades: procesamiento de reclamaciones, atención al cliente, resolución de incidencias, documentación de casos, trabajo con sistemas
+Vacantes de respaldo: JPC - 4322
+
+Talento humano
+Operaciones de RR. HH.
+Asistente de recursos humanos
+ID: perfil-a929187f9c86
+Descripción: Brinda apoyo administrativo en procesos de RR. HH. como reclutamiento, nómina, gestión de contratos, bases de datos de empleados, capacitaciones y seguimiento de bienestar laboral.
+Incluye: Experiencia de apoyo administrativo en RR. HH. con tareas de reclutamiento, nómina, contratos, bases de datos, capacitación y bienestar.
+Excluye: No corresponde a roles especializados de reclutamiento, nómina exclusiva, administración de beneficios ni gerencias de RR. HH.
+Habilidades: reclutamiento, nómina, administración de RR. HH., gestión de contratos, confidencialidad
+Vacantes de respaldo: JPC - 6112
+
+Reclutamiento y selección
+Analista de adquisición de talento
+ID: perfil-ba998bfce1ab
+Descripción: Apoya el reclutamiento mediante filtrado de hojas de vida, entrevistas telefónicas iniciales, coordinación de entrevistas y registro de candidatos en ATS, manteniendo comunicación con postulantes.
+Incluye: Experiencia en screening, coordinación de entrevistas, manejo de ATS y seguimiento de candidatos dentro del proceso de reclutamiento.
+Excluye: No corresponde a puestos de reclutamiento integral con cierre de ofertas, ni a roles de administración general de RR. HH. o selección estratégica.
+Habilidades: reclutamiento, screening de candidatos, entrevista telefónica, ATS, gestión de candidatos
+Vacantes de respaldo: JPC - 7652
+
+Asociado de sourcing
+ID: perfil-438595fd8da6
+Descripción: Realiza búsqueda proactiva de candidatos, screening inicial y actualización de información en ATS.
+Incluye: Búsqueda de talento, sourcing y gestión de candidatos en ATS.
+Excluye: Selección final, nómina o administración general de RR. HH.
+Habilidades: sourcing, ATS, pipeline de candidatos, seguimiento, gestión de datos
+Vacantes de respaldo: JPC - 2212, JPC - 2237, JPC - 2340, JPC - 2342, JPC - 2344, JPC - 2345, JPC - 2347, JPC - 2448, JPC - 2726, JPC - 2862, JPC - 3075, JPC - 4369, JPC - 4887, JPC - 5624, JPC - 6592, JPC - 6840, JPC - 6850, JPC - 6941, JPC - 6973, JPC - 7653
+
+Buscador de talento
+ID: perfil-4b156d02d39b
+Descripción: Responsable de identificar, atraer y filtrar candidatos mediante canales de búsqueda, mapeo de talento y herramientas de seguimiento.
+Incluye: Incluye perfiles de sourcing, búsqueda activa y preselección de candidatos.
+Excluye: Excluye perfiles de selección final, gestión de nómina o administración general de RR. HH.
+Habilidades: búsqueda de candidatos, mapeo de talento, alcance a candidatos pasivos, screening de CV, ATS
+Vacantes de respaldo: JPC - 5877, JPC - 6436, JPC - 6578, JPC - 6738, JPC - 7039, JPC - 7040
+
+Consultor de reclutamiento
+ID: perfil-04dae99fb107
+Descripción: Actúa como enlace entre clientes y reclutamiento para entender necesidades del puesto, traducirlas en criterios de selección y dar seguimiento al proceso con candidatos y reclutadores.
+Incluye: Experiencia en levantamiento de requerimientos, definición de criterios de selección, coordinación entre cliente y proceso de reclutamiento, y seguimiento de candidatos y reportes.
+Excluye: No corresponde a reclutamiento operativo centrado en búsqueda, screening y entrevistas de candidatos sin trabajo de interpretación de necesidades del cliente.
+Habilidades: comunicación, empatía, negociación, gestión del tiempo, interpretación de requisitos
+Vacantes de respaldo: JPC - 4113
+
+Coordinador de adquisición de talento
+ID: perfil-d4d858e564de
+Descripción: Perfil que coordina actividades diarias de reclutamiento, incluyendo publicación de vacantes, organización de entrevistas, actualización de ATS y seguimiento a candidatos y stakeholders. Enfocado en la operación y coordinación del proceso.
+Incluye: Experiencia coordinando reclutamiento, agendas de entrevistas, comunicación con candidatos y equipos de contratación, y mantenimiento de registros en ATS.
+Excluye: No corresponde a roles centrados exclusivamente en sourcing, evaluación técnica, liderazgo estratégico de talento o gestión de marca empleadora.
+Habilidades: coordinación de entrevistas, gestión de ATS, comunicación, organización, seguimiento
+Vacantes de respaldo: JPC - 7847
+
+Especialista en adquisición de talento
+ID: perfil-1e29a00cb94b
+Descripción: Gestiona procesos de reclutamiento y selección de punta a punta, realiza búsqueda y evaluación de candidatos, construye pipelines y coordina con líderes de área el seguimiento del proceso. Requiere habilidades de sourcing, entrevista, uso de ATS/HRIS, gestión de stakeholders y análisis de reclutamiento.
+Incluye: Experiencia en reclutamiento end to end, sourcing, evaluación de candidatos, coordinación de entrevistas y construcción de pipelines para procesos de contratación.
+Excluye: No corresponde a cargos de liderazgo de equipo o definición de estrategia global de contratación.
+Habilidades: sourcing de candidatos, entrevista, ATS/HRIS, gestión de stakeholders, analítica de reclutamiento
+Vacantes de respaldo: JPC - 7861, JPC - 7865
+
+Especialista en sourcing
+ID: perfil-e48ee99c64a3
+Descripción: Construye y mantiene pipelines de candidatos, realiza búsqueda proactiva mediante distintas fuentes, ejecuta filtrado inicial y actualiza bases de datos de talento.
+Incluye: Experiencia en abastecimiento proactivo de candidatos, búsqueda multifuente, screening inicial, mantenimiento de bases y uso de ATS o herramientas de sourcing.
+Excluye: No corresponde a reclutamiento integral con entrevistas y coordinación completa del proceso, ni a roles centrados en relación con cliente o definición de requerimientos.
+Habilidades: sourcing de candidatos, mapeo de talento, screening inicial, búsqueda booleana, gestión de ATS
+Vacantes de respaldo: JPC - 7286
+
+Gerente de adquisición de talento
+ID: perfil-ee7a8cc65f0d
+Descripción: Diseña e implementa estrategias de reclutamiento, lidera procesos de selección de punta a punta y administra ATS, métricas de contratación y coordinación con hiring managers. Requiere visión estratégica de atracción de talento, gestión de procesos y seguimiento de indicadores.
+Incluye: Experiencia liderando la estrategia de contratación, la selección completa y el uso de métricas y ATS en adquisición de talento.
+Excluye: No corresponde a perfiles enfocados solo en sourcing operativo o apoyo táctico de reclutamiento.
+Habilidades: estrategia de reclutamiento, reclutamiento end to end, ATS, entrevistas, métricas de reclutamiento
+Vacantes de respaldo: JPC - 3736
+
+Líder de sourcing de talento
+ID: perfil-bfcdb8b4ba0c
+Descripción: Lidera la operación diaria de sourcing, asigna objetivos, monitorea desempeño y analiza métricas para asegurar calidad, tiempos y metas. Brinda coaching y actúa como punto de escalación del equipo.
+Incluye: Experiencia liderando equipos de sourcing, generando leads, analizando métricas y dando seguimiento al desempeño de sourcers.
+Excluye: No corresponde a reclutadores generalistas, analistas de talento ni funciones de selección sin foco en sourcing.
+Habilidades: liderazgo, coaching, sourcing, Boolean search, análisis de métricas
+Vacantes de respaldo: JPC - 2046
+
+Reclutador
+ID: perfil-102ea62cf05f
+Descripción: Realiza búsqueda activa de talento, llamadas de captación, entrevistas, filtrado y coordinación de candidatos, además de apoyo en actividades de reclutamiento y registro de postulantes.
+Incluye: Experiencia en sourcing, entrevistas, screening, coordinación de candidatos y apoyo al proceso de selección.
+Excluye: No corresponde a sourcing especializado sin entrevistas ni coordinación, ni a consultoría de reclutamiento orientada a entender requerimientos del cliente.
+Habilidades: reclutamiento, búsqueda de talento, entrevistas telefónicas, screening de candidatos, coordinación de selección
+Vacantes de respaldo: JPC - 3158
+
+Reclutador
+ID: perfil-f4e6c31e200e
+Descripción: Gestiona procesos de reclutamiento de punta a punta, desde la búsqueda y atracción de candidatos hasta entrevistas, evaluación inicial y seguimiento en ATS. Trabaja con múltiples canales para avanzar candidatos en el pipeline y apoyar eventos de reclutamiento.
+Incluye: Experiencia en reclutamiento full-cycle o de volumen, con sourcing, entrevistas, filtros y seguimiento de candidatos.
+Excluye: No corresponde a roles enfocados en programación de turnos, operaciones de RR. HH. o funciones administrativas fuera del reclutamiento.
+Habilidades: reclutamiento, prospección de candidatos, entrevista de selección, gestión de candidatos, uso de ATS
+Vacantes de respaldo: JPC - 1340, JPC - 4094, JPC - 4853, JPC - 4908, JPC - 4979, JPC - 5012, JPC - 6553, JPC - 7724, JPC - 7809
+
+Reclutador y Programador
+ID: perfil-dcbe08430db2
+Descripción: Filtra CVs, entrevista candidatos y verifica credenciales, combinando tareas de reclutamiento con la creación y mantenimiento de horarios de personal.
+Incluye: Experiencia que combine selección de candidatos con programación o mantenimiento de horarios de personal.
+Excluye: No corresponde a reclutamiento puro sin componente de programación, ni a roles de operaciones de RR. HH. generales.
+Habilidades: selección de personal, entrevistas, verificación de credenciales, programación, coordinación
+Vacantes de respaldo: JPC - 1707
+
+Sourcer de atracción de talento
+ID: perfil-fd359aee398c
+Descripción: Oficio orientado a buscar candidatos, filtrar perfiles y coordinar entrevistas, manteniendo el registro del proceso en ATS.
+Incluye: Incluye perfiles enfocados en búsqueda activa, preselección y coordinación inicial del proceso.
+Excluye: Excluye reclutamiento integral con funciones amplias de selección o gestión de nómina.
+Habilidades: sourcing, screening, ATS, coordinación de entrevistas, registro de candidatos
+Vacantes de respaldo: JPC - 4456, JPC - 5576, JPC - 6744, JPC - 6747, JPC - 6751, JPC - 6774, JPC - 6957
+
+Supervisor de selección
+ID: perfil-fbbe1a8d231b
+Descripción: Supervisa al equipo de reclutadores, gestiona procesos de reclutamiento de principio a fin y da seguimiento a métricas, KPIs y mejoras del proceso de selección. Requiere liderazgo, seguimiento de indicadores y gestión del ciclo de reclutamiento.
+Incluye: Experiencia liderando equipos de reclutamiento y supervisando el proceso completo de selección con métricas y mejoras.
+Excluye: No corresponde a roles sin supervisión de personas ni a funciones limitadas a sourcing o coordinación puntual.
+Habilidades: reclutamiento, liderazgo de equipo, gestión de KPIs, selección de personal, analítica de reclutamiento
+Vacantes de respaldo: JPC - 6970
+
+Talent Sourcer
+ID: perfil-96518726862f
+Descripción: Diseña estrategias de sourcing, contacta candidatos, construye pipelines calificados y mantiene trazabilidad en ATS con seguimiento de métricas de sourcing. Requiere búsqueda de talento, gestión de pipeline y contacto proactivo con candidatos.
+Incluye: Experiencia enfocada en sourcing, contacto de candidatos, construcción de pipeline y seguimiento en ATS.
+Excluye: No corresponde a perfiles de selección integral o liderazgo de equipos de reclutamiento.
+Habilidades: sourcing de talento, LinkedIn Recruiter, búsqueda boolean, ATS, gestión de pipeline
+Vacantes de respaldo: JPC - 2484

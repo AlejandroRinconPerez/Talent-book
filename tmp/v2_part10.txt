@@ -1,0 +1,118 @@
+Marketing
+Contenido y comunicación
+Creador de contenido
+ID: perfil-a35efbd5c494
+Descripción: Produce piezas visuales y multimedia para comunicación de marca, incluyendo diseño gráfico, edición y adaptación de contenidos para distintos canales.
+Incluye: Producción visual, edición y adaptación de contenidos de marca.
+Excluye: No incluye gestión de campañas ni estrategia de marketing.
+Habilidades: diseño gráfico, edición de video, branding, animación, producción multimedia, herramientas de diseño, comunicación
+Vacantes de respaldo: JPC - 1224, JPC - 1813, JPC - 2988, JPC - 5861, JPC - 7380
+
+Editor de video
+ID: perfil-f80055e95542
+Descripción: Edita material audiovisual de principio a fin, integra color, sonido, gráficos en movimiento y efectos visuales, y mantiene orden y calidad en entregables de múltiples proyectos.
+Incluye: Experiencia en edición y postproducción de video, incluyendo ensamblaje de material bruto, ajustes visuales y manejo de proyectos de edición.
+Excluye: No corresponde a roles de grabación, animación pura, diseño gráfico sin edición de video ni producción audiovisual enfocada solo en cámara o dirección.
+Habilidades: edición de video, After Effects, Premiere Pro, motion graphics, gestión del tiempo
+Vacantes de respaldo: JPC - 3897
+
+Estratega de contenido y redes sociales
+ID: perfil-b0a83e76d0da
+Descripción: Planifica y gestiona contenido orgánico en redes sociales, crea piezas gráficas, edita video corto, redacta copys, programa publicaciones y gestiona comunidad. Requiere habilidades de gestión de redes sociales, diseño gráfico, edición de video, redacción publicitaria y programación de contenido.
+Incluye: Experiencia creando, planificando y gestionando contenido para redes sociales, con producción de piezas visuales, copy y edición audiovisual.
+Excluye: No corresponde a roles enfocados principalmente en pauta paga, ventas, atención al cliente o administración general de cuentas sin producción de contenido.
+Habilidades: Gestión de redes sociales, Diseño gráfico, Edición de video, Redacción publicitaria, Programación de contenido
+Vacantes de respaldo: JPC - 7245
+
+Estratega de marca
+ID: perfil-b0993dfa8bf6
+Descripción: Planifica, crea y optimiza contenido digital para distintos canales, redacta piezas para campañas y redes, y analiza métricas para elaborar reportes y recomendaciones. Combina estrategia de contenidos, copywriting y gestión de presencia de marca.
+Incluye: Experiencia en estrategia de contenidos, redacción para canales digitales, gestión de piezas de marca y análisis de resultados de comunicación.
+Excluye: No corresponde a diseño gráfico puro, publicidad de medios pagados exclusivamente, relaciones públicas corporativas ni roles de marketing de producto centrados en investigación de mercado.
+Habilidades: copywriting, gestión de redes sociales, estrategia de contenidos, análisis de métricas, SEO
+Vacantes de respaldo: JPC - 7079
+
+Gestor de contenido
+ID: perfil-de7e16f962b2
+Descripción: Planifica, crea y distribuye contenido para canales digitales, con análisis de desempeño y mejora continua.
+Incluye: Planificación, redacción y publicación de contenido digital.
+Excluye: No incluye investigación ejecutiva ni gestión contable.
+Habilidades: copywriting, creación de contenido, gestión de redes sociales, análisis de métricas, diseño de contenido
+Vacantes de respaldo: JPC - 2901, JPC - 2915, JPC - 3652, JPC - 3667, JPC - 4316, JPC - 5313
+
+Gestor de redes sociales
+ID: perfil-941a367656af
+Descripción: Perfil encargado de crear y publicar contenido para canales sociales, coordinar campañas con marketing y analizar el desempeño para optimizar la presencia digital.
+Incluye: Experiencia gestionando contenido para redes sociales, campañas sociales y análisis de resultados para proponer mejoras.
+Excluye: No corresponde a roles de soporte administrativo general, atención al cliente o producción de contenido sin gestión de canales sociales.
+Habilidades: Gestión de redes sociales, Creación de contenido, Análisis de métricas, Tendencias digitales, Comunicación escrita
+Vacantes de respaldo: JPC - 1933
+
+Desarrollo comercial
+Representante de desarrollo de negocio
+ID: perfil-04d21fa9d4bb
+Descripción: Perfil comercial enfocado en identificar prospectos, ejecutar outreach y convertir contactos en reuniones calificadas. Realiza calificación inicial, maneja objeciones, documenta la actividad en CRM y apoya la generación de oportunidades comerciales.
+Incluye: Experiencia en sourcing o prospección de leads, contacto multicanal, calificación de prospectos y registro de actividad comercial en CRM para generar reuniones u अवसरidades.
+Excluye: No corresponde a roles centrados en cierre de ventas, administración de cuentas, marketing de contenidos ni funciones de liderazgo o coaching sin actividad comercial directa.
+Habilidades: prospectación outbound, calificación de leads, gestión de CRM, manejo de objeciones, análisis de contenido
+Vacantes de respaldo: JPC - 6943, JPC - 7014
+
+Dibujo técnico y arquitectura
+Coordinador de proyectos
+ID: perfil-eb724f82cd83
+Descripción: Coordina proyectos de diseño e ingeniería de inicio a fin, da seguimiento a entregables, cronogramas y documentación, y mantiene la coordinación entre gerentes, ingenieros, clientes y contratistas.
+Incluye: Experiencia coordinando proyectos de ingeniería o construcción, con seguimiento de cronogramas, entregables y coordinación de múltiples actores.
+Excluye: No corresponde a roles centrados en ejecución técnica de obra ni a dirección estratégica de cartera de proyectos.
+Habilidades: coordinación de proyectos, gestión de stakeholders, organización, seguimiento de entregables, comunicación
+Vacantes de respaldo: JPC - 7667
+
+Dibujante AutoCAD
+ID: perfil-b0ab2646306e
+Descripción: Elabora planos y modelos arquitectónicos, prepara documentación de construcción y colabora en entregables de proyecto.
+Incluye: Produce planos y documentación técnica de construcción.
+Excluye: No incluye cálculo estructural ni dirección de obra.
+Habilidades: AutoCAD, Revit, documentación de construcción, dibujo técnico, coordinación de proyectos
+Vacantes de respaldo: JPC - 1685, JPC - 2703, JPC - 2858, JPC - 3615, JPC - 4048, JPC - 4215, JPC - 4266, JPC - 4398, JPC - 4435, JPC - 4865, JPC - 6726
+
+Dibujante CAD
+ID: perfil-816d5a42e780
+Descripción: Elabora y modifica planos técnicos y modelos CAD 3D, genera archivos de fabricación y documentación técnica, y apoya a ingeniería y producción en la revisión de especificaciones.
+Incluye: Experiencia en elaboración de planos, modelado CAD y documentación técnica orientada a fabricación o producción.
+Excluye: No corresponde a diseño conceptual sin producción de planos, ni a ingeniería de campo sin trabajo de dibujo técnico o CAD.
+Habilidades: dibujo técnico, modelado CAD 3D, DXF, BOM, documentación de ingeniería
+Vacantes de respaldo: JPC - 7544
+
+Dibujante técnico/a
+ID: perfil-8252cfe6da07
+Descripción: Elabora dibujos y modelos arquitectónicos, apoya en planos y documentación constructiva, mantiene archivos técnicos y colabora en levantamientos de sitio.
+Incluye: Experiencia en dibujo arquitectónico, uso de AutoCAD y Revit, apoyo en planos y documentación técnica o constructiva.
+Excluye: No incluye arquitecto, ingeniero de diseño, proyectista de instalaciones ni modelador BIM sin tareas de dibujo técnico.
+Habilidades: dibujo arquitectónico, AutoCAD, Revit, documentación constructiva, lectura de especificaciones técnicas
+Vacantes de respaldo: JPC - 7720
+
+Dirección de marketing
+Director de marketing
+ID: perfil-acfefcda03a2
+Descripción: Responsable de definir y ejecutar la estrategia de marketing, el posicionamiento de marca y la coordinación de iniciativas de crecimiento y medición de desempeño.
+Incluye: Incluye perfiles que dirigen la estrategia, las campañas y la optimización de resultados de marketing.
+Excluye: Excluye perfiles centrados solo en ejecución de campañas, contenido o diseño.
+Habilidades: estrategia de marketing, posicionamiento de marca, partner marketing, análisis de métricas, liderazgo de equipo
+Vacantes de respaldo: JPC - 4941, JPC - 5039, JPC - 5146, JPC - 5448, JPC - 5601, JPC - 6862
+
+Diseño
+Diseñador gráfico
+ID: perfil-dfbb46541d68
+Descripción: Profesional que crea piezas gráficas para canales digitales y corporativos, adapta diseños a distintos formatos y plataformas, y apoya tareas de marketing y contenido. También puede desarrollar conceptos visuales para campañas y colaborar con equipos creativos en la ejecución de materiales de marca.
+Incluye: Experiencia en creación y adaptación de piezas gráficas para canales digitales, corporativos, campañas o impresión, con apoyo a marketing, contenido y desarrollo conceptual.
+Excluye: No corresponde a perfiles centrados en atención al cliente o gestión de cuentas, ni a roles de desarrollo web o edición de video.
+Habilidades: diseño gráfico, Adobe Photoshop, Adobe Illustrator, Canva, creatividad, Adobe Creative Suite, After Effects, presentación creativa, pensamiento conceptual, atención al detalle, gestión de proyectos
+Vacantes de respaldo: JPC - 4129
+
+Éxito del cliente
+Gerente de cuentas de éxito del cliente
+ID: perfil-4a9725027bba
+Descripción: Gestiona la relación diaria con clientes, da seguimiento a entregables y cronogramas, coordina reuniones y escalaciones, y apoya la coordinación interna para asegurar el avance del trabajo.
+Incluye: Experiencia en gestión de cuentas con contacto frecuente con clientes, seguimiento de entregables, coordinación de cronogramas y apoyo a la ejecución de trabajo interno.
+Excluye: No corresponde a ventas puras, soporte técnico, ni a roles centrados solo en atención al cliente sin coordinación de proyectos o cuentas.
+Habilidades: gestión de cuentas, comunicación con clientes, seguimiento de entregables, gestión de proyectos, HubSpot
+Vacantes de respaldo: JPC - 4204

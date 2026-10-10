@@ -1,0 +1,92 @@
+Operaciones y coordinación
+Asistente legal
+ID: perfil-3108b2e89216
+Descripción: Gestiona documentación y seguimiento de casos, solicitando información a terceros, organizando archivos físicos y electrónicos y manteniendo el control administrativo de expedientes.
+Incluye: Experiencia en apoyo documental y administrativo de casos, obtención de documentos, seguimiento con terceros y archivo de expedientes.
+Excluye: No corresponde a ejercicio legal, litigio ni funciones clínicas o de atención directa a clientes.
+Habilidades: gestión documental, seguimiento de solicitudes, comunicación, organización, administración de casos
+Vacantes de respaldo: JPC - 7315
+
+Especialista en investigación
+ID: perfil-69d1299f1c7c
+Descripción: Perfil enfocado en contactar y entrevistar fuentes, realizar investigación, documentar hallazgos y dar seguimiento a actividades de investigación y coordinación asociadas.
+Incluye: Experiencia en investigación, entrevistas, outreach, seguimiento, documentación y coordinación de actividades de investigación.
+Excluye: No incluye roles centrados solo en programación de agendas, soporte administrativo general o prospección comercial sin investigación sustantiva.
+Habilidades: contacto telefónico, correo electrónico, programación de agendas, documentación, investigación, entrevistas, gestión de relaciones, CRM
+Vacantes de respaldo: JPC - 7384
+
+Especialista en operaciones clínicas
+ID: perfil-cf406b673e0b
+Descripción: Verifica notas clínicas, tiempos y consistencia documental, da soporte a nómina, facturación y cumplimiento mediante control de registros, y gestiona intake, agendas, órdenes y coordinación con proveedores. Integra tareas de operación clínica y administración de back office.
+Incluye: Experiencia en operaciones clínicas, revisión documental, coordinación de agendas, intake y soporte administrativo o de back office vinculado a registros clínicos.
+Excluye: No corresponde a documentación clínica en tiempo real, interpretación médica ni gestión exclusiva de referencias.
+Habilidades: documentación clínica, terminología médica, gestión de EMR, cumplimiento, coordinación de agendas
+Vacantes de respaldo: JPC - 5887
+
+Planificador de turnos
+ID: perfil-632753238ddc
+Descripción: Oficio orientado a coordinar horarios, asignar cobertura y gestionar cambios, cancelaciones y comunicación operativa entre clientes y cuidadores.
+Incluye: Incluye perfiles que asignan horarios, cubren turnos y mantienen la operación de agenda y cobertura.
+Excluye: Excluye atención administrativa general sin coordinación de turnos ni asignación operativa.
+Habilidades: programación de citas, llamadas entrantes y salientes, seguimiento, gestión de registros, coordinación
+Vacantes de respaldo: JPC - 1271, JPC - 1780, JPC - 2027, JPC - 2454, JPC - 5994, JPC - 6575
+
+Recepcionista médica
+ID: perfil-329e14c3f685
+Descripción: Gestiona faxes, documentos y registros de pacientes, confirma citas, actualiza agendas y atiende llamadas para orientar a pacientes sobre sus procesos.
+Incluye: Experiencia en recepción clínica o médica, manejo de documentos de pacientes, confirmación de citas y atención telefónica en entorno de salud.
+Excluye: No incluye enfermería, asistencia médica directa, facturación médica ni coordinación clínica avanzada.
+Habilidades: recepción médica, gestión de faxes, programación de citas, registros de pacientes, terminología médica
+Vacantes de respaldo: JPC - 7032
+
+Supervisor de operaciones
+ID: perfil-c10a403e0369
+Descripción: Supervisa la operación diaria, el flujo de trabajo y el cumplimiento de estándares. Monitorea desempeño, productividad y escalaciones, y coordina mejoras de procesos.
+Incluye: Experiencia supervisando operaciones diarias, equipos, cumplimiento de estándares, productividad o indicadores de desempeño.
+Excluye: No corresponde a roles de coordinación administrativa, programación de agendas o asistencia ejecutiva sin responsabilidad de supervisión.
+Habilidades: liderazgo, gestión de operaciones, monitoreo de KPI, gestión de desempeño, mejora de procesos
+Vacantes de respaldo: JPC - 5480
+
+Cobranzas
+Apoyo legal
+Asistente legal de apoyo
+ID: perfil-6e8b90d8b24a
+Descripción: Realiza apoyo administrativo y documental para abogados y paralegales, gestionando documentos, archivos, agendas, correspondencia y seguimiento básico de casos.
+Incluye: Experiencia en apoyo administrativo legal, manejo de documentos, correspondencia, archivos y agendas en entorno jurídico.
+Excluye: No corresponde a paralegal de litigio ni a roles centrados en redacción procesal avanzada, investigación legal o control formal de plazos judiciales.
+Habilidades: comunicación, organización de documentos, gestión de agenda, redacción de documentos, atención al detalle
+Vacantes de respaldo: JPC - 4121, JPC - 6855
+
+Calidad y auditoría
+Especialista de aseguramiento de calidad
+ID: perfil-ff9ebb7d4d4f
+Descripción: Gestiona actividades de aseguramiento de calidad mediante diseño y ejecución de planes y protocolos de prueba, detección y seguimiento de defectos o no conformidades, y realización de auditorías y reportes de calidad. Requiere capacidad para planificar pruebas, documentar hallazgos, analizar resultados y comunicar observaciones de calidad.
+Incluye: Experiencia en pruebas de calidad, auditorías, documentación de hallazgos, seguimiento de defectos o no conformidades y elaboración de reportes de calidad.
+Excluye: No corresponde a roles centrados exclusivamente en cumplimiento de llamadas, monitoreo de servicio o auditorías ajenas a calidad de producto o proceso.
+Habilidades: planificación de pruebas, auditoría de calidad, documentación técnica, análisis, comunicación
+Vacantes de respaldo: JPC - 6090
+
+Especialista de calidad
+ID: perfil-ae2904245cf2
+Descripción: Audita llamadas para verificar cumplimiento de políticas, requisitos del cliente y normas regulatorias, documenta hallazgos y elabora reportes para apoyar coaching y capacitación.
+Incluye: Experiencia en auditoría de llamadas, registro de hallazgos, escalamiento de incidencias y elaboración de reportes de calidad.
+Excluye: No incluye supervisor de operaciones, entrenador, QA de software ni auditoría de procesos fuera de llamadas.
+Habilidades: auditoría de llamadas, cumplimiento normativo, documentación, reportes, atención al detalle
+Vacantes de respaldo: JPC - 6032
+
+Gestión de cobranza
+Especialista de cobranza
+ID: perfil-ba5ef09e09a4
+Descripción: Gestiona cuentas en mora, contacta deudores y da seguimiento a procesos de cobro con registro preciso de la información.
+Incluye: Cobranza y gestión de cuentas en mora con seguimiento documental.
+Excluye: Facturación, conciliación contable o ventas.
+Habilidades: cobranza, skip tracing, gestión de cuentas, documentación, cumplimiento
+Vacantes de respaldo: JPC - 2067, JPC - 2331, JPC - 2491, JPC - 2494, JPC - 2641, JPC - 2676, JPC - 2784, JPC - 3364, JPC - 3611, JPC - 3801, JPC - 3803, JPC - 3955, JPC - 4168, JPC - 4390, JPC - 4803, JPC - 5341, JPC - 5564, JPC - 5573, JPC - 5655, JPC - 5744, JPC - 5835, JPC - 5879, JPC - 5907, JPC - 6894, JPC - 7120, JPC - 7362, JPC - 7521
+
+Especialista de cobranza
+ID: perfil-c68790de1b34
+Descripción: Contacta clientes para gestionar saldos pendientes, da seguimiento a pagos y actualiza registros de cobro. También apoya la revisión de facturas y reportes de cobranza, con habilidades de comunicación y registro en sistemas.
+Incluye: Experiencia en contacto con clientes sobre saldos pendientes, seguimiento de pagos, actualización de registros y apoyo a reportes o facturas de cobranza.
+Excluye: No corresponde a funciones exclusivamente administrativas de facturación ni a atención al cliente sin seguimiento de cobros.
+Habilidades: cobranza, seguimiento de pagos, atención al cliente, comunicación escrita y verbal, registro en sistemas
+Vacantes de respaldo: JPC - 6646

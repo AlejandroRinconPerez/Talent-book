@@ -1,0 +1,72 @@
+Contabilidad
+Analista contable
+ID: perfil-bb0ea0b4f602
+Descripción: Perfil de contabilidad operativa que realiza registro de facturas, conciliaciones, control y actualización de datos financieros, apoyo a cierres mensuales y elaboración de reportes.
+Incluye: Experiencia en soporte a cuentas por pagar y por cobrar, conciliaciones, registro de facturas, cierres mensuales y reportes financieros operativos.
+Excluye: No corresponde a análisis financiero estratégico, auditoría ni funciones comerciales de cobranza.
+Habilidades: cuentas por pagar, cuentas por cobrar, conciliaciones contables, registro de facturas, cierre mensual
+Vacantes de respaldo: JPC - 7104
+
+Asistente contable
+ID: perfil-b5e08f564271
+Descripción: Perfil de apoyo contable y financiero enfocado en registro y revisión de datos, conciliaciones y soporte a procesos de cuentas por pagar y cuentas por cobrar.
+Incluye: Experiencia en tareas diarias de apoyo contable, captura y mantenimiento de datos financieros, conciliaciones y soporte a AP/AR.
+Excluye: No corresponde a roles de análisis financiero, auditoría ni liderazgo contable.
+Habilidades: soporte contable, data entry, conciliaciones, cuentas por pagar, cuentas por cobrar
+Vacantes de respaldo: JPC - 2796
+
+Asistente financiero
+ID: perfil-b38254ec3116
+Descripción: Apoya procesos transaccionales de finanzas y contabilidad, incluyendo facturación, cuentas por cobrar y cuentas por pagar. Realiza conciliaciones, revisa discrepancias, prepara reportes financieros y da soporte en cierres contables y auditorías.
+Incluye: Experiencia en apoyo financiero-contable operativo, con manejo de facturación, AP/AR, conciliaciones y soporte a cierres y auditorías.
+Excluye: No corresponde a roles enfocados solo en análisis financiero, ni a posiciones senior de contabilidad o gerencia contable.
+Habilidades: facturación, cuentas por cobrar, cuentas por pagar, conciliación contable, Excel
+Vacantes de respaldo: JPC - 6700
+
+Auxiliar contable
+ID: perfil-3848ba808866
+Descripción: Registra operaciones contables diarias, gestiona cuentas por pagar y cobrar, realiza conciliaciones y apoya cierres contables. Maneja documentación y soporte operativo de contabilidad.
+Incluye: Experiencia en teneduría de libros, registros contables, AP/AR, conciliaciones y apoyo en cierres financieros.
+Excluye: No incluye roles centrados solo en facturación, nómina, tesorería o análisis financiero avanzado.
+Habilidades: registro contable, cuentas por pagar, cuentas por cobrar, conciliaciones bancarias, Excel
+Vacantes de respaldo: JPC - 7645
+
+Auxiliar contable
+ID: perfil-5c92f9a9313d
+Descripción: Realiza contabilidad diaria, registro y mantenimiento de libros contables, gestión de cuentas por pagar y por cobrar, conciliación de bancos y tarjetas, y apoyo en reportes financieros.
+Incluye: Experiencia en registro contable operativo, conciliaciones y apoyo a reportes financieros.
+Excluye: No corresponde a roles de liderazgo contable, ni a posiciones centradas en análisis financiero o gestión gerencial.
+Habilidades: QuickBooks Online, Conciliación bancaria, Cuentas por pagar, Cuentas por cobrar, Reportes financieros
+Vacantes de respaldo: JPC - 6745
+
+Contador
+ID: perfil-a7b7bec75e4e
+Descripción: Registra y concilia transacciones contables, prepara estados financieros y cierres mensuales, y apoya conciliaciones bancarias, presupuestos, pronósticos y auditorías. También puede gestionar cuentas por pagar y por cobrar, además de tareas de cierre y control del libro mayor.
+Incluye: Experiencia en contabilidad general, cierres mensuales, conciliaciones, estados financieros y gestión contable integral.
+Excluye: No corresponde a roles exclusivamente fiscales, de cuentas por cobrar/pagar aisladas o de auditoría externa como función principal.
+Habilidades: GAAP, conciliaciones contables, estados financieros, software contable, análisis numérico
+Vacantes de respaldo: JPC - 6349, JPC - 7798
+
+Contador senior
+ID: perfil-7471239ba8f4
+Descripción: Gestiona cierres mensuales, conciliaciones y estados financieros, lidera la contabilidad de clientes y supervisa procesos de cuentas por pagar y por cobrar, control interno y comunicación financiera.
+Incluye: Experiencia contable avanzada con cierres, estados financieros, conciliaciones, supervisión operativa y relación con clientes.
+Excluye: No corresponde a perfiles junior u ოპerativos de contabilidad, ni a roles exclusivamente administrativos.
+Habilidades: Contabilidad, Conciliaciones, Cierre contable, Análisis financiero, Comunicación con clientes
+Vacantes de respaldo: JPC - 6157
+
+Director contable / CFO fraccional
+ID: perfil-6d29cd33c31b
+Descripción: Lidera funciones contables y de supervisión financiera, con cierre contable, revisión de estados financieros y soporte de auditoría.
+Incluye: Supervisión contable, cierres y coordinación con equipos contables.
+Excluye: No corresponde a procesamiento transaccional ni a cobranza.
+Habilidades: dirección contable, cierre contable, revisión de estados financieros, soporte de auditoría, gestión de clientes
+Vacantes de respaldo: JPC - 2191, JPC - 2925, JPC - 3787, JPC - 4443, JPC - 4784, JPC - 5150
+
+Gerente de contabilidad
+ID: perfil-bc25ad24d16a
+Descripción: Supervisa las actividades contables diarias y los cierres periódicos, acompaña auditorías y la preparación de estados financieros, y apoya conciliaciones bancarias y reportes financieros.
+Incluye: Experiencia en supervisión y gestión contable, cierres periódicos, auditorías y reportes financieros.
+Excluye: No corresponde a roles de ejecución contable sin supervisión, ni a posiciones enfocadas solo en conciliación o registro operativo.
+Habilidades: contabilidad, estados financieros, conciliación bancaria, liderazgo de equipo, reporting financiero
+Vacantes de respaldo: JPC - 3836

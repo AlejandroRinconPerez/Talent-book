@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Brand Palette: subtle corporate integration */
+  --color-brand-orange: #EE7825;
+  --color-brand-teal: #007685;
+  --color-brand-teal-dark: #005d69;
+  --color-brand-teal-light: #e6f4f6;
+  --color-brand-cyan: #20BFD0;
+  --color-brand-amber: #F9A831;
+  --color-brand-bg: #F5F5F6;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-brand-bg);
+    color: #0f172a;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+

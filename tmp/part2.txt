@@ -1,0 +1,106 @@
+Beneficios y seguros
+Asistente de beneficios
+ID: perfil-99adc26d2eef
+Descripción: Gestiona tareas operativas de soporte en beneficios, con enfoque en conciliación de facturas, detección de discrepancias, actualización de registros y seguimiento de incidencias en sistemas de control.
+Incluye: Experiencia en soporte administrativo de beneficios, conciliación y resolución de discrepancias, actualización de registros y gestión de incidencias.
+Excluye: No incluye roles de nómina, compensaciones, ventas de seguros ni atención general de recursos humanos.
+Habilidades: Conciliación, Análisis de datos, Gestión de casos, Microsoft Office, Seguimiento de reportes
+Vacantes de respaldo: JPC - 3060
+
+Asociado de operaciones de riesgo
+ID: perfil-e7acd5301d70
+Descripción: Gestiona tareas operativas vinculadas a seguros, incluyendo certificados, endosos y actualización de pólizas, apoyando la relación con clientes y otros actores del proceso.
+Incluye: Experiencia en operaciones de seguros, manejo de certificados, endosos, pólizas o tareas administrativas relacionadas con riesgo.
+Excluye: No corresponde a roles de supervisión de equipos, programación de turnos o análisis de procesos operativos generales.
+Habilidades: certificados de seguro, gestión de pólizas, Microsoft Excel, comunicación, relación con clientes
+Vacantes de respaldo: JPC - 7656
+
+Coordinador de soporte de beneficios
+ID: perfil-d07c4d920f42
+Descripción: Da soporte operativo al área de beneficios gestionando buzones, asignación de tareas, preparación de documentos y atención de consultas sobre planes o beneficios. Requiere organización, Excel, trabajo en equipo, atención al detalle y conocimiento de beneficios.
+Incluye: Experiencia en soporte operativo de beneficios, validación de datos, preparación de materiales y atención de consultas relacionadas con planes o beneficios.
+Excluye: No corresponde a administración general sin foco en beneficios, ni a nómina, reclutamiento o programación de turnos.
+Habilidades: organización, excel, trabajo en equipo, atención al detalle, beneficios
+Vacantes de respaldo: JPC - 2574
+
+Especialista en beneficios
+ID: perfil-b84ed6a4a0d1
+Descripción: Gestiona la administración de beneficios de empleados, atendiendo consultas, tramitando elegibilidad, eventos de vida y tareas relacionadas con inscripciones y bases de datos.
+Incluye: Apoyo operativo y atención de consultas sobre beneficios.
+Excluye: No incluye diseño de planes ni compensación total.
+Habilidades: administración de beneficios, atención al cliente, mantenimiento de bases de datos, manejo de casos
+Vacantes de respaldo: JPC - 2662, JPC - 2679, JPC - 2680, JPC - 2681, JPC - 2682
+
+Especialista en beneficios
+ID: perfil-e94a06d08780
+Descripción: Gestiona la administración operativa de beneficios, inscripciones, cambios, terminaciones y consultas relacionadas, incluyendo incidencias y cumplimiento documental.
+Incluye: Perfiles que administran beneficios y resuelven consultas e incidencias.
+Excluye: No incluye roles de nómina, compensación, reclutamiento ni auditoría general.
+Habilidades: administración de beneficios, atención al cliente, inscripción de beneficios, resolución de incidencias, COBRA, open enrollment, cumplimiento de beneficios, gestión documental, seguimiento regulatorio, archivo electrónico, Office Microsoft, gestión de bases de datos
+Vacantes de respaldo: JPC - 2457, JPC - 3701, JPC - 3964, JPC - 3966, JPC - 4413, JPC - 4417, JPC - 4630, JPC - 4858, JPC - 5539, JPC - 5619, JPC - 6218, JPC - 6279, JPC - 6281, JPC - 7212, JPC - 7316, JPC - 7560, JPC - 7661, JPC - 7669, JPC - 7689
+
+Especialista en reclamos de compensación laboral
+ID: perfil-9c712d107def
+Descripción: Investiga y evalúa reclamos de compensación laboral, coordina tratamiento médico y retorno al trabajo, y prepara documentación, reportes y actualizaciones de estado. Trabaja con gestión de reclamos, coordinación médica y cumplimiento normativo.
+Incluye: Experiencia administrando reclamos de lesiones o compensación laboral, con investigación, documentación y coordinación de tratamiento o retorno al trabajo.
+Excluye: No corresponde a suscripción de seguros, ajustes generales de siniestros no laborales, cobranza ni administración de pólizas.
+Habilidades: gestión de reclamos, investigación de siniestros, coordinación médica, negociación, cumplimiento normativo
+Vacantes de respaldo: JPC - 1179
+
+Compras y logística
+Asistente administrativo de logística
+ID: perfil-a2e639ebcb39
+Descripción: Coordina rutas, despacho y seguimiento operativo de entregas, actualizando documentación y resolviendo incidencias en la operación logística.
+Incluye: Apoyo administrativo a rutas, despacho y control de entregas.
+Excluye: No incluye conducción ni planeación estratégica de transporte.
+Habilidades: coordinación logística, programación de rutas, despacho, seguimiento operativo, resolución de incidencias
+Vacantes de respaldo: JPC - 5850, JPC - 6571, JPC - 6591, JPC - 7184, JPC - 7818
+
+Broker de carga
+ID: perfil-d5c757c4c408
+Descripción: Coordina embarques de carga, negocia tarifas y capacidad con transportistas, da seguimiento a envíos y resuelve incidencias durante el tránsito.
+Incluye: Experiencia coordinando operaciones de carga, negociando con transportistas y dando seguimiento a embarques.
+Excluye: No corresponde a puestos de almacén, conducción, planeación interna de transporte o funciones ajenas a la intermediación de carga.
+Habilidades: Negociación de tarifas, Búsqueda de transportistas, Seguimiento de envíos, Coordinación logística, Atención al cliente
+Vacantes de respaldo: JPC - 6203
+
+Coordinación logística
+ID: perfil-09ee6ba83d15
+Descripción: Gestión de proyectos logísticos de punta a punta, coordinación de envíos, proveedores e inventario, y mantenimiento de documentación precisa.
+Incluye: Coordina envíos, inventario y proveedores con foco en documentación y seguimiento operativo.
+Excluye: No corresponde a roles de transporte directo, almacén operativo o ventas logísticas.
+Habilidades: gestión de proyectos, coordinación de proveedores, control de inventario, documentación, comunicación con clientes
+Vacantes de respaldo: JPC - 2063, JPC - 2759, JPC - 4485, JPC - 6322, JPC - 6828
+
+Coordinador de servicios internacionales
+ID: perfil-8f0eb082c827
+Descripción: Coordina operaciones de importación aérea de extremo a extremo, evaluando opciones de transporte y dando seguimiento a embarques con clientes y proveedores.
+Incluye: Gestión de embarques de importación y coordinación logística internacional.
+Excluye: No incluye tareas de almacén ni transporte local.
+Habilidades: importación aérea, logística internacional, seguimiento de embarques, coordinación con proveedores, gestión de transporte
+Vacantes de respaldo: JPC - 2404, JPC - 2671, JPC - 2842, JPC - 6107, JPC - 7062
+
+Especialista de compras
+ID: perfil-424530ed26f6
+Descripción: Gestiona la ejecución diaria de compras mediante la creación y procesamiento de órdenes de compra, el seguimiento de pedidos abiertos y la coordinación con proveedores para asegurar el suministro. También actualiza datos de plazos, precios y proveedores, y resuelve incidencias operativas.
+Incluye: Experiencia en compras operativas, ejecución diaria de pedidos, seguimiento de órdenes y coordinación con proveedores.
+Excluye: No corresponde a roles de compras estratégicas, planificación de abastecimiento o negociación de alto nivel.
+Habilidades: gestión de órdenes de compra, seguimiento a proveedores, atención al detalle, organización, manejo de ERP/MRP
+Vacantes de respaldo: JPC - 7266
+
+Cumplimiento
+Asistente de cumplimiento
+ID: perfil-eff01bba4a04
+Descripción: Oficio administrativo de apoyo a procesos de cumplimiento, con gestión documental, monitoreo de procesos y coordinación de actividades internas y externas.
+Incluye: Soporte administrativo y documental para procesos de cumplimiento.
+Excluye: No incluye funciones de oficial de cumplimiento ni de auditoría regulatoria integral.
+Habilidades: organización, atención al detalle, proactividad, trabajo en equipo, gestión documental, comunicación escrita, cumplimiento normativo
+Vacantes de respaldo: JPC - 1485, JPC - 3752, JPC - 3843, JPC - 3845, JPC - 3963, JPC - 4246, JPC - 4876, JPC - 5824, JPC - 7727, JPC - 7830
+
+Especialista en cumplimiento operativo
+ID: perfil-bb5514c23216
+Descripción: Gestiona verificación documental, onboarding y seguimiento de procesos para asegurar el cumplimiento operativo.
+Incluye: Verificación de documentos y screenings para procesos de incorporación.
+Excluye: No incluye funciones de auditoría financiera ni recuperación de cartera.
+Habilidades: verificación documental, onboarding, atención al cliente, gestión de bases de datos, cumplimiento
+Vacantes de respaldo: JPC - 2445, JPC - 2517, JPC - 3867, JPC - 4954, JPC - 5756, JPC - 6900

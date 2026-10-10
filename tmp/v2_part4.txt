@@ -1,0 +1,81 @@
+Gestión de personal
+Administrador de RR. HH.
+ID: perfil-d079285b516c
+Descripción: Gestiona documentación de ingreso y separación de personal, organiza expedientes, apoya auditorías y revisiones de cumplimiento, y realiza seguimiento documental y verificaciones administrativas.
+Incluye: Experiencia en administración de personal, manejo de expedientes, documentación laboral, verificaciones y soporte de cumplimiento.
+Excluye: No corresponde a selección de personal, nómina como función principal, relaciones laborales estratégicas ni desarrollo organizacional.
+Habilidades: administración de RR. HH., documentación de personal, cumplimiento, onboarding, gestión de expedientes
+Vacantes de respaldo: JPC - 7470
+
+Asistente de recursos humanos
+ID: perfil-7394a3388308
+Descripción: Apoya tareas administrativas de recursos humanos como gestión de registros, onboarding, actualización de datos y coordinación de comunicación entre áreas.
+Incluye: Soporte administrativo de RR. HH. enfocado en registros y procesos de ingreso.
+Excluye: No incluye reclutamiento estratégico ni relaciones laborales.
+Habilidades: gestión de registros, onboarding, comunicación, atención al detalle, sistemas de RR. HH.
+Vacantes de respaldo: JPC - 1784, JPC - 2108, JPC - 2801, JPC - 3263, JPC - 5677
+
+Asociado de RR. HH. de Operaciones
+ID: perfil-ba83665a8760
+Descripción: Apoya las operaciones de recursos humanos gestionando procesos de onboarding, pre-onboarding y offboarding, cambios de personal en HRIS, mantenimiento de registros y atención de consultas internas. También da soporte a reportes y al seguimiento de evaluaciones de desempeño.
+Incluye: Experiencia en soporte operativo de RR. HH. con onboarding, cambios de personal, mantenimiento de registros, reportes y atención de consultas internas.
+Excluye: No corresponde a reclutamiento, selección, coordinación de entrevistas ni programación de turnos.
+Habilidades: HRIS, onboarding, offboarding, gestión de registros, atención de consultas de RR. HH.
+Vacantes de respaldo: JPC - 5001
+
+Especialista de RR. HH.
+ID: perfil-6eaa666df93a
+Descripción: Responsable de apoyar procesos de recursos humanos, administrar políticas y cumplimiento, y mejorar operaciones de soporte al empleado.
+Incluye: Incluye perfiles con cobertura amplia de procesos de RR. HH., onboarding y soporte interno.
+Excluye: Excluye perfiles dedicados solo a reclutamiento o a tareas administrativas aisladas.
+Habilidades: onboarding, relaciones laborales, beneficios, cumplimiento normativo, mejora de procesos
+Vacantes de respaldo: JPC - 2462, JPC - 3923, JPC - 4247, JPC - 4878, JPC - 6600, JPC - 7627
+
+Especialista en ausencias
+ID: perfil-48bd3560e63b
+Descripción: Oficio dedicado a coordinar el ciclo completo de gestión de ausencias, atender consultas y determinar elegibilidad y tipo de licencia según normativa.
+Incluye: Incluye perfiles que administran licencias, casos y cumplimiento normativo asociado a ausencias.
+Excluye: Excluye funciones generales de recursos humanos que no gestionan ausencias o licencias.
+Habilidades: gestión de ausencias, cumplimiento, atención al cliente, gestión de casos, conocimiento de leyes laborales
+Vacantes de respaldo: JPC - 4356, JPC - 5224, JPC - 5489, JPC - 6040, JPC - 6316, JPC - 6908
+
+Especialista en onboarding
+ID: perfil-c98325c0657c
+Descripción: Oficio administrativo dedicado a coordinar la incorporación de nuevas personas, el seguimiento de estados y la documentación asociada.
+Incluye: Incluye perfiles que coordinan altas, documentación y seguimiento de incorporaciones.
+Excluye: Excluye perfiles de reclutamiento puro o de administración general sin foco en incorporación.
+Habilidades: onboarding, coordinación, seguimiento, document management, atención al cliente
+Vacantes de respaldo: JPC - 2119, JPC - 2837, JPC - 2951, JPC - 4165, JPC - 5823, JPC - 6249, JPC - 6477, JPC - 7599
+
+Formador corporativo
+ID: perfil-b91c7b46840f
+Descripción: Oficio enfocado en diseñar programas y materiales de capacitación, facilitar sesiones y adaptar la formación a necesidades del negocio.
+Incluye: Incluye perfiles que crean contenidos y facilitan entrenamientos internos.
+Excluye: Excluye consultoría educativa externa y funciones puramente administrativas de capacitación.
+Habilidades: diseño instruccional, facilitación, capacitación corporativa, desarrollo de contenidos, aprendizaje de adultos
+Vacantes de respaldo: JPC - 3174, JPC - 6995, JPC - 7027, JPC - 7143, JPC - 7431, JPC - 7628
+
+Generalista de RR. HH.
+ID: perfil-1091b568027e
+Descripción: Oficio de apoyo general a relaciones laborales, documentación y cumplimiento de políticas y procesos de recursos humanos.
+Incluye: Apoyo a relaciones laborales, documentación y cumplimiento de RR. HH.
+Excluye: No incluye nómina ni reclutamiento especializado.
+Habilidades: comunicación en inglés, comunicación en español, documentación, regulación de RR. HH., redacción, relaciones laborales, atención al cliente, manejo de tickets, comunicación clara, cumplimiento
+Vacantes de respaldo: JPC - 2109, JPC - 2272, JPC - 2537, JPC - 3544, JPC - 3655, JPC - 6171, JPC - 7442
+
+HR business partner
+ID: perfil-65c2b57b2715
+Descripción: Acompañamiento de iniciativas de recursos humanos y relaciones laborales, con coordinación de onboarding, desempeño, capacitación y mejora continua.
+Incluye: Acompaña la agenda de RR. HH. con foco en relaciones laborales, desempeño, onboarding y capacitación.
+Excluye: No corresponde a nómina, selección transaccional ni administración general sin componente de negocio.
+Habilidades: relaciones laborales, onboarding, gestión del desempeño, capacitación, business partnering de RR. HH.
+Vacantes de respaldo: JPC - 4877, JPC - 6216, JPC - 6692, JPC - 7469, JPC - 7524
+
+Investigación y análisis
+Especialista de investigación ejecutiva
+ID: perfil-8031f2d27a1b
+Descripción: Realiza investigación ejecutiva, cierra vacíos de datos y construye relaciones para entregar hallazgos al equipo.
+Incluye: Investigación y levantamiento de información con contacto directo.
+Excluye: No incluye creación de contenido ni funciones contables.
+Habilidades: investigación, llamadas de salida, seguimiento, relacionamiento, análisis de datos
+Vacantes de respaldo: JPC - 2815, JPC - 4490, JPC - 5194, JPC - 6297, JPC - 7259, JPC - 7748

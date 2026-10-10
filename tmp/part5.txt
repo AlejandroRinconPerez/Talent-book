@@ -1,0 +1,66 @@
+Finanzas y contabilidad
+Análisis y planificación financiera
+Analista financiero
+ID: perfil-378899876f70
+Descripción: Apoya contabilidad general, reporting y cierre mensual, asegurando la integridad de datos y la precisión de los registros financieros.
+Incluye: Perfiles que realizan análisis y soporte contable-financiero recurrente.
+Excluye: No incluye tesorería, impuestos, auditoría externa ni planeación financiera estratégica.
+Habilidades: Excel, contabilidad general, reporting financiero, US GAAP, integridad de datos
+Vacantes de respaldo: JPC - 2248, JPC - 2502, JPC - 2689, JPC - 3304, JPC - 3389, JPC - 3670, JPC - 4385, JPC - 4830, JPC - 5296, JPC - 5307, JPC - 5589, JPC - 5663, JPC - 6673, JPC - 6969, JPC - 7512, JPC - 7769
+
+Asistente de contabilidad de tesorería
+ID: perfil-2a3fa2e60648
+Descripción: Apoya la gestión de pagos, consultas relacionadas con nómina y el control de transacciones bancarias. Prepara reportes de efectivo, liquidez y devoluciones, con enfoque en registros y análisis de tesorería.
+Incluye: Experiencia apoyando operaciones de tesorería, control de pagos, transacciones bancarias y elaboración de reportes de caja o liquidez.
+Excluye: No corresponde a tesorería estratégica o gerencial, ni a funciones de nómina completas o contabilidad general fuera del soporte operativo de tesorería.
+Habilidades: contabilidad de tesorería, reportes financieros, análisis de datos, Excel, atención al detalle
+Vacantes de respaldo: JPC - 7493
+
+Contador
+ID: perfil-93cb61b37f1f
+Descripción: Revisa y verifica transacciones y রিপোর্টes financieros, prepara conciliaciones, asientos y análisis de variaciones, y elabora presupuestos, proyecciones de flujo de caja e informes financieros periódicos.
+Incluye: Experiencia en revisión de transacciones, conciliaciones, análisis financiero, presupuesto y reportes contables o financieros.
+Excluye: No corresponde a roles centrados solo en registro operativo sin análisis ni a auditoría externa especializada.
+Habilidades: análisis financiero, conciliación de balances, presupuestación y pronósticos, reportes financieros, Excel
+Vacantes de respaldo: JPC - 1569
+
+Especialista en operaciones financieras
+ID: perfil-8cfb2f0e1b01
+Descripción: Procesa operaciones y soporta tareas administrativas y contables relacionadas con cuentas, facturación, conciliación y cierre mensual, cuidando la exactitud de la información.
+Incluye: Experiencia en procesamiento de órdenes, asignación de fondos, conciliación de cuentas, revisión de facturación y apoyo al cierre contable mensual.
+Excluye: No corresponde a contabilidad estratégica, tesorería directiva ni finanzas corporativas sin ejecución operativa y conciliación.
+Habilidades: conciliación, procesamiento de órdenes, revisión de contratos, atención al detalle, gestión de tickets
+Vacantes de respaldo: JPC - 3084
+
+Especialista financiero senior
+ID: perfil-a6ab1af44b82
+Descripción: Desarrolla modelos financieros, analiza datos complejos y coordina flujos de trabajo y proyectos financieros. También documenta y mejora procesos mediante procedimientos operativos y apoya actividades de presupuestación y pronóstico.
+Incluye: Experiencia en modelación y análisis financiero, coordinación de proyectos o procesos financieros, y elaboración de presupuestos o pronósticos.
+Excluye: No corresponde a contabilidad transaccional, tesorería operativa, ni a roles puramente administrativos sin análisis financiero.
+Habilidades: modelación financiera, análisis financiero, Excel avanzado, presupuestación, pronóstico financiero
+Vacantes de respaldo: JPC - 5836
+
+Estimador
+ID: perfil-f37902b1fa9c
+Descripción: Realiza takeoffs, lee planos, especificaciones y addendas, y prepara ofertas y documentación de licitación completas y oportunas. Analiza costos de mano de obra y materiales para apoyar la rentabilidad de proyectos de construcción.
+Incluye: Experiencia elaborando estimaciones, takeoffs, ofertas y documentación de licitación en construcción.
+Excluye: No corresponde a roles de compras, control de costos de obra en ejecución ni supervisión de campo.
+Habilidades: lectura de planos, cálculo de cantidades, análisis de costos, gestión de licitaciones, organización documental
+Vacantes de respaldo: JPC - 3895
+
+Auditoría y fiscalidad
+Auditor
+ID: perfil-a35a556a156f
+Descripción: Perfil orientado a auditorías financieras, operativas y de cumplimiento, evaluación de controles internos y riesgos, y preparación de informes con hallazgos y recomendaciones.
+Incluye: Experiencia en auditoría interna o externa, revisión de controles, evaluación de riesgos y elaboración de informes de auditoría.
+Excluye: No corresponde a funciones de contabilidad operativa, cobranza o análisis financiero de gestión.
+Habilidades: auditoría, controles internos, gestión de riesgos, cumplimiento normativo, análisis financiero
+Vacantes de respaldo: JPC - 7657
+
+Preparador fiscal
+ID: perfil-6f7e93e2aea1
+Descripción: Apoya la preparación fiscal mediante captura y organización de datos, revisión de documentación tributaria y mantenimiento de expedientes, con seguimiento administrativo de información.
+Incluye: Experiencia apoyando la preparación de impuestos, revisión documental tributaria, captura y organización de información fiscal y tareas administrativas relacionadas.
+Excluye: No corresponde a asesores fiscales senior, contadores generales ni perfiles de auditoría o planeación tributaria sin preparación operativa de declaraciones.
+Habilidades: preparación de impuestos, captura de datos, revisión documental, atención al detalle, comunicación con clientes
+Vacantes de respaldo: JPC - 7263

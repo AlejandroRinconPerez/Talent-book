@@ -1,0 +1,106 @@
+Cuentas y facturación
+Administrador de cuentas por pagar y cobrar
+ID: perfil-359260fb1859
+Descripción: Gestiona facturación, cobros, conciliaciones y procesamiento de facturas de proveedores y pagos. Mantiene organizados los registros y la documentación administrativa vinculada a AP y AR.
+Incluye: Experiencia en gestión de cuentas por pagar y cobrar, facturación, pagos, cobranzas y conciliaciones con soporte administrativo.
+Excluye: No incluye contabilidad general amplia, nómina, facturación médica ni funciones de analista financiero estratégico.
+Habilidades: cuentas por pagar, cuentas por cobrar, facturación, conciliación contable, gestión documental
+Vacantes de respaldo: JPC - 6173
+
+Analista de conciliación de cuentas por cobrar
+ID: perfil-4cdbb82639d4
+Descripción: Perfil especializado en conciliación de cuentas por cobrar contra libro mayor, análisis de diferencias entre aging y balance general, y apoyo documental para auditorías y procesos.
+Incluye: Experiencia conciliando cuentas por cobrar con libro mayor, analizando diferencias de saldos y apoyando auditorías con documentación de procesos.
+Excluye: No corresponde a roles de cobranza operativa, facturación general o contabilidad general sin análisis y conciliación de AR.
+Habilidades: conciliación contable, análisis de cuentas por cobrar, libro mayor, Excel, documentación de procesos
+Vacantes de respaldo: JPC - 2834
+
+Analista de cuentas por pagar
+ID: perfil-d0b5c9b4a456
+Descripción: Procesa facturas y pagos a proveedores, conciliando documentos con órdenes de compra y validaciones de aprobación. También prepara asientos contables y reportes asociados al ciclo de cuentas por pagar.
+Incluye: Experiencia en ciclo completo de cuentas por pagar, incluyendo facturas, pagos a proveedores, conciliaciones y soporte contable.
+Excluye: No corresponde a cuentas por cobrar, tesorería, auditoría externa ni roles de supervisión de AP.
+Habilidades: cuentas por pagar, procesamiento de facturas, conciliación de cuentas, relación con proveedores, asientos contables
+Vacantes de respaldo: JPC - 2673
+
+Especialista de facturación
+ID: perfil-0dead70aa43f
+Descripción: Gestiona facturación, cuentas por cobrar y conciliaciones, revisando errores y controles de precios e impuestos.
+Incluye: Facturación, cobros y conciliación de saldos.
+Excluye: Cobranza legal, ventas o atención general de clientes.
+Habilidades: facturación, cuentas por cobrar, conciliación, auditoría de precios e impuestos, atención al detalle
+Vacantes de respaldo: JPC - 1380, JPC - 2033, JPC - 2261, JPC - 2479, JPC - 2808, JPC - 3171, JPC - 3293, JPC - 3776, JPC - 3954, JPC - 4049, JPC - 4427, JPC - 4732, JPC - 4846, JPC - 4897, JPC - 5338, JPC - 5460, JPC - 5519, JPC - 5607, JPC - 5968, JPC - 619, JPC - 6236, JPC - 6587, JPC - 7000, JPC - 7555, JPC - 7719, JPC - 7859
+
+Nómina e impuestos
+Analista de nómina
+ID: perfil-e2a8d6e0d9dc
+Descripción: Procesa ciclos de nómina, mantiene registros de empleados y movimientos laborales, y apoya auditorías, reportes y documentación de nómina. Requiere precisión y atención al detalle en el procesamiento operativo de payroll.
+Incluye: Experiencia en procesamiento de nómina, mantenimiento de registros laborales, reportes y soporte operativo o documental de payroll.
+Excluye: No incluye compensación y beneficios, contabilidad general, recursos humanos integral ni administración financiera fuera de nómina.
+Habilidades: procesamiento de nómina, administración de nómina, registro de empleados, auditoría de nómina, atención al detalle
+Vacantes de respaldo: JPC - 4769
+
+Asistente contable tributario
+ID: perfil-5217ffa51e81
+Descripción: Oficio contable orientado al registro, análisis y conciliación de impuestos sobre nómina, con apoyo en asientos y control de información tributaria.
+Incluye: Registros contables y conciliación de impuestos sobre nómina.
+Excluye: No incluye funciones generales de auditoría, tesorería ni liquidación integral de nómina.
+Habilidades: asientos contables, impuestos sobre nómina, conciliaciones, análisis de datos, hojas de cálculo
+Vacantes de respaldo: JPC - 3637, JPC - 3838, JPC - 4164, JPC - 5726, JPC - 5732, JPC - 5886, JPC - 6059, JPC - 6278, JPC - 6610, JPC - 7494, JPC - 7845
+
+Asistente de nómina
+ID: perfil-f0ccacc20ba3
+Descripción: Procesa nóminas, gestiona consultas relacionadas con pagos y apoya el cumplimiento y la exactitud de las transacciones de nómina. También prepara reportes de fin de periodo y coordina tareas de soporte vinculadas al proceso de nómina.
+Incluye: Experiencia procesando nómina, atendiendo consultas de nómina y preparando reportes o soportando el cumplimiento del proceso de pagos.
+Excluye: No corresponde a analistas de compensación, roles de recursos humanos generales ni a contabilidad financiera que no trabaje directamente con nómina.
+Habilidades: Nómina, Cumplimiento fiscal, Atención al cliente, Organización, Gestión del tiempo
+Vacantes de respaldo: JPC - 2526
+
+Asociado de impuestos de nómina
+ID: perfil-fa108be0d798
+Descripción: Oficio financiero orientado al cumplimiento tributario de nómina, declaraciones, pagos y resolución de discrepancias.
+Incluye: Incluye perfiles centrados en impuestos y cumplimiento asociados a nómina.
+Excluye: Excluye perfiles de procesamiento general de nómina sin componente tributario específico.
+Habilidades: impuestos de nómina, cumplimiento tributario, declaraciones de impuestos, conciliaciones, resolución de discrepancias
+Vacantes de respaldo: JPC - 3898, JPC - 4472, JPC - 5926, JPC - 6277, JPC - 6396, JPC - 7132, JPC - 7206, JPC - 7872
+
+Asociado de nómina
+ID: perfil-36cf02d6d6b9
+Descripción: Oficio de procesamiento de nómina dedicado a programar, registrar y resolver consultas relacionadas con pagos y reportes.
+Incluye: Incluye perfiles operativos de procesamiento y atención sobre nómina.
+Excluye: Excluye perfiles centrados exclusivamente en impuestos de nómina o en funciones financieras más amplias.
+Habilidades: nómina, impuestos sobre nómina, reportes, atención al cliente, gestión del tiempo
+Vacantes de respaldo: JPC - 2523, JPC - 2524, JPC - 2550, JPC - 2551, JPC - 2552, JPC - 2553, JPC - 2554, JPC - 2555
+
+Especialista de nómina
+ID: perfil-acd37084013e
+Descripción: Perfil especializado en administración de nómina y beneficios, con foco en reconciliación, reportes y mantenimiento de registros asociados a personal.
+Incluye: Perfiles dedicados a nómina, beneficios y control de registros laborales.
+Excluye: No incluye reclutamiento, compensación estratégica ni gestión general de RR. HH.
+Habilidades: procesamiento de nómina, administración de beneficios, reconciliación, reportes de nómina, manejo de HRIS
+Vacantes de respaldo: JPC - 1841, JPC - 1948, JPC - 2089, JPC - 2732, JPC - 2854, JPC - 3456, JPC - 3746, JPC - 4006, JPC - 4022, JPC - 4047, JPC - 4256, JPC - 4815, JPC - 4817, JPC - 5167, JPC - 5503, JPC - 5504, JPC - 5506, JPC - 5582, JPC - 5714, JPC - 6126, JPC - 6154, JPC - 6172, JPC - 6434, JPC - 6552, JPC - 6780, JPC - 6832, JPC - 6887, JPC - 7013, JPC - 7100, JPC - 7174, JPC - 7175, JPC - 7579, JPC - 7853
+
+Especialista en implementación de beneficios y retiro
+ID: perfil-5dc470ef13db
+Descripción: Procesa nómina y valida datos operativos; gestiona cargas de aportes de retiro y archivos de ingresos; realiza auditorías, control de calidad y verificación de información relacionada con beneficios y retiro.
+Incluye: Experiencia en procesamiento de nómina, validación de datos, cargas de aportes de retiro, auditorías y control de calidad operativo.
+Excluye: No corresponde a puestos de administración general de RR. HH., reclutamiento, atención de beneficios sin nómina ni a compensación estratégica.
+Habilidades: procesamiento de nómina, administración de beneficios, auditoría, validación de datos, control de calidad
+Vacantes de respaldo: JPC - 7571
+
+Gerente de nómina
+ID: perfil-5a7bdcfd5fb8
+Descripción: Oficio de dirección del proceso de nómina, con supervisión del equipo, control del cumplimiento y mejora continua de los procesos.
+Incluye: Dirección y supervisión integral del proceso de nómina.
+Excluye: No incluye procesamiento operativo aislado ni tareas contables generales.
+Habilidades: gestión de nómina, nómina multies­tado, cumplimiento fiscal, conciliación de nómina, mejora de procesos, nómina, cumplimiento, gestión de equipo, auditoría, sistemas de nómina
+Vacantes de respaldo: JPC - 1246, JPC - 2360, JPC - 3372, JPC - 3828, JPC - 4879, JPC - 6473, JPC - 7575
+
+Préstamos
+Especialista en resolución de préstamos
+ID: perfil-9843bf987384
+Descripción: Gestiona cartera de casos de cobranza, atiende consultas de clientes y actualiza estados y documentación en sistemas.
+Incluye: Cobranza, seguimiento de cartera y actualización de casos.
+Excluye: No incluye originación ni preparación de expedientes de préstamo.
+Habilidades: cobranza, gestión de cartera, atención telefónica, actualización de sistemas, skip tracing
+Vacantes de respaldo: JPC - 5649, JPC - 7088, JPC - 7327, JPC - 7604, JPC - 7692, JPC - 7771

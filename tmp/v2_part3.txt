@@ -1,0 +1,90 @@
+Compras y logística
+Asistente administrativo de logística
+ID: perfil-a2e639ebcb39
+Descripción: Coordina rutas, despacho y seguimiento operativo de entregas, actualizando documentación y resolviendo incidencias en la operación logística.
+Incluye: Apoyo administrativo a rutas, despacho y control de entregas.
+Excluye: No incluye conducción ni planeación estratégica de transporte.
+Habilidades: coordinación logística, programación de rutas, despacho, seguimiento operativo, resolución de incidencias
+Vacantes de respaldo: JPC - 5850, JPC - 6571, JPC - 6591, JPC - 7184, JPC - 7818
+
+Broker de carga
+ID: perfil-d5c757c4c408
+Descripción: Coordina embarques de carga, negocia tarifas y capacidad con transportistas, da seguimiento a envíos y resuelve incidencias durante el tránsito.
+Incluye: Experiencia coordinando operaciones de carga, negociando con transportistas y dando seguimiento a embarques.
+Excluye: No corresponde a puestos de almacén, conducción, planeación interna de transporte o funciones ajenas a la intermediación de carga.
+Habilidades: Negociación de tarifas, Búsqueda de transportistas, Seguimiento de envíos, Coordinación logística, Atención al cliente
+Vacantes de respaldo: JPC - 6203
+
+Coordinación logística
+ID: perfil-09ee6ba83d15
+Descripción: Gestión de proyectos logísticos de punta a punta, coordinación de envíos, proveedores e inventario, y mantenimiento de documentación precisa.
+Incluye: Coordina envíos, inventario y proveedores con foco en documentación y seguimiento operativo.
+Excluye: No corresponde a roles de transporte directo, almacén operativo o ventas logísticas.
+Habilidades: gestión de proyectos, coordinación de proveedores, control de inventario, documentación, comunicación con clientes
+Vacantes de respaldo: JPC - 2063, JPC - 2759, JPC - 4485, JPC - 6322, JPC - 6828
+
+Coordinador de servicios internacionales
+ID: perfil-8f0eb082c827
+Descripción: Coordina operaciones de importación aérea de extremo a extremo, evaluando opciones de transporte y dando seguimiento a embarques con clientes y proveedores.
+Incluye: Gestión de embarques de importación y coordinación logística internacional.
+Excluye: No incluye tareas de almacén ni transporte local.
+Habilidades: importación aérea, logística internacional, seguimiento de embarques, coordinación con proveedores, gestión de transporte
+Vacantes de respaldo: JPC - 2404, JPC - 2671, JPC - 2842, JPC - 6107, JPC - 7062
+
+Especialista de compras
+ID: perfil-424530ed26f6
+Descripción: Gestiona la ejecución diaria de compras mediante la creación y procesamiento de órdenes de compra, el seguimiento de pedidos abiertos y la coordinación con proveedores para asegurar el suministro. También actualiza datos de plazos, precios y proveedores, y resuelve incidencias operativas.
+Incluye: Experiencia en compras operativas, ejecución diaria de pedidos, seguimiento de órdenes y coordinación con proveedores.
+Excluye: No corresponde a roles de compras estratégicas, planificación de abastecimiento o negociación de alto nivel.
+Habilidades: gestión de órdenes de compra, seguimiento a proveedores, atención al detalle, organización, manejo de ERP/MRP
+Vacantes de respaldo: JPC - 7266
+
+Cumplimiento
+Asistente de cumplimiento
+ID: perfil-eff01bba4a04
+Descripción: Oficio administrativo de apoyo a procesos de cumplimiento, con gestión documental, monitoreo de procesos y coordinación de actividades internas y externas.
+Incluye: Soporte administrativo y documental para procesos de cumplimiento.
+Excluye: No incluye funciones de oficial de cumplimiento ni de auditoría regulatoria integral.
+Habilidades: organización, atención al detalle, proactividad, trabajo en equipo, gestión documental, comunicación escrita, cumplimiento normativo
+Vacantes de respaldo: JPC - 1485, JPC - 3752, JPC - 3843, JPC - 3845, JPC - 3963, JPC - 4246, JPC - 4876, JPC - 5824, JPC - 7727, JPC - 7830
+
+Especialista en cumplimiento operativo
+ID: perfil-bb5514c23216
+Descripción: Gestiona verificación documental, onboarding y seguimiento de procesos para asegurar el cumplimiento operativo.
+Incluye: Verificación de documentos y screenings para procesos de incorporación.
+Excluye: No incluye funciones de auditoría financiera ni recuperación de cartera.
+Habilidades: verificación documental, onboarding, atención al cliente, gestión de bases de datos, cumplimiento
+Vacantes de respaldo: JPC - 2445, JPC - 2517, JPC - 3867, JPC - 4954, JPC - 5756, JPC - 6900
+
+Gestión de datos
+Asociado de migración
+ID: perfil-2806b981c2cb
+Descripción: Realiza extracción, análisis, conversión y validación de datos entre plataformas, asegurando calidad y exactitud en las migraciones. También coordina transiciones entre equipos y escala incidencias cuando corresponde.
+Incluye: Experiencia en migración, validación y coordinación de datos entre sistemas o plataformas, con foco en precisión y control de calidad.
+Excluye: No corresponde a captura de datos sin migración, ni a soporte administrativo general o funciones de desarrollo de sistemas sin traslado y validación de datos.
+Habilidades: migración de datos, Excel, análisis de datos, control de calidad, escalamiento de incidencias
+Vacantes de respaldo: JPC - 6868
+
+Auxiliar de datos y soporte
+ID: perfil-b271f39da6f5
+Descripción: Ingresa, actualiza y mantiene información administrativa y de clientes, apoyando la operación diaria con tareas de soporte y comunicación básica. Requiere precisión, organización y capacidad para mantener datos consistentes.
+Incluye: Experiencia en captura y actualización de datos con soporte administrativo diario y comunicación básica con clientes.
+Excluye: No corresponde a roles de análisis de datos, desarrollo de sistemas ni atención comercial compleja.
+Habilidades: captura de datos, organización, atención al detalle, comunicación en inglés, soporte administrativo
+Vacantes de respaldo: JPC - 7529
+
+Especialista de datos
+ID: perfil-934901d49fd5
+Descripción: Oficio administrativo enfocado en captura, formateo y análisis de datos, con apoyo en calidad de información y atención básica de requerimientos.
+Incluye: Captura, depuración y análisis básico de datos en hojas y sistemas.
+Excluye: No incluye ingeniería de datos, modelado estadístico avanzado ni BI especializado.
+Habilidades: captura de datos, Excel, análisis de datos, formateo de datos, atención al cliente
+Vacantes de respaldo: JPC - 2629, JPC - 2687, JPC - 4765, JPC - 4998, JPC - 6214, JPC - 6658, JPC - 6775, JPC - 7078, JPC - 7173
+
+Especialista en carga y validación de datos
+ID: perfil-3ab78b7a12e2
+Descripción: Carga, valida y corrige datos en sistemas, revisando formatos, coherencia y duplicados para mantener la calidad de la información.
+Incluye: Perfiles dedicados a captura, validación y depuración de datos maestros o transaccionales.
+Excluye: No incluye análisis de negocio, desarrollo de sistemas ni administración funcional de plataformas.
+Habilidades: Excel, ERP/CRM, validación de datos, control de calidad, confidencialidad
+Vacantes de respaldo: JPC - 2129, JPC - 2640, JPC - 2863, JPC - 3593, JPC - 3610, JPC - 4081, JPC - 4088, JPC - 4481, JPC - 5620, JPC - 6046, JPC - 6086, JPC - 6627, JPC - 6678, JPC - 6972, JPC - 7406, JPC - 7751
