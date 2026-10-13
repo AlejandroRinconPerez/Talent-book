@@ -18,7 +18,8 @@ import {
   ArrowRightLeft,
   CircleDot,
   Columns3,
-  FileSpreadsheet
+  FileSpreadsheet,
+  X
 } from 'lucide-react';
 import { ActividadBusqueda, BusquedaComercial, Candidato, CandidatoVinculadoBusqueda, EstadoBusqueda, EtapaCandidato, NivelIngles, VacancyRequisitos } from '../types';
 import { CANDIDATE_BY_ID } from '../data/indexes';
@@ -480,14 +481,14 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
                   ) : null}
                 </div>
 
-                <div className="flex items-center gap-3 text-[13px]">
+                <div className="flex items-center gap-2 text-[13px]">
                   <button type="button" onClick={handleSelectAll} className="font-medium text-brand-ink hover:underline">
                     {allSelected ? 'Deselect all' : 'Select all'}
                   </button>
-                  {selectedCandidateIds.length > 0 && !allSelected ? (
-                    <button type="button" onClick={() => setSelectedCandidateIds([])} className="text-ink-2 hover:text-ink hover:underline">
-                      Clear selection
-                    </button>
+                  {selectedCandidateIds.length > 0 ? (
+                    <Button size="sm" variant="ghost" icon={<X className="size-4" />} onClick={() => setSelectedCandidateIds([])}>
+                      Clear selection ({selectedCandidateIds.length})
+                    </Button>
                   ) : null}
                 </div>
               </div>

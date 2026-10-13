@@ -382,6 +382,11 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   {allVisibleSelected ? 'Deselect page' : 'Select page'}
                 </button>
               ) : null}
+              {selectedCount > 0 ? (
+                <Button size="sm" variant="ghost" icon={<X className="size-4" />} onClick={onClearSelection} title="Deselect every candidate, on every page">
+                  Clear selection ({selectedCount})
+                </Button>
+              ) : null}
               <Button
                 size="sm"
                 icon={<FileSpreadsheet className="size-4" />}
@@ -574,9 +579,9 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                 <Button variant="on-dark" icon={<Columns3 className="size-4" />} onClick={() => setIsCompareOpen(true)} disabled={!canCompare} title={canCompare ? 'Compare side by side' : 'Select 2 to 4 candidates to compare'}>
                   Compare
                 </Button>
-                <button type="button" onClick={onClearSelection} className="h-9 rounded-md px-2.5 text-sm text-on-inverse/75 hover:bg-on-inverse/10 hover:text-on-inverse">
-                  Clear
-                </button>
+                <Button variant="on-dark" icon={<X className="size-4" />} onClick={onClearSelection} title="Deselect every candidate, on every page">
+                  Clear selection
+                </Button>
               </div>
             </div>
           </section>
