@@ -18,6 +18,29 @@ const LinkToBusquedaSelectorModal = lazy(() => import('./LinkToBusquedaSelectorM
 const CandidateDetailModal = lazy(() => import('./shared/CandidateDetailModal').then(m => ({ default: m.CandidateDetailModal })));
 const CompareCandidatesModal = lazy(() => import('./CompareCandidatesModal').then(m => ({ default: m.CompareCandidatesModal })));
 
+/* Resizable filter panel: width in px, kept per browser as a convenience */
+const FILTERS_WIDTH_KEY = 'talentbook.candidates.filtersWidth';
+const FILTERS_WIDTH = { min: 240, max: 520, default: 272, step: 16 };
+
+function readFiltersWidth(): number {
+  try {
+    const v = Number(window.localStorage.getItem(FILTERS_WIDTH_KEY));
+    return Number.isFinite(v) && v >= FILTERS_WIDTH.min && v <= FILTERS_WIDTH.max ? v : FILTERS_WIDTH.default;
+  } catch {
+    return FILTERS_WIDTH.default;
+  }
+}
+
+function storeFiltersWidth(width: number): void {
+  try {
+    window.localStorage.setItem(FILTERS_WIDTH_KEY, String(width));
+  } catch {
+    // Storage unavailable; the width still applies for this session.
+  }
+}
+
+const clampWidth = (w: number) => Math.round(Math.min(FILTERS_WIDTH.max, Math.max(FILTERS_WIDTH.min, w)));
+
 type SortKey = 'name' | 'experience' | 'english' | 'updated';
 const SORT_LABEL: Record<SortKey, string> = { name: 'Name', experience: 'Experience, most first', english: 'English, highest first', updated: 'Recently updated' };
 const ENGLISH_RANK: Record<string, number> = { C2: 6, C1: 5, B2: 4, B1: 3, A2: 2, A1: 1 };
@@ -58,6 +81,56 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
   const [displayMode, setDisplayMode] = useState<'cards' | 'table'>('cards');
   const [sortKey, setSortKey] = useState<SortKey>('updated');
   const [page, setPage] = useState(1);
+
+  // Filter panel width (desktop only); dragged with the pointer or nudged with the keyboard
+  const [filtersWidth, setFiltersWidth] = useState<number>(readFiltersWidth);
+  const commitFiltersWidth = (width: number) => {
+    const next = clampWidth(width);
+    setFiltersWidth(next);
+    storeFiltersWidth(next);
+  };
+
+  const startResize = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    const startX = e.clientX;
+    const startWidth = filtersWidth;
+    let latest = startWidth;
+    const previousSelect = document.body.style.userSelect;
+    const previousCursor = document.body.style.cursor;
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'col-resize';
+
+    const onMove = (ev: PointerEvent) => {
+      latest = clampWidth(startWidth + (ev.clientX - startX));
+      setFiltersWidth(latest);
+    };
+    const onUp = () => {
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+      document.removeEventListener('pointercancel', onUp);
+      document.body.style.userSelect = previousSelect;
+      document.body.style.cursor = previousCursor;
+      storeFiltersWidth(latest);
+    };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+    document.addEventListener('pointercancel', onUp);
+  };
+
+  const onResizeKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const map: Record<string, number | undefined> = {
+      ArrowLeft: filtersWidth - FILTERS_WIDTH.step,
+      ArrowRight: filtersWidth + FILTERS_WIDTH.step,
+      Home: FILTERS_WIDTH.min,
+      End: FILTERS_WIDTH.max,
+      Enter: FILTERS_WIDTH.default
+    };
+    const next = map[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    commitFiltersWidth(next);
+  };
 
   // Cascading taxonomy filters
   const [selectedFamily, setSelectedFamily] = useState<string>(initialFilter?.familia || '');
@@ -271,7 +344,10 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[17rem_1fr]">
+      <div
+        className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[var(--filters-w)_auto_minmax(0,1fr)] lg:gap-x-2"
+        style={{ '--filters-w': `${filtersWidth}px` } as React.CSSProperties}
+      >
         {/* Filters */}
         {/* Sticky, but never taller than the viewport: the filter body scrolls on its own */}
         <aside
@@ -369,6 +445,24 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             </fieldset>
           </div>
         </aside>
+
+        {/* Resize handle: drag, or focus it and use the arrow keys; double-click resets */}
+        <div
+          role="separator"
+          aria-orientation="vertical"
+          aria-label="Filter panel width"
+          aria-valuemin={FILTERS_WIDTH.min}
+          aria-valuemax={FILTERS_WIDTH.max}
+          aria-valuenow={filtersWidth}
+          tabIndex={0}
+          title="Drag to resize the filters. Double-click to reset."
+          onPointerDown={startResize}
+          onKeyDown={onResizeKey}
+          onDoubleClick={() => commitFiltersWidth(FILTERS_WIDTH.default)}
+          className="group hidden h-full min-h-40 w-4 cursor-col-resize touch-none items-stretch justify-center self-stretch lg:sticky lg:top-20 lg:flex lg:max-h-[calc(100dvh-6rem)]"
+        >
+          <span aria-hidden="true" className="my-3 w-px rounded-full bg-rule transition-[background-color,width] duration-150 group-hover:w-0.5 group-hover:bg-brand group-focus-visible:w-0.5 group-focus-visible:bg-brand" />
+        </div>
 
         {/* Results */}
         <div className="min-w-0 space-y-4" data-tour="results">
