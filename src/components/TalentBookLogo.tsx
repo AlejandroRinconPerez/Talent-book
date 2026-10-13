@@ -12,7 +12,9 @@ export const TalentBookLogo: React.FC<TalentBookLogoProps> = ({ className = 'h-9
   return (
     <span className={`inline-flex select-none ${className}`}>
       <span
-        className={`flex h-full items-center gap-2 ${tile ? 'rounded-lg bg-logo-tile py-1 pl-2 pr-3' : ''}`}
+        className={`flex h-full items-center gap-2 ${
+          tile ? 'rounded-lg bg-logo-tile py-1 pl-2 pr-3 transition-[background-color] duration-150 group-hover:bg-logo-tile-hover group-focus-visible:bg-logo-tile-hover' : ''
+        }`}
         style={{ colorScheme: 'dark' }}
       >
         <svg

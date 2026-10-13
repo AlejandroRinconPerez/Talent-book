@@ -50,13 +50,9 @@ export const Header: React.FC<HeaderProps> = ({
     <>
       <header className="sticky top-0 z-40 border-b border-rule bg-surface">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
-          <button
-            type="button"
-            onClick={() => setIsAboutOpen(true)}
-            className="-ml-1.5 flex items-center rounded-md px-1.5 py-1 hover:bg-well"
-            aria-label="About Talent Book"
-          >
-            <TalentBookLogo className="h-7 sm:h-8" showText />
+          {/* The tile is the whole hit area: hovering lightens it, nothing else around it */}
+          <button type="button" onClick={() => setIsAboutOpen(true)} className="group -ml-1 flex items-center rounded-lg" aria-label="About Talent Book">
+            <TalentBookLogo className="h-8 sm:h-9" showText />
           </button>
 
           <nav aria-label="Primary" className="flex items-center gap-0.5 sm:gap-1" data-tour="nav">
