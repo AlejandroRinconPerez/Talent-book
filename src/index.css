@@ -32,8 +32,6 @@
   --color-brand-wash: #E6F4F6;
   --color-brand-wash-2: #CDE9ED;
   --color-on-brand: #FFFFFF;
-  --color-logo-tile: #2E96A5;
-  --color-logo-tile-hover: #45ADBB;
 
   /* Commercial accent: only for actions that leave the system */
   --color-accent: #B9500A;
@@ -110,8 +108,6 @@
     --color-brand-wash: #10323A;
     --color-brand-wash-2: #164650;
     --color-on-brand: #06262B;
-    --color-logo-tile: #1F5A64;
-    --color-logo-tile-hover: #2A7580;
     --color-accent: #F2A365;
     --color-accent-deep: #F6B77F;
     --color-accent-wash: #3B2412;
@@ -146,8 +142,6 @@
       --color-brand-wash: #10323A;
       --color-brand-wash-2: #164650;
       --color-on-brand: #06262B;
-      --color-logo-tile: #1F5A64;
-      --color-logo-tile-hover: #2A7580;
       --color-accent: #F2A365;
       --color-accent-deep: #F6B77F;
       --color-accent-wash: #3B2412;
@@ -183,8 +177,6 @@
     --color-brand-wash: #E6F4F6;
     --color-brand-wash-2: #CDE9ED;
     --color-on-brand: #FFFFFF;
-    --color-logo-tile: #2E96A5;
-    --color-logo-tile-hover: #45ADBB;
     --color-accent: #B9500A;
     --color-accent-deep: #9C4408;
     --color-accent-wash: #FDEEE3;
