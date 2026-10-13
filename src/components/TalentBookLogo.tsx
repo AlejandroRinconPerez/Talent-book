@@ -3,12 +3,14 @@ import React from 'react';
 interface TalentBookLogoProps {
   className?: string;
   showText?: boolean;
+  /** Dark tile behind the mark so the white figure reads on any background. */
+  tile?: boolean;
 }
 
 /** Official Talent Book mark: open book in brand teal/orange with a person at the spine. */
-export const TalentBookLogo: React.FC<TalentBookLogoProps> = ({ className = 'h-9', showText = true }) => {
+export const TalentBookLogo: React.FC<TalentBookLogoProps> = ({ className = 'h-9', showText = true, tile = true }) => {
   return (
-    <span className={`inline-flex items-center gap-2 select-none ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 select-none ${className}`}>
       <svg
         viewBox="0 0 160 120"
         fill="none"
@@ -17,6 +19,7 @@ export const TalentBookLogo: React.FC<TalentBookLogoProps> = ({ className = 'h-9
         role="img"
         aria-label="Talent Book"
       >
+        {tile ? <rect x="0" y="0" width="160" height="120" rx="22" fill="var(--color-logo-tile)" /> : null}
         <defs>
           <linearGradient id="tb-orange-left" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#E65100" />
