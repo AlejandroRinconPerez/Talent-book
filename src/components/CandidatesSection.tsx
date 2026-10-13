@@ -1,5 +1,6 @@
 import React, { Suspense, lazy, useCallback, useMemo, useState } from 'react';
-import { RotateCcw, Users, Search, X, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { RotateCcw, Users, Search, X, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight, Columns3, FileSpreadsheet } from 'lucide-react';
+import { exportCandidatesWorkbook } from '../utils/exportCandidates';
 import { MOCK_CANDIDATES } from '../data/candidatesData';
 import { FAMILIAS_DATA } from '../data/bookData';
 import { FAMILY_BY_NAME, profileName as getProfileName } from '../data/indexes';
@@ -15,6 +16,7 @@ import { plural } from '../utils/format';
 // Modals load on first use
 const LinkToBusquedaSelectorModal = lazy(() => import('./LinkToBusquedaSelectorModal').then(m => ({ default: m.LinkToBusquedaSelectorModal })));
 const CandidateDetailModal = lazy(() => import('./shared/CandidateDetailModal').then(m => ({ default: m.CandidateDetailModal })));
+const CompareCandidatesModal = lazy(() => import('./CompareCandidatesModal').then(m => ({ default: m.CompareCandidatesModal })));
 
 type SortKey = 'name' | 'experience' | 'english' | 'updated';
 const SORT_LABEL: Record<SortKey, string> = { name: 'Name', experience: 'Experience, most first', english: 'English, highest first', updated: 'Recently updated' };
@@ -213,6 +215,10 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
   const selectedCount = selectedCandidateIds.length;
   const isDetailSelected = activeCandidateDetail ? selectedIdSet.has(activeCandidateDetail.id) : false;
 
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+  const selectedCandidates = useMemo(() => selectedCandidateIds.flatMap(id => MOCK_CANDIDATES.find(c => c.id === id) ?? []), [selectedCandidateIds]);
+  const canCompare = selectedCandidates.length >= 2 && selectedCandidates.length <= 4;
+
   return (
     <div className={`space-y-6 ${selectedCount > 0 ? 'pb-28 lg:pb-24' : ''}`}>
       <div className="page-header">
@@ -376,25 +382,20 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   {allVisibleSelected ? 'Deselect page' : 'Select page'}
                 </button>
               ) : null}
+              <Button
+                size="sm"
+                icon={<FileSpreadsheet className="size-4" />}
+                onClick={() => exportCandidatesWorkbook(sortedCandidates, hasActiveFilters ? 'filtered-candidates' : 'candidates')}
+                disabled={sortedCandidates.length === 0}
+                title={`Download ${plural(sortedCandidates.length, 'candidate')} as an Excel file`}
+              >
+                Export to Excel
+              </Button>
               <div className="flex rounded-md border border-rule-strong bg-surface p-0.5" role="group" aria-label="Layout">
-                <button
-                  type="button"
-                  aria-pressed={displayMode === 'cards'}
-                  aria-label="Cards"
-                  title="Cards"
-                  onClick={() => setDisplayMode('cards')}
-                  className="flex size-8 items-center justify-center rounded-[4px] text-ink-2 hover:text-ink aria-pressed:bg-ink aria-pressed:text-white"
-                >
+                <button type="button" aria-pressed={displayMode === 'cards'} aria-label="Cards" title="Cards" onClick={() => setDisplayMode('cards')} className="segment size-8 justify-center px-0">
                   <LayoutGrid className="size-4" />
                 </button>
-                <button
-                  type="button"
-                  aria-pressed={displayMode === 'table'}
-                  aria-label="Table"
-                  title="Table"
-                  onClick={() => setDisplayMode('table')}
-                  className="flex size-8 items-center justify-center rounded-[4px] text-ink-2 hover:text-ink aria-pressed:bg-ink aria-pressed:text-white"
-                >
+                <button type="button" aria-pressed={displayMode === 'table'} aria-label="Table" title="Table" onClick={() => setDisplayMode('table')} className="segment size-8 justify-center px-0">
                   <List className="size-4" />
                 </button>
               </div>
@@ -535,10 +536,11 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
       {/* Selection bar */}
       {selectedCount > 0 && (
         <div className="fixed inset-x-0 bottom-0 z-30 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 animate-rise">
-          <section aria-label="Selection actions" className="mx-auto max-w-7xl rounded-lg bg-ink p-3 text-white shadow-bar sm:p-4">
+          <section aria-label="Selection actions" className="mx-auto max-w-7xl rounded-lg bg-inverse p-3 text-on-inverse shadow-bar sm:p-4">
             <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <p className="text-sm">
                 <strong className="font-semibold tabular-nums">{selectedCount}</strong> {selectedCount === 1 ? 'candidate' : 'candidates'} selected
+                {canCompare ? null : selectedCount > 4 ? <span className="ml-2 text-on-inverse/70">Select up to 4 to compare</span> : null}
               </p>
 
               <div className="flex flex-wrap items-center gap-2">
@@ -549,7 +551,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   id="toolbar-search"
                   value={toolbarTargetBusquedaId}
                   onChange={e => setToolbarTargetBusquedaId(e.target.value)}
-                  className="input select h-9 w-full border-white/20 bg-white/10 text-white sm:w-64 [&_option]:text-ink"
+                  className="input select h-9 w-full border-on-inverse/20 bg-on-inverse/10 text-on-inverse sm:w-64 [&_option]:bg-surface [&_option]:text-ink"
                   style={{ backgroundImage: 'none' }}
                 >
                   <option value="">Choose a search…</option>
@@ -569,7 +571,10 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                 <Button variant="on-dark" icon={<ShieldCheck className="size-4" />} onClick={onProceedToEvaluate}>
                   Evaluate fit
                 </Button>
-                <button type="button" onClick={onClearSelection} className="h-9 rounded-md px-2.5 text-sm text-white/75 hover:bg-white/10 hover:text-white">
+                <Button variant="on-dark" icon={<Columns3 className="size-4" />} onClick={() => setIsCompareOpen(true)} disabled={!canCompare} title={canCompare ? 'Compare side by side' : 'Select 2 to 4 candidates to compare'}>
+                  Compare
+                </Button>
+                <button type="button" onClick={onClearSelection} className="h-9 rounded-md px-2.5 text-sm text-on-inverse/75 hover:bg-on-inverse/10 hover:text-on-inverse">
                   Clear
                 </button>
               </div>
@@ -612,6 +617,10 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             }}
             onRequestCreateNewBusqueda={onRequestCreateBusqueda}
           />
+        ) : null}
+
+        {isCompareOpen && canCompare ? (
+          <CompareCandidatesModal candidates={selectedCandidates} onClose={() => setIsCompareOpen(false)} onOpenProfile={setActiveCandidateDetail} />
         ) : null}
       </Suspense>
     </div>

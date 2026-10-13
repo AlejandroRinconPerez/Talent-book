@@ -98,10 +98,10 @@ export const Tour: React.FC<TourProps> = ({ steps, onNavigate, onClose }) => {
         <div
           aria-hidden="true"
           className="pointer-events-none fixed rounded-lg ring-2 ring-brand transition-[top,left,width,height] duration-200"
-          style={{ top: box.top, left: box.left, width: box.width, height: box.height, boxShadow: '0 0 0 9999px rgb(26 35 41 / 0.55)' }}
+          style={{ top: box.top, left: box.left, width: box.width, height: box.height, boxShadow: '0 0 0 9999px rgb(0 0 0 / 0.55)' }}
         />
       ) : (
-        <div aria-hidden="true" className="fixed inset-0 bg-ink/55" />
+        <div aria-hidden="true" className="fixed inset-0 bg-black/55" />
       )}
 
       <div ref={cardRef} tabIndex={-1} className="panel fixed p-5 shadow-pop outline-none animate-pop" style={cardStyle}>

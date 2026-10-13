@@ -10,14 +10,19 @@ import { formatDate, plural, todayIso } from '../utils/format';
 interface PresentationModeProps {
   candidates: Candidato[];
   vacancy: Vacancy;
+  /** Optional note from the sales rep, shown under the requirement on the first page. */
+  coverNote?: string;
+  /** Whether each candidate carries the fit assessment block. */
+  includeFit?: boolean;
   onClose: () => void;
 }
 
 /**
  * Client-facing view: a typeset dossier for screen sharing or printing.
  * Everything internal (CEIPAL state, salary ranges, pool counts) stays out.
+ * Always rendered light, whatever the app theme: it is a document.
  */
-export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, vacancy, onClose }) => {
+export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, vacancy, coverNote, includeFit = true, onClose }) => {
   const evaluations: Record<string, EvaluacionCandidato> = {};
   candidates.forEach(c => {
     evaluations[c.id] = evaluarCandidatoConVacante(c, vacancy);
@@ -43,11 +48,16 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, 
   }, []);
 
   return (
-    <div role="dialog" aria-modal="true" aria-labelledby="presentation-title" className="fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-paper print:static print:overflow-visible print:bg-white">
-      <div className="sticky top-0 z-10 flex items-center justify-between gap-3 bg-ink px-4 py-2.5 text-white sm:px-6 print:hidden">
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="presentation-title"
+      className="theme-light fixed inset-0 z-50 overflow-y-auto overscroll-contain bg-paper text-ink print:static print:overflow-visible print:bg-white"
+    >
+      <div className="sticky top-0 z-10 flex items-center justify-between gap-3 bg-inverse px-4 py-2.5 text-on-inverse sm:px-6 print:hidden">
         <p className="text-sm">
           <span className="font-semibold">Presentation mode</span>
-          <span className="ml-2 hidden text-white/70 sm:inline">Clean view for sharing with the client</span>
+          <span className="ml-2 hidden text-on-inverse/70 sm:inline">Clean view for sharing with the client</span>
         </p>
         <div className="flex items-center gap-2">
           <Button variant="on-dark" size="sm" icon={<Printer className="size-4" />} onClick={() => window.print()}>
@@ -79,7 +89,10 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, 
 
           {vacancy.descripcion && (
             <div className="mt-8 grid gap-6 sm:grid-cols-[1fr_14rem]">
-              <p className="max-w-[64ch] text-[15px] leading-relaxed text-ink-2">{vacancy.descripcion}</p>
+              <div className="space-y-4">
+                <p className="max-w-[64ch] text-[15px] leading-relaxed text-ink-2">{vacancy.descripcion}</p>
+                {coverNote ? <p className="max-w-[64ch] border-l-2 border-brand pl-4 text-[15px] leading-relaxed text-ink">{coverNote}</p> : null}
+              </div>
               <dl className="space-y-2 border-l border-rule pl-5 text-[13px]">
                 <div>
                   <dt className="text-ink-3">Experience</dt>
@@ -129,7 +142,7 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, 
                           {cand.ciudad}, {cand.pais}. {modalityLabel(cand.modalidad)}.
                         </p>
                       </div>
-                      {ev && <FitBadge level={ev.nivelAjusteGeneral} prefix="Overall fit" score={ev.puntajeAjuste} />}
+                      {includeFit && ev ? <FitBadge level={ev.nivelAjusteGeneral} prefix="Overall fit" score={ev.puntajeAjuste} /> : null}
                     </div>
 
                     <dl className="facts mt-5">
@@ -184,7 +197,7 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, 
                       ))}
                     </ul>
 
-                    {ev && (
+                    {includeFit && ev && (
                       <div className="mt-7 rounded-lg bg-paper p-5 print:border print:border-rule">
                         <p className="max-w-[64ch] text-[15px] leading-relaxed text-ink-2">{ev.sintesisAjuste}</p>
                         <div className="mt-4 grid gap-5 sm:grid-cols-2">

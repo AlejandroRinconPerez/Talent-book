@@ -16,7 +16,9 @@ import {
   UserMinus,
   Send,
   ArrowRightLeft,
-  CircleDot
+  CircleDot,
+  Columns3,
+  FileSpreadsheet
 } from 'lucide-react';
 import { ActividadBusqueda, BusquedaComercial, Candidato, CandidatoVinculadoBusqueda, EstadoBusqueda, EtapaCandidato, NivelIngles, VacancyRequisitos } from '../types';
 import { CANDIDATE_BY_ID } from '../data/indexes';
@@ -29,9 +31,12 @@ import { CandidateCard } from './shared/CandidateCard';
 import { formatDate, plural, todayIso } from '../utils/format';
 import { ACTIVIDAD_LABEL, ESTADO_LABEL, ESTADO_ORDER, ETAPA_LABEL, ETAPA_ORDER, relativeTime, withActivity } from '../utils/activity';
 
+import { exportSearchWorkbook } from '../utils/exportCandidates';
+
 // Modals load on first use; they are not part of the detail view's initial render
 const CeipalPipelineModal = lazy(() => import('./CeipalPipelineModal').then(m => ({ default: m.CeipalPipelineModal })));
 const AddCandidatesToBusquedaModal = lazy(() => import('./AddCandidatesToBusquedaModal').then(m => ({ default: m.AddCandidatesToBusquedaModal })));
+const CompareCandidatesModal = lazy(() => import('./CompareCandidatesModal').then(m => ({ default: m.CompareCandidatesModal })));
 
 interface BusquedaDetailSectionProps {
   busqueda: BusquedaComercial;
@@ -209,18 +214,15 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
   const evaluationTargets = selectedCandidateObjects.length > 0 ? selectedCandidateObjects : linkedCandidateObjects.map(i => i.candidato);
   const targetCount = evaluationTargets.length;
 
-  // Presenting moves shortlisted candidates to "Presented" and logs it
-  const handlePresent = () => {
-    const presentedIds = new Set(evaluationTargets.map(c => c.id));
-    const updated = {
-      ...busqueda,
-      candidatosVinculados: busqueda.candidatosVinculados.map(cv =>
-        presentedIds.has(cv.candidatoId) && (cv.etapa ?? 'shortlist') === 'shortlist' ? { ...cv, etapa: 'presentado' as const } : cv
-      )
-    };
-    onUpdateBusqueda(withActivity(updated, 'presentada', `Presented ${plural(targetCount, 'candidate')}${busqueda.clienteEmpresa ? ` to ${busqueda.clienteEmpresa}` : ''}.`));
-    onOpenPresentation(evaluationTargets);
-  };
+  // Presenting opens the builder (choose, order, cover note); the app logs the activity on confirm
+  const handlePresent = () => onOpenPresentation(evaluationTargets);
+
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+  const canCompare = selectedCandidateObjects.length >= 2 && selectedCandidateObjects.length <= 4;
+  const compareVacancy = useMemo(
+    () => ({ titulo: busqueda.nombre, descripcion: busqueda.descripcion, cliente: busqueda.clienteEmpresa, requisitos: busqueda.requisitos }),
+    [busqueda.nombre, busqueda.descripcion, busqueda.clienteEmpresa, busqueda.requisitos]
+  );
 
   const visibleActivity = showAllActivity ? busqueda.actividad : busqueda.actividad.slice(0, 6);
   const isClosed = busqueda.estado === 'cerrada';
@@ -404,6 +406,24 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
                 Evaluate fit {targetCount > 0 ? `(${targetCount})` : ''}
               </Button>
               <Button
+                size="sm"
+                icon={<Columns3 className="size-4" />}
+                onClick={() => setIsCompareOpen(true)}
+                disabled={!canCompare}
+                title={canCompare ? 'Compare the selected candidates side by side' : 'Select 2 to 4 candidates to compare'}
+              >
+                Compare {selectedCandidateObjects.length > 0 ? `(${selectedCandidateObjects.length})` : ''}
+              </Button>
+              <Button
+                size="sm"
+                icon={<FileSpreadsheet className="size-4" />}
+                onClick={() => exportSearchWorkbook(busqueda)}
+                disabled={linkedCandidateObjects.length === 0}
+                title="Download this shortlist with its pipeline state as an Excel file"
+              >
+                Export to Excel
+              </Button>
+              <Button
                 variant="commercial"
                 size="sm"
                 icon={<UploadCloud className="size-4" />}
@@ -569,6 +589,10 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
             onClose={() => setIsCeipalModalOpen(false)}
             onUploadSuccess={handleCeipalUploadSuccess}
           />
+        ) : null}
+
+        {isCompareOpen && canCompare ? (
+          <CompareCandidatesModal candidates={selectedCandidateObjects} vacancy={compareVacancy} onClose={() => setIsCompareOpen(false)} onOpenProfile={onOpenCandidateDetail} />
         ) : null}
       </Suspense>
     </div>

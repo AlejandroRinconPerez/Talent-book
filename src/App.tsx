@@ -18,7 +18,8 @@ import { SAMPLE_VACANCIES } from './utils/evaluationEngine';
 import { plural, todayIso } from './utils/format';
 import { withActivity, relativeTime } from './utils/activity';
 import { clearWorkspace, exportWorkspaceFile, importWorkspaceFile, loadWorkspace, saveWorkspace } from './services/storage';
-import { BusquedaComercial, Candidato, Usuario, Vacancy, VacancyRequisitos } from './types';
+import { BusquedaComercial, Candidato, EtapaCandidato, Usuario, Vacancy, VacancyRequisitos } from './types';
+import type { PresentationPlan } from './components/PresentationBuilderModal';
 
 // Only the default view (searches list) ships in the main chunk; every other screen loads when opened
 const BusquedaDetailSection = lazy(() => import('./components/BusquedaDetailSection').then(m => ({ default: m.BusquedaDetailSection })));
@@ -26,8 +27,10 @@ const BookSection = lazy(() => import('./components/BookSection').then(m => ({ d
 const CandidatesSection = lazy(() => import('./components/CandidatesSection').then(m => ({ default: m.CandidatesSection })));
 const EvaluationSection = lazy(() => import('./components/EvaluationSection').then(m => ({ default: m.EvaluationSection })));
 const PresentationMode = lazy(() => import('./components/PresentationMode').then(m => ({ default: m.PresentationMode })));
+const PresentationBuilderModal = lazy(() => import('./components/PresentationBuilderModal').then(m => ({ default: m.PresentationBuilderModal })));
 const CreateBusquedaModal = lazy(() => import('./components/CreateBusquedaModal').then(m => ({ default: m.CreateBusquedaModal })));
 const CandidateDetailModal = lazy(() => import('./components/shared/CandidateDetailModal').then(m => ({ default: m.CandidateDetailModal })));
+const GlobalSearch = lazy(() => import('./components/GlobalSearch').then(m => ({ default: m.GlobalSearch })));
 const Tour = lazy(() => import('./components/ui/Tour').then(m => ({ default: m.Tour })));
 
 const SectionFallback = (
@@ -61,8 +64,20 @@ function toHash(route: Route): string {
   return route.busquedaId ? `#/searches/${encodeURIComponent(route.busquedaId)}` : '#/searches';
 }
 
+/** What the presentation builder was opened with. */
+interface PresentationDraft {
+  candidates: Candidato[];
+  vacancy: Vacancy;
+  searchId?: string;
+}
+
 /** Workspace restored from the browser, or the seed on first run. */
 const initialWorkspace = loadWorkspace();
+
+const isTypingTarget = (el: EventTarget | null) => {
+  if (!(el instanceof HTMLElement)) return false;
+  return el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName);
+};
 
 export default function App() {
   // 1. User session (starts signed in with the demo user for immediate preview)
@@ -102,6 +117,7 @@ export default function App() {
   const [toast, setToast] = useState<string | null>(null);
   const [isResetConfirmOpen, setIsResetConfirmOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const skipNextSave = useRef(true);
 
   useEffect(() => {
@@ -116,6 +132,21 @@ export default function App() {
     }, 300);
     return () => window.clearTimeout(timer);
   }, [busquedas, generalSelectedCandidateIds]);
+
+  // "/" or Ctrl/Cmd+K opens global search when no field or dialog has focus
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const isSlash = e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey;
+      const isCmdK = e.key.toLowerCase() === 'k' && (e.ctrlKey || e.metaKey);
+      if (!isSlash && !isCmdK) return;
+      if (isSlash && isTypingTarget(e.target)) return;
+      if (document.querySelector('[role="dialog"]')) return;
+      e.preventDefault();
+      setIsSearchOpen(true);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   const handleExportData = () => {
     exportWorkspaceFile({ busquedas, selectedCandidateIds: generalSelectedCandidateIds });
@@ -156,16 +187,16 @@ export default function App() {
     vacancy: Vacancy;
   } | null>(null);
 
-  // Filter passed from Book to Candidates
+  // Filter passed from Book to Candidates, and a profile to open in the Book (from global search)
   const [candidateFilter, setCandidateFilter] = useState<{ familia?: string; especialidad?: string; perfilId?: string }>({});
+  const [bookFocus, setBookFocus] = useState<{ profileId: string; key: number } | null>(null);
 
   // 5. Candidate detail modal (inspect a full profile from anywhere)
   const [activeCandidateDetail, setActiveCandidateDetail] = useState<Candidato | null>(null);
 
-  // 6. Presentation mode overlay
-  const [isPresentationMode, setIsPresentationMode] = useState<boolean>(false);
-  const [presentationCandidates, setPresentationCandidates] = useState<Candidato[]>([]);
-  const [presentationVacancy, setPresentationVacancy] = useState<Vacancy>(SAMPLE_VACANCIES[0]);
+  // 6. Presentation: builder draft, then the dossier itself
+  const [presentationDraft, setPresentationDraft] = useState<PresentationDraft | null>(null);
+  const [presentation, setPresentation] = useState<(PresentationPlan & { vacancy: Vacancy }) | null>(null);
 
   const handleLogout = () => {
     setCurrentUser(null);
@@ -231,19 +262,59 @@ export default function App() {
     window.scrollTo({ top: 0 });
   };
 
-  const handleOpenPresentation = (candidatesToPresent: Candidato[]) => {
+  /** Opens the builder. Inside a search the vacancy and the last presentation come from it. */
+  const requestPresentation = (candidatesToPresent: Candidato[]) => {
     const targetCandidates = candidatesToPresent.length > 0 ? candidatesToPresent : MOCK_CANDIDATES.slice(0, 3);
+    const searchContext = evaluatingSearchContext?.searchId ? busquedas.find(b => b.id === evaluatingSearchContext.searchId) ?? null : activeBusqueda;
+    const vacancy: Vacancy = evaluatingSearchContext?.vacancy ?? {
+      titulo: searchContext?.nombre || 'Talent requirement',
+      descripcion: searchContext?.descripcion || 'Profile summary and technical requirements agreed for the position.',
+      cliente: searchContext?.clienteEmpresa || 'Client',
+      requisitos: searchContext?.requisitos || SAMPLE_VACANCIES[0].requisitos
+    };
 
-    setPresentationCandidates(targetCandidates);
-    setPresentationVacancy(
-      evaluatingSearchContext?.vacancy || {
-        titulo: activeBusqueda?.nombre || 'Talent requirement',
-        descripcion: activeBusqueda?.descripcion || 'Profile summary and technical requirements agreed for the position.',
-        cliente: activeBusqueda?.clienteEmpresa || 'Client',
-        requisitos: activeBusqueda?.requisitos || SAMPLE_VACANCIES[0].requisitos
-      }
-    );
-    setIsPresentationMode(true);
+    // Reuse the last presented order when it exists
+    const lastOrder = searchContext?.ultimaPresentacion?.candidatoIds;
+    const ordered = lastOrder
+      ? [...targetCandidates].sort((a, b) => {
+          const ia = lastOrder.indexOf(a.id);
+          const ib = lastOrder.indexOf(b.id);
+          return (ia === -1 ? Number.MAX_SAFE_INTEGER : ia) - (ib === -1 ? Number.MAX_SAFE_INTEGER : ib);
+        })
+      : targetCandidates;
+
+    setPresentationDraft({ candidates: ordered, vacancy, searchId: searchContext?.id });
+  };
+
+  /** Builder confirmed: remember the plan on the search, move shortlisted candidates to Presented, open the dossier. */
+  const handleConfirmPresentation = (plan: PresentationPlan) => {
+    const draft = presentationDraft;
+    setPresentationDraft(null);
+    if (!draft) return;
+
+    if (draft.searchId) {
+      const presentedIds = new Set(plan.candidates.map(c => c.id));
+      setBusquedas(prev =>
+        prev.map(b => {
+          if (b.id !== draft.searchId) return b;
+          const updated: BusquedaComercial = {
+            ...b,
+            candidatosVinculados: b.candidatosVinculados.map(cv =>
+              presentedIds.has(cv.candidatoId) && (cv.etapa ?? 'shortlist') === 'shortlist' ? { ...cv, etapa: 'presentado' as const } : cv
+            ),
+            ultimaPresentacion: {
+              candidatoIds: plan.candidates.map(c => c.id),
+              notaPortada: plan.coverNote || undefined,
+              incluirAjuste: plan.includeFit,
+              fecha: new Date().toISOString()
+            }
+          };
+          return withActivity(updated, 'presentada', `Presented ${plural(plan.candidates.length, 'candidate')}${b.clienteEmpresa ? ` to ${b.clienteEmpresa}` : ''}.`);
+        })
+      );
+    }
+
+    setPresentation({ ...plan, vacancy: draft.vacancy });
   };
 
   if (!currentUser) {
@@ -254,9 +325,14 @@ export default function App() {
     ? activeBusqueda.candidatosVinculados.filter(cv => CANDIDATE_BY_ID.has(cv.candidatoId)).length
     : generalSelectedCandidateIds.length;
 
+  const draftSearch = presentationDraft?.searchId ? busquedas.find(b => b.id === presentationDraft.searchId) : undefined;
+  const draftStages: ReadonlyMap<string, EtapaCandidato | undefined> | undefined = draftSearch
+    ? new Map(draftSearch.candidatosVinculados.map(cv => [cv.candidatoId, cv.etapa]))
+    : undefined;
+
   return (
     <div className="flex min-h-dvh flex-col">
-      <a href="#main" className="sr-only-focusable fixed left-4 top-4 z-50 rounded-md bg-ink px-3 py-2 text-sm font-medium text-white">
+      <a href="#main" className="sr-only-focusable fixed left-4 top-4 z-50 rounded-md bg-inverse px-3 py-2 text-sm font-medium text-on-inverse">
         Skip to main content
       </a>
 
@@ -269,9 +345,9 @@ export default function App() {
         selectedCount={headerSelectedCount}
         onOpenPresentation={() => {
           if (activeBusqueda) {
-            handleOpenPresentation(activeBusqueda.candidatosVinculados.flatMap(cv => CANDIDATE_BY_ID.get(cv.candidatoId) ?? []));
+            requestPresentation(activeBusqueda.candidatosVinculados.flatMap(cv => CANDIDATE_BY_ID.get(cv.candidatoId) ?? []));
           } else {
-            handleOpenPresentation(generalSelectedCandidateIds.flatMap(id => CANDIDATE_BY_ID.get(id) ?? []));
+            requestPresentation(generalSelectedCandidateIds.flatMap(id => CANDIDATE_BY_ID.get(id) ?? []));
           }
         }}
         currentUser={currentUser}
@@ -280,6 +356,7 @@ export default function App() {
           setEvaluatingSearchContext(null);
           setIsTourOpen(true);
         }}
+        onOpenSearch={() => setIsSearchOpen(true)}
         onExportData={handleExportData}
         onImportData={handleImportData}
         onResetData={() => setIsResetConfirmOpen(true)}
@@ -298,7 +375,7 @@ export default function App() {
                 setEvaluatingSearchContext(null);
                 setActiveTab('candidates');
               }}
-              onOpenPresentation={() => handleOpenPresentation(evaluatingSearchContext.candidates)}
+              onOpenPresentation={() => requestPresentation(evaluatingSearchContext.candidates)}
               currentVacancy={evaluatingSearchContext.vacancy}
               onUpdateVacancy={updatedVac => setEvaluatingSearchContext(prev => (prev ? { ...prev, vacancy: updatedVac } : null))}
               onBackToBusqueda={evaluatingSearchContext.searchId ? () => setEvaluatingSearchContext(null) : undefined}
@@ -320,12 +397,12 @@ export default function App() {
                     onUpdateBusqueda={handleUpdateBusqueda}
                     onOpenCandidateDetail={c => setActiveCandidateDetail(c)}
                     onEvaluateCompatibility={handleEvaluateFromBusqueda}
-                    onOpenPresentation={cands => handleOpenPresentation(cands)}
+                    onOpenPresentation={cands => requestPresentation(cands)}
                   />
                 )
               ) : null}
 
-              {activeTab === 'book' ? <BookSection onNavigateToCandidates={handleNavigateFromBookToCandidates} /> : null}
+              {activeTab === 'book' ? <BookSection onNavigateToCandidates={handleNavigateFromBookToCandidates} focusProfile={bookFocus} /> : null}
 
               {activeTab === 'candidates' ? (
                 <CandidatesSection
@@ -361,8 +438,51 @@ export default function App() {
 
         {activeCandidateDetail ? <CandidateDetailModal candidate={activeCandidateDetail} onClose={() => setActiveCandidateDetail(null)} /> : null}
 
-        {isPresentationMode ? (
-          <PresentationMode candidates={presentationCandidates} vacancy={presentationVacancy} onClose={() => setIsPresentationMode(false)} />
+        {presentationDraft ? (
+          <PresentationBuilderModal
+            candidates={presentationDraft.candidates}
+            initialSelectedIds={
+              draftSearch?.ultimaPresentacion
+                ? presentationDraft.candidates.filter(c => draftSearch.ultimaPresentacion!.candidatoIds.includes(c.id)).map(c => c.id)
+                : presentationDraft.candidates.filter(c => draftStages?.get(c.id) !== 'descartado').map(c => c.id)
+            }
+            initialCoverNote={draftSearch?.ultimaPresentacion?.notaPortada}
+            initialIncludeFit={draftSearch?.ultimaPresentacion?.incluirAjuste ?? true}
+            stages={draftStages}
+            clientName={presentationDraft.vacancy.cliente}
+            onClose={() => setPresentationDraft(null)}
+            onConfirm={handleConfirmPresentation}
+          />
+        ) : null}
+
+        {presentation ? (
+          <PresentationMode
+            candidates={presentation.candidates}
+            vacancy={presentation.vacancy}
+            coverNote={presentation.coverNote}
+            includeFit={presentation.includeFit}
+            onClose={() => setPresentation(null)}
+          />
+        ) : null}
+
+        {isSearchOpen ? (
+          <GlobalSearch
+            busquedas={busquedas}
+            onClose={() => setIsSearchOpen(false)}
+            onOpenSearch={id => {
+              setEvaluatingSearchContext(null);
+              setActiveBusquedaId(id);
+            }}
+            onOpenProfile={profileId => {
+              setEvaluatingSearchContext(null);
+              setBookFocus(prev => ({ profileId, key: (prev?.key ?? 0) + 1 }));
+              setActiveTab('book');
+            }}
+            onOpenCandidate={candidateId => {
+              const c = CANDIDATE_BY_ID.get(candidateId);
+              if (c) setActiveCandidateDetail(c);
+            }}
+          />
         ) : null}
 
         {isTourOpen ? (

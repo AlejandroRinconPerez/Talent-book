@@ -6,6 +6,18 @@
     <title>Talent Book</title>
     <meta name="description" content="Internal sales platform for talent solutions: occupational profile book, candidate sourcing, fit evaluation and client presentation mode." />
     <meta name="theme-color" content="#F5F5F6" />
+    <script>
+      // Apply the saved theme before first paint so the page never flashes the wrong scheme.
+      (function () {
+        try {
+          var t = localStorage.getItem('talentbook.theme');
+          if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+          var dark = t === 'dark' || (t !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', dark ? '#0F1518' : '#F5F5F6');
+        } catch (e) {}
+      })();
+    </script>
     <meta property="og:title" content="Talent Book" />
     <meta property="og:description" content="Internal sales platform for talent solutions: occupational profile book, candidate sourcing, fit evaluation and client presentation mode." />
     <meta property="og:type" content="website" />

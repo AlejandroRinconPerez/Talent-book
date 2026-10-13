@@ -158,6 +158,13 @@ export interface BusquedaComercial {
   requisitos: VacancyRequisitos;
   candidatosVinculados: CandidatoVinculadoBusqueda[];
   actividad: ActividadBusqueda[]; // newest first
+  /** How the shortlist was last presented, so the builder reopens with the same order and note. */
+  ultimaPresentacion?: {
+    candidatoIds: string[];
+    notaPortada?: string;
+    incluirAjuste?: boolean;
+    fecha: string; // ISO date-time
+  };
 }
 
 export interface ServiceOrderSimulada {
