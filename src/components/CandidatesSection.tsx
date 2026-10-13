@@ -49,6 +49,11 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
   const [candidatesToLink, setCandidatesToLink] = useState<string[]>([]);
   const [toolbarTargetBusquedaId, setToolbarTargetBusquedaId] = useState<string>('');
   const [toast, setToast] = useState<string | null>(null);
+  const [toastTone, setToastTone] = useState<'success' | 'error'>('success');
+  const notify = (message: string, tone: 'success' | 'error' = 'success') => {
+    setToastTone(tone);
+    setToast(message);
+  };
 
   const [displayMode, setDisplayMode] = useState<'cards' | 'table'>('cards');
   const [sortKey, setSortKey] = useState<SortKey>('updated');
@@ -209,7 +214,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
     }
     onLinkCandidatesToBusqueda(toolbarTargetBusquedaId, selectedCandidateIds);
     const target = busquedas.find(b => b.id === toolbarTargetBusquedaId);
-    setToast(`Linked ${plural(selectedCandidateIds.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
+    notify(`Linked ${plural(selectedCandidateIds.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
   };
 
   const selectedCount = selectedCandidateIds.length;
@@ -218,6 +223,16 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
   const [isCompareOpen, setIsCompareOpen] = useState(false);
   const selectedCandidates = useMemo(() => selectedCandidateIds.flatMap(id => MOCK_CANDIDATES.find(c => c.id === id) ?? []), [selectedCandidateIds]);
   const canCompare = selectedCandidates.length >= 2 && selectedCandidates.length <= 4;
+
+  // Export is always one click: the selected candidates go out; with nothing selected the button explains what to do
+  const handleExport = () => {
+    if (selectedCandidates.length === 0) {
+      notify('Nothing to export. Select at least one candidate first.', 'error');
+      return;
+    }
+    exportCandidatesWorkbook(selectedCandidates, 'selected-candidates');
+    notify(`Exported ${plural(selectedCandidates.length, 'candidate')} to Excel.`);
+  };
 
   return (
     <div className={`space-y-6 ${selectedCount > 0 ? 'pb-28 lg:pb-24' : ''}`}>
@@ -390,11 +405,10 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
               <Button
                 size="sm"
                 icon={<FileSpreadsheet className="size-4" />}
-                onClick={() => exportCandidatesWorkbook(sortedCandidates, hasActiveFilters ? 'filtered-candidates' : 'candidates')}
-                disabled={sortedCandidates.length === 0}
-                title={`Download ${plural(sortedCandidates.length, 'candidate')} as an Excel file`}
+                onClick={handleExport}
+                title={selectedCount > 0 ? `Download the ${plural(selectedCount, 'selected candidate')} as an Excel file` : 'Select candidates, then export them as an Excel file'}
               >
-                Export to Excel
+                Export to Excel{selectedCount > 0 ? ` (${selectedCount})` : ''}
               </Button>
               <div className="flex rounded-md border border-rule-strong bg-surface p-0.5" role="group" aria-label="Layout">
                 <button type="button" aria-pressed={displayMode === 'cards'} aria-label="Cards" title="Cards" onClick={() => setDisplayMode('cards')} className="segment size-8 justify-center px-0">
@@ -579,6 +593,9 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                 <Button variant="on-dark" icon={<Columns3 className="size-4" />} onClick={() => setIsCompareOpen(true)} disabled={!canCompare} title={canCompare ? 'Compare side by side' : 'Select 2 to 4 candidates to compare'}>
                   Compare
                 </Button>
+                <Button variant="on-dark" icon={<FileSpreadsheet className="size-4" />} onClick={handleExport}>
+                  Export to Excel
+                </Button>
                 <Button variant="on-dark" icon={<X className="size-4" />} onClick={onClearSelection} title="Deselect every candidate, on every page">
                   Clear selection
                 </Button>
@@ -588,7 +605,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
         </div>
       )}
 
-      <Toast message={toast} onDismiss={dismissToast} />
+      <Toast message={toast} tone={toastTone} onDismiss={dismissToast} />
 
       <Suspense fallback={null}>
         {activeCandidateDetail ? (
@@ -618,7 +635,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             onLinkToExistingBusqueda={(busquedaId, ids) => {
               onLinkCandidatesToBusqueda(busquedaId, ids);
               const target = busquedas.find(b => b.id === busquedaId);
-              setToast(`Linked ${plural(ids.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
+              notify(`Linked ${plural(ids.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
             }}
             onRequestCreateNewBusqueda={onRequestCreateBusqueda}
           />

@@ -49,8 +49,8 @@ export function exportCandidatesWorkbook(candidates: Candidato[], label = 'candi
   downloadWorkbook(`talent-book-${label}-${todayIso()}.xlsx`, 'Candidates', CANDIDATE_COLUMNS, candidates.map(candidateRow));
 }
 
-/** A search's shortlist with its pipeline state, one row per linked candidate. */
-export function exportSearchWorkbook(busqueda: BusquedaComercial): void {
+/** A search's shortlist with its pipeline state, one row per linked candidate (optionally only the given ids). */
+export function exportSearchWorkbook(busqueda: BusquedaComercial, onlyIds?: ReadonlySet<string>): void {
   const columns: SheetColumn[] = [
     { header: 'Search', width: 32 },
     { header: 'Client', width: 24 },
@@ -62,6 +62,7 @@ export function exportSearchWorkbook(busqueda: BusquedaComercial): void {
     ...CANDIDATE_COLUMNS
   ];
   const rows = busqueda.candidatosVinculados.flatMap(cv => {
+    if (onlyIds && !onlyIds.has(cv.candidatoId)) return [];
     const c = CANDIDATE_BY_ID.get(cv.candidatoId);
     if (!c) return [];
     const ceipal = cv.estadoCeipal === 'cargado' ? 'Exported' : cv.estadoCeipal === 'error' ? 'Export failed' : 'Not exported';

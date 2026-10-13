@@ -68,6 +68,11 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
 
   // Undo window for "Remove from search"
   const [toast, setToast] = useState<string | null>(null);
+  const [toastTone, setToastTone] = useState<'success' | 'error'>('success');
+  const notify = (message: string, tone: 'success' | 'error' = 'success') => {
+    setToastTone(tone);
+    setToast(message);
+  };
   const [lastRemoved, setLastRemoved] = useState<{ vinculo: CandidatoVinculadoBusqueda; index: number } | null>(null);
 
   const linkedCandidateObjects = useMemo(
@@ -124,7 +129,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
   const handleStatusChange = (estado: EstadoBusqueda) => {
     if (estado === busqueda.estado) return;
     onUpdateBusqueda(withActivity({ ...busqueda, estado }, 'estado_cambiado', `Status changed to ${ESTADO_LABEL[estado]}.`));
-    setToast(`Search marked as ${ESTADO_LABEL[estado].toLowerCase()}.`);
+    notify(`Search marked as ${ESTADO_LABEL[estado].toLowerCase()}.`);
   };
 
   const handleStageChange = (candidato: Candidato, etapa: EtapaCandidato) => {
@@ -148,7 +153,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
     );
     setSelectedCandidateIds(prev => prev.filter(id => id !== candidato.id));
     setLastRemoved({ vinculo, index });
-    setToast(`Removed ${candidato.nombre} from this search.`);
+    notify(`Removed ${candidato.nombre} from this search.`);
   };
 
   const handleUndoRemove = () => {
@@ -178,7 +183,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
         `Linked ${plural(newVinculos.length, 'candidate')} from the pool.`
       )
     );
-    setToast(`Linked ${plural(newVinculos.length, 'candidate')} to this search.`);
+    notify(`Linked ${plural(newVinculos.length, 'candidate')} to this search.`);
   };
 
   const handleCeipalUploadSuccess = (results: { candidatoId: string; serviceOrderId: string; estado: 'cargado' | 'error' }[]) => {
@@ -208,7 +213,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
       );
       setIsSavingReqs(false);
       setShowEditRequirements(false);
-      setToast('Criteria saved.');
+      notify('Criteria saved.');
     }, 300);
   };
 
@@ -220,6 +225,16 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
 
   const [isCompareOpen, setIsCompareOpen] = useState(false);
   const canCompare = selectedCandidateObjects.length >= 2 && selectedCandidateObjects.length <= 4;
+
+  // Export is one click on the selected candidates; with nothing selected the button says what to do
+  const handleExport = () => {
+    if (selectedCandidateObjects.length === 0) {
+      notify('Nothing to export. Select at least one linked candidate first.', 'error');
+      return;
+    }
+    exportSearchWorkbook(busqueda, selectedIdSet);
+    notify(`Exported ${plural(selectedCandidateObjects.length, 'candidate')} to Excel.`);
+  };
   const compareVacancy = useMemo(
     () => ({ titulo: busqueda.nombre, descripcion: busqueda.descripcion, cliente: busqueda.clienteEmpresa, requisitos: busqueda.requisitos }),
     [busqueda.nombre, busqueda.descripcion, busqueda.clienteEmpresa, busqueda.requisitos]
@@ -418,11 +433,14 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
               <Button
                 size="sm"
                 icon={<FileSpreadsheet className="size-4" />}
-                onClick={() => exportSearchWorkbook(busqueda)}
-                disabled={linkedCandidateObjects.length === 0}
-                title="Download this shortlist with its pipeline state as an Excel file"
+                onClick={handleExport}
+                title={
+                  selectedCandidateIds.length > 0
+                    ? `Download the ${plural(selectedCandidateIds.length, 'selected candidate')} with their pipeline state as an Excel file`
+                    : 'Select candidates, then export them as an Excel file'
+                }
               >
-                Export to Excel
+                Export to Excel{selectedCandidateIds.length > 0 ? ` (${selectedCandidateIds.length})` : ''}
               </Button>
               <Button
                 variant="commercial"
@@ -576,7 +594,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
         </aside>
       </div>
 
-      <Toast message={toast} onDismiss={dismissToast} onUndo={lastRemoved ? handleUndoRemove : undefined} durationMs={lastRemoved ? 7000 : 4000} />
+      <Toast message={toast} tone={toastTone} onDismiss={dismissToast} onUndo={lastRemoved ? handleUndoRemove : undefined} durationMs={lastRemoved ? 7000 : 4000} />
 
       <Suspense fallback={null}>
         {isAddCandidatesModalOpen ? (
