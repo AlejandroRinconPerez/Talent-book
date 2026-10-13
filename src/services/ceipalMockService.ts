@@ -21,6 +21,84 @@ export interface CandidateUploadResult {
   timestamp: string;
 }
 
+/** An active placement CEIPAL reports for a candidate: they are already staffed elsewhere. */
+export interface AsignacionActiva {
+  serviceOrderId: string;
+  cliente: string;
+  posicion: string;
+  /** ISO date the placement started. */
+  desde: string;
+}
+
+export interface DisponibilidadCandidato {
+  candidatoId: string;
+  status: 'available' | 'on_assignment';
+  asignacion?: AsignacionActiva;
+}
+
+/* ------------------------------------------------------------------ */
+/* Simulated staffing records                                          */
+/* ------------------------------------------------------------------ */
+
+const CLIENTES_ASIGNACION = [
+  { cliente: 'Northwind Logistics', posicion: 'Billing Specialist' },
+  { cliente: 'Harbor Health Group', posicion: 'Medical Coder' },
+  { cliente: 'Lakeside Financial', posicion: 'Accounting Analyst' },
+  { cliente: 'Vertex Software', posicion: 'Frontend Developer' },
+  { cliente: 'Cordova Retail Partners', posicion: 'Customer Success Manager' }
+];
+
+/** Stable hash so the same candidate always returns the same simulated status. */
+function hashId(value: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < value.length; i++) {
+    h ^= value.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return Math.abs(h);
+}
+
+/**
+ * Simulates CEIPAL's staffing check: a candidate already placed on an active
+ * service order cannot be pushed into another pipeline. Roughly one in six of the
+ * pool comes back as staffed, and the answer is stable per candidate so the demo
+ * does not change between runs.
+ */
+export async function verificarDisponibilidadCandidatos(
+  candidatosIds: string[],
+  serviceOrderIdDestino: string
+): Promise<DisponibilidadCandidato[]> {
+  // Simulate the second round trip to CEIPAL
+  await new Promise(resolve => setTimeout(resolve, 700));
+
+  const destino = serviceOrderIdDestino.trim().toUpperCase();
+
+  return candidatosIds.map(candidatoId => {
+    const h = hashId(candidatoId);
+    const ocupado = h % 6 === 0;
+    if (!ocupado) return { candidatoId, status: 'available' };
+
+    const plantilla = CLIENTES_ASIGNACION[h % CLIENTES_ASIGNACION.length];
+    // Keep the simulated placement on a different order than the one being exported to.
+    let asignadoA = `SO-${10000 + (h % 89999)}`;
+    if (asignadoA === destino) asignadoA = `SO-${10000 + ((h + 1) % 89999)}`;
+
+    const inicio = new Date();
+    inicio.setMonth(inicio.getMonth() - (1 + (h % 11)));
+
+    return {
+      candidatoId,
+      status: 'on_assignment',
+      asignacion: {
+        serviceOrderId: asignadoA,
+        cliente: plantilla.cliente,
+        posicion: plantilla.posicion,
+        desde: inicio.toISOString().split('T')[0]
+      }
+    };
+  });
+}
+
 /**
  * Simulates validation of a Service Order ID against CEIPAL
  */

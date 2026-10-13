@@ -6,7 +6,7 @@ import { SAMPLE_VACANCIES, evaluarCandidatoConVacante } from '../utils/evaluatio
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
 import { Field } from './ui/Field';
-import { CandidateId, EnglishChip, FitBadge } from './shared/badges';
+import { CandidateId, EnglishChip, FitBadge, ScoreBreakdown } from './shared/badges';
 import { plural } from '../utils/format';
 
 interface EvaluationSectionProps {
@@ -290,7 +290,7 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
                         </p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <FitBadge level={evalResult.nivelAjusteGeneral} />
+                        <FitBadge level={evalResult.nivelAjusteGeneral} score={evalResult.puntajeAjuste} />
                         <Button variant="icon" onClick={() => onToggleCandidate(candidate.id)} aria-label={`Remove ${candidate.nombre} from the evaluation`} title="Remove from evaluation">
                           <X className="size-4" />
                         </Button>
@@ -299,6 +299,16 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
 
                     <div className="space-y-5 p-5">
                       <p className="max-w-[70ch] border-l-2 border-brand pl-4 text-[15px] leading-relaxed text-ink-2">{evalResult.sintesisAjuste}</p>
+
+                      <section aria-label={`How the ${evalResult.puntajeAjuste} score was reached`} className="rounded-lg bg-well/60 px-4 py-3.5">
+                        <h4 className="mb-3 text-[13px] font-medium text-ink-3">
+                          Score breakdown
+                          {evalResult.desglosePuntaje.length < 5 ? (
+                            <span className="ml-2 font-normal">· criteria with no data on file are left out</span>
+                          ) : null}
+                        </h4>
+                        <ScoreBreakdown dimensions={evalResult.desglosePuntaje} />
+                      </section>
 
                       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                         <CriteriaList

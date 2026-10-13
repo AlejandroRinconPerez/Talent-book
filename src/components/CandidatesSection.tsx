@@ -1,10 +1,11 @@
 import React, { Suspense, lazy, useCallback, useMemo, useState } from 'react';
-import { RotateCcw, Users, Search, X, Eye, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { RotateCcw, Users, Search, X, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { MOCK_CANDIDATES } from '../data/candidatesData';
 import { FAMILIAS_DATA } from '../data/bookData';
 import { FAMILY_BY_NAME, profileName as getProfileName } from '../data/indexes';
 import { Candidato, BusquedaComercial } from '../types';
 import { CandidateId, EnglishChip, modalityLabel } from './shared/badges';
+import { CandidateCard } from './shared/CandidateCard';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
 import { Field } from './ui/Field';
@@ -411,49 +412,21 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             </div>
           ) : displayMode === 'cards' ? (
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              {pageCandidates.map(candidate => {
-                const isSelected = selectedIdSet.has(candidate.id);
-                const checkboxId = `cand-${candidate.id}`;
-                return (
-                  <li key={candidate.id} className="select-card flex flex-col p-4">
-                    <div className="flex items-start gap-3">
-                      <input id={checkboxId} type="checkbox" checked={isSelected} onChange={() => onToggleCandidate(candidate.id)} className="mt-1 size-4 shrink-0" />
-                      <label htmlFor={checkboxId} className="stretch min-w-0 flex-1 cursor-pointer">
-                        <span className="block truncate text-[15px] font-semibold text-ink">{candidate.nombre}</span>
-                        <span className="block text-[13px] text-ink-2">
-                          <CandidateId id={candidate.id} className="mr-2" />
-                          {candidate.ciudad}, {candidate.pais}
-                        </span>
-                      </label>
-                    </div>
-
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      <span className="chip chip-neutral tabular-nums">{candidate.experienciaTexto}</span>
-                      <EnglishChip level={candidate.nivelIngles} withLabel />
-                      <span className="chip chip-neutral">{modalityLabel(candidate.modalidad)}</span>
-                    </div>
-
-                    <p className="mt-3 line-clamp-3 text-[13px] leading-relaxed text-ink-2">{candidate.resumenProfesional}</p>
-
-                    <ul className="mt-2.5 flex flex-wrap gap-1">
-                      {candidate.perfilesAsociados.map(pId => (
-                        <li key={pId} className="chip chip-brand max-w-full">
-                          <span className="truncate">{getProfileName(pId)}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-auto flex items-center justify-between gap-2 border-t border-rule pt-3">
-                      <Button size="sm" variant="ghost" icon={<Eye className="size-4" />} className="above -ml-2" onClick={() => setActiveCandidateDetail(candidate)}>
-                        View profile
-                      </Button>
-                      <Button size="sm" variant="subtle" icon={<FolderPlus className="size-4" />} className="above" onClick={() => openLinkModal([candidate.id])}>
-                        Add to search
-                      </Button>
-                    </div>
-                  </li>
-                );
-              })}
+              {pageCandidates.map(candidate => (
+                <CandidateCard
+                  key={candidate.id}
+                  candidate={candidate}
+                  idPrefix="pool"
+                  selected={selectedIdSet.has(candidate.id)}
+                  onToggleSelect={onToggleCandidate}
+                  onOpenProfile={setActiveCandidateDetail}
+                  actions={
+                    <Button size="sm" variant="subtle" icon={<FolderPlus className="size-4" />} className="above" onClick={() => openLinkModal([candidate.id])}>
+                      Add to search
+                    </Button>
+                  }
+                />
+              ))}
             </ul>
           ) : (
             <div className="panel overflow-x-auto">

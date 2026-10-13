@@ -1,9 +1,12 @@
 import React from 'react';
+import { Printer } from 'lucide-react';
 import { Candidato } from '../../types';
 import { profileName } from '../../data/indexes';
 import { Modal } from '../ui/Modal';
+import { Button } from '../ui/Button';
 import { CandidateId, EnglishChip, modalityLabel } from './badges';
 import { formatDate } from '../../utils/format';
+import { printCandidateProfile } from '../../utils/printProfile';
 
 interface CandidateDetailModalProps {
   candidate: Candidato;
@@ -36,6 +39,18 @@ export const CandidateDetailModal: React.FC<CandidateDetailModalProps> = ({ cand
           <button type="button" className="btn btn-ghost" onClick={onClose}>
             Close
           </button>
+          <Button
+            variant="secondary"
+            icon={<Printer className="size-4" />}
+            onClick={() =>
+              printCandidateProfile(candidate, {
+                profileNames,
+                modality: modalityLabel(candidate.modalidad)
+              })
+            }
+          >
+            Print / Save as PDF
+          </Button>
           {action}
         </>
       }

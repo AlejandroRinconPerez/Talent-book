@@ -4,3 +4,6 @@ dist
 
 # TypeScript incremental build info
 tsconfig.tsbuildinfo
+
+# Local launcher config for the Claude Code "run" skill
+.claude/launch.json

@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   AlertCircle,
   Clock,
-  Eye,
   History,
   FolderPlus,
   UserMinus,
@@ -20,12 +19,13 @@ import {
   CircleDot
 } from 'lucide-react';
 import { ActividadBusqueda, BusquedaComercial, Candidato, CandidatoVinculadoBusqueda, EstadoBusqueda, EtapaCandidato, NivelIngles, VacancyRequisitos } from '../types';
-import { CANDIDATE_BY_ID, profileName } from '../data/indexes';
+import { CANDIDATE_BY_ID } from '../data/indexes';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
 import { Field } from './ui/Field';
 import { Toast } from './ui/Toast';
-import { CandidateId, EnglishChip, StageChip, StatusChip, englishRequirementLabel, modalityLabel } from './shared/badges';
+import { StageChip, StatusChip, englishRequirementLabel, modalityLabel } from './shared/badges';
+import { CandidateCard } from './shared/CandidateCard';
 import { formatDate, plural, todayIso } from '../utils/format';
 import { ACTIVIDAD_LABEL, ESTADO_LABEL, ESTADO_ORDER, ETAPA_LABEL, ETAPA_ORDER, relativeTime, withActivity } from '../utils/activity';
 
@@ -477,85 +477,52 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
               ) : (
                 <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
                   {displayedLinkedCandidates.map(({ vinculo, candidato }) => {
-                    const isSelected = selectedIdSet.has(candidato.id);
-                    const checkboxId = `linked-${candidato.id}`;
                     const stageId = `stage-${candidato.id}`;
 
                     return (
-                      <li key={candidato.id} className="select-card flex flex-col">
-                        <div className="flex items-start gap-3">
-                          <input
-                            id={checkboxId}
-                            type="checkbox"
-                            checked={isSelected}
-                            onChange={() => handleToggleSelectCandidate(candidato.id)}
-                            className="mt-1 size-4 shrink-0 rounded-sm border-rule-strong"
-                          />
-                          <label htmlFor={checkboxId} className="stretch min-w-0 flex-1 cursor-pointer">
-                            <span className="block truncate font-semibold text-ink">{candidato.nombre}</span>
-                            <span className="block text-[13px] text-ink-2">
-                              <CandidateId id={candidato.id} className="mr-2" />
-                              {candidato.ciudad}, {candidato.pais}
-                            </span>
-                          </label>
-                          <StageChip etapa={vinculo.etapa} />
-                        </div>
-
-                        <div className="mt-3 flex flex-wrap gap-1.5">
-                          <span className="chip chip-neutral tabular-nums">{candidato.experienciaTexto}</span>
-                          <EnglishChip level={candidato.nivelIngles} withLabel />
-                          <span className="chip chip-neutral">{modalityLabel(candidato.modalidad)}</span>
-                        </div>
-
-                        <p className="mt-3 line-clamp-2 text-[13px] leading-relaxed text-ink-2">{candidato.resumenProfesional}</p>
-
-                        <ul className="mt-2.5 flex flex-wrap gap-1">
-                          {candidato.perfilesAsociados.map(pId => (
-                            <li key={pId} className="chip chip-brand">
-                              {profileName(pId)}
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="mt-auto pt-4">
-                          <CeipalStatus vinculo={vinculo} />
-
-                          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-rule pt-3">
-                            <div className="above flex items-center gap-2">
-                              <label htmlFor={stageId} className="text-[13px] text-ink-3">
-                                Stage
-                              </label>
-                              <select
-                                id={stageId}
-                                value={vinculo.etapa ?? 'shortlist'}
-                                onChange={e => handleStageChange(candidato, e.target.value as EtapaCandidato)}
-                                className="input select h-8 w-auto text-[13px]"
-                              >
-                                {ETAPA_ORDER.map(etapa => (
-                                  <option key={etapa} value={etapa}>
-                                    {ETAPA_LABEL[etapa]}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Button size="sm" variant="ghost" icon={<Eye className="size-4" />} className="above" onClick={() => onOpenCandidateDetail(candidato)}>
-                                Profile
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="danger-ghost"
-                                icon={<Trash2 className="size-4" />}
-                                className="above -mr-2"
-                                onClick={() => handleUnlinkCandidate(candidato)}
-                                title="Remove from this search. The candidate stays in the pool."
-                              >
-                                Remove
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                      <CandidateCard
+                        key={candidato.id}
+                        candidate={candidato}
+                        idPrefix="linked"
+                        selected={selectedIdSet.has(candidato.id)}
+                        onToggleSelect={handleToggleSelectCandidate}
+                        onOpenProfile={onOpenCandidateDetail}
+                        summaryLines={2}
+                        badge={<StageChip etapa={vinculo.etapa} />}
+                        stageControl={
+                          <>
+                            <label htmlFor={stageId} className="text-[13px] text-ink-3">
+                              Stage
+                            </label>
+                            <select
+                              id={stageId}
+                              value={vinculo.etapa ?? 'shortlist'}
+                              onChange={e => handleStageChange(candidato, e.target.value as EtapaCandidato)}
+                              className="input select h-8 w-auto text-[13px]"
+                            >
+                              {ETAPA_ORDER.map(etapa => (
+                                <option key={etapa} value={etapa}>
+                                  {ETAPA_LABEL[etapa]}
+                                </option>
+                              ))}
+                            </select>
+                          </>
+                        }
+                        actions={
+                          <Button
+                            size="sm"
+                            variant="danger-ghost"
+                            icon={<Trash2 className="size-4" />}
+                            className="above -mr-2"
+                            onClick={() => handleUnlinkCandidate(candidato)}
+                            title="Remove from this search. The candidate stays in the pool."
+                          >
+                            Remove
+                          </Button>
+                        }
+                      >
+                        <CeipalStatus vinculo={vinculo} />
+                      </CandidateCard>
                     );
                   })}
                 </ul>

@@ -77,6 +77,16 @@ export interface ItemEvaluacion {
   detalle: string;
 }
 
+/** One weighted dimension of the fit score, kept so the number can be audited in the UI. */
+export interface DimensionPuntaje {
+  criterio: string;
+  /** Points this dimension can contribute. */
+  peso: number;
+  /** Points actually earned, between 0 and `peso`. */
+  obtenido: number;
+  detalle: string;
+}
+
 export interface EvaluacionCandidato {
   candidatoId: string;
   requisitosCumplidos: ItemEvaluacion[];
@@ -84,6 +94,9 @@ export interface EvaluacionCandidato {
   informacionPorValidar: ItemEvaluacion[];
   sintesisAjuste: string;
   nivelAjusteGeneral: 'High' | 'Medium' | 'Partial with gaps' | 'Alto' | 'Medio' | 'Parcial con brechas';
+  /** Overall fit, 0-100. Dimensions with no data are left out of the denominator rather than scored zero. */
+  puntajeAjuste: number;
+  desglosePuntaje: DimensionPuntaje[];
 }
 
 /* ========================================================================= */

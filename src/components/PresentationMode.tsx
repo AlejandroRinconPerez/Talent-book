@@ -129,7 +129,7 @@ export const PresentationMode: React.FC<PresentationModeProps> = ({ candidates, 
                           {cand.ciudad}, {cand.pais}. {modalityLabel(cand.modalidad)}.
                         </p>
                       </div>
-                      {ev && <FitBadge level={ev.nivelAjusteGeneral} prefix="Overall fit" />}
+                      {ev && <FitBadge level={ev.nivelAjusteGeneral} prefix="Overall fit" score={ev.puntajeAjuste} />}
                     </div>
 
                     <dl className="facts mt-5">

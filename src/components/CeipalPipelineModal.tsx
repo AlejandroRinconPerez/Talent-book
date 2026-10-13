@@ -1,12 +1,19 @@
 import React, { useMemo, useState } from 'react';
 import { CheckCircle2, AlertCircle, Clock, RotateCcw, UploadCloud, AlertTriangle, Info } from 'lucide-react';
 import { Candidato, BusquedaComercial, ServiceOrderSimulada } from '../types';
-import { validarServiceOrderCeipal, cargarCandidatosAPipelineCeipal, ValidationStatus, CandidateUploadResult } from '../services/ceipalMockService';
+import {
+  validarServiceOrderCeipal,
+  cargarCandidatosAPipelineCeipal,
+  verificarDisponibilidadCandidatos,
+  ValidationStatus,
+  CandidateUploadResult,
+  DisponibilidadCandidato
+} from '../services/ceipalMockService';
 import { Button } from './ui/Button';
 import { Field } from './ui/Field';
 import { Modal } from './ui/Modal';
 import { CandidateId } from './shared/badges';
-import { plural } from '../utils/format';
+import { formatDate, plural } from '../utils/format';
 
 interface CeipalPipelineModalProps {
   busqueda: BusquedaComercial;
@@ -26,6 +33,10 @@ export const CeipalPipelineModal: React.FC<CeipalPipelineModalProps> = ({ busque
   const [isUploading, setIsUploading] = useState(false);
   const [uploadResults, setUploadResults] = useState<CandidateUploadResult[] | null>(null);
 
+  // Staffing check, run right after the service order validates
+  const [availability, setAvailability] = useState<DisponibilidadCandidato[] | null>(null);
+  const [isCheckingAvailability, setIsCheckingAvailability] = useState(false);
+
   // Link records by candidate id, so the list below does one lookup per row
   const vinculoById = useMemo(() => new Map(busqueda.candidatosVinculados.map(cv => [cv.candidatoId, cv])), [busqueda.candidatosVinculados]);
 
@@ -39,7 +50,15 @@ export const CeipalPipelineModal: React.FC<CeipalPipelineModalProps> = ({ busque
     setValidationState('idle');
     setValidationMessage('');
     setValidatedSO(null);
+    setAvailability(null);
   };
+
+  const availabilityById = useMemo(() => new Map((availability ?? []).map(a => [a.candidatoId, a])), [availability]);
+
+  // Candidates CEIPAL reports as already staffed elsewhere; they are skipped by the export.
+  const blockedCandidates = availability ? selectedCandidates.filter(c => availabilityById.get(c.id)?.status === 'on_assignment') : [];
+  const exportableCandidates = availability ? selectedCandidates.filter(c => availabilityById.get(c.id)?.status !== 'on_assignment') : selectedCandidates;
+  const readyToExport = validationState === 'valid' && availability !== null && exportableCandidates.length > 0;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setServiceOrderId(e.target.value);
@@ -60,15 +79,26 @@ export const CeipalPipelineModal: React.FC<CeipalPipelineModalProps> = ({ busque
     const result = await validarServiceOrderCeipal(serviceOrderId);
     setValidationState(result.status);
     setValidationMessage(result.message || '');
-    if (result.status === 'valid' && result.serviceOrder) setValidatedSO(result.serviceOrder);
+    if (result.status !== 'valid' || !result.serviceOrder) return;
+
+    setValidatedSO(result.serviceOrder);
+
+    // A valid order is not enough: CEIPAL must also confirm nobody is already staffed.
+    setIsCheckingAvailability(true);
+    const disponibilidad = await verificarDisponibilidadCandidatos(
+      selectedCandidates.map(c => c.id),
+      serviceOrderId
+    );
+    setIsCheckingAvailability(false);
+    setAvailability(disponibilidad);
   };
 
   const handleConfirmUpload = async () => {
-    if (validationState !== 'valid') return;
+    if (!readyToExport) return;
 
     setIsUploading(true);
     const results = await cargarCandidatosAPipelineCeipal(
-      selectedCandidates.map(c => c.id),
+      exportableCandidates.map(c => c.id),
       serviceOrderId,
       candidatesAlreadyUploaded
     );
@@ -120,11 +150,11 @@ export const CeipalPipelineModal: React.FC<CeipalPipelineModalProps> = ({ busque
               variant="commercial"
               icon={<UploadCloud className="size-4" />}
               onClick={handleConfirmUpload}
-              disabled={validationState !== 'valid'}
+              disabled={!readyToExport}
               loading={isUploading}
               loadingLabel="Exporting…"
             >
-              Export {plural(selectedCandidates.length, 'candidate')}
+              Export {plural(exportableCandidates.length, 'candidate')}
             </Button>
           </>
         )
@@ -139,22 +169,31 @@ export const CeipalPipelineModal: React.FC<CeipalPipelineModalProps> = ({ busque
             {selectedCandidates.map(c => {
               const vinculadoInfo = vinculoById.get(c.id);
               const isAlreadyInSO = vinculadoInfo?.estadoCeipal === 'cargado' && vinculadoInfo.serviceOrderId === serviceOrderId;
+              const disponibilidad = availabilityById.get(c.id);
+              const asignacion = disponibilidad?.status === 'on_assignment' ? disponibilidad.asignacion : undefined;
 
               return (
-                <li key={c.id} className="flex items-center justify-between gap-3 px-3 py-2">
+                <li key={c.id} className={`flex items-center justify-between gap-3 px-3 py-2 ${asignacion ? 'bg-danger-wash/50' : ''}`}>
                   <div className="min-w-0">
-                    <span className="font-medium text-ink">{c.nombre}</span>
+                    <span className={`font-medium ${asignacion ? 'text-ink-2 line-through' : 'text-ink'}`}>{c.nombre}</span>
                     <span className="ml-2 text-[13px] text-ink-3">
                       <CandidateId id={c.id} className="mr-2" />
                       {c.pais}, {c.experienciaTexto}
                     </span>
+                    {asignacion && (
+                      <span className="mt-0.5 block text-[13px] text-danger">
+                        Staffed on {asignacion.posicion} for {asignacion.cliente} ({asignacion.serviceOrderId}) since {formatDate(asignacion.desde)}.
+                      </span>
+                    )}
                   </div>
-                  {isAlreadyInSO ? (
-                    <span className="chip chip-ok">Already in {serviceOrderId}</span>
+                  {asignacion ? (
+                    <span className="chip chip-danger shrink-0">On assignment</span>
+                  ) : isAlreadyInSO ? (
+                    <span className="chip chip-ok shrink-0">Already in {serviceOrderId}</span>
                   ) : vinculadoInfo?.estadoCeipal === 'cargado' ? (
-                    <span className="chip chip-brand">In {vinculadoInfo.serviceOrderId}</span>
+                    <span className="chip chip-brand shrink-0">In {vinculadoInfo.serviceOrderId}</span>
                   ) : (
-                    <span className="chip chip-neutral">Not exported</span>
+                    <span className="chip chip-neutral shrink-0">Not exported</span>
                   )}
                 </li>
               );
@@ -243,6 +282,32 @@ export const CeipalPipelineModal: React.FC<CeipalPipelineModalProps> = ({ busque
                   </dd>
                 </dl>
               </div>
+            )}
+            {isCheckingAvailability && (
+              <p className="mt-2 inline-flex items-center gap-2 text-[13px] text-ink-2">
+                <span className="spinner" aria-hidden="true" />
+                Checking whether any candidate is already staffed…
+              </p>
+            )}
+            {availability && blockedCandidates.length > 0 && (
+              <div className="mt-2 rounded-md border border-danger/25 bg-danger-wash p-3 text-danger">
+                <p className="inline-flex items-center gap-1.5 font-semibold">
+                  <AlertCircle className="size-4" />
+                  {plural(blockedCandidates.length, 'candidate')} already on an active assignment
+                </p>
+                <p className="mt-1 text-[13px]">
+                  CEIPAL reports them staffed on another service order, so they are excluded from this export.
+                  {exportableCandidates.length > 0
+                    ? ` The remaining ${plural(exportableCandidates.length, 'candidate')} can be exported.`
+                    : ' There is nobody left to export; remove them from the selection or free up their assignment in CEIPAL first.'}
+                </p>
+              </div>
+            )}
+            {availability && blockedCandidates.length === 0 && (
+              <p className="mt-2 inline-flex items-center gap-1.5 text-[13px] font-medium text-ok">
+                <CheckCircle2 className="size-4" />
+                All {plural(selectedCandidates.length, 'candidate')} are free to be staffed.
+              </p>
             )}
             {validationState === 'not_found' && (
               <div className="rounded-md border border-warn/25 bg-warn-wash p-3 text-warn">
