@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Search, ChevronRight, ChevronDown, Users, X, FileText, LayoutList, ListTree, Check, Minus } from 'lucide-react';
 import { FAMILIAS_DATA, ALL_PROFILES } from '../data/bookData';
-import { CANDIDATE_COUNT_BY_FAMILY, CANDIDATE_COUNT_BY_SPECIALTY, CANDIDATE_IDS_BY_PROFILE, FAMILY_BY_ID } from '../data/indexes';
+import { CANDIDATE_COUNT_BY_FAMILY, CANDIDATE_COUNT_BY_SPECIALTY, CANDIDATE_IDS_BY_PROFILE, FAMILY_BY_ID, FAMILY_BY_NAME, PROFILE_BY_ID } from '../data/indexes';
 import { FamiliaOcupacional, PerfilOcupacional } from '../types';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
@@ -12,6 +12,8 @@ type NavigateFilter = { familia?: string; especialidad?: string; perfilId?: stri
 
 interface BookSectionProps {
   onNavigateToCandidates: (filterParams?: NavigateFilter) => void;
+  /** Opens this profile's family page and sheet (from global search). `key` makes repeats re-apply. */
+  focusProfile?: { profileId: string; key: number } | null;
 }
 
 /* Candidate counts per taxonomy node, precomputed once in data/indexes */
@@ -31,19 +33,32 @@ const profilesInFamily = (family: FamiliaOcupacional) => family.especialidades.r
  * left, the open family's page on the right. "Outline" shows every family
  * expanded for scanning the whole taxonomy at once.
  */
-export const BookSection: React.FC<BookSectionProps> = ({ onNavigateToCandidates }) => {
+export const BookSection: React.FC<BookSectionProps> = ({ onNavigateToCandidates, focusProfile = null }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [viewMode, setViewMode] = useState<'browse' | 'outline'>('browse');
 
   // Browse view: open family and specialty filter
   const [selectedFamilyId, setSelectedFamilyId] = useState<string | null>(null);
   const [selectedSpecialty, setSelectedSpecialty] = useState<string | null>(null);
+  const [activeProfileModal, setActiveProfileModal] = useState<PerfilOcupacional | null>(null);
+
+  // A profile handed in from global search opens its family page and sheet (derived during render)
+  const [appliedFocus, setAppliedFocus] = useState(focusProfile);
+  if (focusProfile !== appliedFocus) {
+    setAppliedFocus(focusProfile);
+    const profile = focusProfile ? PROFILE_BY_ID.get(focusProfile.profileId) : undefined;
+    if (profile) {
+      setSearchTerm('');
+      setViewMode('browse');
+      setSelectedFamilyId(FAMILY_BY_NAME.get(profile.familia)?.id ?? null);
+      setSelectedSpecialty(null);
+      setActiveProfileModal(profile);
+    }
+  }
 
   // Outline view: expanded nodes. The first three families open by default.
   const [expandedFamilies, setExpandedFamilies] = useState<Record<string, boolean>>({ 'FAM-ADM': true, 'FAM-COB': true, 'FAM-FIN': true });
   const [expandedSpecialties, setExpandedSpecialties] = useState<Record<string, boolean>>({});
-
-  const [activeProfileModal, setActiveProfileModal] = useState<PerfilOcupacional | null>(null);
 
   const totalSpecialties = useMemo(() => FAMILIAS_DATA.reduce((acc, f) => acc + f.especialidades.length, 0), []);
 
@@ -138,21 +153,11 @@ export const BookSection: React.FC<BookSectionProps> = ({ onNavigateToCandidates
               </div>
             )}
             <div className="flex rounded-md border border-rule-strong bg-surface p-0.5" role="group" aria-label="View">
-              <button
-                type="button"
-                aria-pressed={viewMode === 'browse'}
-                onClick={() => setViewMode('browse')}
-                className="inline-flex h-8 items-center gap-1.5 rounded-[4px] px-3 text-[13px] font-medium text-ink-2 hover:text-ink aria-pressed:bg-ink aria-pressed:text-white"
-              >
+              <button type="button" aria-pressed={viewMode === 'browse'} onClick={() => setViewMode('browse')} className="segment">
                 <LayoutList className="size-4" />
                 Browse
               </button>
-              <button
-                type="button"
-                aria-pressed={viewMode === 'outline'}
-                onClick={() => setViewMode('outline')}
-                className="inline-flex h-8 items-center gap-1.5 rounded-[4px] px-3 text-[13px] font-medium text-ink-2 hover:text-ink aria-pressed:bg-ink aria-pressed:text-white"
-              >
+              <button type="button" aria-pressed={viewMode === 'outline'} onClick={() => setViewMode('outline')} className="segment">
                 <ListTree className="size-4" />
                 Outline
               </button>

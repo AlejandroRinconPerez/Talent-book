@@ -11,27 +11,33 @@ import {
   CheckCircle2,
   AlertCircle,
   Clock,
-  Eye,
   History,
   FolderPlus,
   UserMinus,
   Send,
   ArrowRightLeft,
-  CircleDot
+  CircleDot,
+  Columns3,
+  FileSpreadsheet,
+  X
 } from 'lucide-react';
 import { ActividadBusqueda, BusquedaComercial, Candidato, CandidatoVinculadoBusqueda, EstadoBusqueda, EtapaCandidato, NivelIngles, VacancyRequisitos } from '../types';
-import { CANDIDATE_BY_ID, profileName } from '../data/indexes';
+import { CANDIDATE_BY_ID } from '../data/indexes';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
 import { Field } from './ui/Field';
 import { Toast } from './ui/Toast';
-import { CandidateId, EnglishChip, StageChip, StatusChip, englishRequirementLabel, modalityLabel } from './shared/badges';
+import { StageChip, StatusChip, englishRequirementLabel, modalityLabel } from './shared/badges';
+import { CandidateCard } from './shared/CandidateCard';
 import { formatDate, plural, todayIso } from '../utils/format';
 import { ACTIVIDAD_LABEL, ESTADO_LABEL, ESTADO_ORDER, ETAPA_LABEL, ETAPA_ORDER, relativeTime, withActivity } from '../utils/activity';
+
+import { exportSearchWorkbook } from '../utils/exportCandidates';
 
 // Modals load on first use; they are not part of the detail view's initial render
 const CeipalPipelineModal = lazy(() => import('./CeipalPipelineModal').then(m => ({ default: m.CeipalPipelineModal })));
 const AddCandidatesToBusquedaModal = lazy(() => import('./AddCandidatesToBusquedaModal').then(m => ({ default: m.AddCandidatesToBusquedaModal })));
+const CompareCandidatesModal = lazy(() => import('./CompareCandidatesModal').then(m => ({ default: m.CompareCandidatesModal })));
 
 interface BusquedaDetailSectionProps {
   busqueda: BusquedaComercial;
@@ -62,6 +68,11 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
 
   // Undo window for "Remove from search"
   const [toast, setToast] = useState<string | null>(null);
+  const [toastTone, setToastTone] = useState<'success' | 'error'>('success');
+  const notify = (message: string, tone: 'success' | 'error' = 'success') => {
+    setToastTone(tone);
+    setToast(message);
+  };
   const [lastRemoved, setLastRemoved] = useState<{ vinculo: CandidatoVinculadoBusqueda; index: number } | null>(null);
 
   const linkedCandidateObjects = useMemo(
@@ -118,7 +129,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
   const handleStatusChange = (estado: EstadoBusqueda) => {
     if (estado === busqueda.estado) return;
     onUpdateBusqueda(withActivity({ ...busqueda, estado }, 'estado_cambiado', `Status changed to ${ESTADO_LABEL[estado]}.`));
-    setToast(`Search marked as ${ESTADO_LABEL[estado].toLowerCase()}.`);
+    notify(`Search marked as ${ESTADO_LABEL[estado].toLowerCase()}.`);
   };
 
   const handleStageChange = (candidato: Candidato, etapa: EtapaCandidato) => {
@@ -142,7 +153,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
     );
     setSelectedCandidateIds(prev => prev.filter(id => id !== candidato.id));
     setLastRemoved({ vinculo, index });
-    setToast(`Removed ${candidato.nombre} from this search.`);
+    notify(`Removed ${candidato.nombre} from this search.`);
   };
 
   const handleUndoRemove = () => {
@@ -172,7 +183,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
         `Linked ${plural(newVinculos.length, 'candidate')} from the pool.`
       )
     );
-    setToast(`Linked ${plural(newVinculos.length, 'candidate')} to this search.`);
+    notify(`Linked ${plural(newVinculos.length, 'candidate')} to this search.`);
   };
 
   const handleCeipalUploadSuccess = (results: { candidatoId: string; serviceOrderId: string; estado: 'cargado' | 'error' }[]) => {
@@ -202,25 +213,32 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
       );
       setIsSavingReqs(false);
       setShowEditRequirements(false);
-      setToast('Criteria saved.');
+      notify('Criteria saved.');
     }, 300);
   };
 
   const evaluationTargets = selectedCandidateObjects.length > 0 ? selectedCandidateObjects : linkedCandidateObjects.map(i => i.candidato);
   const targetCount = evaluationTargets.length;
 
-  // Presenting moves shortlisted candidates to "Presented" and logs it
-  const handlePresent = () => {
-    const presentedIds = new Set(evaluationTargets.map(c => c.id));
-    const updated = {
-      ...busqueda,
-      candidatosVinculados: busqueda.candidatosVinculados.map(cv =>
-        presentedIds.has(cv.candidatoId) && (cv.etapa ?? 'shortlist') === 'shortlist' ? { ...cv, etapa: 'presentado' as const } : cv
-      )
-    };
-    onUpdateBusqueda(withActivity(updated, 'presentada', `Presented ${plural(targetCount, 'candidate')}${busqueda.clienteEmpresa ? ` to ${busqueda.clienteEmpresa}` : ''}.`));
-    onOpenPresentation(evaluationTargets);
+  // Presenting opens the builder (choose, order, cover note); the app logs the activity on confirm
+  const handlePresent = () => onOpenPresentation(evaluationTargets);
+
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+  const canCompare = selectedCandidateObjects.length >= 2 && selectedCandidateObjects.length <= 4;
+
+  // Export is one click on the selected candidates; with nothing selected the button says what to do
+  const handleExport = () => {
+    if (selectedCandidateObjects.length === 0) {
+      notify('Nothing to export. Select at least one linked candidate first.', 'error');
+      return;
+    }
+    exportSearchWorkbook(busqueda, selectedIdSet);
+    notify(`Exported ${plural(selectedCandidateObjects.length, 'candidate')} to Excel.`);
   };
+  const compareVacancy = useMemo(
+    () => ({ titulo: busqueda.nombre, descripcion: busqueda.descripcion, cliente: busqueda.clienteEmpresa, requisitos: busqueda.requisitos }),
+    [busqueda.nombre, busqueda.descripcion, busqueda.clienteEmpresa, busqueda.requisitos]
+  );
 
   const visibleActivity = showAllActivity ? busqueda.actividad : busqueda.actividad.slice(0, 6);
   const isClosed = busqueda.estado === 'cerrada';
@@ -404,6 +422,27 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
                 Evaluate fit {targetCount > 0 ? `(${targetCount})` : ''}
               </Button>
               <Button
+                size="sm"
+                icon={<Columns3 className="size-4" />}
+                onClick={() => setIsCompareOpen(true)}
+                disabled={!canCompare}
+                title={canCompare ? 'Compare the selected candidates side by side' : 'Select 2 to 4 candidates to compare'}
+              >
+                Compare {selectedCandidateObjects.length > 0 ? `(${selectedCandidateObjects.length})` : ''}
+              </Button>
+              <Button
+                size="sm"
+                icon={<FileSpreadsheet className="size-4" />}
+                onClick={handleExport}
+                title={
+                  selectedCandidateIds.length > 0
+                    ? `Download the ${plural(selectedCandidateIds.length, 'selected candidate')} with their pipeline state as an Excel file`
+                    : 'Select candidates, then export them as an Excel file'
+                }
+              >
+                Export to Excel{selectedCandidateIds.length > 0 ? ` (${selectedCandidateIds.length})` : ''}
+              </Button>
+              <Button
                 variant="commercial"
                 size="sm"
                 icon={<UploadCloud className="size-4" />}
@@ -460,14 +499,14 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
                   ) : null}
                 </div>
 
-                <div className="flex items-center gap-3 text-[13px]">
+                <div className="flex items-center gap-2 text-[13px]">
                   <button type="button" onClick={handleSelectAll} className="font-medium text-brand-ink hover:underline">
                     {allSelected ? 'Deselect all' : 'Select all'}
                   </button>
-                  {selectedCandidateIds.length > 0 && !allSelected ? (
-                    <button type="button" onClick={() => setSelectedCandidateIds([])} className="text-ink-2 hover:text-ink hover:underline">
-                      Clear selection
-                    </button>
+                  {selectedCandidateIds.length > 0 ? (
+                    <Button size="sm" variant="ghost" icon={<X className="size-4" />} onClick={() => setSelectedCandidateIds([])}>
+                      Clear selection ({selectedCandidateIds.length})
+                    </Button>
                   ) : null}
                 </div>
               </div>
@@ -477,85 +516,52 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
               ) : (
                 <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
                   {displayedLinkedCandidates.map(({ vinculo, candidato }) => {
-                    const isSelected = selectedIdSet.has(candidato.id);
-                    const checkboxId = `linked-${candidato.id}`;
                     const stageId = `stage-${candidato.id}`;
 
                     return (
-                      <li key={candidato.id} className="select-card flex flex-col">
-                        <div className="flex items-start gap-3">
-                          <input
-                            id={checkboxId}
-                            type="checkbox"
-                            checked={isSelected}
-                            onChange={() => handleToggleSelectCandidate(candidato.id)}
-                            className="mt-1 size-4 shrink-0 rounded-sm border-rule-strong"
-                          />
-                          <label htmlFor={checkboxId} className="stretch min-w-0 flex-1 cursor-pointer">
-                            <span className="block truncate font-semibold text-ink">{candidato.nombre}</span>
-                            <span className="block text-[13px] text-ink-2">
-                              <CandidateId id={candidato.id} className="mr-2" />
-                              {candidato.ciudad}, {candidato.pais}
-                            </span>
-                          </label>
-                          <StageChip etapa={vinculo.etapa} />
-                        </div>
-
-                        <div className="mt-3 flex flex-wrap gap-1.5">
-                          <span className="chip chip-neutral tabular-nums">{candidato.experienciaTexto}</span>
-                          <EnglishChip level={candidato.nivelIngles} withLabel />
-                          <span className="chip chip-neutral">{modalityLabel(candidato.modalidad)}</span>
-                        </div>
-
-                        <p className="mt-3 line-clamp-2 text-[13px] leading-relaxed text-ink-2">{candidato.resumenProfesional}</p>
-
-                        <ul className="mt-2.5 flex flex-wrap gap-1">
-                          {candidato.perfilesAsociados.map(pId => (
-                            <li key={pId} className="chip chip-brand">
-                              {profileName(pId)}
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="mt-auto pt-4">
-                          <CeipalStatus vinculo={vinculo} />
-
-                          <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-rule pt-3">
-                            <div className="above flex items-center gap-2">
-                              <label htmlFor={stageId} className="text-[13px] text-ink-3">
-                                Stage
-                              </label>
-                              <select
-                                id={stageId}
-                                value={vinculo.etapa ?? 'shortlist'}
-                                onChange={e => handleStageChange(candidato, e.target.value as EtapaCandidato)}
-                                className="input select h-8 w-auto text-[13px]"
-                              >
-                                {ETAPA_ORDER.map(etapa => (
-                                  <option key={etapa} value={etapa}>
-                                    {ETAPA_LABEL[etapa]}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Button size="sm" variant="ghost" icon={<Eye className="size-4" />} className="above" onClick={() => onOpenCandidateDetail(candidato)}>
-                                Profile
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="danger-ghost"
-                                icon={<Trash2 className="size-4" />}
-                                className="above -mr-2"
-                                onClick={() => handleUnlinkCandidate(candidato)}
-                                title="Remove from this search. The candidate stays in the pool."
-                              >
-                                Remove
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
+                      <CandidateCard
+                        key={candidato.id}
+                        candidate={candidato}
+                        idPrefix="linked"
+                        selected={selectedIdSet.has(candidato.id)}
+                        onToggleSelect={handleToggleSelectCandidate}
+                        onOpenProfile={onOpenCandidateDetail}
+                        summaryLines={2}
+                        badge={<StageChip etapa={vinculo.etapa} />}
+                        stageControl={
+                          <>
+                            <label htmlFor={stageId} className="text-[13px] text-ink-3">
+                              Stage
+                            </label>
+                            <select
+                              id={stageId}
+                              value={vinculo.etapa ?? 'shortlist'}
+                              onChange={e => handleStageChange(candidato, e.target.value as EtapaCandidato)}
+                              className="input select h-8 w-auto text-[13px]"
+                            >
+                              {ETAPA_ORDER.map(etapa => (
+                                <option key={etapa} value={etapa}>
+                                  {ETAPA_LABEL[etapa]}
+                                </option>
+                              ))}
+                            </select>
+                          </>
+                        }
+                        actions={
+                          <Button
+                            size="sm"
+                            variant="danger-ghost"
+                            icon={<Trash2 className="size-4" />}
+                            className="above -mr-2"
+                            onClick={() => handleUnlinkCandidate(candidato)}
+                            title="Remove from this search. The candidate stays in the pool."
+                          >
+                            Remove
+                          </Button>
+                        }
+                      >
+                        <CeipalStatus vinculo={vinculo} />
+                      </CandidateCard>
                     );
                   })}
                 </ul>
@@ -588,7 +594,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
         </aside>
       </div>
 
-      <Toast message={toast} onDismiss={dismissToast} onUndo={lastRemoved ? handleUndoRemove : undefined} durationMs={lastRemoved ? 7000 : 4000} />
+      <Toast message={toast} tone={toastTone} onDismiss={dismissToast} onUndo={lastRemoved ? handleUndoRemove : undefined} durationMs={lastRemoved ? 7000 : 4000} />
 
       <Suspense fallback={null}>
         {isAddCandidatesModalOpen ? (
@@ -602,6 +608,10 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
             onClose={() => setIsCeipalModalOpen(false)}
             onUploadSuccess={handleCeipalUploadSuccess}
           />
+        ) : null}
+
+        {isCompareOpen && canCompare ? (
+          <CompareCandidatesModal candidates={selectedCandidateObjects} vacancy={compareVacancy} onClose={() => setIsCompareOpen(false)} onOpenProfile={onOpenCandidateDetail} />
         ) : null}
       </Suspense>
     </div>

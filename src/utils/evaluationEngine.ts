@@ -1,4 +1,17 @@
-import { Candidato, Vacancy, EvaluacionCandidato, ItemEvaluacion, NivelIngles } from '../types';
+import { Candidato, Vacancy, EvaluacionCandidato, ItemEvaluacion, NivelIngles, DimensionPuntaje } from '../types';
+
+/**
+ * Points each dimension contributes to the 0-100 fit score. Must-have skills carry
+ * the most weight because they are what the client actually screens on; nice-to-haves
+ * can only round the number up.
+ */
+export const PESOS_PUNTAJE = {
+  habilidadesClave: 40,
+  experiencia: 20,
+  ingles: 20,
+  modalidad: 10,
+  habilidadesDeseables: 10
+} as const;
 
 const INGLES_RANK: Record<string, number> = {
   'A1': 1,
@@ -58,8 +71,18 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
   const cumplidos: ItemEvaluacion[] = [];
   const brechas: ItemEvaluacion[] = [];
   const porValidar: ItemEvaluacion[] = [];
+  const dimensiones: DimensionPuntaje[] = [];
 
   // 1. Experience Evaluation
+  const ratioExperiencia =
+    req.experienciaMinimaAnos <= 0 ? 1 : Math.min(1, candidato.experienciaAnos / req.experienciaMinimaAnos);
+  dimensiones.push({
+    criterio: 'Experience',
+    peso: PESOS_PUNTAJE.experiencia,
+    obtenido: PESOS_PUNTAJE.experiencia * ratioExperiencia,
+    detalle: `${candidato.experienciaTexto} against a ${req.experienciaMinimaAnos}-year minimum.`
+  });
+
   if (candidato.experienciaAnos >= req.experienciaMinimaAnos) {
     cumplidos.push({
       criterio: `Relevant experience (${req.experienciaMinimaAnos}+ years)`,
@@ -76,6 +99,8 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
 
   // 2. English Level Evaluation
   if (candidato.nivelIngles === 'Sin información' || candidato.nivelIngles === 'Not specified') {
+    // No level on file: left out of the score entirely rather than counted as a zero,
+    // so an unassessed candidate is not ranked below one we know falls short.
     porValidar.push({
       criterio: `English proficiency (${req.nivelInglesMinimo}+ required)`,
       estado: 'pending',
@@ -84,6 +109,16 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
   } else {
     const candidateRank = INGLES_RANK[candidato.nivelIngles] || 0;
     const reqRank = INGLES_RANK[req.nivelInglesMinimo] || 0;
+
+    // One CEFR level short still carries most of the weight; three or more carries none.
+    const faltante = Math.max(0, reqRank - candidateRank);
+    const factorIngles = [1, 0.6, 0.3][faltante] ?? 0;
+    dimensiones.push({
+      criterio: 'English',
+      peso: PESOS_PUNTAJE.ingles,
+      obtenido: PESOS_PUNTAJE.ingles * factorIngles,
+      detalle: `${candidato.nivelIngles} against a ${req.nivelInglesMinimo} minimum.`
+    });
 
     if (candidateRank >= reqRank) {
       cumplidos.push({
@@ -108,6 +143,13 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
     (candModLower.includes('híbrid') && reqModLower.includes('hybrid')) ||
     (candModLower.includes('hybrid') && reqModLower.includes('hybrid'));
 
+  dimensiones.push({
+    criterio: 'Work arrangement',
+    peso: PESOS_PUNTAJE.modalidad,
+    obtenido: isMatch ? PESOS_PUNTAJE.modalidad : 0,
+    detalle: `${candidato.modalidad} against ${req.modalidad}.`
+  });
+
   if (isMatch) {
     cumplidos.push({
       criterio: `Work arrangement (${req.modalidad})`,
@@ -125,9 +167,11 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
   // 4. Must-have skills
   const candSkillsNormalized = candidato.habilidades.map(h => h.toLowerCase());
 
+  let indispensablesCubiertas = 0;
   req.habilidadesIndispensables.forEach(hReq => {
     const match = candSkillsNormalized.some(cs => cs.includes(hReq.toLowerCase()) || hReq.toLowerCase().includes(cs));
     if (match) {
+      indispensablesCubiertas += 1;
       cumplidos.push({
         criterio: `Essential skill: ${hReq}`,
         estado: 'meets',
@@ -142,10 +186,21 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
     }
   });
 
+  if (req.habilidadesIndispensables.length > 0) {
+    dimensiones.push({
+      criterio: 'Must-have skills',
+      peso: PESOS_PUNTAJE.habilidadesClave,
+      obtenido: (PESOS_PUNTAJE.habilidadesClave * indispensablesCubiertas) / req.habilidadesIndispensables.length,
+      detalle: `${indispensablesCubiertas} of ${req.habilidadesIndispensables.length} evidenced in the profile.`
+    });
+  }
+
   // 5. Nice-to-have skills
+  let deseablesCubiertas = 0;
   req.habilidadesDeseables.forEach(hReq => {
     const match = candSkillsNormalized.some(cs => cs.includes(hReq.toLowerCase()) || hReq.toLowerCase().includes(cs));
     if (match) {
+      deseablesCubiertas += 1;
       cumplidos.push({
         criterio: `Desirable skill: ${hReq}`,
         estado: 'meets',
@@ -153,6 +208,15 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
       });
     }
   });
+
+  if (req.habilidadesDeseables.length > 0) {
+    dimensiones.push({
+      criterio: 'Nice-to-have skills',
+      peso: PESOS_PUNTAJE.habilidadesDeseables,
+      obtenido: (PESOS_PUNTAJE.habilidadesDeseables * deseablesCubiertas) / req.habilidadesDeseables.length,
+      detalle: `${deseablesCubiertas} of ${req.habilidadesDeseables.length} evidenced in the profile.`
+    });
+  }
 
   // 6. Qualitative items to validate
   porValidar.push({
@@ -168,6 +232,12 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
       detalle: `Recommend brief technical or situational scenario regarding the account's specific architecture.`
     });
   }
+
+  // Quantitative fit: points earned over points actually assessable, so a dimension
+  // with no data on file neither inflates nor deflates the result.
+  const pesoEvaluado = dimensiones.reduce((acc, d) => acc + d.peso, 0);
+  const puntosObtenidos = dimensiones.reduce((acc, d) => acc + d.obtenido, 0);
+  const puntaje = pesoEvaluado === 0 ? 0 : Math.round((puntosObtenidos / pesoEvaluado) * 100);
 
   // Qualitative Synthesis & Overall Level
   let nivelAjuste: 'High' | 'Medium' | 'Partial with gaps' = 'Medium';
@@ -192,6 +262,8 @@ export function evaluarCandidatoConVacante(candidato: Candidato, vacancy: Vacanc
     brechasEncontradas: brechas,
     informacionPorValidar: porValidar,
     sintesisAjuste: sintesis,
-    nivelAjusteGeneral: nivelAjuste
+    nivelAjusteGeneral: nivelAjuste,
+    puntajeAjuste: puntaje,
+    desglosePuntaje: dimensiones
   };
 }

@@ -92,7 +92,7 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center bg-ink/55 p-0 sm:items-center sm:p-4 animate-fade"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-0 sm:items-center sm:p-4 animate-fade"
       onMouseDown={e => {
         if (e.target === e.currentTarget) onClose();
       }}

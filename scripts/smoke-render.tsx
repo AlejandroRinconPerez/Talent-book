@@ -29,6 +29,11 @@ const { CandidatesSection } = await import(root + '/components/CandidatesSection
 const { BookSection } = await import(root + '/components/BookSection');
 const { EvaluationSection } = await import(root + '/components/EvaluationSection');
 const { PresentationMode } = await import(root + '/components/PresentationMode');
+const { CompareCandidatesModal } = await import(root + '/components/CompareCandidatesModal');
+const { PresentationBuilderModal } = await import(root + '/components/PresentationBuilderModal');
+const { GlobalSearch } = await import(root + '/components/GlobalSearch');
+const { buildWorkbook } = await import(root + '/utils/xlsx');
+const { queryIndex } = await import(root + '/data/searchIndex');
 const { SAMPLE_VACANCIES } = await import(root + '/utils/evaluationEngine');
 const { withActivity, relativeTime } = await import(root + '/utils/activity');
 const { saveWorkspace, loadWorkspace, clearWorkspace } = await import(root + '/services/storage');
@@ -44,7 +49,10 @@ const checks: [string, () => string][] = [
   ['CandidatesSection (filtered from Book)', () => renderToString(<CandidatesSection initialFilter={{ familia: 'Technology', especialidad: 'Software Development & Cloud', perfilId: 'perfil-tec-fe01' }} selectedCandidateIds={[]} onToggleCandidate={noop} onClearSelection={noop} onProceedToEvaluate={noop} />)],
   ['BookSection', () => renderToString(<BookSection onNavigateToCandidates={noop} />)],
   ['EvaluationSection', () => renderToString(<EvaluationSection selectedCandidateIds={['CAN-8821', 'CAN-4432', 'CAN-5401']} onToggleCandidate={noop} onClearCandidates={noop} onNavigateToCandidates={noop} onOpenPresentation={noop} currentVacancy={SAMPLE_VACANCIES[0]} onUpdateVacancy={noop} busquedaNombre="X" onBackToBusqueda={noop} />)],
-  ['PresentationMode (12 candidates)', () => renderToString(<PresentationMode candidates={MOCK_CANDIDATES.slice(0, 12)} vacancy={SAMPLE_VACANCIES[0]} onClose={noop} />)],
+  ['PresentationMode (12 candidates)', () => renderToString(<PresentationMode candidates={MOCK_CANDIDATES.slice(0, 12)} vacancy={SAMPLE_VACANCIES[0]} coverNote="Three profiles pre-screened this week." onClose={noop} />)],
+  ['CompareCandidatesModal (with vacancy)', () => renderToString(<CompareCandidatesModal candidates={MOCK_CANDIDATES.slice(0, 3)} vacancy={SAMPLE_VACANCIES[0]} onClose={noop} />)],
+  ['PresentationBuilderModal', () => renderToString(<PresentationBuilderModal candidates={MOCK_CANDIDATES.slice(0, 4)} clientName="Acme" onClose={noop} onConfirm={noop} />)],
+  ['GlobalSearch', () => renderToString(<GlobalSearch busquedas={INITIAL_BUSQUEDAS} onClose={noop} onOpenSearch={noop} onOpenProfile={noop} onOpenCandidate={noop} />)],
 ];
 let failed = 0;
 for (const [name, fn] of checks) {
@@ -58,6 +66,12 @@ const stamp = saveWorkspace({ busquedas: [b], selectedCandidateIds: ['CAN-1'] })
 const back = loadWorkspace();
 console.log('storage round trip:', stamp ? 'saved' : 'not saved', back?.busquedas.length === 1 && back.busquedas[0].actividad.length === b.actividad.length ? 'OK' : 'MISMATCH');
 clearWorkspace(); console.log('after clear:', loadWorkspace() === null ? 'OK' : 'still there');
+// search index and xlsx writer
+const hits = queryIndex('react colombia', INITIAL_BUSQUEDAS);
+console.log('search "react colombia":', hits.total, 'hits |', hits.candidates.map((h: { title: string }) => h.title).join(', '));
+const wb = buildWorkbook('Test', [{ header: 'ID' }, { header: 'Name' }], [['CAN-1', 'Ana'], ['CAN-2', 5]]);
+const sig = String.fromCharCode(wb[0], wb[1]);
+console.log('xlsx bytes:', wb.length, '| zip signature:', sig === 'PK' ? 'OK' : 'BAD');
 // pagination maths from CandidatesSection
 const html = renderToString(<CandidatesSection selectedCandidateIds={[]} onToggleCandidate={noop} onClearSelection={noop} onProceedToEvaluate={noop} />);
 // renderToString separates adjacent text nodes with <!-- -->; strip them before matching copy

@@ -32,18 +32,58 @@ export function normalizeFit(level: EvaluacionCandidato['nivelAjusteGeneral']): 
   return 'Partial with gaps';
 }
 
-export const FitBadge: React.FC<{ level: EvaluacionCandidato['nivelAjusteGeneral']; prefix?: string }> = ({
-  level,
-  prefix = 'Fit'
-}) => {
+export const FitBadge: React.FC<{
+  level: EvaluacionCandidato['nivelAjusteGeneral'];
+  prefix?: string;
+  /** 0-100 fit score, shown next to the label so the judgement carries a number. */
+  score?: number;
+}> = ({ level, prefix = 'Fit', score }) => {
   const fit = normalizeFit(level);
   const tone = fit === 'High' ? 'chip-ok' : fit === 'Medium' ? 'chip-warn' : 'chip-accent';
   return (
     <span className={`chip ${tone} text-[13px] px-2`}>
       {prefix}: {fit}
+      {score !== undefined ? (
+        <>
+          <span aria-hidden="true" className="mx-1.5 opacity-40">
+            |
+          </span>
+          <span className="font-semibold tabular-nums">{score}</span>
+          <span className="opacity-70">/100</span>
+        </>
+      ) : null}
     </span>
   );
 };
+
+/** Per-dimension meter: one hue, fill over a lighter step of the same ramp. */
+export const ScoreBreakdown: React.FC<{ dimensions: EvaluacionCandidato['desglosePuntaje'] }> = ({ dimensions }) => (
+  <dl className="space-y-2">
+    {dimensions.map(d => {
+      const pct = d.peso === 0 ? 0 : Math.round((d.obtenido / d.peso) * 100);
+      return (
+        <div key={d.criterio} className="grid grid-cols-[9.5rem_1fr_3.5rem] items-center gap-x-3 gap-y-1">
+          <dt className="truncate text-[13px] text-ink-2" title={d.detalle}>
+            {d.criterio}
+          </dt>
+          <dd
+            className="h-1.5 overflow-hidden rounded-full bg-brand-wash-2"
+            role="meter"
+            aria-valuenow={pct}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label={`${d.criterio}: ${d.detalle}`}
+          >
+            <div className="h-full rounded-full bg-brand" style={{ width: `${pct}%` }} />
+          </dd>
+          <dd className="text-right text-[13px] tabular-nums text-ink-3">
+            {Math.round(d.obtenido)}/{d.peso}
+          </dd>
+        </div>
+      );
+    })}
+  </dl>
+);
 
 /** Candidate ID, set in tabular figures so lists align. */
 export const CandidateId: React.FC<{ id: string; className?: string }> = ({ id, className = '' }) => (

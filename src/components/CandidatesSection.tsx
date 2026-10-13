@@ -1,10 +1,12 @@
 import React, { Suspense, lazy, useCallback, useMemo, useState } from 'react';
-import { RotateCcw, Users, Search, X, Eye, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight } from 'lucide-react';
+import { RotateCcw, Users, Search, X, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight, Columns3, FileSpreadsheet } from 'lucide-react';
+import { exportCandidatesWorkbook } from '../utils/exportCandidates';
 import { MOCK_CANDIDATES } from '../data/candidatesData';
 import { FAMILIAS_DATA } from '../data/bookData';
 import { FAMILY_BY_NAME, profileName as getProfileName } from '../data/indexes';
 import { Candidato, BusquedaComercial } from '../types';
 import { CandidateId, EnglishChip, modalityLabel } from './shared/badges';
+import { CandidateCard } from './shared/CandidateCard';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
 import { Field } from './ui/Field';
@@ -14,6 +16,7 @@ import { plural } from '../utils/format';
 // Modals load on first use
 const LinkToBusquedaSelectorModal = lazy(() => import('./LinkToBusquedaSelectorModal').then(m => ({ default: m.LinkToBusquedaSelectorModal })));
 const CandidateDetailModal = lazy(() => import('./shared/CandidateDetailModal').then(m => ({ default: m.CandidateDetailModal })));
+const CompareCandidatesModal = lazy(() => import('./CompareCandidatesModal').then(m => ({ default: m.CompareCandidatesModal })));
 
 type SortKey = 'name' | 'experience' | 'english' | 'updated';
 const SORT_LABEL: Record<SortKey, string> = { name: 'Name', experience: 'Experience, most first', english: 'English, highest first', updated: 'Recently updated' };
@@ -46,6 +49,11 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
   const [candidatesToLink, setCandidatesToLink] = useState<string[]>([]);
   const [toolbarTargetBusquedaId, setToolbarTargetBusquedaId] = useState<string>('');
   const [toast, setToast] = useState<string | null>(null);
+  const [toastTone, setToastTone] = useState<'success' | 'error'>('success');
+  const notify = (message: string, tone: 'success' | 'error' = 'success') => {
+    setToastTone(tone);
+    setToast(message);
+  };
 
   const [displayMode, setDisplayMode] = useState<'cards' | 'table'>('cards');
   const [sortKey, setSortKey] = useState<SortKey>('updated');
@@ -206,11 +214,25 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
     }
     onLinkCandidatesToBusqueda(toolbarTargetBusquedaId, selectedCandidateIds);
     const target = busquedas.find(b => b.id === toolbarTargetBusquedaId);
-    setToast(`Linked ${plural(selectedCandidateIds.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
+    notify(`Linked ${plural(selectedCandidateIds.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
   };
 
   const selectedCount = selectedCandidateIds.length;
   const isDetailSelected = activeCandidateDetail ? selectedIdSet.has(activeCandidateDetail.id) : false;
+
+  const [isCompareOpen, setIsCompareOpen] = useState(false);
+  const selectedCandidates = useMemo(() => selectedCandidateIds.flatMap(id => MOCK_CANDIDATES.find(c => c.id === id) ?? []), [selectedCandidateIds]);
+  const canCompare = selectedCandidates.length >= 2 && selectedCandidates.length <= 4;
+
+  // Export is always one click: the selected candidates go out; with nothing selected the button explains what to do
+  const handleExport = () => {
+    if (selectedCandidates.length === 0) {
+      notify('Nothing to export. Select at least one candidate first.', 'error');
+      return;
+    }
+    exportCandidatesWorkbook(selectedCandidates, 'selected-candidates');
+    notify(`Exported ${plural(selectedCandidates.length, 'candidate')} to Excel.`);
+  };
 
   return (
     <div className={`space-y-6 ${selectedCount > 0 ? 'pb-28 lg:pb-24' : ''}`}>
@@ -375,25 +397,24 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   {allVisibleSelected ? 'Deselect page' : 'Select page'}
                 </button>
               ) : null}
+              {selectedCount > 0 ? (
+                <Button size="sm" variant="ghost" icon={<X className="size-4" />} onClick={onClearSelection} title="Deselect every candidate, on every page">
+                  Clear selection ({selectedCount})
+                </Button>
+              ) : null}
+              <Button
+                size="sm"
+                icon={<FileSpreadsheet className="size-4" />}
+                onClick={handleExport}
+                title={selectedCount > 0 ? `Download the ${plural(selectedCount, 'selected candidate')} as an Excel file` : 'Select candidates, then export them as an Excel file'}
+              >
+                Export to Excel{selectedCount > 0 ? ` (${selectedCount})` : ''}
+              </Button>
               <div className="flex rounded-md border border-rule-strong bg-surface p-0.5" role="group" aria-label="Layout">
-                <button
-                  type="button"
-                  aria-pressed={displayMode === 'cards'}
-                  aria-label="Cards"
-                  title="Cards"
-                  onClick={() => setDisplayMode('cards')}
-                  className="flex size-8 items-center justify-center rounded-[4px] text-ink-2 hover:text-ink aria-pressed:bg-ink aria-pressed:text-white"
-                >
+                <button type="button" aria-pressed={displayMode === 'cards'} aria-label="Cards" title="Cards" onClick={() => setDisplayMode('cards')} className="segment size-8 justify-center px-0">
                   <LayoutGrid className="size-4" />
                 </button>
-                <button
-                  type="button"
-                  aria-pressed={displayMode === 'table'}
-                  aria-label="Table"
-                  title="Table"
-                  onClick={() => setDisplayMode('table')}
-                  className="flex size-8 items-center justify-center rounded-[4px] text-ink-2 hover:text-ink aria-pressed:bg-ink aria-pressed:text-white"
-                >
+                <button type="button" aria-pressed={displayMode === 'table'} aria-label="Table" title="Table" onClick={() => setDisplayMode('table')} className="segment size-8 justify-center px-0">
                   <List className="size-4" />
                 </button>
               </div>
@@ -411,49 +432,21 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             </div>
           ) : displayMode === 'cards' ? (
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              {pageCandidates.map(candidate => {
-                const isSelected = selectedIdSet.has(candidate.id);
-                const checkboxId = `cand-${candidate.id}`;
-                return (
-                  <li key={candidate.id} className="select-card flex flex-col p-4">
-                    <div className="flex items-start gap-3">
-                      <input id={checkboxId} type="checkbox" checked={isSelected} onChange={() => onToggleCandidate(candidate.id)} className="mt-1 size-4 shrink-0" />
-                      <label htmlFor={checkboxId} className="stretch min-w-0 flex-1 cursor-pointer">
-                        <span className="block truncate text-[15px] font-semibold text-ink">{candidate.nombre}</span>
-                        <span className="block text-[13px] text-ink-2">
-                          <CandidateId id={candidate.id} className="mr-2" />
-                          {candidate.ciudad}, {candidate.pais}
-                        </span>
-                      </label>
-                    </div>
-
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      <span className="chip chip-neutral tabular-nums">{candidate.experienciaTexto}</span>
-                      <EnglishChip level={candidate.nivelIngles} withLabel />
-                      <span className="chip chip-neutral">{modalityLabel(candidate.modalidad)}</span>
-                    </div>
-
-                    <p className="mt-3 line-clamp-3 text-[13px] leading-relaxed text-ink-2">{candidate.resumenProfesional}</p>
-
-                    <ul className="mt-2.5 flex flex-wrap gap-1">
-                      {candidate.perfilesAsociados.map(pId => (
-                        <li key={pId} className="chip chip-brand max-w-full">
-                          <span className="truncate">{getProfileName(pId)}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-auto flex items-center justify-between gap-2 border-t border-rule pt-3">
-                      <Button size="sm" variant="ghost" icon={<Eye className="size-4" />} className="above -ml-2" onClick={() => setActiveCandidateDetail(candidate)}>
-                        View profile
-                      </Button>
-                      <Button size="sm" variant="subtle" icon={<FolderPlus className="size-4" />} className="above" onClick={() => openLinkModal([candidate.id])}>
-                        Add to search
-                      </Button>
-                    </div>
-                  </li>
-                );
-              })}
+              {pageCandidates.map(candidate => (
+                <CandidateCard
+                  key={candidate.id}
+                  candidate={candidate}
+                  idPrefix="pool"
+                  selected={selectedIdSet.has(candidate.id)}
+                  onToggleSelect={onToggleCandidate}
+                  onOpenProfile={setActiveCandidateDetail}
+                  actions={
+                    <Button size="sm" variant="subtle" icon={<FolderPlus className="size-4" />} className="above" onClick={() => openLinkModal([candidate.id])}>
+                      Add to search
+                    </Button>
+                  }
+                />
+              ))}
             </ul>
           ) : (
             <div className="panel overflow-x-auto">
@@ -562,10 +555,11 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
       {/* Selection bar */}
       {selectedCount > 0 && (
         <div className="fixed inset-x-0 bottom-0 z-30 px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-6 animate-rise">
-          <section aria-label="Selection actions" className="mx-auto max-w-7xl rounded-lg bg-ink p-3 text-white shadow-bar sm:p-4">
+          <section aria-label="Selection actions" className="mx-auto max-w-7xl rounded-lg bg-inverse p-3 text-on-inverse shadow-bar sm:p-4">
             <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
               <p className="text-sm">
                 <strong className="font-semibold tabular-nums">{selectedCount}</strong> {selectedCount === 1 ? 'candidate' : 'candidates'} selected
+                {canCompare ? null : selectedCount > 4 ? <span className="ml-2 text-on-inverse/70">Select up to 4 to compare</span> : null}
               </p>
 
               <div className="flex flex-wrap items-center gap-2">
@@ -576,7 +570,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   id="toolbar-search"
                   value={toolbarTargetBusquedaId}
                   onChange={e => setToolbarTargetBusquedaId(e.target.value)}
-                  className="input select h-9 w-full border-white/20 bg-white/10 text-white sm:w-64 [&_option]:text-ink"
+                  className="input select h-9 w-full border-on-inverse/20 bg-on-inverse/10 text-on-inverse sm:w-64 [&_option]:bg-surface [&_option]:text-ink"
                   style={{ backgroundImage: 'none' }}
                 >
                   <option value="">Choose a search…</option>
@@ -596,16 +590,22 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                 <Button variant="on-dark" icon={<ShieldCheck className="size-4" />} onClick={onProceedToEvaluate}>
                   Evaluate fit
                 </Button>
-                <button type="button" onClick={onClearSelection} className="h-9 rounded-md px-2.5 text-sm text-white/75 hover:bg-white/10 hover:text-white">
-                  Clear
-                </button>
+                <Button variant="on-dark" icon={<Columns3 className="size-4" />} onClick={() => setIsCompareOpen(true)} disabled={!canCompare} title={canCompare ? 'Compare side by side' : 'Select 2 to 4 candidates to compare'}>
+                  Compare
+                </Button>
+                <Button variant="on-dark" icon={<FileSpreadsheet className="size-4" />} onClick={handleExport}>
+                  Export to Excel
+                </Button>
+                <Button variant="on-dark" icon={<X className="size-4" />} onClick={onClearSelection} title="Deselect every candidate, on every page">
+                  Clear selection
+                </Button>
               </div>
             </div>
           </section>
         </div>
       )}
 
-      <Toast message={toast} onDismiss={dismissToast} />
+      <Toast message={toast} tone={toastTone} onDismiss={dismissToast} />
 
       <Suspense fallback={null}>
         {activeCandidateDetail ? (
@@ -635,10 +635,14 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             onLinkToExistingBusqueda={(busquedaId, ids) => {
               onLinkCandidatesToBusqueda(busquedaId, ids);
               const target = busquedas.find(b => b.id === busquedaId);
-              setToast(`Linked ${plural(ids.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
+              notify(`Linked ${plural(ids.length, 'candidate')} to “${target?.nombre ?? 'the search'}”.`);
             }}
             onRequestCreateNewBusqueda={onRequestCreateBusqueda}
           />
+        ) : null}
+
+        {isCompareOpen && canCompare ? (
+          <CompareCandidatesModal candidates={selectedCandidates} onClose={() => setIsCompareOpen(false)} onOpenProfile={setActiveCandidateDetail} />
         ) : null}
       </Suspense>
     </div>

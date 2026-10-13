@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { Layers, Users, FolderKanban, LogOut, Presentation, Database, Download, Upload, RotateCcw, CircleHelp } from 'lucide-react';
+import { Layers, Users, FolderKanban, LogOut, Presentation, Database, Download, Upload, RotateCcw, CircleHelp, Search, Sun, Moon, Monitor } from 'lucide-react';
 import { Usuario } from '../types';
 import { TalentBookLogo } from './TalentBookLogo';
 import { Button } from './ui/Button';
 import { Modal } from './ui/Modal';
 import { Menu } from './ui/Menu';
+import { useTheme } from '../utils/theme';
 
 export type MainTab = 'busquedas' | 'book' | 'candidates';
 
@@ -16,6 +17,7 @@ interface HeaderProps {
   currentUser: Usuario | null;
   onLogout: () => void;
   onStartTour: () => void;
+  onOpenSearch: () => void;
   onExportData: () => void;
   onImportData: (file: File) => void;
   onResetData: () => void;
@@ -35,12 +37,14 @@ export const Header: React.FC<HeaderProps> = ({
   currentUser,
   onLogout,
   onStartTour,
+  onOpenSearch,
   onExportData,
   onImportData,
   onResetData
 }) => {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { preference, resolved, setPreference } = useTheme();
 
   return (
     <>
@@ -79,6 +83,22 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-2">
+            <button
+              type="button"
+              onClick={onOpenSearch}
+              className="hidden h-9 items-center gap-2 rounded-md border border-rule-strong bg-surface px-3 text-sm text-ink-3 hover:border-ink-3 hover:text-ink lg:inline-flex"
+              aria-label="Search searches, profiles and candidates"
+            >
+              <Search className="size-4" />
+              <span>Search</span>
+              <kbd className="ml-3 rounded-sm border border-rule px-1.5 font-sans text-xs text-ink-3" aria-hidden="true">
+                /
+              </kbd>
+            </button>
+            <Button variant="icon" onClick={onOpenSearch} aria-label="Search" title="Search (/)" className="lg:hidden">
+              <Search className="size-4" />
+            </Button>
+
             <Button
               variant="commercial"
               size="sm"
@@ -88,14 +108,32 @@ export const Header: React.FC<HeaderProps> = ({
               title={
                 selectedCount === 0
                   ? 'Open a search or select candidates to present'
-                  : `Present ${selectedCount} candidate${selectedCount === 1 ? '' : 's'} to the client`
+                  : `Prepare a presentation with ${selectedCount} candidate${selectedCount === 1 ? '' : 's'}`
               }
               className="hidden md:inline-flex"
               data-tour="present"
             >
               Present
-              {selectedCount > 0 ? <span className="ml-1 rounded-full bg-white/20 px-1.5 text-xs tabular-nums">{selectedCount}</span> : null}
+              {selectedCount > 0 ? <span className="ml-1 rounded-full bg-on-accent/20 px-1.5 text-xs tabular-nums">{selectedCount}</span> : null}
             </Button>
+
+            <Menu
+              trigger={props => (
+                <Button variant="icon" aria-label={`Theme: ${preference === 'system' ? 'follow system' : preference}`} title="Theme" {...props}>
+                  {resolved === 'dark' ? <Moon className="size-4" /> : <Sun className="size-4" />}
+                </Button>
+              )}
+              items={[
+                { label: `Light${preference === 'light' ? ' (current)' : ''}`, icon: <Sun className="size-4" />, onSelect: () => setPreference('light') },
+                { label: `Dark${preference === 'dark' ? ' (current)' : ''}`, icon: <Moon className="size-4" />, onSelect: () => setPreference('dark') },
+                {
+                  label: `Follow system${preference === 'system' ? ' (current)' : ''}`,
+                  description: `Currently ${resolved}.`,
+                  icon: <Monitor className="size-4" />,
+                  onSelect: () => setPreference('system')
+                }
+              ]}
+            />
 
             <Button variant="icon" onClick={onStartTour} aria-label="Start the guided tour" title="Guided tour">
               <CircleHelp className="size-4" />
@@ -145,7 +183,7 @@ export const Header: React.FC<HeaderProps> = ({
 
             {currentUser ? (
               <div className="flex items-center gap-2 border-l border-rule pl-2 sm:pl-3">
-                <div className="hidden text-right leading-tight lg:block">
+                <div className="hidden text-right leading-tight xl:block">
                   <div className="text-[13px] font-semibold text-ink">{currentUser.nombre}</div>
                   <div className="text-xs text-ink-3">{currentUser.rol}</div>
                 </div>
