@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F5F5F6">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/png" href="./assets/logo.png">
+  <title>Talent Book | Product presentation</title>
+  <meta name="description" content="Talent Book in six slides. A bilingual introduction to the internal commercial workspace for talent solutions.">
+  <script>if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) location.replace(location.pathname + '/' + location.search + location.hash);</script>
+  <link rel="stylesheet" href="./presentation.css">
+  <script src="./translations.js" defer></script>
+  <script src="./presentation.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#deck" data-i18n="skip">Skip to presentation</a>
+  <header class="topbar">
+    <svg class="logo" viewBox="127 160 1939 413" role="img" aria-label="Talent Book"><image href="./assets/logo.png" width="2171" height="724"/></svg>
+    <div class="language-switch" role="group" aria-label="Presentation language" data-i18n-label="languageLabel">
+      <button data-language="es" lang="es" aria-pressed="false">Español</button>
+      <button data-language="en" lang="en" aria-pressed="true">English</button>
+    </div>
+    <span class="header-label" data-i18n="header">The product, at a glance</span>
+    <nav aria-label="Presentation tools" data-i18n-label="toolsLabel">
+      <button id="overview-button" aria-haspopup="dialog" data-i18n="overview">Overview</button>
+      <button id="notes-button" aria-expanded="false" aria-controls="notes" data-i18n="notes">Notes</button>
+      <button id="print-button" data-i18n="savePdf">Save PDF</button>
+      <button id="fullscreen-button" data-i18n="fullscreen">Full screen</button>
+    </nav>
+  </header>
+
+  <main id="deck" tabindex="-1" aria-label="Talent Book product presentation" aria-roledescription="carousel" data-i18n-label="deckLabel">
+    <section class="slide cover" data-title="title1" data-chapter="chapter1" aria-labelledby="title-1">
+      <div class="cover-copy"><p class="eyebrow" data-i18n="coverLabel">Built for talent partners</p>
+        <h1 id="title-1"><span class="ink" data-i18n="coverTitle">Great talent.</span><br><span data-i18n="coverAccent">A clearer path.</span></h1>
+        <p class="lede" data-i18n="coverBody">From a client request to a confident shortlist, in one commercial workspace.</p>
+        <button class="primary" data-next><span data-i18n="start">Explore Talent Book</span><span class="button-arrow" aria-hidden="true">→</span></button>
+      </div>
+      <div class="cover-visual">
+        <div class="book-object"><span class="book-spine" data-i18n="bookSpine">Talent solutions</span><div class="book-face"><span class="book-brand">Talent Book</span><strong data-i18n="bookQuote">The right people start with a shared language.</strong><div class="book-bottom"><span data-i18n="bookBottom">Profiles. People. Possibilities.</span><span class="book-mark" aria-hidden="true">tb.</span></div></div></div>
+        <p class="visual-caption" data-i18n="coverCaption">One Book connects the entire journey.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="title2" data-chapter="chapter2" aria-labelledby="title-2" hidden>
+      <div class="section-heading"><p class="eyebrow" data-i18n="bookLabel">The foundation</p><h2 id="title-2"><span class="ink" data-i18n="bookTitle">One Book.</span> <span data-i18n="bookAccent">One shared language.</span></h2><p data-i18n="bookBody">Sales, recruiting, and clients start with the same definition of the role.</p></div>
+      <div class="catalog-layout">
+        <figure class="product-figure"><div class="product-bar"><span data-i18n="bookView">Talent Book / Occupational catalog</span><button data-preview="book" data-i18n="enlarge">Enlarge ↗</button></div><div class="preview-viewport"><iframe data-src="./assets/book.html" title="Actual Book component with sample profiles" tabindex="-1" inert loading="lazy"></iframe></div><figcaption data-i18n="productCaption">Actual mock view in English. Sample data.</figcaption></figure>
+        <div class="catalog-facts"><div><strong>12</strong><span data-i18n="families">job families</span></div><div><strong>62</strong><span data-i18n="profiles">defined profiles</span></div><div><strong>Total</strong><span data-i18n="candidates">candidates</span></div><p data-i18n="bookPath">Family → Specialty → Profile → Candidate</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="title3" data-chapter="chapter3" aria-labelledby="title-3" hidden>
+      <div class="section-heading"><p class="eyebrow" data-i18n="flowLabel">The workflow</p><h2 id="title-3"><span class="ink" data-i18n="flowTitle">From request</span> <span data-i18n="flowAccent">to shortlist.</span></h2><p data-i18n="flowBody">Keep the requirement, candidates, and next steps together.</p></div>
+      <div class="workflow-layout"><figure class="product-figure"><div class="product-bar"><span data-i18n="searchView">Talent Book / My searches</span><button data-preview="searches" data-i18n="enlarge">Enlarge ↗</button></div><div class="preview-viewport"><iframe data-src="./assets/searches.html" title="Actual My searches component with sample data" tabindex="-1" inert loading="lazy"></iframe></div><figcaption data-i18n="productCaption">Actual mock view in English. Sample data.</figcaption></figure>
+        <ol class="compact-journey"><li><span>01</span><div><h3 data-i18n="define">Define</h3><p data-i18n="defineBody">Create the client search.</p></div></li><li><span>02</span><div><h3 data-i18n="find">Find</h3><p data-i18n="findBody">Filter and link candidates.</p></div></li><li><span>03</span><div><h3 data-i18n="evaluate">Evaluate</h3><p data-i18n="evaluateBody">Review fit and compare.</p></div></li><li><span>04</span><div><h3 data-i18n="present">Present</h3><p data-i18n="presentBody">Share the shortlist. Track progress.</p></div></li></ol>
+      </div>
+    </section>
+
+    <section class="slide" data-title="title4" data-chapter="chapter4" aria-labelledby="title-4" hidden>
+      <div class="section-heading"><p class="eyebrow" data-i18n="fitLabel">Explainable evaluation</p><h2 id="title-4"><span class="ink" data-i18n="fitTitle">A score you can</span> <span data-i18n="fitAccent">actually explain.</span></h2><p data-i18n="fitBody">Transparent rules. Clear evidence. Human decisions.</p></div>
+      <div class="score-layout"><div class="score-weights"><div><span data-i18n="mustHave">Must-have skills</span><i style="--weight:100%"></i><strong>40</strong></div><div><span data-i18n="experience">Experience</span><i style="--weight:50%"></i><strong>20</strong></div><div><span data-i18n="english">English</span><i style="--weight:50%"></i><strong>20</strong></div><div><span data-i18n="workMode">Work mode</span><i style="--weight:25%"></i><strong>10</strong></div><div><span data-i18n="niceToHave">Nice-to-have skills</span><i style="--weight:25%"></i><strong>10</strong></div><p data-i18n="maxPoints">Maximum weight: 100 points.</p></div>
+        <div class="score-explanation"><div class="evidence-row"><strong data-i18n="met">Met</strong><p data-i18n="metBody">What matches.</p></div><div class="evidence-row"><strong data-i18n="gaps">Gaps</strong><p data-i18n="gapsBody">What is missing.</p></div><div class="evidence-row"><strong data-i18n="confirm">To confirm</strong><p data-i18n="confirmBody">What to ask next.</p></div><div class="principle"><strong data-i18n="unknown">Unknown does not mean zero.</strong><p data-i18n="unknownBody">Unavailable scoring dimensions are excluded from the denominator.</p></div></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="title5" data-chapter="chapter5" aria-labelledby="title-5" hidden>
+      <div class="delivery-layout"><div class="feature-copy"><p class="eyebrow" data-i18n="deliveryLabel">The client experience</p><h2 id="title-5"><span class="ink" data-i18n="deliveryTitle">Present</span><br><span data-i18n="deliveryAccent">with confidence.</span></h2><div class="audience-note"><h3 data-i18n="clientSees">The client sees</h3><p data-i18n="clientBody">Relevant profiles, career highlights, and role fit.</p></div><div class="audience-note"><h3 data-i18n="staysInternal">Stays internal</h3><p data-i18n="internalBody">Rates, candidate sources, and pipeline status.</p></div><p class="takeaway" data-i18n="deliveryOutput">A tailored dossier, ready to present or save as PDF.</p></div>
+        <figure class="product-figure"><div class="product-bar"><span data-i18n="dossierView">Talent Book / Client dossier</span><button data-preview="dossier" data-i18n="enlarge">Enlarge ↗</button></div><div class="preview-viewport dossier-viewport"><iframe data-src="./assets/dossier.html" title="Actual client dossier component with fictional candidates" tabindex="-1" inert loading="lazy"></iframe></div><figcaption data-i18n="productCaption">Actual mock view in English. Sample data.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="slide closing" data-title="title6" data-chapter="chapter6" aria-labelledby="title-6" hidden>
+      <div class="closing-copy"><p class="eyebrow" data-i18n="closingLabel">From the story to the screen</p><h2 id="title-6"><span class="ink" data-i18n="closingTitle">Less scattered work.</span><br><span data-i18n="closingAccent">A clearer shortlist.</span></h2><p class="lede" data-i18n="closingBody">One shared Book. A better talent conversation.</p><a class="primary commercial" id="demo-link" href="../" target="_blank" rel="noopener"><span data-i18n="openDemo">Open the live mock</span><span class="button-arrow" aria-hidden="true">↗</span></a></div>
+      <div class="scope-summary"><article><span class="scope-label" data-i18n="today">Working today</span><h3 data-i18n="todayTitle">The commercial workflow</h3><p data-i18n="todayBody">Catalog, shortlists, evaluation, and real document exports.</p></article><article><span class="scope-label" data-i18n="nextPhase">Planned next</span><h3 data-i18n="nextTitle">Connected systems</h3><p data-i18n="nextBody">Shared backend, corporate access, and live CEIPAL integration.</p></article><p class="scope-disclosure" data-i18n="disclosure">Sign-in and CEIPAL are simulated. Data is saved in this browser.</p></div>
+    </section>
+  </main>
+
+  <aside id="notes" hidden aria-label="Speaker notes" data-i18n-label="speakerNotes"><div><strong data-i18n="speakerNotes">Speaker notes</strong><button id="close-notes" data-i18n="close">Close</button></div><p id="note-text"></p></aside>
+  <footer class="deck-footer"><div class="footer-context"><span id="chapter">The opportunity</span><small data-i18n="sampleData">Sample data, fictional names</small></div><div class="slide-navigation"><button id="previous" aria-label="Previous slide" data-i18n-label="previous">←</button><span id="counter" aria-hidden="true">01 <span>/ 6</span></span><button id="next" aria-label="Next slide" data-i18n-label="next">→</button></div><span class="keyboard-help" data-i18n="keyboardHelp">← → to navigate / F for full screen</span></footer>
+  <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
+  <p id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+  <dialog id="overview" aria-labelledby="overview-title"><div class="dialog-head"><div><p class="eyebrow" data-i18n="fullStory">The full story</p><h2 id="overview-title" data-i18n="chooseSlide">Choose a slide</h2></div><button data-close="overview" data-i18n="close">Close</button></div><div id="overview-grid"></div></dialog>
+  <dialog id="preview" aria-labelledby="preview-title"><div class="dialog-head"><h2 id="preview-title">Product view</h2><button data-close="preview" data-i18n="close">Close</button></div><p class="preview-caption" data-i18n="previewCaption">Read-only view of the current mock in English. Sample data, fictional names.</p><iframe id="large-preview" title="Enlarged read-only product view" data-i18n-title="previewLabel" sandbox></iframe></dialog>
+  <noscript><p class="noscript-message">Enable JavaScript to switch languages and navigate. All six slides are displayed in English below.</p><style>.slide[hidden]{display:flex!important}.topbar nav,.language-switch,.slide-navigation,.progress-track,.keyboard-help,.primary{display:none!important}.slide{min-height:90vh}.deck-footer{position:static}</style></noscript>
+</body>
+</html>
