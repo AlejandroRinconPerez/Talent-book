@@ -16,7 +16,7 @@ const copy=copyContext.window.TalentBookPresentationI18n;
 assert.deepEqual(Object.keys(copy.en).sort(),Object.keys(copy.es).sort());
 const source=await readFile('public/presentacion/index.html','utf8');
 for(const match of source.matchAll(/data-i18n(?:-label|-title)?="([^"]+)"/g)) assert.ok(copy.en[match[1]] && copy.es[match[1]],`Missing translation: ${match[1]}`);
-assert.equal(copy.en.speakerCopy.length,6);assert.equal(copy.es.speakerCopy.length,6);
+assert.equal(copy.en.speakerCopy.length,7);assert.equal(copy.es.speakerCopy.length,7);
 const output = resolve('output/presentation-qa');
 await mkdir(output, {recursive:true});
 const profile = await mkdtemp(join(tmpdir(), 'talentbook-presentation-qa-'));
@@ -65,7 +65,7 @@ try {
     const params={key:keyName,code:keyName.length===1?`Key${keyName.toUpperCase()}`:keyName,windowsVirtualKeyCode:codes[keyName] || keyName.toUpperCase().charCodeAt(0)};
     await send('Input.dispatchKeyEvent',{type:'keyDown',...params});await send('Input.dispatchKeyEvent',{type:'keyUp',...params});
   };
-  const ready = () => evaluate(`new Promise(resolve=>{const check=()=>{if(document.querySelector('#counter') && !document.querySelector('.slide').hidden && document.querySelectorAll('[data-slide]').length===6)resolve(true);else setTimeout(check,30)};check()})`);
+  const ready = () => evaluate(`new Promise(resolve=>{const check=()=>{if(document.querySelector('#counter') && !document.querySelector('.slide').hidden && document.querySelectorAll('[data-slide]').length===7)resolve(true);else setTimeout(check,30)};check()})`);
   const settle = () => evaluate(`(async()=>{await document.fonts.ready;await Promise.all([...document.querySelectorAll('.slide:not([hidden]) iframe')].map(f=>new Promise(resolve=>{const check=()=>{if(f.contentDocument?.querySelector('main') && f.contentDocument?.readyState==='complete')resolve();else setTimeout(check,30)};check()})));await Promise.all([...document.querySelectorAll('.slide:not([hidden]) iframe')].map(f=>f.contentDocument.fonts.ready));await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));return true})()`);
   await send('Page.enable');await send('Runtime.enable');await send('Log.enable');
   await send('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false});
@@ -78,6 +78,17 @@ try {
       await new Promise(resolve=>setTimeout(resolve,100));
     }
   }
+  assert.equal(await evaluate(`document.querySelector('.slide:not([hidden])').dataset.title`),'title0');
+  const toolLink=await evaluate(`({href:document.querySelector('#summary-tool-link').href,target:document.querySelector('#summary-tool-link').target})`);
+  assert.equal(toolLink.href,new URL('../',url).href);
+  assert.equal(toolLink.target,'_blank');
+  const toolResponse=await fetch(toolLink.href);
+  assert.equal(toolResponse.status,200);
+  assert.ok((await toolResponse.text()).includes('id="root"'),'The summary button must point to the actual app');
+  await evaluate(`document.querySelector('.slide-summary [data-next]').click()`);
+  assert.equal(await evaluate(`location.hash`),'#slide-1');
+  assert.equal(await evaluate(`document.querySelector('.slide:not([hidden])').dataset.title`),'title1');
+  console.log('PASS summary is first, direct tool link resolves to the app, original cover route preserved');
   for(const language of ['en','es']) {
   await evaluate(`document.querySelector('[data-language="${language}"]').click()`);
   assert.equal(await evaluate(`document.documentElement.lang`),language);
@@ -85,29 +96,29 @@ try {
   for(const size of [{width:1440,height:900,name:'desktop'},{width:1280,height:720,name:'laptop'},{width:390,height:844,name:'mobile'}]){
     await send('Emulation.setDeviceMetricsOverride',{...size,name:undefined,deviceScaleFactor:1,mobile:size.name==='mobile'});
     await key('Home');
-    for(let index=1;index<=6;index++){
+    for(let index=0;index<=6;index++){
       await settle();
       const layout=await evaluate(`({visible:document.querySelectorAll('.slide:not([hidden])').length, index:document.querySelector('#counter').textContent.trim(),horizontalOverflow:document.documentElement.scrollWidth>innerWidth+1,height:document.documentElement.scrollHeight,viewport:innerHeight,frames:[...document.querySelectorAll('.slide:not([hidden]) iframe')].map(f=>({width:f.getBoundingClientRect().width,parent:f.parentElement.clientWidth,loaded:!!f.contentDocument?.querySelector('main')}))})`);
       assert.equal(layout.visible,1);assert.ok(layout.index.startsWith(String(index).padStart(2,'0')));
       assert.equal(layout.horizontalOverflow,false,`${size.name} slide ${index} has horizontal overflow`);
       if(size.name!=='mobile') assert.ok(layout.height<=layout.viewport+1,`${language} ${size.name} slide ${index} exceeds viewport: ${layout.height}`);
       for(const frame of layout.frames){assert.ok(frame.loaded,`Slide ${index} frame not loaded`);assert.ok(Math.abs(frame.width-frame.parent)<3,`Slide ${index} frame scale mismatch ${frame.width}/${frame.parent}`);}
-      if(size.name==='desktop' || [1,2,4,6].includes(index)){
+      if(size.name==='desktop' || [0,1,2,4,6].includes(index)){
         const screenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
         await writeFile(join(output,`${language}-${size.name}-${String(index).padStart(2,'0')}.png`),Buffer.from(screenshot.data,'base64'));
       }
       await key('ArrowRight');
     }
-    console.log(`PASS ${language} ${size.name}: all 6 slides, visible content, frames, and page width`);
+    console.log(`PASS ${language} ${size.name}: all 7 slides (0–6), visible content, frames, and page width`);
   }
   }
   await key('Home');await key('ArrowLeft');
-  assert.equal(await evaluate(`location.hash`),'#slide-1');
+  assert.equal(await evaluate(`location.hash`),'#slide-0');
   await key('n');assert.equal(await evaluate(`document.querySelector('#notes').hidden`),false);
   await key('Escape');assert.equal(await evaluate(`document.querySelector('#notes').hidden`),true);
   await key('o');assert.equal(await evaluate(`document.querySelector('#overview').open`),true);
-  await key('ArrowRight');assert.equal(await evaluate(`location.hash`),'#slide-1');
-  await evaluate(`document.querySelector('[data-slide="4"]').click()`);
+  await key('ArrowRight');assert.equal(await evaluate(`location.hash`),'#slide-0');
+  await evaluate(`document.querySelector('[data-slide="5"]').click()`);
   assert.equal(await evaluate(`location.hash`),'#slide-5');
   assert.equal(await evaluate(`document.querySelector('#overview').open`),false);
   await evaluate(`document.querySelector('.slide:not([hidden]) [data-preview]').click()`);
@@ -125,19 +136,19 @@ try {
   for(const language of ['en','es']) {
   await evaluate(`document.querySelector('[data-language="${language}"]').click()`);
   const printLayout = await evaluate(`({slides:[...document.querySelectorAll('.slide')].map((s,i)=>({slide:i+1,visible:getComputedStyle(s).display!=='none',overflow:s.scrollHeight>s.clientHeight+2,height:s.clientHeight,scrollHeight:s.scrollHeight})),notes:getComputedStyle(document.querySelector('#notes')).display})`);
-  assert.equal(printLayout.slides.filter(s=>s.visible).length,6);
+  assert.equal(printLayout.slides.filter(s=>s.visible).length,7);
   assert.equal(printLayout.notes,'none');
   assert.equal(printLayout.slides.filter(s=>s.overflow).length,0,`Print content exceeds slide height (${language}): ${JSON.stringify(printLayout.slides.filter(s=>s.overflow))}`);
   const pdf=await send('Page.printToPDF',{printBackground:true,preferCSSPageSize:true});
   const pdfBytes=Buffer.from(pdf.data,'base64');
-  assert.equal((pdfBytes.toString('latin1').match(/\/Type\s*\/Page\b/g)||[]).length,6,'PDF must have exactly 6 pages');
+  assert.equal((pdfBytes.toString('latin1').match(/\/Type\s*\/Page\b/g)||[]).length,7,'PDF must have the summary plus the original 6 slides');
   await writeFile(join(output,`talent-book-presentation-${language}.pdf`),pdfBytes);
-  const printClip = await evaluate(`(()=>{const r=document.querySelector('.cover').getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height,scale:1}})()`);
+  const printClip = await evaluate(`(()=>{const r=document.querySelector('.slide-summary').getBoundingClientRect();return {x:r.x+scrollX,y:r.y+scrollY,width:r.width,height:r.height,scale:1}})()`);
   const printScreenshot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:printClip});
-  await writeFile(join(output,`${language}-print-cover.png`),Buffer.from(printScreenshot.data,'base64'));
+  await writeFile(join(output,`${language}-print-summary.png`),Buffer.from(printScreenshot.data,'base64'));
   }
   assert.equal(failures.length,0,`Browser errors: ${failures.join('; ')}`);
-  console.log('PASS both languages: printable 6-slide layout, speaker notes excluded, no browser errors');
+  console.log('PASS both languages: printable 7-slide layout, speaker notes excluded, no browser errors');
   console.log(`Artifacts: ${output}`);
 } finally {
   ws?.close();chrome.kill();

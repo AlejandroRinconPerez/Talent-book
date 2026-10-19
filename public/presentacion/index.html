@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex,nofollow">
   <link rel="icon" type="image/png" href="./assets/logo.png">
   <title>Talent Book | Product presentation</title>
-  <meta name="description" content="Talent Book in six slides. A bilingual introduction to the internal commercial workspace for talent solutions.">
+  <meta name="description" content="Talent Book at a glance: an executive summary and six bilingual slides about the commercial workspace for talent solutions.">
   <script>if (!location.pathname.endsWith('/') && !location.pathname.endsWith('.html')) location.replace(location.pathname + '/' + location.search + location.hash);</script>
   <link rel="stylesheet" href="./presentation.css">
   <script src="./translations.js" defer></script>
@@ -31,7 +31,14 @@
   </header>
 
   <main id="deck" tabindex="-1" aria-label="Talent Book product presentation" aria-roledescription="carousel" data-i18n-label="deckLabel">
-    <section class="slide cover" data-title="title1" data-chapter="chapter1" aria-labelledby="title-1">
+    <section class="slide slide-summary" data-title="title0" data-chapter="chapter0" aria-labelledby="title-0">
+      <div class="summary-heading"><p class="eyebrow" data-i18n="summaryLabel">Project at a glance</p><h1 id="title-0">Talent Book</h1><p data-i18n="summaryPurpose">One commercial workspace to turn client requirements into a shortlist ready to present.</p></div>
+      <div class="summary-body"><div class="summary-audience"><span data-i18n="summaryAudienceLabel">Built for</span><h2 data-i18n="summaryAudience">Talent sales teams</h2><p data-i18n="summaryAudienceBody">A shared language with recruiting and clients.</p></div><div class="summary-insight"><h3 data-i18n="summaryProblemLabel">The problem</h3><p data-i18n="summaryProblem">Scattered profiles, manual proposals, and lost follow-up.</p></div><div class="summary-insight"><h3 data-i18n="summaryValueLabel">The value</h3><p data-i18n="summaryValue">Consistent role definitions, explainable fit, and a clear commercial history.</p></div></div>
+      <ol class="summary-flow" aria-label="Commercial workflow" data-i18n-label="summaryFlowLabel"><li><span data-i18n="define">Define</span><small data-i18n="summaryDefine">Client requirement</small></li><li><span data-i18n="find">Find</span><small data-i18n="summaryFind">Relevant candidates</small></li><li><span data-i18n="evaluate">Evaluate</span><small data-i18n="summaryEvaluate">Evidence and comparison</small></li><li><span data-i18n="present">Present</span><small data-i18n="summaryPresent">Client dossier + PDF</small></li></ol>
+      <div class="summary-bottom"><div class="summary-actions"><a class="primary commercial" id="summary-tool-link" href="../" target="_blank" rel="noopener"><span data-i18n="openTool">Open Talent Book</span><span class="button-arrow" aria-hidden="true">↗</span></a><button class="summary-continue" data-next><span data-i18n="viewDeck">View presentation</span><span aria-hidden="true">→</span></button></div><p class="summary-status" data-i18n="summaryStatus">Functional prototype. Sign-in and CEIPAL are simulated.</p></div>
+    </section>
+
+    <section class="slide cover" data-title="title1" data-chapter="chapter1" aria-labelledby="title-1" hidden>
       <div class="cover-copy"><p class="eyebrow" data-i18n="coverLabel">Built for talent partners</p>
         <h1 id="title-1"><span class="ink" data-i18n="coverTitle">Great talent.</span><br><span data-i18n="coverAccent">A clearer path.</span></h1>
         <p class="lede" data-i18n="coverBody">From a client request to a confident shortlist, in one commercial workspace.</p>
@@ -78,11 +85,11 @@
   </main>
 
   <aside id="notes" hidden aria-label="Speaker notes" data-i18n-label="speakerNotes"><div><strong data-i18n="speakerNotes">Speaker notes</strong><button id="close-notes" data-i18n="close">Close</button></div><p id="note-text"></p></aside>
-  <footer class="deck-footer"><div class="footer-context"><span id="chapter">The opportunity</span><small data-i18n="sampleData">Sample data, fictional names</small></div><div class="slide-navigation"><button id="previous" aria-label="Previous slide" data-i18n-label="previous">←</button><span id="counter" aria-hidden="true">01 <span>/ 6</span></span><button id="next" aria-label="Next slide" data-i18n-label="next">→</button></div><span class="keyboard-help" data-i18n="keyboardHelp">← → to navigate / F for full screen</span></footer>
+  <footer class="deck-footer"><div class="footer-context"><span id="chapter">Project summary</span><small data-i18n="sampleData">Sample data, fictional names</small></div><div class="slide-navigation"><button id="previous" aria-label="Previous slide" data-i18n-label="previous">←</button><span id="counter" aria-hidden="true">00 <span>/ 06</span></span><button id="next" aria-label="Next slide" data-i18n-label="next">→</button></div><span class="keyboard-help" data-i18n="keyboardHelp">← → to navigate / F for full screen</span></footer>
   <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
   <p id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
   <dialog id="overview" aria-labelledby="overview-title"><div class="dialog-head"><div><p class="eyebrow" data-i18n="fullStory">The full story</p><h2 id="overview-title" data-i18n="chooseSlide">Choose a slide</h2></div><button data-close="overview" data-i18n="close">Close</button></div><div id="overview-grid"></div></dialog>
   <dialog id="preview" aria-labelledby="preview-title"><div class="dialog-head"><h2 id="preview-title">Product view</h2><button data-close="preview" data-i18n="close">Close</button></div><p class="preview-caption" data-i18n="previewCaption">Read-only view of the current mock in English. Sample data, fictional names.</p><iframe id="large-preview" title="Enlarged read-only product view" data-i18n-title="previewLabel" sandbox></iframe></dialog>
-  <noscript><p class="noscript-message">Enable JavaScript to switch languages and navigate. All six slides are displayed in English below.</p><style>.slide[hidden]{display:flex!important}.topbar nav,.language-switch,.slide-navigation,.progress-track,.keyboard-help,.primary{display:none!important}.slide{min-height:90vh}.deck-footer{position:static}</style></noscript>
+  <noscript><p class="noscript-message">Enable JavaScript to switch languages and navigate. The summary and all six slides are displayed in English below.</p><style>.slide[hidden]{display:flex!important}.topbar nav,.language-switch,.slide-navigation,.progress-track,.keyboard-help,.primary{display:none!important}.slide{min-height:90vh}.deck-footer{position:static}.summary-actions .commercial{display:inline-flex!important}</style></noscript>
 </body>
 </html>

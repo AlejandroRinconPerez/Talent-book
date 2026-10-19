@@ -13,7 +13,8 @@
   const t = key => dictionaries[language][key] ?? dictionaries.en[key] ?? key;
   const fromHash = () => {
     const match = /^#slide-(\d+)$/.exec(location.hash);
-    return match ? Math.max(0, Math.min(slides.length - 1, Number(match[1]) - 1)) : 0;
+    // The executive summary is slide 0; existing links to slides 1–6 stay valid.
+    return match ? Math.max(0, Math.min(slides.length - 1, Number(match[1]))) : 0;
   };
   const loadFrames = slide => slide.querySelectorAll('iframe[data-src]').forEach(frame => {
     frame.src = frame.dataset.src;
@@ -29,7 +30,7 @@
     byId('fullscreen-button').textContent = t(document.fullscreenElement ? 'exitFullscreen' : 'fullscreen');
     document.querySelectorAll('[data-slide]').forEach(button => {
       const index = Number(button.dataset.slide);
-      button.querySelector('span').textContent = `${String(index + 1).padStart(2, '0')} / ${t(slides[index].dataset.chapter)}`;
+      button.querySelector('span').textContent = `${String(index).padStart(2, '0')} / ${t(slides[index].dataset.chapter)}`;
       button.querySelector('strong').textContent = t(slides[index].dataset.title);
     });
   }
@@ -44,19 +45,19 @@
     const active = slides[current];
     loadFrames(active);
     if (slides[current + 1]) loadFrames(slides[current + 1]);
-    byId('counter').innerHTML = `${String(current + 1).padStart(2, '0')} <span>/ ${slides.length}</span>`;
+    byId('counter').innerHTML = `${String(current).padStart(2, '0')} <span>/ ${String(slides.length - 1).padStart(2, '0')}</span>`;
     byId('chapter').textContent = t(active.dataset.chapter);
     byId('previous').disabled = current === 0;
     byId('next').disabled = current === slides.length - 1;
     byId('progress').style.transform = `scaleX(${(current + 1) / slides.length})`;
     byId('note-text').textContent = dictionaries[language].speakerCopy[current];
-    byId('announcement').textContent = `${t('slideWord')} ${current + 1} ${t('of')} ${slides.length}: ${t(active.dataset.title)}`;
+    byId('announcement').textContent = `${t('slideWord')} ${current}: ${t(active.dataset.title)}`;
     document.title = `${t(active.dataset.title)} | Talent Book`;
     document.querySelectorAll('[data-slide]').forEach(button => {
       if (Number(button.dataset.slide) === current) button.setAttribute('aria-current', 'step');
       else button.removeAttribute('aria-current');
     });
-    if (updateUrl && location.hash !== `#slide-${current + 1}`) history.pushState(null, '', `#slide-${current + 1}`);
+    if (updateUrl && location.hash !== `#slide-${current}`) history.pushState(null, '', `#slide-${current}`);
     window.scrollTo({top:0, behavior:'instant'});
   }
   function setLanguage(next, updateUrl = true) {
