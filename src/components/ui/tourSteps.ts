@@ -6,7 +6,7 @@ export const TOUR_STEPS: TourStep[] = [
     tab: 'busquedas',
     target: 'nav',
     title: 'Three workspaces',
-    body: 'My searches holds one search per client requirement. The Book is the catalog of profiles we sell. Candidates is the pool, classified by those profiles.'
+    body: 'My searches holds one search per client requirement. The Book is the catalog of families and specialties we sell. Candidates is the pool, searched by what the client asks for.'
   },
   {
     tab: 'busquedas',
@@ -18,25 +18,31 @@ export const TOUR_STEPS: TourStep[] = [
     tab: 'busquedas',
     target: 'new-search',
     title: 'Start from the client requirement',
-    body: 'A new search captures the role, the client and the criteria. Picking a Book profile pre-fills the description and the must-have skills.'
+    body: 'A new search captures the role, the client and the criteria. Paste the client requirement and Talent Book reads English, years, country and work mode out of it.'
   },
   {
     tab: 'book',
     target: 'book-index',
     title: 'The Book is an index',
-    body: 'Twelve job families on the left. Open one to read its specialties and the generic profiles, each stating what the role includes and excludes.'
+    body: 'Twelve job families on the left. Open one to read its specialties: the roles each covers and what is in and out of scope.'
   },
   {
     tab: 'book',
     target: 'book-page',
-    title: 'From profile to candidates',
-    body: 'Every profile shows how many candidates carry it. One click filters the pool to exactly that profile.'
+    title: 'From specialty to candidates',
+    body: 'Every specialty shows how many candidates it has. One click filters the pool to that specialty.'
+  },
+  {
+    tab: 'candidates',
+    target: 'semantic-search',
+    title: 'Describe what the client needs',
+    body: 'The text runs a semantic search over every CV. English level, years, country and work mode in the text become filters you can change.'
   },
   {
     tab: 'candidates',
     target: 'filters',
-    title: 'Filter the pool',
-    body: 'Narrow by family, specialty and profile, then by experience, English level and country. Filters combine.'
+    title: 'Filters are optional',
+    body: 'English and experience are minimums: B1 also brings B2, C1 and C2. A candidate with no data for a filter stays in the list, marked to validate.'
   },
   {
     tab: 'candidates',

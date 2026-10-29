@@ -19,7 +19,7 @@ All data is JSON under `src/data/`:
 
 | File | What it holds |
 |---|---|
-| `book.json` | The taxonomy: 12 job families → specialties → 62 generic profiles |
+| `book.json` | The taxonomy: 12 job families → 28 specialties. The 62 generic profiles inside are folded into their specialty (roles covered, scope, skills); the app no longer navigates or filters by profile |
 | `candidates.json` | 250 candidates spread across every profile. **Fictional names; no real person is represented.** |
 | `busquedas.seed.json` | 9 sample client searches with statuses, stages and activity |
 
@@ -30,6 +30,15 @@ npm run data:candidates
 ```
 
 Edit `scripts/generate-candidates.mjs` to change the volume (`TARGET_TOTAL`), the country mix or the per-family pools. The 19 hand-written candidates in `scripts/candidates.base.json` are always kept.
+
+## Candidate search
+
+`src/services/candidateSearch.ts` holds the rules; the Candidates page and "Add candidates" inside a search both use it.
+
+- The rep describes what the client needs. That text always ranks the pool by similarity to each CV. In production this is the pgvector query over the CV embeddings; here a TF-IDF vector stands in for the embedding.
+- English level, years, country and work mode are read out of the text and applied as filters the rep can change. In production an LLM does this reading.
+- Filters are optional. English and experience are minimums: B1 accepts B1, B2, C1 and C2; 3 years accepts 3 or more.
+- A filter only rules out a candidate who has the data and falls short. A candidate with no data for it stays in the list, after the full matches, marked "To validate".
 
 ## Persistence for demos
 

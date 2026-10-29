@@ -22,6 +22,26 @@ export interface FamiliaOcupacional {
   especialidades: Especialidad[];
 }
 
+/**
+ * A specialty as the app shows it: the last level of the Book (family → specialty).
+ * The generic profiles in book.json are folded in as the roles it covers; they are
+ * reference content, no longer a level to navigate or filter by.
+ */
+export interface EspecialidadBook {
+  /** `${familiaId}:${nombre}`, unique across the Book. */
+  key: string;
+  nombre: string;
+  familia: string;
+  familiaId: string;
+  descripcion: string;
+  /** Role titles this specialty covers, with their one-line description. */
+  roles: { nombre: string; descripcion: string }[];
+  criteriosInclusion: string[];
+  criteriosExclusion: string[];
+  habilidades: string[];
+  vacantesRespaldo: number;
+}
+
 export type NivelIngles = 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' | 'Not specified' | 'Sin información';
 
 export interface ExperienciaLaboral {
@@ -150,7 +170,12 @@ export interface BusquedaComercial {
   nombre: string;
   clienteEmpresa?: string;
   descripcion: string;
+  /** Book specialty the search starts from (`EspecialidadBook.key`). */
+  especialidadKey?: string;
+  especialidadNombre?: string;
+  /** @deprecated Searches saved before specialties replaced profiles; migrated on load. */
   perfilBookId?: string;
+  /** @deprecated See `perfilBookId`. */
   perfilNombre?: string;
   fechaCreacion: string;
   estado: EstadoBusqueda;

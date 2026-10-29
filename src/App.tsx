@@ -187,9 +187,9 @@ export default function App() {
     vacancy: Vacancy;
   } | null>(null);
 
-  // Filter passed from Book to Candidates, and a profile to open in the Book (from global search)
-  const [candidateFilter, setCandidateFilter] = useState<{ familia?: string; especialidad?: string; perfilId?: string }>({});
-  const [bookFocus, setBookFocus] = useState<{ profileId: string; key: number } | null>(null);
+  // Filter passed from Book to Candidates, and a specialty to open in the Book (from global search)
+  const [candidateFilter, setCandidateFilter] = useState<{ familia?: string; especialidad?: string }>({});
+  const [bookFocus, setBookFocus] = useState<{ specialtyKey: string; key: number } | null>(null);
 
   // 5. Candidate detail modal (inspect a full profile from anywhere)
   const [activeCandidateDetail, setActiveCandidateDetail] = useState<Candidato | null>(null);
@@ -242,7 +242,7 @@ export default function App() {
     );
   };
 
-  const handleNavigateFromBookToCandidates = (filters?: { familia?: string; especialidad?: string; perfilId?: string }) => {
+  const handleNavigateFromBookToCandidates = (filters?: { familia?: string; especialidad?: string }) => {
     if (filters) setCandidateFilter(filters);
     setActiveTab('candidates');
   };
@@ -402,7 +402,7 @@ export default function App() {
                 )
               ) : null}
 
-              {activeTab === 'book' ? <BookSection onNavigateToCandidates={handleNavigateFromBookToCandidates} focusProfile={bookFocus} /> : null}
+              {activeTab === 'book' ? <BookSection onNavigateToCandidates={handleNavigateFromBookToCandidates} focusSpecialty={bookFocus} /> : null}
 
               {activeTab === 'candidates' ? (
                 <CandidatesSection
@@ -473,9 +473,9 @@ export default function App() {
               setEvaluatingSearchContext(null);
               setActiveBusquedaId(id);
             }}
-            onOpenProfile={profileId => {
+            onOpenSpecialty={specialtyKey => {
               setEvaluatingSearchContext(null);
-              setBookFocus(prev => ({ profileId, key: (prev?.key ?? 0) + 1 }));
+              setBookFocus(prev => ({ specialtyKey, key: (prev?.key ?? 0) + 1 }));
               setActiveTab('book');
             }}
             onOpenCandidate={candidateId => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Eye } from 'lucide-react';
 import { Candidato } from '../../types';
-import { profileName } from '../../data/indexes';
+import { candidateSpecialtyNames } from '../../data/indexes';
 import { Button } from '../ui/Button';
 import { CandidateId, EnglishChip, modalityLabel } from './badges';
 
@@ -78,9 +78,9 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({
       </p>
 
       <ul className="mt-2.5 flex flex-wrap gap-1">
-        {candidate.perfilesAsociados.map(pId => (
-          <li key={pId} className="chip chip-brand max-w-full">
-            <span className="truncate">{profileName(pId)}</span>
+        {candidateSpecialtyNames(candidate).map(name => (
+          <li key={name} className="chip chip-brand max-w-full">
+            <span className="truncate">{name}</span>
           </li>
         ))}
       </ul>

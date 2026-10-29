@@ -51,7 +51,7 @@ export const BusquedasListSection: React.FC<BusquedasListSectionProps> = ({ busq
           b.id.toLowerCase().includes(term) ||
           (b.clienteEmpresa?.toLowerCase().includes(term) ?? false) ||
           b.descripcion.toLowerCase().includes(term) ||
-          (b.perfilNombre?.toLowerCase().includes(term) ?? false)
+          (b.especialidadNombre?.toLowerCase().includes(term) ?? false)
       )
       .sort((a, b) => b.actualizadoEn.localeCompare(a.actualizadoEn));
   }, [busquedas, searchTerm, statusFilter]);
@@ -103,7 +103,7 @@ export const BusquedasListSection: React.FC<BusquedasListSectionProps> = ({ busq
             autoComplete="off"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
-            placeholder="Filter by name, client, ID or profile…"
+            placeholder="Filter by name, client, ID or specialty…"
             className="input input-with-icon"
           />
         </div>
@@ -171,12 +171,12 @@ export const BusquedasListSection: React.FC<BusquedasListSectionProps> = ({ busq
                   </div>
                   <p className="mt-0.5 text-[13px] text-ink-2">
                     {busqueda.clienteEmpresa ?? <span className="italic text-ink-3">Client not specified</span>}
-                    {busqueda.perfilNombre ? (
+                    {busqueda.especialidadNombre ? (
                       <>
                         <span className="mx-2 text-rule-strong" aria-hidden="true">
                           /
                         </span>
-                        <span className="text-ink-3">Book profile:</span> {busqueda.perfilNombre}
+                        <span className="text-ink-3">Book specialty:</span> {busqueda.especialidadNombre}
                       </>
                     ) : null}
                   </p>

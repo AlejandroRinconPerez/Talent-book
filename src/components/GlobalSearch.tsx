@@ -7,22 +7,22 @@ interface GlobalSearchProps {
   busquedas: BusquedaComercial[];
   onClose: () => void;
   onOpenSearch: (id: string) => void;
-  onOpenProfile: (profileId: string) => void;
+  onOpenSpecialty: (specialtyKey: string) => void;
   onOpenCandidate: (candidateId: string) => void;
 }
 
-const GROUP_LABEL: Record<SearchHit['type'], string> = { search: 'Searches', profile: 'Book profiles', candidate: 'Candidates' };
+const GROUP_LABEL: Record<SearchHit['type'], string> = { search: 'Searches', specialty: 'Book specialties', candidate: 'Candidates' };
 const GROUP_ICON: Record<SearchHit['type'], React.ReactNode> = {
   search: <FolderKanban className="size-4" />,
-  profile: <Layers className="size-4" />,
+  specialty: <Layers className="size-4" />,
   candidate: <User className="size-4" />
 };
 
 /**
- * Command-palette search over searches, Book profiles and candidates.
+ * Command-palette search over searches, Book specialties and candidates.
  * Opens with "/" or Ctrl+K; arrows move, Enter opens, Escape closes.
  */
-export const GlobalSearch: React.FC<GlobalSearchProps> = ({ busquedas, onClose, onOpenSearch, onOpenProfile, onOpenCandidate }) => {
+export const GlobalSearch: React.FC<GlobalSearchProps> = ({ busquedas, onClose, onOpenSearch, onOpenSpecialty, onOpenCandidate }) => {
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -30,7 +30,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ busquedas, onClose, 
   const close = useEffectEvent(() => onClose());
 
   const results = useMemo(() => queryIndex(query, busquedas), [query, busquedas]);
-  const flat = useMemo(() => [...results.searches, ...results.profiles, ...results.candidates], [results]);
+  const flat = useMemo(() => [...results.searches, ...results.specialties, ...results.candidates], [results]);
   const activeIndex = Math.min(active, Math.max(0, flat.length - 1));
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ busquedas, onClose, 
   const open = (hit: SearchHit) => {
     onClose();
     if (hit.type === 'search') onOpenSearch(hit.id);
-    else if (hit.type === 'profile') onOpenProfile(hit.id);
+    else if (hit.type === 'specialty') onOpenSpecialty(hit.id);
     else onOpenCandidate(hit.id);
   };
 
@@ -71,7 +71,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ busquedas, onClose, 
 
   const groups: { type: SearchHit['type']; hits: SearchHit[] }[] = [
     { type: 'search', hits: results.searches },
-    { type: 'profile', hits: results.profiles },
+    { type: 'specialty', hits: results.specialties },
     { type: 'candidate', hits: results.candidates }
   ];
   let runningIndex = 0;
@@ -102,7 +102,7 @@ export const GlobalSearch: React.FC<GlobalSearchProps> = ({ busquedas, onClose, 
               setActive(0);
             }}
             onKeyDown={onInputKey}
-            placeholder="Search searches, profiles and candidates…"
+            placeholder="Search searches, specialties and candidates…"
             className="h-14 w-full border-0 bg-transparent pl-11 pr-4 text-base text-ink placeholder:text-ink-3 focus:outline-none"
           />
         </div>

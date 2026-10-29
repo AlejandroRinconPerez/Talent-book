@@ -50,7 +50,7 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
         <TalentBookLogo className="h-10" showText />
 
         <h1 className="mt-8 text-3xl font-semibold leading-tight">Sign in</h1>
-        <p className="mt-1.5 text-ink-2">Sales team access to searches, the profile book and the candidate pool.</p>
+        <p className="mt-1.5 text-ink-2">Sales team access to searches, the occupational book and the candidate pool.</p>
 
         <form className="mt-8 space-y-5" onSubmit={handleSubmit} noValidate>
           <Field id="email" label="Corporate email">

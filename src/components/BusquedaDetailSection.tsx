@@ -264,7 +264,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
               </span>
               <span>Created {formatDate(busqueda.fechaCreacion)}</span>
               <span>Updated {relativeTime(busqueda.actualizadoEn)}</span>
-              {busqueda.perfilNombre ? <span>Book profile: {busqueda.perfilNombre}</span> : null}
+              {busqueda.especialidadNombre ? <span>Book specialty: {busqueda.especialidadNombre}</span> : null}
             </div>
             <div className="mt-1 flex flex-wrap items-center gap-3">
               <h1 className="page-title">{busqueda.nombre}</h1>
@@ -342,7 +342,7 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
               </Field>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <Field id="edit-exp" label="Minimum experience (years)">
+                <Field id="edit-exp" label="Minimum experience (years or more)">
                   <input
                     type="number"
                     inputMode="numeric"
@@ -360,10 +360,11 @@ export const BusquedaDetailSection: React.FC<BusquedaDetailSectionProps> = ({
                     className="input select"
                   >
                     <option value="Sin información">Not required</option>
-                    <option value="B1">B1, intermediate</option>
-                    <option value="B2">B2, professional</option>
-                    <option value="C1">C1, advanced</option>
-                    <option value="C2">C2, bilingual</option>
+                    <option value="A2">A2 or higher (basic)</option>
+                    <option value="B1">B1 or higher (intermediate)</option>
+                    <option value="B2">B2 or higher (upper intermediate)</option>
+                    <option value="C1">C1 or higher (advanced)</option>
+                    <option value="C2">C2, proficient</option>
                   </select>
                 </Field>
                 <Field id="edit-modality" label="Work mode">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowUp, ArrowDown, Presentation } from 'lucide-react';
 import { Candidato, EtapaCandidato } from '../types';
-import { profileName } from '../data/indexes';
+import { candidateSpecialtyNames } from '../data/indexes';
 import { Modal } from './ui/Modal';
 import { Button } from './ui/Button';
 import { Field } from './ui/Field';
@@ -116,7 +116,7 @@ export const PresentationBuilderModal: React.FC<PresentationBuilderModalProps> =
                     <span className="block truncate font-medium text-ink">{c.nombre}</span>
                     <span className="block truncate text-[13px] text-ink-3">
                       <CandidateId id={c.id} className="mr-2" />
-                      {c.perfilesAsociados.map(profileName).join(', ')}
+                      {candidateSpecialtyNames(c).join(', ')}
                     </span>
                   </label>
                   {stages ? <StageChip etapa={stages.get(c.id)} /> : null}
