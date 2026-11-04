@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:,">
+  <title>Talent Book | Product presentation</title>
+  <!-- Vite's development HTML fallback looks in the project root, not public/.
+       This additive entry directs /presentacion to the static deck. Production
+       hosts serve public/presentacion/index.html directly after the normal build. -->
+  <script>
+    const directory = location.pathname.replace(/\/presentacion(?:\/|\/index\.html)?$/, '/presentacion/');
+    location.replace(directory + 'index.html' + location.search + location.hash);
+  </script>
+</head>
+<body><p>Opening the presentation… <a href="/presentacion/index.html">Continue</a></p></body>
+</html>

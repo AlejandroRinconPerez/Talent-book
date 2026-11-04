@@ -1,11 +1,26 @@
 import React, { Suspense, lazy, useCallback, useMemo, useState } from 'react';
-import { RotateCcw, Users, Search, X, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight, Columns3, FileSpreadsheet } from 'lucide-react';
+import { RotateCcw, Users, X, FolderPlus, LayoutGrid, List, ShieldCheck, Check, ChevronLeft, ChevronRight, Columns3, FileSpreadsheet } from 'lucide-react';
 import { exportCandidatesWorkbook } from '../utils/exportCandidates';
 import { MOCK_CANDIDATES } from '../data/candidatesData';
 import { FAMILIAS_DATA } from '../data/bookData';
-import { FAMILY_BY_NAME, profileName as getProfileName } from '../data/indexes';
+import { specialtyKey } from '../data/bookData';
+import { FAMILY_BY_NAME, candidateSpecialtyNames } from '../data/indexes';
 import { Candidato, BusquedaComercial } from '../types';
-import { CandidateId, EnglishChip, modalityLabel } from './shared/badges';
+import {
+  CandidateSearchHit,
+  DetectedRequirement,
+  FILTER_LABEL,
+  Modalidad,
+  NivelCefr,
+  SearchFilters,
+  compareCompleteFirst,
+  englishRank,
+  hasActiveFilters as filtersAreActive,
+  parseRequirement,
+  searchCandidates
+} from '../services/candidateSearch';
+import { CandidateId, EnglishChip, RelevanceChip, SearchHitNotes, modalityLabel } from './shared/badges';
+import { EnglishMinimumOptions, ExperienceMinimumOptions, IncludeToValidateToggle, ModalityOptions, RequirementSearchBox } from './shared/searchControls';
 import { CandidateCard } from './shared/CandidateCard';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
@@ -18,13 +33,56 @@ const LinkToBusquedaSelectorModal = lazy(() => import('./LinkToBusquedaSelectorM
 const CandidateDetailModal = lazy(() => import('./shared/CandidateDetailModal').then(m => ({ default: m.CandidateDetailModal })));
 const CompareCandidatesModal = lazy(() => import('./CompareCandidatesModal').then(m => ({ default: m.CompareCandidatesModal })));
 
-type SortKey = 'name' | 'experience' | 'english' | 'updated';
-const SORT_LABEL: Record<SortKey, string> = { name: 'Name', experience: 'Experience, most first', english: 'English, highest first', updated: 'Recently updated' };
-const ENGLISH_RANK: Record<string, number> = { C2: 6, C1: 5, B2: 4, B1: 3, A2: 2, A1: 1 };
+/* Resizable filter panel: width in px, kept per browser as a convenience */
+const FILTERS_WIDTH_KEY = 'talentbook.candidates.filtersWidth';
+const FILTERS_WIDTH = { min: 240, max: 520, default: 272, step: 16 };
+
+function readFiltersWidth(): number {
+  try {
+    const v = Number(window.localStorage.getItem(FILTERS_WIDTH_KEY));
+    return Number.isFinite(v) && v >= FILTERS_WIDTH.min && v <= FILTERS_WIDTH.max ? v : FILTERS_WIDTH.default;
+  } catch {
+    return FILTERS_WIDTH.default;
+  }
+}
+
+function storeFiltersWidth(width: number): void {
+  try {
+    window.localStorage.setItem(FILTERS_WIDTH_KEY, String(width));
+  } catch {
+    // Storage unavailable; the width still applies for this session.
+  }
+}
+
+const clampWidth = (w: number) => Math.round(Math.min(FILTERS_WIDTH.max, Math.max(FILTERS_WIDTH.min, w)));
+
+type SortKey = 'relevance' | 'name' | 'experience' | 'english' | 'updated';
+const SORT_LABEL: Record<SortKey, string> = {
+  relevance: 'Relevance to your text',
+  name: 'Name',
+  experience: 'Experience, most first',
+  english: 'English, highest first',
+  updated: 'Recently updated'
+};
+
+/** Within each group (full matches, then to validate), the order the rep picked. */
+const SORTERS: Record<Exclude<SortKey, 'relevance'>, (a: CandidateSearchHit, b: CandidateSearchHit) => number> = {
+  name: (a, b) => a.candidato.nombre.localeCompare(b.candidato.nombre),
+  experience: (a, b) => b.candidato.experienciaAnos - a.candidato.experienciaAnos || a.candidato.nombre.localeCompare(b.candidato.nombre),
+  english: (a, b) => englishRank(b.candidato.nivelIngles) - englishRank(a.candidato.nivelIngles) || b.candidato.experienciaAnos - a.candidato.experienciaAnos,
+  updated: (a, b) => (b.candidato.ultimaActualizacion ?? '').localeCompare(a.candidato.ultimaActualizacion ?? '') || a.candidato.nombre.localeCompare(b.candidato.nombre)
+};
+
+const EXAMPLE_REQUESTS = [
+  'Accountant for month-end close and bank reconciliations, B2, 3+ years, Colombia or Mexico',
+  'Analista de cobranza de cartera, inglés intermedio, remoto',
+  'React and TypeScript frontend developer, bilingual, 4 years'
+];
+
 const PAGE_SIZE: Record<'cards' | 'table', number> = { cards: 24, table: 50 };
 
 interface CandidatesSectionProps {
-  initialFilter?: { familia?: string; especialidad?: string; perfilId?: string };
+  initialFilter?: { familia?: string; especialidad?: string };
   selectedCandidateIds: string[];
   onToggleCandidate: (id: string) => void;
   onClearSelection: () => void;
@@ -59,47 +117,88 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
   const [sortKey, setSortKey] = useState<SortKey>('updated');
   const [page, setPage] = useState(1);
 
-  // Cascading taxonomy filters
+  // Filter panel width (desktop only); dragged with the pointer or nudged with the keyboard
+  const [filtersWidth, setFiltersWidth] = useState<number>(readFiltersWidth);
+  const commitFiltersWidth = (width: number) => {
+    const next = clampWidth(width);
+    setFiltersWidth(next);
+    storeFiltersWidth(next);
+  };
+
+  const startResize = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.button !== 0) return;
+    e.preventDefault();
+    const startX = e.clientX;
+    const startWidth = filtersWidth;
+    let latest = startWidth;
+    const previousSelect = document.body.style.userSelect;
+    const previousCursor = document.body.style.cursor;
+    document.body.style.userSelect = 'none';
+    document.body.style.cursor = 'col-resize';
+
+    const onMove = (ev: PointerEvent) => {
+      latest = clampWidth(startWidth + (ev.clientX - startX));
+      setFiltersWidth(latest);
+    };
+    const onUp = () => {
+      document.removeEventListener('pointermove', onMove);
+      document.removeEventListener('pointerup', onUp);
+      document.removeEventListener('pointercancel', onUp);
+      document.body.style.userSelect = previousSelect;
+      document.body.style.cursor = previousCursor;
+      storeFiltersWidth(latest);
+    };
+    document.addEventListener('pointermove', onMove);
+    document.addEventListener('pointerup', onUp);
+    document.addEventListener('pointercancel', onUp);
+  };
+
+  const onResizeKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const map: Record<string, number | undefined> = {
+      ArrowLeft: filtersWidth - FILTERS_WIDTH.step,
+      ArrowRight: filtersWidth + FILTERS_WIDTH.step,
+      Home: FILTERS_WIDTH.min,
+      End: FILTERS_WIDTH.max,
+      Enter: FILTERS_WIDTH.default
+    };
+    const next = map[e.key];
+    if (next === undefined) return;
+    e.preventDefault();
+    commitFiltersWidth(next);
+  };
+
+  // Taxonomy: family → specialty
   const [selectedFamily, setSelectedFamily] = useState<string>(initialFilter?.familia || '');
   const [selectedSpecialty, setSelectedSpecialty] = useState<string>(initialFilter?.especialidad || '');
-  const [selectedProfileId, setSelectedProfileId] = useState<string>(initialFilter?.perfilId || '');
 
   // When the Book hands over a new filter, reset the taxonomy filters during render (no effect, no extra pass)
   const [appliedFilter, setAppliedFilter] = useState(initialFilter);
   if (initialFilter !== appliedFilter) {
     setAppliedFilter(initialFilter);
     if (initialFilter?.familia) setSelectedFamily(initialFilter.familia);
-    if (initialFilter?.especialidad) setSelectedSpecialty(initialFilter.especialidad);
-    if (initialFilter?.perfilId) setSelectedProfileId(initialFilter.perfilId);
+    setSelectedSpecialty(initialFilter?.especialidad || '');
   }
 
-  const [experienceRange, setExperienceRange] = useState<string>('all');
-  const [selectedEnglish, setSelectedEnglish] = useState<string>('all');
+  // What the client asked for: the draft in the box, and the text the results were run with
+  const [queryDraft, setQueryDraft] = useState('');
+  const [query, setQuery] = useState('');
+  const [detected, setDetected] = useState<DetectedRequirement[]>([]);
+
+  // Requirement filters, all optional. English and experience are minimums.
+  const [minExperience, setMinExperience] = useState(0);
+  const [minEnglish, setMinEnglish] = useState<NivelCefr | ''>('');
+  const [modality, setModality] = useState<Modalidad | ''>('');
   const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
-  const [keywordSearch, setKeywordSearch] = useState<string>('');
+  const [includeToValidate, setIncludeToValidate] = useState(true);
 
   const [activeCandidateDetail, setActiveCandidateDetail] = useState<Candidato | null>(null);
 
   const selectedFamilyObj = selectedFamily ? FAMILY_BY_NAME.get(selectedFamily) : undefined;
   const availableSpecialties = selectedFamilyObj?.especialidades ?? [];
 
-  const availableProfiles = useMemo(() => {
-    if (!selectedFamilyObj) return [];
-    if (selectedSpecialty) return selectedFamilyObj.especialidades.find(s => s.nombre === selectedSpecialty)?.perfiles ?? [];
-    return selectedFamilyObj.especialidades.flatMap(s => s.perfiles);
-  }, [selectedFamilyObj, selectedSpecialty]);
-
-  const availableProfileIds = useMemo(() => new Set(availableProfiles.map(p => p.id)), [availableProfiles]);
-
   const handleFamilyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedFamily(e.target.value);
     setSelectedSpecialty('');
-    setSelectedProfileId('');
-  };
-
-  const handleSpecialtyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedSpecialty(e.target.value);
-    setSelectedProfileId('');
   };
 
   const allUniqueCountries = useMemo(() => Array.from(new Set(MOCK_CANDIDATES.map(c => c.pais))).sort(), []);
@@ -109,88 +208,92 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
     return map;
   }, []);
 
+  /** A filter the rep changes by hand no longer counts as read from the text. */
+  const forgetDetected = (field: DetectedRequirement['field']) => setDetected(prev => prev.filter(d => d.field !== field));
+
   const toggleCountryFilter = (country: string) => {
+    forgetDetected('paises');
     setSelectedCountries(prev => (prev.includes(country) ? prev.filter(c => c !== country) : [...prev, country]));
   };
 
-  const filteredCandidates = useMemo(() => {
-    const term = keywordSearch.trim().toLowerCase();
-    return MOCK_CANDIDATES.filter(candidate => {
-      if (term) {
-        const matchesTerm =
-          candidate.id.toLowerCase().includes(term) ||
-          candidate.nombre.toLowerCase().includes(term) ||
-          candidate.resumenProfesional.toLowerCase().includes(term) ||
-          candidate.habilidades.some(h => h.toLowerCase().includes(term)) ||
-          candidate.ciudad.toLowerCase().includes(term) ||
-          candidate.pais.toLowerCase().includes(term);
-        if (!matchesTerm) return false;
-      }
+  const clearField = (field: DetectedRequirement['field']) => {
+    if (field === 'ingles') setMinEnglish('');
+    if (field === 'experiencia') setMinExperience(0);
+    if (field === 'paises') setSelectedCountries([]);
+    if (field === 'modalidad') setModality('');
+  };
 
-      if (selectedProfileId) {
-        if (!candidate.perfilesAsociados.includes(selectedProfileId)) return false;
-      } else if (selectedFamily) {
-        if (!candidate.perfilesAsociados.some(id => availableProfileIds.has(id))) return false;
-      }
+  /** Runs the semantic search and applies whatever requirements the text states, replacing those read last time. */
+  const runSearch = (text: string) => {
+    const trimmed = text.trim();
+    for (const d of detected) clearField(d.field);
+    setQuery(trimmed);
+    const parsed = parseRequirement(trimmed);
+    if (parsed.filtros.inglesMinimo) setMinEnglish(parsed.filtros.inglesMinimo);
+    if (parsed.filtros.experienciaMinima) setMinExperience(parsed.filtros.experienciaMinima);
+    if (parsed.filtros.paises) setSelectedCountries(parsed.filtros.paises);
+    if (parsed.filtros.modalidad) setModality(parsed.filtros.modalidad);
+    setDetected(parsed.detectados);
+    if (trimmed) setSortKey('relevance');
+  };
 
-      if (experienceRange !== 'all') {
-        const y = candidate.experienciaAnos;
-        if (experienceRange === '1-2' && (y < 1 || y > 2)) return false;
-        if (experienceRange === '3-5' && (y < 3 || y > 5)) return false;
-        if (experienceRange === '6+' && y < 6) return false;
-      }
+  const clearSearchText = () => {
+    for (const d of detected) clearField(d.field);
+    setDetected([]);
+    setQueryDraft('');
+    setQuery('');
+  };
 
-      if (selectedEnglish !== 'all') {
-        if (selectedEnglish === 'sin_info' && candidate.nivelIngles !== 'Sin información') return false;
-        if (selectedEnglish !== 'sin_info' && candidate.nivelIngles !== selectedEnglish) return false;
-      }
+  const filters: SearchFilters = useMemo(
+    () => ({
+      familia: selectedFamily || undefined,
+      especialidadKey: selectedFamilyObj && selectedSpecialty ? specialtyKey(selectedFamilyObj.id, selectedSpecialty) : undefined,
+      inglesMinimo: minEnglish || undefined,
+      experienciaMinima: minExperience || undefined,
+      paises: selectedCountries,
+      modalidad: modality || undefined
+    }),
+    [selectedFamily, selectedFamilyObj, selectedSpecialty, minEnglish, minExperience, selectedCountries, modality]
+  );
 
-      if (selectedCountries.length > 0 && !selectedCountries.includes(candidate.pais)) return false;
+  const results = useMemo(() => searchCandidates({ texto: query, filtros: filters, incluirPorValidar: includeToValidate }), [query, filters, includeToValidate]);
+  const isSemantic = results.semantica;
+  const effectiveSort: SortKey = sortKey === 'relevance' && !isSemantic ? 'updated' : sortKey;
 
-      return true;
-    });
-  }, [keywordSearch, selectedFamily, selectedProfileId, availableProfileIds, experienceRange, selectedEnglish, selectedCountries]);
-
-  const sortedCandidates = useMemo(() => {
-    const list = [...filteredCandidates];
-    switch (sortKey) {
-      case 'name':
-        return list.sort((a, b) => a.nombre.localeCompare(b.nombre));
-      case 'experience':
-        return list.sort((a, b) => b.experienciaAnos - a.experienciaAnos || a.nombre.localeCompare(b.nombre));
-      case 'english':
-        return list.sort((a, b) => (ENGLISH_RANK[b.nivelIngles] ?? 0) - (ENGLISH_RANK[a.nivelIngles] ?? 0) || b.experienciaAnos - a.experienciaAnos);
-      default:
-        return list.sort((a, b) => (b.ultimaActualizacion ?? '').localeCompare(a.ultimaActualizacion ?? '') || a.nombre.localeCompare(b.nombre));
-    }
-  }, [filteredCandidates, sortKey]);
+  const sortedHits = useMemo(
+    () => (effectiveSort === 'relevance' ? results.hits : [...results.hits].sort(compareCompleteFirst(SORTERS[effectiveSort]))),
+    [results, effectiveSort]
+  );
 
   // Pagination: go back to page 1 whenever the result set or layout changes (derived during render, no effect)
   const pageSize = PAGE_SIZE[displayMode];
-  const pageCount = Math.max(1, Math.ceil(sortedCandidates.length / pageSize));
-  const [pageResetKey, setPageResetKey] = useState<unknown>(sortedCandidates);
-  if (pageResetKey !== sortedCandidates) {
-    setPageResetKey(sortedCandidates);
+  const pageCount = Math.max(1, Math.ceil(sortedHits.length / pageSize));
+  const [pageResetKey, setPageResetKey] = useState<unknown>(sortedHits);
+  if (pageResetKey !== sortedHits) {
+    setPageResetKey(sortedHits);
     setPage(1);
   }
   const safePage = Math.min(page, pageCount);
   const pageStart = (safePage - 1) * pageSize;
-  const pageCandidates = sortedCandidates.slice(pageStart, pageStart + pageSize);
+  const pageHits = sortedHits.slice(pageStart, pageStart + pageSize);
+  const pageCandidates = pageHits.map(h => h.candidato);
 
   const selectedIdSet = useMemo(() => new Set(selectedCandidateIds), [selectedCandidateIds]);
 
   const handleClearAllFilters = () => {
     setSelectedFamily('');
     setSelectedSpecialty('');
-    setSelectedProfileId('');
-    setExperienceRange('all');
-    setSelectedEnglish('all');
+    setMinExperience(0);
+    setMinEnglish('');
+    setModality('');
     setSelectedCountries([]);
-    setKeywordSearch('');
+    setIncludeToValidate(true);
+    setDetected([]);
+    setQueryDraft('');
+    setQuery('');
   };
 
-  const hasActiveFilters =
-    Boolean(selectedFamily) || experienceRange !== 'all' || selectedEnglish !== 'all' || selectedCountries.length > 0 || Boolean(keywordSearch);
+  const hasActiveFilters = filtersAreActive(filters) || Boolean(query) || !includeToValidate;
 
   const allVisibleSelected = pageCandidates.length > 0 && pageCandidates.every(c => selectedIdSet.has(c.id));
   const handleToggleVisible = () => {
@@ -240,38 +343,37 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
         <div>
           <h1 className="page-title">Candidates</h1>
           <p className="page-lede">
-            The pool, classified by Book profile. Select candidates to add them to a search or to evaluate their fit against a vacancy.
+            Describe what the client needs. The text runs a semantic search over every CV; filters are optional, and a candidate with
+            missing data stays in the list, marked to validate.
           </p>
-        </div>
-        <div className="relative w-full md:w-80">
-          <label htmlFor="candidate-search" className="sr-only">
-            Search candidates
-          </label>
-          <Search className="input-icon" />
-          <input
-            id="candidate-search"
-            type="search"
-            name="candidate-search"
-            autoComplete="off"
-            value={keywordSearch}
-            onChange={e => setKeywordSearch(e.target.value)}
-            placeholder="Name, ID, skill, city or country…"
-            className="input input-with-icon pr-9"
-          />
-          {keywordSearch && (
-            <button
-              type="button"
-              onClick={() => setKeywordSearch('')}
-              className="absolute right-1.5 top-1/2 flex size-7 -translate-y-1/2 items-center justify-center rounded-md text-ink-3 hover:bg-well hover:text-ink"
-              aria-label="Clear search"
-            >
-              <X className="size-4" />
-            </button>
-          )}
         </div>
       </div>
 
-      <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[17rem_1fr]">
+      <section aria-label="Search the pool" className="panel panel-body" data-tour="semantic-search">
+        <RequirementSearchBox
+          id="candidate-search"
+          value={queryDraft}
+          onChange={setQueryDraft}
+          onSubmit={() => runSearch(queryDraft)}
+          onClear={clearSearchText}
+          detected={detected}
+          onRemoveDetected={field => {
+            clearField(field);
+            forgetDetected(field);
+          }}
+          examples={EXAMPLE_REQUESTS}
+          onPickExample={text => {
+            setQueryDraft(text);
+            runSearch(text);
+          }}
+        />
+        <p className="mt-2 text-[13px] text-ink-3">To find one person by name or ID, use the search in the header (press /).</p>
+      </section>
+
+      <div
+        className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[var(--filters-w)_auto_minmax(0,1fr)] lg:gap-x-2"
+        style={{ '--filters-w': `${filtersWidth}px` } as React.CSSProperties}
+      >
         {/* Filters */}
         {/* Sticky, but never taller than the viewport: the filter body scrolls on its own */}
         <aside
@@ -281,7 +383,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
         >
           <div className="panel-head">
             <h2 id="filters-heading" className="text-base font-semibold">
-              Filters
+              Filters <span className="font-normal text-ink-3">(optional)</span>
             </h2>
             {hasActiveFilters && (
               <button type="button" onClick={handleClearAllFilters} className="inline-flex items-center gap-1 text-[13px] font-medium text-brand-ink hover:underline">
@@ -293,7 +395,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
 
           <div className="panel-body space-y-5 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:overscroll-contain">
             <fieldset className="space-y-3">
-              <legend className="mb-3 text-[13px] font-semibold text-ink-3">Book profile</legend>
+              <legend className="mb-3 text-[13px] font-semibold text-ink-3">Book</legend>
               <Field id="f-family" label="Job family">
                 <select value={selectedFamily} onChange={handleFamilyChange} className="input select">
                   <option value="">All families</option>
@@ -305,7 +407,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                 </select>
               </Field>
               <Field id="f-specialty" label="Specialty">
-                <select value={selectedSpecialty} onChange={handleSpecialtyChange} disabled={!selectedFamily} className="input select">
+                <select value={selectedSpecialty} onChange={e => setSelectedSpecialty(e.target.value)} disabled={!selectedFamily} className="input select">
                   <option value="">{selectedFamily ? 'All specialties' : 'Choose a family first'}</option>
                   {availableSpecialties.map(s => (
                     <option key={s.nombre} value={s.nombre}>
@@ -314,35 +416,46 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   ))}
                 </select>
               </Field>
-              <Field id="f-profile" label="Profile">
-                <select value={selectedProfileId} onChange={e => setSelectedProfileId(e.target.value)} disabled={!selectedFamily} className="input select">
-                  <option value="">{selectedFamily ? 'All profiles' : 'Choose a family first'}</option>
-                  {availableProfiles.map(p => (
-                    <option key={p.id} value={p.id}>
-                      {p.nombre}
-                    </option>
-                  ))}
-                </select>
-              </Field>
             </fieldset>
 
-            <div className="space-y-3 border-t border-rule pt-5">
-              <Field id="f-exp" label="Experience">
-                <select value={experienceRange} onChange={e => setExperienceRange(e.target.value)} className="input select">
-                  <option value="all">Any</option>
-                  <option value="1-2">1 to 2 years</option>
-                  <option value="3-5">3 to 5 years</option>
-                  <option value="6+">6 years or more</option>
+            <div role="group" aria-labelledby="f-requirements" className="space-y-3 border-t border-rule pt-5">
+              <p id="f-requirements" className="mb-3 text-[13px] font-semibold text-ink-3">
+                Requirements
+              </p>
+              <Field id="f-exp" label="Minimum experience" hint="Counts this many years or more.">
+                <select
+                  value={minExperience}
+                  onChange={e => {
+                    forgetDetected('experiencia');
+                    setMinExperience(Number(e.target.value));
+                  }}
+                  className="input select"
+                >
+                  <ExperienceMinimumOptions current={minExperience} />
                 </select>
               </Field>
-              <Field id="f-english" label="English">
-                <select value={selectedEnglish} onChange={e => setSelectedEnglish(e.target.value)} className="input select">
-                  <option value="all">Any level</option>
-                  <option value="B1">B1, intermediate</option>
-                  <option value="B2">B2, upper intermediate</option>
-                  <option value="C1">C1, advanced</option>
-                  <option value="C2">C2, bilingual</option>
-                  <option value="sin_info">Not assessed</option>
+              <Field id="f-english" label="Minimum English" hint="Accepts this level or higher: B1 also brings B2, C1 and C2.">
+                <select
+                  value={minEnglish}
+                  onChange={e => {
+                    forgetDetected('ingles');
+                    setMinEnglish(e.target.value as NivelCefr | '');
+                  }}
+                  className="input select"
+                >
+                  <EnglishMinimumOptions />
+                </select>
+              </Field>
+              <Field id="f-modality" label="Work mode">
+                <select
+                  value={modality}
+                  onChange={e => {
+                    forgetDetected('modalidad');
+                    setModality(e.target.value as Modalidad | '');
+                  }}
+                  className="input select"
+                >
+                  <ModalityOptions />
                 </select>
               </Field>
             </div>
@@ -354,7 +467,14 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   Country
                 </span>
                 {selectedCountries.length > 0 && (
-                  <button type="button" onClick={() => setSelectedCountries([])} className="text-[13px] text-ink-2 hover:text-brand-ink hover:underline">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      forgetDetected('paises');
+                      setSelectedCountries([]);
+                    }}
+                    className="text-[13px] text-ink-2 hover:text-brand-ink hover:underline"
+                  >
                     Clear
                   </button>
                 )}
@@ -367,26 +487,61 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                 ))}
               </div>
             </fieldset>
+
+            <div className="border-t border-rule pt-5">
+              <IncludeToValidateToggle id="f-to-validate" checked={includeToValidate} onChange={setIncludeToValidate} />
+            </div>
           </div>
         </aside>
+
+        {/* Resize handle: drag, or focus it and use the arrow keys; double-click resets */}
+        <div
+          role="separator"
+          aria-orientation="vertical"
+          aria-label="Filter panel width"
+          aria-valuemin={FILTERS_WIDTH.min}
+          aria-valuemax={FILTERS_WIDTH.max}
+          aria-valuenow={filtersWidth}
+          tabIndex={0}
+          title="Drag to resize the filters. Double-click to reset."
+          onPointerDown={startResize}
+          onKeyDown={onResizeKey}
+          onDoubleClick={() => commitFiltersWidth(FILTERS_WIDTH.default)}
+          className="group hidden h-full min-h-40 w-4 cursor-col-resize touch-none items-stretch justify-center self-stretch lg:sticky lg:top-20 lg:flex lg:max-h-[calc(100dvh-6rem)]"
+        >
+          <span aria-hidden="true" className="my-3 w-px rounded-full bg-rule transition-[background-color,width] duration-150 group-hover:w-0.5 group-hover:bg-brand group-focus-visible:w-0.5 group-focus-visible:bg-brand" />
+        </div>
 
         {/* Results */}
         <div className="min-w-0 space-y-4" data-tour="results">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <p className="text-base" aria-live="polite">
-              <strong className="font-semibold tabular-nums">{filteredCandidates.length}</strong>{' '}
-              <span className="text-ink-2">{filteredCandidates.length === 1 ? 'candidate' : 'candidates'}</span>
-              {hasActiveFilters ? <span className="text-ink-3"> match the filters</span> : <span className="text-ink-3"> in the pool</span>}
-            </p>
+            <div aria-live="polite">
+              <p className="text-base">
+                <strong className="font-semibold tabular-nums">{sortedHits.length}</strong>{' '}
+                <span className="text-ink-2">{sortedHits.length === 1 ? 'candidate' : 'candidates'}</span>
+                {isSemantic ? (
+                  <span className="text-ink-3"> similar to “{query.length > 60 ? `${query.slice(0, 60)}…` : query}”</span>
+                ) : hasActiveFilters ? (
+                  <span className="text-ink-3"> match the filters</span>
+                ) : (
+                  <span className="text-ink-3"> in the pool</span>
+                )}
+              </p>
+              {results.porValidar > 0 ? (
+                <p className="text-[13px] tabular-nums text-ink-3">
+                  {results.completos} meet every filter, {results.porValidar} to validate (missing data, listed after)
+                </p>
+              ) : null}
+            </div>
 
             <div className="flex flex-wrap items-center gap-3 text-[13px]">
               <div className="flex items-center gap-2">
                 <label htmlFor="sort-by" className="text-ink-3">
                   Sort by
                 </label>
-                <select id="sort-by" value={sortKey} onChange={e => setSortKey(e.target.value as SortKey)} className="input select h-8 w-auto text-[13px]">
+                <select id="sort-by" value={effectiveSort} onChange={e => setSortKey(e.target.value as SortKey)} className="input select h-8 w-auto text-[13px]">
                   {(Object.keys(SORT_LABEL) as SortKey[]).map(key => (
-                    <option key={key} value={key}>
+                    <option key={key} value={key} disabled={key === 'relevance' && !isSemantic}>
                       {SORT_LABEL[key]}
                     </option>
                   ))}
@@ -421,18 +576,22 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             </div>
           </div>
 
-          {filteredCandidates.length === 0 ? (
+          {sortedHits.length === 0 ? (
             <div className="panel">
               <EmptyState
                 icon={<Users className="size-5" />}
-                title="No candidates match"
-                description="Widen the experience range, add countries or clear the filters."
-                action={<Button onClick={handleClearAllFilters}>Clear all filters</Button>}
+                title={isSemantic ? 'No CVs resemble this request with these filters' : 'No candidates match'}
+                description={
+                  isSemantic
+                    ? 'Describe the role with other words, lower the minimums or include candidates with missing data.'
+                    : 'Lower the minimums, add countries or clear the filters.'
+                }
+                action={<Button onClick={handleClearAllFilters}>Clear search and filters</Button>}
               />
             </div>
           ) : displayMode === 'cards' ? (
             <ul className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              {pageCandidates.map(candidate => (
+              {pageHits.map(({ candidato: candidate, relevancia, coincidencias, porValidar }) => (
                 <CandidateCard
                   key={candidate.id}
                   candidate={candidate}
@@ -440,12 +599,15 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   selected={selectedIdSet.has(candidate.id)}
                   onToggleSelect={onToggleCandidate}
                   onOpenProfile={setActiveCandidateDetail}
+                  badge={relevancia !== null ? <RelevanceChip value={relevancia} /> : undefined}
                   actions={
                     <Button size="sm" variant="subtle" icon={<FolderPlus className="size-4" />} className="above" onClick={() => openLinkModal([candidate.id])}>
                       Add to search
                     </Button>
                   }
-                />
+                >
+                  <SearchHitNotes coincidencias={coincidencias} porValidar={porValidar.map(f => FILTER_LABEL[f])} />
+                </CandidateCard>
               ))}
             </ul>
           ) : (
@@ -460,8 +622,13 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                     <th scope="col" className="px-3 py-2.5 font-medium">
                       Candidate
                     </th>
+                    {isSemantic ? (
+                      <th scope="col" className="px-3 py-2.5 font-medium">
+                        Match
+                      </th>
+                    ) : null}
                     <th scope="col" className="px-3 py-2.5 font-medium">
-                      Book profiles
+                      Specialty
                     </th>
                     <th scope="col" className="px-3 py-2.5 font-medium">
                       Experience
@@ -478,7 +645,7 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-rule">
-                  {pageCandidates.map(candidate => {
+                  {pageHits.map(({ candidato: candidate, relevancia, porValidar }) => {
                     const isSelected = selectedIdSet.has(candidate.id);
                     return (
                       <tr key={candidate.id} className={`align-top hover:bg-well/60 ${isSelected ? 'bg-brand-wash/40' : ''}`}>
@@ -494,11 +661,17 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
                         <td className="px-3 py-3">
                           <div className="font-semibold text-ink">{candidate.nombre}</div>
                           <CandidateId id={candidate.id} />
+                          {porValidar.length > 0 ? (
+                            <div className="mt-1">
+                              <span className="chip chip-warn">To validate: {porValidar.map(f => FILTER_LABEL[f]).join(', ')}</span>
+                            </div>
+                          ) : null}
                         </td>
+                        {isSemantic ? <td className="px-3 py-3">{relevancia !== null ? <RelevanceChip value={relevancia} /> : null}</td> : null}
                         <td className="px-3 py-3 text-ink-2">
                           <ul className="space-y-0.5">
-                            {candidate.perfilesAsociados.map(pId => (
-                              <li key={pId}>{getProfileName(pId)}</li>
+                            {candidateSpecialtyNames(candidate).map(name => (
+                              <li key={name}>{name}</li>
                             ))}
                           </ul>
                         </td>
@@ -530,10 +703,10 @@ export const CandidatesSection: React.FC<CandidatesSectionProps> = ({
             </div>
           )}
 
-          {sortedCandidates.length > pageSize ? (
+          {sortedHits.length > pageSize ? (
             <nav aria-label="Pagination" className="flex flex-wrap items-center justify-between gap-3 border-t border-rule pt-4 text-[13px]">
               <p className="tabular-nums text-ink-2">
-                Showing {pageStart + 1}–{Math.min(pageStart + pageSize, sortedCandidates.length)} of {sortedCandidates.length}
+                Showing {pageStart + 1}–{Math.min(pageStart + pageSize, sortedHits.length)} of {sortedHits.length}
               </p>
               <div className="flex items-center gap-2">
                 <Button size="sm" icon={<ChevronLeft className="size-4" />} onClick={() => setPage(p => Math.max(1, p - 1))} disabled={safePage === 1}>

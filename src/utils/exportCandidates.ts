@@ -1,5 +1,5 @@
 import { BusquedaComercial, Candidato } from '../types';
-import { CANDIDATE_BY_ID, PROFILE_BY_ID, profileName } from '../data/indexes';
+import { CANDIDATE_BY_ID, candidateSpecialties } from '../data/indexes';
 import { modalityLabel } from '../components/shared/badges';
 import { ESTADO_LABEL, ETAPA_LABEL } from './activity';
 import { todayIso } from './format';
@@ -8,7 +8,7 @@ import { CellValue, SheetColumn, downloadWorkbook } from './xlsx';
 const CANDIDATE_COLUMNS: SheetColumn[] = [
   { header: 'ID', width: 11 },
   { header: 'Name', width: 24 },
-  { header: 'Book profiles', width: 40 },
+  { header: 'Book specialties', width: 40 },
   { header: 'Job family', width: 24 },
   { header: 'Experience (years)', width: 12 },
   { header: 'English', width: 10 },
@@ -24,11 +24,12 @@ const CANDIDATE_COLUMNS: SheetColumn[] = [
 ];
 
 function candidateRow(c: Candidato): CellValue[] {
-  const families = Array.from(new Set(c.perfilesAsociados.map(id => PROFILE_BY_ID.get(id)?.familia).filter(Boolean))).join(', ');
+  const specialties = candidateSpecialties(c);
+  const families = Array.from(new Set(specialties.map(s => s.familia))).join(', ');
   return [
     c.id,
     c.nombre,
-    c.perfilesAsociados.map(profileName).join('; '),
+    specialties.map(s => s.nombre).join('; '),
     families,
     c.experienciaAnos,
     c.nivelIngles === 'Sin información' || c.nivelIngles === 'Not specified' ? 'Not assessed' : c.nivelIngles,

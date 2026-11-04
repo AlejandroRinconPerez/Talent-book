@@ -87,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
               type="button"
               onClick={onOpenSearch}
               className="hidden h-9 items-center gap-2 rounded-md border border-rule-strong bg-surface px-3 text-sm text-ink-3 hover:border-ink-3 hover:text-ink lg:inline-flex"
-              aria-label="Search searches, profiles and candidates"
+              aria-label="Search searches, specialties and candidates"
             >
               <Search className="size-4" />
               <span>Search</span>
@@ -226,12 +226,13 @@ export const Header: React.FC<HeaderProps> = ({
         >
           <div className="space-y-4 text-[15px] leading-relaxed text-ink-2">
             <p>
-              Talent Book is the standard directory of occupational profiles our sales team sells against. It groups roles into 12 job
-              families, each with specialties and generic profiles that describe what a role includes and excludes.
+              Talent Book is the standard catalog our sales team sells against. It groups roles into 12 job families, each split into
+              specialties that describe which roles they cover and what is in and out of scope.
             </p>
             <p>
-              From any profile you can jump to matching candidates, link them to a client search, evaluate fit against the vacancy and
-              export the shortlist to CEIPAL or present it on a call.
+              Describe what a client needs and the candidate search ranks every CV by how close it is to the request. Filters are
+              optional; English and experience count as minimums, and a candidate with missing data stays in the list marked to
+              validate. From there you link candidates to a client search, evaluate fit, export the shortlist to CEIPAL or present it.
             </p>
             <p className="text-[13px] text-ink-3">
               This is a functional mockup with sample data: candidates and clients are fictional, and the CEIPAL integration is simulated.

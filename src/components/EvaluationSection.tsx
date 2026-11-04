@@ -184,11 +184,11 @@ export const EvaluationSection: React.FC<EvaluationSectionProps> = ({
                       onChange={e => updateRequisitos({ nivelInglesMinimo: e.target.value as NivelIngles })}
                       className="input select"
                     >
-                      <option value="A2">A2, elementary</option>
-                      <option value="B1">B1, pre-intermediate</option>
-                      <option value="B2">B2, intermediate</option>
-                      <option value="C1">C1, advanced</option>
-                      <option value="C2">C2, bilingual</option>
+                      <option value="A2">A2 or higher (basic)</option>
+                      <option value="B1">B1 or higher (intermediate)</option>
+                      <option value="B2">B2 or higher (upper intermediate)</option>
+                      <option value="C1">C1 or higher (advanced)</option>
+                      <option value="C2">C2, proficient</option>
                     </select>
                   </Field>
                   <Field id="vac-modality" label="Work mode">

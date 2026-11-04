@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Check, Minus, FileSpreadsheet } from 'lucide-react';
 import { Candidato, Vacancy } from '../types';
-import { profileName } from '../data/indexes';
+import { candidateSpecialtyNames } from '../data/indexes';
 import { evaluarCandidatoConVacante } from '../utils/evaluationEngine';
 import { Modal } from './ui/Modal';
 import { Button } from './ui/Button';
@@ -70,9 +70,9 @@ export const CompareCandidatesModal: React.FC<CompareCandidatesModalProps> = ({ 
 
     list.push(
       {
-        label: 'Book profiles',
-        cells: candidates.map(c => c.perfilesAsociados.map(profileName).join(', ')),
-        values: candidates.map(c => c.perfilesAsociados.map(profileName).join('; '))
+        label: 'Book specialties',
+        cells: candidates.map(c => candidateSpecialtyNames(c).join(', ')),
+        values: candidates.map(c => candidateSpecialtyNames(c).join('; '))
       },
       {
         label: 'Experience',

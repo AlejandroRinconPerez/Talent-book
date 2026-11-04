@@ -1,13 +1,14 @@
 import React, { useMemo, useState } from 'react';
-import { Search, UserPlus, Users } from 'lucide-react';
+import { UserPlus, Users } from 'lucide-react';
 import { BusquedaComercial } from '../types';
-import { MOCK_CANDIDATES } from '../data/candidatesData';
 import { FAMILIAS_DATA } from '../data/bookData';
-import { FAMILY_BY_ID, profileName } from '../data/indexes';
+import { candidateSpecialtyNames } from '../data/indexes';
+import { FILTER_LABEL, SearchFilters, isCefr, normalizeModality, parseRequirement, searchCandidates } from '../services/candidateSearch';
 import { Button } from './ui/Button';
 import { EmptyState } from './ui/EmptyState';
 import { Modal } from './ui/Modal';
-import { CandidateId, EnglishChip, modalityLabel } from './shared/badges';
+import { CandidateId, EnglishChip, RelevanceChip, SearchHitNotes, modalityLabel } from './shared/badges';
+import { IncludeToValidateToggle, RequirementSearchBox } from './shared/searchControls';
 import { plural } from '../utils/format';
 
 interface AddCandidatesToBusquedaModalProps {
@@ -16,53 +17,56 @@ interface AddCandidatesToBusquedaModalProps {
   onLinkCandidates: (candidateIds: string[]) => void;
 }
 
+/** The text the vector search starts from: everything the search says about the role. */
+function searchText(b: BusquedaComercial): string {
+  const skills = [...b.requisitos.habilidadesIndispensables, ...b.requisitos.habilidadesDeseables];
+  return [b.nombre, b.descripcion, skills.length > 0 ? `Skills: ${skills.join(', ')}` : ''].filter(Boolean).join('. ');
+}
+
+/** The search's criteria as filters. Location is free text, so countries are read out of it. */
+function criteriaFilters(b: BusquedaComercial): SearchFilters {
+  const r = b.requisitos;
+  return {
+    inglesMinimo: isCefr(r.nivelInglesMinimo) ? r.nivelInglesMinimo : undefined,
+    experienciaMinima: r.experienciaMinimaAnos > 0 ? r.experienciaMinimaAnos : undefined,
+    modalidad: normalizeModality(r.modalidad),
+    paises: parseRequirement(r.ubicacionRequerida).filtros.paises
+  };
+}
+
+/**
+ * Opens already searching: the search's own text runs against every CV and its
+ * criteria apply as filters. The rep can rewrite the text, drop the criteria or
+ * narrow by family.
+ */
 export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModalProps> = ({ busqueda, onClose, onLinkCandidates }) => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFamilyFilter, setSelectedFamilyFilter] = useState('all');
-  const [selectedCountries, setSelectedCountries] = useState<string[]>([]);
+  const initialText = useMemo(() => searchText(busqueda), [busqueda]);
+  const [queryDraft, setQueryDraft] = useState(initialText);
+  const [query, setQuery] = useState(initialText);
+  const [applyCriteria, setApplyCriteria] = useState(true);
+  const [includeToValidate, setIncludeToValidate] = useState(true);
+  const [selectedFamily, setSelectedFamily] = useState('');
   const [selectedCandidatesToLink, setSelectedCandidatesToLink] = useState<string[]>([]);
 
   const alreadyLinkedIds = useMemo(() => new Set(busqueda.candidatosVinculados.map(c => c.candidatoId)), [busqueda.candidatosVinculados]);
 
-  const allUniqueCountries = useMemo(() => {
-    const map = new Map<string, number>();
-    MOCK_CANDIDATES.forEach(c => map.set(c.pais, (map.get(c.pais) || 0) + 1));
-    return Array.from(map.entries())
-      .map(([pais, count]) => ({ pais, count }))
-      .sort((a, b) => a.pais.localeCompare(b.pais));
-  }, []);
+  const criteria = useMemo(() => criteriaFilters(busqueda), [busqueda]);
+  const criteriaSummary = [
+    criteria.inglesMinimo ? `English ${criteria.inglesMinimo} or higher` : null,
+    criteria.experienciaMinima ? `${criteria.experienciaMinima}+ years` : null,
+    criteria.modalidad ? modalityLabel(criteria.modalidad) : null,
+    criteria.paises?.length ? criteria.paises.join(', ') : null
+  ].filter(Boolean);
 
-  const toggleCountryFilter = (country: string) => {
-    setSelectedCountries(prev => (prev.includes(country) ? prev.filter(c => c !== country) : [...prev, country]));
-  };
-
-  // Profile ids of the selected family, resolved once per filter change
-  const familyProfileIds = useMemo(() => {
-    if (selectedFamilyFilter === 'all') return null;
-    const famObj = FAMILY_BY_ID.get(selectedFamilyFilter);
-    return famObj ? new Set(famObj.especialidades.flatMap(s => s.perfiles.map(p => p.id))) : null;
-  }, [selectedFamilyFilter]);
-
-  const filteredCandidates = useMemo(() => {
-    const term = searchTerm.trim().toLowerCase();
-    return MOCK_CANDIDATES.filter(c => {
-      if (term) {
-        const matches =
-          c.id.toLowerCase().includes(term) ||
-          c.nombre.toLowerCase().includes(term) ||
-          c.resumenProfesional.toLowerCase().includes(term) ||
-          c.pais.toLowerCase().includes(term) ||
-          c.ciudad.toLowerCase().includes(term);
-        if (!matches) return false;
-      }
-
-      if (familyProfileIds && !c.perfilesAsociados.some(id => familyProfileIds.has(id))) return false;
-
-      if (selectedCountries.length > 0 && !selectedCountries.includes(c.pais)) return false;
-
-      return true;
-    });
-  }, [searchTerm, familyProfileIds, selectedCountries]);
+  const results = useMemo(
+    () =>
+      searchCandidates({
+        texto: query,
+        filtros: { ...(applyCriteria ? criteria : {}), familia: selectedFamily || undefined },
+        incluirPorValidar: includeToValidate
+      }),
+    [query, applyCriteria, criteria, selectedFamily, includeToValidate]
+  );
 
   const selectedSet = useMemo(() => new Set(selectedCandidatesToLink), [selectedCandidatesToLink]);
 
@@ -71,7 +75,7 @@ export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModal
     setSelectedCandidatesToLink(prev => (prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]));
   };
 
-  const unlinkedVisibleIds = filteredCandidates.filter(c => !alreadyLinkedIds.has(c.id)).map(c => c.id);
+  const unlinkedVisibleIds = results.hits.filter(h => !alreadyLinkedIds.has(h.candidato.id)).map(h => h.candidato.id);
   const allVisibleSelected = unlinkedVisibleIds.length > 0 && unlinkedVisibleIds.every(id => selectedSet.has(id));
 
   const handleSelectAllVisible = () => {
@@ -116,31 +120,49 @@ export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModal
         </>
       }
     >
-      <div className="grid grid-cols-1 gap-2 sm:grid-cols-[1fr_15rem]">
-        <div className="relative">
-          <label htmlFor="add-search" className="sr-only">
-            Search candidates
-          </label>
-          <Search className="input-icon" />
-          <input
-            id="add-search"
-            type="search"
-            name="candidate-search"
-            autoComplete="off"
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            placeholder="Name, ID, city or country…"
-            className="input input-with-icon"
-          />
+      <div className="space-y-1.5">
+        <p className="text-[13px] text-ink-3">Searching with this search's description. Edit the text and press Enter to search again.</p>
+        <RequirementSearchBox
+          id="add-search"
+          value={queryDraft}
+          onChange={setQueryDraft}
+          onSubmit={() => setQuery(queryDraft.trim())}
+          onClear={() => {
+            setQueryDraft('');
+            setQuery('');
+          }}
+          detected={[]}
+          onRemoveDetected={() => {}}
+          rows={3}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 rounded-md bg-well/60 p-3 sm:grid-cols-[1fr_15rem] sm:items-start">
+        <div className="space-y-3">
+          <div className="flex items-start gap-2.5">
+            <input
+              id="add-apply-criteria"
+              type="checkbox"
+              checked={applyCriteria}
+              onChange={e => setApplyCriteria(e.target.checked)}
+              className="mt-0.5 size-4 shrink-0"
+              disabled={criteriaSummary.length === 0}
+            />
+            <label htmlFor="add-apply-criteria" className="text-sm">
+              <span className="font-medium text-ink">Apply this search's criteria</span>
+              <span className="block text-[13px] text-ink-3">{criteriaSummary.length > 0 ? criteriaSummary.join(' · ') : 'The search has no criteria set.'}</span>
+            </label>
+          </div>
+          <IncludeToValidateToggle id="add-to-validate" checked={includeToValidate} onChange={setIncludeToValidate} />
         </div>
         <div>
           <label htmlFor="add-family" className="sr-only">
             Job family
           </label>
-          <select id="add-family" value={selectedFamilyFilter} onChange={e => setSelectedFamilyFilter(e.target.value)} className="input select">
-            <option value="all">All job families</option>
+          <select id="add-family" value={selectedFamily} onChange={e => setSelectedFamily(e.target.value)} className="input select">
+            <option value="">All job families</option>
             {FAMILIAS_DATA.map(f => (
-              <option key={f.id} value={f.id}>
+              <option key={f.id} value={f.nombre}>
                 {f.nombre}
               </option>
             ))}
@@ -148,21 +170,10 @@ export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModal
         </div>
       </div>
 
-      <fieldset className="flex flex-wrap items-center gap-1.5">
-        <legend className="sr-only">Filter by country</legend>
-        <button type="button" className="pill" aria-pressed={selectedCountries.length === 0} onClick={() => setSelectedCountries([])}>
-          All countries <span className="pill-count">{MOCK_CANDIDATES.length}</span>
-        </button>
-        {allUniqueCountries.map(({ pais, count: n }) => (
-          <button key={pais} type="button" className="pill" aria-pressed={selectedCountries.includes(pais)} onClick={() => toggleCountryFilter(pais)}>
-            {pais} <span className="pill-count">{n}</span>
-          </button>
-        ))}
-      </fieldset>
-
       <div className="flex items-center justify-between border-b border-rule pb-2 text-[13px]">
         <p className="text-ink-2" aria-live="polite">
-          {plural(filteredCandidates.length, 'candidate')} shown
+          {plural(results.hits.length, 'candidate')} {results.semantica ? 'ranked by similarity' : 'shown'}
+          {results.porValidar > 0 ? <span className="text-ink-3">, {results.porValidar} to validate</span> : null}
         </p>
         {unlinkedVisibleIds.length > 0 && (
           <button type="button" onClick={handleSelectAllVisible} className="font-medium text-brand-ink hover:underline">
@@ -171,11 +182,15 @@ export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModal
         )}
       </div>
 
-      {filteredCandidates.length === 0 ? (
-        <EmptyState icon={<Users className="size-5" />} title="No candidates match" description="Try other countries or a broader search term." />
+      {results.hits.length === 0 ? (
+        <EmptyState
+          icon={<Users className="size-5" />}
+          title="No candidates match"
+          description="Describe the role with other words, turn off the search's criteria or include candidates with missing data."
+        />
       ) : (
         <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {filteredCandidates.map(candidate => {
+          {results.hits.map(({ candidato: candidate, relevancia, coincidencias, porValidar }) => {
             const isAlreadyLinked = alreadyLinkedIds.has(candidate.id);
             const isSelected = selectedSet.has(candidate.id);
             const checkboxId = `add-${candidate.id}`;
@@ -194,7 +209,11 @@ export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModal
                   <label htmlFor={checkboxId} className={`stretch min-w-0 flex-1 ${isAlreadyLinked ? 'cursor-not-allowed' : 'cursor-pointer'}`}>
                     <span className="flex items-baseline justify-between gap-2">
                       <span className="truncate font-semibold text-ink">{candidate.nombre}</span>
-                      {isAlreadyLinked ? <span className="chip chip-neutral shrink-0">Already linked</span> : null}
+                      {isAlreadyLinked ? (
+                        <span className="chip chip-neutral shrink-0">Already linked</span>
+                      ) : relevancia !== null ? (
+                        <RelevanceChip value={relevancia} />
+                      ) : null}
                     </span>
                     <span className="block text-[13px] text-ink-2">
                       <CandidateId id={candidate.id} className="mr-2" />
@@ -210,9 +229,10 @@ export const AddCandidatesToBusquedaModal: React.FC<AddCandidatesToBusquedaModal
                 </div>
 
                 <p className="mt-2.5 line-clamp-2 text-[13px] leading-relaxed text-ink-2">{candidate.resumenProfesional}</p>
-                <p className="mt-2 truncate text-[13px] text-ink-3">
-                  {profileName(candidate.perfilesAsociados[0])}
-                </p>
+                <p className="mt-2 truncate text-[13px] text-ink-3">{candidateSpecialtyNames(candidate).join(', ')}</p>
+                <div className="mt-2">
+                  <SearchHitNotes coincidencias={coincidencias} porValidar={porValidar.map(f => FILTER_LABEL[f])} />
+                </div>
               </li>
             );
           })}

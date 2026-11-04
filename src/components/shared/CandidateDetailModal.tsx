@@ -1,7 +1,7 @@
 import React from 'react';
 import { Printer } from 'lucide-react';
 import { Candidato } from '../../types';
-import { profileName } from '../../data/indexes';
+import { candidateSpecialtyNames } from '../../data/indexes';
 import { Modal } from '../ui/Modal';
 import { Button } from '../ui/Button';
 import { CandidateId, EnglishChip, modalityLabel } from './badges';
@@ -17,7 +17,7 @@ interface CandidateDetailModalProps {
 
 /** Full candidate file. Shared by every screen that opens a candidate. */
 export const CandidateDetailModal: React.FC<CandidateDetailModalProps> = ({ candidate, onClose, action }) => {
-  const profileNames = candidate.perfilesAsociados.map(profileName);
+  const specialtyNames = candidateSpecialtyNames(candidate);
 
   return (
     <Modal
@@ -33,7 +33,7 @@ export const CandidateDetailModal: React.FC<CandidateDetailModalProps> = ({ cand
         </span>
       }
       title={candidate.nombre}
-      description={profileNames.join(' / ')}
+      description={specialtyNames.join(' / ')}
       footer={
         <>
           <button type="button" className="btn btn-ghost" onClick={onClose}>
@@ -44,7 +44,7 @@ export const CandidateDetailModal: React.FC<CandidateDetailModalProps> = ({ cand
             icon={<Printer className="size-4" />}
             onClick={() =>
               printCandidateProfile(candidate, {
-                profileNames,
+                profileNames: specialtyNames,
                 modality: modalityLabel(candidate.modalidad)
               })
             }

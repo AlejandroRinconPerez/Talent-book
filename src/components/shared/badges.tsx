@@ -24,7 +24,34 @@ export const EnglishChip: React.FC<{ level: NivelIngles; withLabel?: boolean }> 
   return <span className={`chip ${tone}`}>{text}</span>;
 };
 
-export type FitLevel = 'High' | 'Medium' | 'Partial with gaps';
+/** How close a CV is to the search text, relative to the best result of that search. */
+export const RelevanceChip: React.FC<{ value: number }> = ({ value }) => {
+  const tone = value >= 80 ? 'chip-ok' : value >= 50 ? 'chip-brand' : 'chip-neutral';
+  return (
+    <span className={`chip ${tone} shrink-0 tabular-nums`} title="Similarity to your text, relative to the best match of this search">
+      {value}% match
+    </span>
+  );
+};
+
+/** Why the candidate came up, and what the rep still has to confirm. */
+export const SearchHitNotes: React.FC<{ coincidencias: string[]; porValidar: string[] }> = ({ coincidencias, porValidar }) =>
+  coincidencias.length === 0 && porValidar.length === 0 ? null : (
+    <div className="space-y-1 text-[13px]">
+      {coincidencias.length > 0 ? (
+        <p className="text-ink-3">
+          Matched on <span className="text-ink-2">{coincidencias.join(', ')}</span>
+        </p>
+      ) : null}
+      {porValidar.length > 0 ? (
+        <p>
+          <span className="chip chip-warn">To validate: {porValidar.join(', ')}</span>
+        </p>
+      ) : null}
+    </div>
+  );
+
+export type FitLevel ='High' | 'Medium' | 'Partial with gaps';
 
 export function normalizeFit(level: EvaluacionCandidato['nivelAjusteGeneral']): FitLevel {
   if (level === 'Alto' || level === 'High') return 'High';

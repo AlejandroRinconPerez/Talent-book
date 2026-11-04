@@ -37,6 +37,9 @@ const { queryIndex } = await import(root + '/data/searchIndex');
 const { SAMPLE_VACANCIES } = await import(root + '/utils/evaluationEngine');
 const { withActivity, relativeTime } = await import(root + '/utils/activity');
 const { saveWorkspace, loadWorkspace, clearWorkspace } = await import(root + '/services/storage');
+const { searchCandidates, parseRequirement, englishRank } = await import(root + '/services/candidateSearch');
+const { AddCandidatesToBusquedaModal } = await import(root + '/components/AddCandidatesToBusquedaModal');
+const { CreateBusquedaModal } = await import(root + '/components/CreateBusquedaModal');
 const App = (await import(root + '/App')).default;
 
 const noop = () => {};
@@ -46,13 +49,15 @@ const checks: [string, () => string][] = [
   ['BusquedaDetailSection', () => renderToString(<BusquedaDetailSection busqueda={INITIAL_BUSQUEDAS[0]} onBackToList={noop} onUpdateBusqueda={noop} onOpenCandidateDetail={noop} onEvaluateCompatibility={noop} onOpenPresentation={noop} />)],
   ['BusquedaDetailSection (closed, 9 entries)', () => renderToString(<BusquedaDetailSection busqueda={INITIAL_BUSQUEDAS[4]} onBackToList={noop} onUpdateBusqueda={noop} onOpenCandidateDetail={noop} onEvaluateCompatibility={noop} onOpenPresentation={noop} />)],
   ['CandidatesSection', () => renderToString(<CandidatesSection selectedCandidateIds={['CAN-8821']} onToggleCandidate={noop} onClearSelection={noop} onProceedToEvaluate={noop} busquedas={INITIAL_BUSQUEDAS} />)],
-  ['CandidatesSection (filtered from Book)', () => renderToString(<CandidatesSection initialFilter={{ familia: 'Technology', especialidad: 'Software Development & Cloud', perfilId: 'perfil-tec-fe01' }} selectedCandidateIds={[]} onToggleCandidate={noop} onClearSelection={noop} onProceedToEvaluate={noop} />)],
+  ['CandidatesSection (filtered from Book)', () => renderToString(<CandidatesSection initialFilter={{ familia: 'Technology', especialidad: 'Software Development & Cloud' }} selectedCandidateIds={[]} onToggleCandidate={noop} onClearSelection={noop} onProceedToEvaluate={noop} />)],
   ['BookSection', () => renderToString(<BookSection onNavigateToCandidates={noop} />)],
   ['EvaluationSection', () => renderToString(<EvaluationSection selectedCandidateIds={['CAN-8821', 'CAN-4432', 'CAN-5401']} onToggleCandidate={noop} onClearCandidates={noop} onNavigateToCandidates={noop} onOpenPresentation={noop} currentVacancy={SAMPLE_VACANCIES[0]} onUpdateVacancy={noop} busquedaNombre="X" onBackToBusqueda={noop} />)],
   ['PresentationMode (12 candidates)', () => renderToString(<PresentationMode candidates={MOCK_CANDIDATES.slice(0, 12)} vacancy={SAMPLE_VACANCIES[0]} coverNote="Three profiles pre-screened this week." onClose={noop} />)],
   ['CompareCandidatesModal (with vacancy)', () => renderToString(<CompareCandidatesModal candidates={MOCK_CANDIDATES.slice(0, 3)} vacancy={SAMPLE_VACANCIES[0]} onClose={noop} />)],
   ['PresentationBuilderModal', () => renderToString(<PresentationBuilderModal candidates={MOCK_CANDIDATES.slice(0, 4)} clientName="Acme" onClose={noop} onConfirm={noop} />)],
-  ['GlobalSearch', () => renderToString(<GlobalSearch busquedas={INITIAL_BUSQUEDAS} onClose={noop} onOpenSearch={noop} onOpenProfile={noop} onOpenCandidate={noop} />)],
+  ['AddCandidatesToBusquedaModal', () => renderToString(<AddCandidatesToBusquedaModal busqueda={INITIAL_BUSQUEDAS[0]} onClose={noop} onLinkCandidates={noop} />)],
+  ['CreateBusquedaModal', () => renderToString(<CreateBusquedaModal onClose={noop} onCreate={noop} usuarioId="USR-001" />)],
+  ['GlobalSearch', () => renderToString(<GlobalSearch busquedas={INITIAL_BUSQUEDAS} onClose={noop} onOpenSearch={noop} onOpenSpecialty={noop} onOpenCandidate={noop} />)],
 ];
 let failed = 0;
 for (const [name, fn] of checks) {
@@ -77,5 +82,25 @@ const html = renderToString(<CandidatesSection selectedCandidateIds={[]} onToggl
 // renderToString separates adjacent text nodes with <!-- -->; strip them before matching copy
 const text = html.replace(/<!-- -->/g, '');
 console.log('pagination text present:', /Showing 1–24 of 250/.test(text), '| sort control:', /Sort by/.test(text), '| cards on page:', (html.match(/select-card/g) || []).length);
+// candidate search rules the client asked for
+const expect = (name: string, ok: boolean) => {
+  if (!ok) failed++;
+  console.log(ok ? 'OK  ' : 'FAIL', name);
+};
+const all = (filtros: any, incluirPorValidar = true, texto = '') => searchCandidates({ texto, filtros, incluirPorValidar }).hits;
+const b1 = all({ inglesMinimo: 'B1' });
+expect('English B1 brings B1, B2, C1 and C2', ['B1', 'B2', 'C1', 'C2'].every(l => b1.some((h: any) => h.candidato.nivelIngles === l)));
+expect('English B1 leaves out A1 and A2', b1.every((h: any) => h.porValidar.length > 0 || englishRank(h.candidato.nivelIngles) >= 3));
+expect('English with no data stays in, flagged to validate', b1.some((h: any) => h.porValidar.includes('ingles')));
+expect('...and after every full match', b1.findIndex((h: any) => h.porValidar.length > 0) >= b1.filter((h: any) => h.porValidar.length === 0).length);
+expect('Strict mode drops the ones to validate', all({ inglesMinimo: 'B1' }, false).every((h: any) => h.porValidar.length === 0));
+const three = all({ experienciaMinima: 3 });
+expect('3 years brings 3 or more, no upper limit', three.every((h: any) => h.candidato.experienciaAnos >= 3) && three.some((h: any) => h.candidato.experienciaAnos >= 10));
+expect('No text and no filters: the whole pool', all({}).length === MOCK_CANDIDATES.length);
+const sem = searchCandidates({ texto: 'contador con conciliaciones bancarias y cierre mensual', filtros: {}, incluirPorValidar: true });
+expect('Spanish text finds accountants (semantic)', sem.semantica && /Account/i.test(sem.hits[0]?.candidato.resumenProfesional ?? ''));
+const parsed = parseRequirement('Contador, inglés B2, mínimo 3 años, remoto desde Colombia o México');
+expect('Requirements read from text', parsed.filtros.inglesMinimo === 'B2' && parsed.filtros.experienciaMinima === 3 && parsed.filtros.modalidad === 'Remote' && parsed.filtros.paises?.join() === 'Colombia,Mexico');
+expect('Seed searches carry a Book specialty', INITIAL_BUSQUEDAS.every((s: any) => s.especialidadKey && !s.perfilBookId));
 process.exit(failed ? 1 : 0);
 })();

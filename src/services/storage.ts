@@ -1,4 +1,5 @@
 import { BusquedaComercial } from '../types';
+import { busquedaSpecialty } from '../data/indexes';
 
 /**
  * Browser persistence for the demo. Searches and the catalog selection live in
@@ -17,6 +18,18 @@ export interface Workspace {
   selectedCandidateIds: string[];
 }
 
+/**
+ * Searches saved before the Book dropped its profile level point at a profile;
+ * they now point at that profile's specialty. The shape only gained optional
+ * fields, so the schema version stays the same.
+ */
+function withSpecialty(b: BusquedaComercial): BusquedaComercial {
+  if (b.especialidadKey || !b.perfilBookId) return b;
+  const { perfilBookId: _id, perfilNombre: _name, ...rest } = b;
+  const specialty = busquedaSpecialty(b);
+  return specialty ? { ...rest, especialidadKey: specialty.key, especialidadNombre: specialty.nombre } : rest;
+}
+
 export function loadWorkspace(): Workspace | null {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
@@ -26,7 +39,7 @@ export function loadWorkspace(): Workspace | null {
     return {
       schemaVersion: SCHEMA_VERSION,
       savedAt: typeof parsed.savedAt === 'string' ? parsed.savedAt : new Date().toISOString(),
-      busquedas: parsed.busquedas,
+      busquedas: parsed.busquedas.map(withSpecialty),
       selectedCandidateIds: Array.isArray(parsed.selectedCandidateIds) ? parsed.selectedCandidateIds : []
     };
   } catch {
@@ -89,7 +102,7 @@ export async function importWorkspaceFile(file: File): Promise<ImportResult> {
     workspace: {
       schemaVersion: SCHEMA_VERSION,
       savedAt: typeof ws.savedAt === 'string' ? ws.savedAt : new Date().toISOString(),
-      busquedas: ws.busquedas,
+      busquedas: ws.busquedas.map(withSpecialty),
       selectedCandidateIds: Array.isArray(ws.selectedCandidateIds) ? ws.selectedCandidateIds.filter(id => typeof id === 'string') : []
     }
   };
