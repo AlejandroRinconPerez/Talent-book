@@ -250,6 +250,16 @@
 /* Components                                                            */
 /* ------------------------------------------------------------------ */
 @layer components {
+  /* Keep the approved silhouette legible against dark surfaces. */
+  :root[data-theme="dark"] .talent-book-logo {
+    filter: brightness(0) invert(1);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .talent-book-logo {
+      filter: brightness(0) invert(1);
+    }
+  }
+
   /* Buttons */
   .btn {
     @apply inline-flex items-center justify-center gap-1.5 h-9 rounded-md border border-transparent px-3.5 text-sm font-medium whitespace-nowrap select-none;
